@@ -13,8 +13,8 @@ service:
   memory: 256
   port: 8080
   healthEndpoint: /health
-  hostPatterns:
-  - karma.*
+  pathPatterns:
+  - /*
   database:
     name: karma
     masterUsername: karma
