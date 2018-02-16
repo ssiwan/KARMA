@@ -1,0 +1,21 @@
+{
+  "generator-jhipster": {
+    "jhipsterVersion": "4.14.0",
+    "baseName": "KarmaAngular",
+    "clientFramework": "angularX",
+    "useSass": false,
+    "clientPackageManager": "npm",
+    "authenticationType": "jwt",
+    "cacheProvider": "no",
+    "databaseType": "sql",
+    "devDatabaseType": "sql",
+    "prodDatabaseType": "sql",
+    "applicationType": "monolith",
+    "testFrameworks": [
+      "protractor"
+    ],
+    "jhiPrefix": "jhi",
+    "enableTranslation": false,
+    "skipServer": true
+  }
+}
