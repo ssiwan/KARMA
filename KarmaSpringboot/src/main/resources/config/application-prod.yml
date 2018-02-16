@@ -41,6 +41,9 @@ spring:
             hibernate.generate_statistics: false
     data:
         elasticsearch:
+            properties:
+                http:
+                    enabled: false
             cluster-name:
             cluster-nodes: localhost:9300
     mail:
