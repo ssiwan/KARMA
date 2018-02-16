@@ -1,0 +1,24 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      # Install nodejs https://nodejs.org/en/download/package-manager/
+      - curl -sL https://deb.nodesource.com/setup_8.x | bash -
+      - apt-get install -y nodejs
+  build:
+    commands:
+      # Compile spring boot app
+      - mvn -f KarmaSpringboot/pom.xml package
+
+      # Build angular app
+      - cd karma-angular
+      - npm install
+      - npm run build
+artifacts:
+  files:
+    - '**/*'
+
+cache:
+  paths:
+    - '/root/.m2/**/*'
