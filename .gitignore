@@ -5,7 +5,6 @@
 logs/
 /log/
 /target/
-target/
 dist/
 .idea/
 *.iml
