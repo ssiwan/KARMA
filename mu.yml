@@ -10,9 +10,9 @@ environments:
 service:
   name: karma-angular
   cpu: 256
-  memory: 256
+  memory: 384
   port: 8080
-  healthEndpoint: /health
+  healthEndpoint: /management/health
   pathPatterns:
   - /*
   database:
