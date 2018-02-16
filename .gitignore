@@ -64,8 +64,6 @@ local.properties
 # Maven
 ######################
 /log/
-logs/
-
 /target/
 dist/
 .idea/
@@ -90,7 +88,6 @@ dist/
 # Logs
 ######################
 *.log*
-logs/
 
 ######################
 # Others
