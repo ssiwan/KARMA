@@ -564,8 +564,8 @@
                         <configuration>
                             <inputSpec>${project.basedir}/src/main/resources/swagger/api.yml</inputSpec>
                             <language>spring</language>
-                            <apiPackage>com.stanfieldsystems.prototype.web.api</apiPackage>
-                            <modelPackage>com.stanfieldsystems.prototype.web.api.model</modelPackage>
+                            <apiPackage>com.stanfieldsystems.karma.web.api</apiPackage>
+                            <modelPackage>com.stanfieldsystems.karma.web.api.model</modelPackage>
                             <generateSupportingFiles>false</generateSupportingFiles>
                             <configOptions>
                                 <interfaceOnly>true</interfaceOnly>
@@ -577,8 +577,8 @@
                 <configuration>
                     <inputSpec>${project.basedir}/src/main/resources/swagger/api.yml</inputSpec>
                     <language>spring</language>
-                    <apiPackage>com.stanfieldsystems.prototype.web.api</apiPackage>
-                    <modelPackage>com.stanfieldsystems.prototype.web.api.model</modelPackage>
+                    <apiPackage>com.stanfieldsystems.karma.web.api</apiPackage>
+                    <modelPackage>com.stanfieldsystems.karma.web.api.model</modelPackage>
                     <generateSupportingFiles>false</generateSupportingFiles>
                     <configOptions>
                     	<interfaceOnly>true</interfaceOnly>
