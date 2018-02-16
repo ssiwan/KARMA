@@ -5,6 +5,10 @@
 # Project Specific
 ######################
 /target/www/**
+/target/
+target/
+bin/
+/bin/
 /src/test/javascript/coverage/
 /src/test/javascript/PhantomJS*/
 
