@@ -41,7 +41,7 @@ parameters:
   mu-loadbalancer-acceptance:
     CloudFrontCert: "86a733d7-b890-478b-bc24-4ec0b40ea66d"
   mu-pipeline-.*:
-    SourcePath: karma-angular/dist
+    SourcePath: karma-angular/build/www
 
 ### custom cloudformation for managing the bucket with BDD reports
 templates:
