@@ -9,8 +9,7 @@ phases:
   build:
     commands:
       # Compile spring boot app
-      # - mvn -Pprod -f KarmaSpringboot/pom.xml package
-      - mvn -f KarmaSpringboot/pom.xml package
+      - mvn -Pprod -f KarmaSpringboot/pom.xml package
 
       # Build angular app
       - cd karma-angular
