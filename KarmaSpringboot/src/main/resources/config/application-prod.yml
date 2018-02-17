@@ -108,11 +108,11 @@ jhipster:
             enabled: true
             endpoint: /prometheusMetrics
         logs: # Reports Dropwizard metrics in the logs
-            enabled: true
+            enabled: false
             report-frequency: 60 # in seconds
     logging:
         logstash: # Forward logs to logstash over a socket, used by LoggingConfiguration
-            enabled: true
+            enabled: false
             host: localhost
             port: 5000
             queue-size: 512
