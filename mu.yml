@@ -36,7 +36,7 @@ service:
 
 ### configure extension for handling CloudFront and static assets
 extensions:
-- url: https://github.com/stelligent/mu-cloudfront/archive/v0.3.zip
+- url: https://github.com/stelligent/mu-cloudfront/archive/v0.4.zip
 parameters:
   mu-loadbalancer-acceptance:
     CloudFrontCert: "86a733d7-b890-478b-bc24-4ec0b40ea66d"
