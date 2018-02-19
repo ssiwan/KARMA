@@ -19,12 +19,12 @@ phases:
         -Dserver.host=${BASE_URL}
         -Dapplication.base=/api/
         -Dchrome.switches='--headless --no-sandbox'
-        -Dwebdriver.base.url=${BASE_URL}/stanfieldprototype/customer
+        -Dwebdriver.base.url=${BASE_URL}/
         -Dwebdriver.chrome.driver=/usr/lib/chromium-browser/chromedriver
 
   post_build:
     commands:
-      - aws s3 sync --delete KarmaBDD/target/site/serenity/ s3://stanfield-systems-karma-ci/angular-prototype
+      - aws s3 sync --delete KarmaBDD/target/site/serenity/ s3://stanfield-systems-karma-ci/karma-angular
 artifacts:
   files:
     - '**/*'
