@@ -24,7 +24,7 @@ phases:
 
   post_build:
     commands:
-      - aws s3 sync --delete KarmaBDD/target/site/serenity/ s3://stanfield-systems-ci/angular-prototype
+      - aws s3 sync --delete KarmaBDD/target/site/serenity/ s3://stanfield-systems-karma-ci/angular-prototype
 artifacts:
   files:
     - '**/*'
