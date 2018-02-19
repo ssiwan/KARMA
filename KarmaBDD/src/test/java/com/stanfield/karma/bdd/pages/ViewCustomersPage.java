@@ -1,4 +1,4 @@
-package com.stanfield.prototype.bdd.pages;
+package com.stanfield.karma.bdd.pages;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;

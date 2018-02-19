@@ -1,4 +1,4 @@
-package com.stanfield.prototype.bdd;
+package com.stanfield.karma.bdd;
 import org.junit.runner.RunWith;
 
 
@@ -7,7 +7,7 @@ import net.serenitybdd.cucumber.CucumberWithSerenity;
 
 
 @RunWith(CucumberWithSerenity.class)
-@CucumberOptions(features = {"src/test/resources/com/stanfield/prototype/bdd/features"},
+@CucumberOptions(features = {"src/test/resources/com/stanfield/karma/bdd/features"},
 		         monochrome = true,
 		         plugin = {"pretty",
 		                   "html:target/report/cucumber",

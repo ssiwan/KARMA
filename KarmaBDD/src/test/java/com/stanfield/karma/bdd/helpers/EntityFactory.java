@@ -1,12 +1,12 @@
-package com.stanfield.prototype.bdd.helpers;
+package com.stanfield.karma.bdd.helpers;
 
 import java.util.List;
+
+import com.stanfield.karma.model.Customer;
 
 import cucumber.api.DataTable;
 
 import io.restassured.response.Response;
-
-import com.stanfield.prototype.model.Customer;
 
 public class EntityFactory {
 	

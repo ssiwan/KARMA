@@ -1,4 +1,4 @@
-package com.stanfield.prototype.bdd.helpers;
+package com.stanfield.karma.bdd.helpers;
 
 import io.restassured.response.Response;
 

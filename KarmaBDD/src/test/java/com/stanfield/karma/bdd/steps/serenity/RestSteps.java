@@ -1,4 +1,4 @@
-package com.stanfield.prototype.bdd.steps.serenity;
+package com.stanfield.karma.bdd.steps.serenity;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -12,6 +12,9 @@ import java.util.Properties;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.stanfield.karma.bdd.helpers.EntityFactory;
+import com.stanfield.karma.bdd.helpers.JsonHelper;
+import com.stanfield.karma.bdd.helpers.RestConfig;
 
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
@@ -30,10 +33,6 @@ import static com.google.gson.FieldNamingPolicy.UPPER_CAMEL_CASE;
 import net.serenitybdd.core.Serenity;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Step;
-
-import com.stanfield.prototype.bdd.helpers.EntityFactory;
-import com.stanfield.prototype.bdd.helpers.JsonHelper;
-import com.stanfield.prototype.bdd.helpers.RestConfig;
 
 public class RestSteps {
 	private String link;

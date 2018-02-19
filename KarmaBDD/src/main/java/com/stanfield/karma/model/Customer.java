@@ -1,4 +1,4 @@
-package com.stanfield.prototype.model;
+package com.stanfield.karma.model;
 
 import java.io.Serializable;
 

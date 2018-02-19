@@ -1,9 +1,9 @@
-package com.stanfield.prototype.bdd.steps;
+package com.stanfield.karma.bdd.steps;
 
 import java.util.Map;
 
-import com.stanfield.prototype.bdd.helpers.EntityFactory;
-import com.stanfield.prototype.bdd.steps.serenity.RestSteps;
+import com.stanfield.karma.bdd.helpers.EntityFactory;
+import com.stanfield.karma.bdd.steps.serenity.RestSteps;
 
 import cucumber.api.DataTable;
 import cucumber.api.java.en.Given;

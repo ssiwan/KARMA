@@ -1,9 +1,9 @@
-package com.stanfield.prototype.bdd.steps.serenity;
+package com.stanfield.karma.bdd.steps.serenity;
 
-import com.stanfield.prototype.bdd.pages.ViewCustomersPage;
-import com.stanfield.prototype.bdd.helpers.EntityFactory;
-import com.stanfield.prototype.bdd.pages.AddCustomerPage;
-import com.stanfield.prototype.bdd.pages.EditCustomerPage;
+import com.stanfield.karma.bdd.helpers.EntityFactory;
+import com.stanfield.karma.bdd.pages.AddCustomerPage;
+import com.stanfield.karma.bdd.pages.EditCustomerPage;
+import com.stanfield.karma.bdd.pages.ViewCustomersPage;
 
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
@@ -107,7 +107,7 @@ public class CustomerSteps extends ScenarioSteps{
 		// delete using REST API
 		String s = Serenity.sessionVariableCalled("id");
 		System.out.println("SessionVariable = " + s);
-		com.stanfield.prototype.bdd.steps.serenity.RestSteps steps = new com.stanfield.prototype.bdd.steps.serenity.RestSteps();
+		com.stanfield.karma.bdd.steps.serenity.RestSteps steps = new com.stanfield.karma.bdd.steps.serenity.RestSteps();
 		System.out.println("Deleting customer with Id = " + s);
 		steps.setTheLink("customer");
 		steps.getRequest().pathParams("id", s);
@@ -134,7 +134,7 @@ public class CustomerSteps extends ScenarioSteps{
 		System.out.println("------------------------------");
 		
 		// insert using REST API
-		com.stanfield.prototype.bdd.steps.serenity.RestSteps steps = new com.stanfield.prototype.bdd.steps.serenity.RestSteps();
+		com.stanfield.karma.bdd.steps.serenity.RestSteps steps = new com.stanfield.karma.bdd.steps.serenity.RestSteps();
 		steps.setTheLink("customer");
 		Object newEntity = EntityFactory.getInstance().createACustomer("Ted", "Nugent", 68);
 		steps.setEntity(newEntity);

@@ -1,6 +1,6 @@
-package com.stanfield.prototype.bdd.steps;
+package com.stanfield.karma.bdd.steps;
 
-import com.stanfield.prototype.bdd.steps.serenity.*;
+import com.stanfield.karma.bdd.steps.serenity.*;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
