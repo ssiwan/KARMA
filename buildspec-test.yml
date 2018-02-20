@@ -1,0 +1,33 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - apt-get update
+      - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+      - echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
+      - apt-get update
+      - apt-get install -y google-chrome-stable chromium-chromedriver
+  pre_build:
+    commands:
+      - . ./mu-env.sh
+  build:
+    commands:
+      - >
+        mvn -f KarmaBDD/pom.xml verify
+        -Dserver.port=443
+        -Dserver.host=${BASE_URL}
+        -Dapplication.base=/api/
+        -Dchrome.switches='--headless --no-sandbox'
+        -Dwebdriver.base.url=${BASE_URL}/
+        -Dwebdriver.chrome.driver=/usr/lib/chromium-browser/chromedriver
+  post_build:
+    commands:
+      - aws s3 sync --delete KarmaBDD/target/site/serenity/ s3://stanfield-systems-karma-ci/karma-angular
+artifacts:
+  files:
+    - '**/*'
+
+cache:
+  paths:
+    - '/root/.m2/**/*'
