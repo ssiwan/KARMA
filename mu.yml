@@ -33,6 +33,8 @@ service:
     notify:
     - cplee@nektos.com
     - pgrogan@stanfieldsystems.com
+    - akebede@stanfieldsystems.com
+    - ksingh@stanfieldsystems.com
 
 ### configure extension for handling CloudFront and static assets
 extensions:
