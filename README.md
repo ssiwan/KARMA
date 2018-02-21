@@ -5,7 +5,7 @@
 ### Team
 (_RFI Requirements a and b_)
 
-Applying our [guidelines for agile teams](https://github.com/StanfieldSystems/KARMA/wiki/Team_Organization_Rules_and_Guidelines), Stanfield Systems established a six person team to develop the KARMA prototype and prepare documentation for the RFI response.  This multidisciplinary and collaborative team includes 8 of the PQVP AD-DS Labor Categories as specified below.
+Applying our [guidelines for forming agile teams](https://github.com/StanfieldSystems/KARMA/wiki/Form_and_Evolve_Team), Stanfield Systems established a six person team to develop the KARMA prototype and prepare documentation for the RFI response.  This multidisciplinary and collaborative team includes 8 of the PQVP AD-DS Labor Categories as specified below.
 
 - Product Manager (Christine Cox)
 - Technical Architect (Patrick Grogan)
