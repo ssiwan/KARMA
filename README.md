@@ -29,4 +29,6 @@ Applying user-centered design techniques Stanfield Systems worked directly with 
 
 _(Summarize techniques and results here.  Reference process and result artifacts.)_
 
+Based on our user-centered research and the prototype requirements from the RFI, we identified high-level user stories which were documented in our Jira project as epics forming the initial product backlog.
+
 ###
