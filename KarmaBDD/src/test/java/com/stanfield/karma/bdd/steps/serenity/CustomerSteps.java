@@ -86,11 +86,11 @@ public class CustomerSteps extends ScenarioSteps{
     	viewCustomersPage.clickCustomersButton();
     }
 
-    @Step("The title is present")
-    public void verifyTitle(String title) {
-    	viewCustomersPage.getTitle(title);
-		Assert.assertEquals("SSISA OS - Angular Prototype", viewCustomersPage.getTitle(title));
-    }
+//    @Step("The title is present")
+//    public void verifyTitle(String title) {
+//    	viewCustomersPage.getTitle(title);
+//		Assert.assertEquals("SSISA OS - Angular Prototype", viewCustomersPage.getTitle(title));
+//    }
     
     @Step("I verify customer exists")
     public void verifyCustomerExists(boolean shouldMatch) {
