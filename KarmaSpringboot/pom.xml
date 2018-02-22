@@ -4,7 +4,7 @@
 
     <groupId>com.stanfieldsystems.karma</groupId>
     <artifactId>karma-springboot</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>version_1.0</version>
     <packaging>war</packaging>
     <name>Karma Springboot</name>
 

@@ -1,0 +1,50 @@
+
+<div *ngIf="article">
+    <h2><span>Article</span> {{article.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Title</span></dt>
+        <dd>
+            <span>{{article.title}}</span>
+        </dd>
+        <dt><span>Stuff</span></dt>
+        <dd>
+            <span>{{article.content}}</span>
+        </dd>
+        <dt><span>Date</span></dt>
+        <dd>
+            <span>{{article.date | date:'medium'}}</span>
+        </dd>
+        <dt><span>Space</span></dt>
+        <dd>
+            <div *ngIf="article.space">
+                <a [routerLink]="['/space', article.space?.id]">{{article.space?.name}}</a>
+            </div>
+        </dd>
+        <dt><span>User</span></dt>
+        <dd>
+            {{article.user?.login}}
+        </dd>
+        <dt><span>Tag</span></dt>
+        <dd>
+            <span *ngFor="let tag of article.tags; let last = last">
+                <a [routerLink]="['/tag', tag?.id ]">{{tag.name}}</a>{{last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'article/'+ article.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

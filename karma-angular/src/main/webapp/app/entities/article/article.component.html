@@ -1,0 +1,41 @@
+<div>
+    <h1 style="color:#007bff;font-weight:bold">
+        <span>Knowledge Articles</span>
+        <button class="btn btn-primary float-right jh-create-entity create-article" [routerLink]="['/', { outlets: { popup: ['article-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Article
+            </span>
+        </button>
+    </h1>
+    <div><p></p></div>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    <br/>
+    <div class="table-responsive" *ngIf="articles">
+		<div infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+        	<div  *ngFor="let article of articles; trackBy: trackId">
+            	<h2 style="font-weight:bold">{{article.title}}</h2>
+            	<small>Created on {{article.date | date: 'short'}} by {{article.space.user.login}}</small>
+            	<div [innerHTML]="article.content"></div>
+            	<div class="btn-group flex-btn-group-container"">
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'article/'+ article.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'article/'+ article.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+            	</div>
+        	</div>
+    	</div>
+	</div>
