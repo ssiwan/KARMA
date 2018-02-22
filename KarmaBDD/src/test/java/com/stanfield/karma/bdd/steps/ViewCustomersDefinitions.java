@@ -27,10 +27,10 @@ public class ViewCustomersDefinitions {
     	customersSteps.selectACustomer();
     }
     
-    @When("^I view the page content$")
-    public void iViewThePageContent() { 
-    }
-    
+//    @When("^I view the page content$")
+//    public void iViewThePageContent() { 
+//    }
+//    
     @When("^I also click the customers button$")
     public void iAlsoClickTheCustomersButton() { 
     	customersSteps.clickCustomersButton();
@@ -48,11 +48,11 @@ public class ViewCustomersDefinitions {
     	customersSteps.verifyCustomersButtonIsVisible();
     }
     
-    @Then("^The title \"([^\"]*)\" should be present$")
-    public void theTitleShouldBePresent(String title) { 
-    	customersSteps.verifyTitle(title);
-    }
-    
+//    @Then("^The title \"([^\"]*)\" should be present$")
+//    public void theTitleShouldBePresent(String title) { 
+//    	customersSteps.verifyTitle(title);
+//    }
+//    
     @Then("^The customer exists$")
     public void theCustomerExists() {
     	customersSteps.verifyCustomerExists(true);

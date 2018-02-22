@@ -39,75 +39,10 @@ service:
 ### configure extension for handling CloudFront and static assets
 extensions:
 - url: https://github.com/stelligent/mu-cloudfront/archive/v0.4.zip
+- url: mu-karma
+
 parameters:
   mu-loadbalancer-acceptance:
     CloudFrontCert: "86a733d7-b890-478b-bc24-4ec0b40ea66d"
   mu-pipeline-.*:
     SourcePath: karma-angular/build/www
-
-### custom cloudformation for managing the bucket with BDD reports
-templates:
-  mu-pipeline-karma-angular:
-    Resources:
-      PipelineFailedEventRule:
-        Properties:
-          Targets:
-            Fn::Splice:
-            - 0
-            - 1
-            - - InputTransformer:
-                  InputTemplate:
-                    Fn::Sub: >
-                      "Pipeline <pipeline> has failed. Test results available at https://s3-${AWS::Region}.amazonaws.com/${CIBucket}/${ServiceName}/index.html.  Details available at https://console.aws.amazon.com/codepipeline/home?region=${AWS::Region}#/view/<pipeline>"
-      PipelineSucceededEventRule:
-        Properties:
-          Targets:
-            Fn::Splice:
-            - 0
-            - 1
-            - - InputTransformer:
-                  InputTemplate:
-                    Fn::Sub: >
-                      "Pipeline <pipeline> has succeeded. Test results available at https://s3-${AWS::Region}.amazonaws.com/${CIBucket}/${ServiceName}/index.html.  Details available at https://console.aws.amazon.com/codepipeline/home?region=${AWS::Region}#/view/<pipeline>"
-      CIBucket:
-        Type: AWS::S3::Bucket
-        Properties:
-          BucketName:
-            Fn::Sub: stanfield-systems-karma-ci
-          WebsiteConfiguration:
-            IndexDocument: index.html
-      CIBucketPolicy:
-        Type: AWS::S3::BucketPolicy
-        Properties:
-          Bucket:
-            Ref: CIBucket
-          PolicyDocument:
-            Statement:
-              - Effect: Allow
-                Principal:
-                  AWS:
-                    Ref: CodeBuildCIRoleArn
-                Action:
-                - s3:ListBucket
-                Resource:
-                  Fn::Sub: arn:aws:s3:::${CIBucket}
-              - Effect: Allow
-                Principal:
-                  AWS:
-                    Ref: CodeBuildCIRoleArn
-                Action:
-                - s3:GetObject
-                - s3:PutObject
-                - s3:DeleteObject
-                Resource:
-                  Fn::Sub: arn:aws:s3:::${CIBucket}/*
-              - Effect: Allow
-                Principal: '*'
-                Action: s3:GetObject
-                Resource:
-                  Fn::Sub: arn:aws:s3:::${CIBucket}/*
-                Condition:
-                  IpAddress:
-                    aws:SourceIp:
-                    - 73.151.106.136/32
-                    - 96.81.182.193/32

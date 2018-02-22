@@ -27,9 +27,9 @@ public class WelcomePage extends PageObject{
 	}
 	
 	public String getTitle(String message) {
-		setImplicitTimeout(10, TimeUnit.SECONDS);
-		System.out.println("Waiting for title: " + message);
-		waitForTextToAppear(message);
-		return getTitle().toString();
-	}    
+		  setImplicitTimeout(5, TimeUnit.SECONDS);
+		  System.out.println("Waiting for title: " + message);
+		  String header = this.getDriver().findElement(By.tagName("h1")).getText();
+		  return header;
+		 }    
 }

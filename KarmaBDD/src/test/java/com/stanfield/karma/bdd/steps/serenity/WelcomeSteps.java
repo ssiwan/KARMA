@@ -27,8 +27,8 @@ public class WelcomeSteps extends ScenarioSteps{
 
     @Step("The title is present")
     public void verifyTitle(String title) {
-    	welcomePage.getTitle(title);
-		Assert.assertEquals("Welcome to KARMA", welcomePage.getTitle(title));
+    	String returnedTitle = welcomePage.getTitle(title);
+        Assert.assertEquals("Welcome to KARMA", returnedTitle);
     }
 }
 
