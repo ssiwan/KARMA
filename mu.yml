@@ -39,7 +39,7 @@ service:
 ### configure extension for handling CloudFront and static assets
 extensions:
 - url: https://github.com/stelligent/mu-cloudfront/archive/v0.4.zip
-- url: mu-karma
+- url: mu-karma/
 
 parameters:
   mu-loadbalancer-acceptance:
