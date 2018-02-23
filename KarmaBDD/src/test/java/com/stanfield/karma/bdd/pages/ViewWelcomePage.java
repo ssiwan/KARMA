@@ -36,6 +36,9 @@ public class ViewWelcomePage extends PageObject {
 	@FindBy(id="settings")
 	WebElementFacade settingsLink;
 	
+	@FindBy(id="admin-menu")
+	WebElementFacade administrationButton;
+	
 	String browserURL = null;
 	
 	public ViewWelcomePage(WebDriver driver) {
@@ -66,6 +69,10 @@ public class ViewWelcomePage extends PageObject {
 
 		  String returnedMessage = this.getDriver().findElement(By.className("alert-warning")).getText();
 		  return returnedMessage;
+	}
+	
+	public boolean AdministrationButtonVisible() {
+		return administrationButton.isVisible();
 	}
 	
 	public boolean accountButtonIsVisible() {
