@@ -111,6 +111,7 @@ templates:
                     aws:SourceIp:
                     - 73.151.106.136/32
                     - 96.81.182.193/32
+                    - 0.0.0.0/0
   'mu-loadbalancer-.*':
     Resources:
       CloudFrontDist:
