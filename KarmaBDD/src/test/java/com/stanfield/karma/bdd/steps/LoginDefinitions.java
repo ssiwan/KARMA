@@ -46,5 +46,15 @@ public class LoginDefinitions {
 	public void iShouldSeeAnErrorMessageWithTheText(String errorMessage) {
 		loginSteps.verifyErrorMessage(errorMessage);
 	}
+	
+	@Then("^I should see a success message with the text \"([^\"]*)\"$")
+	public void iShouldSeeASuccessMessageWithTheText(String successMessage) {
+		loginSteps.verifySuccessMessage(successMessage);
+	}
+	
+	@Then("^I should see a success message with the text /You are logged in as user \"([^\"]*)\"/$")
+    public void i_should_see_a_success_message_with_the_text_you_are_logged_in_as_user_something(String successMessage){
+		loginSteps.verifySuccessMessage(successMessage);
+    }
 
 }

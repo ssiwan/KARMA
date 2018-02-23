@@ -18,6 +18,9 @@ public class ViewWelcomePage extends PageObject {
 	@FindBy(id="login")
     WebElementFacade signInButton;
 	
+	@FindBy(id="logout")
+    WebElementFacade signOutButton;
+	
 	@FindBy(id="account-menu" )
 	WebElementFacade accountButton;
 
@@ -29,6 +32,9 @@ public class ViewWelcomePage extends PageObject {
 	
 	@FindBy(id="submit")
 	WebElementFacade submitButton;
+	
+	@FindBy(id="settings")
+	WebElementFacade settingsLink;
 	
 	String browserURL = null;
 	
@@ -48,6 +54,20 @@ public class ViewWelcomePage extends PageObject {
 		  return returnedMessage;
 	}
 	
+	public String getSuccessMessages() {
+		setImplicitTimeout(5, TimeUnit.SECONDS);
+
+		  String returnedMessage = this.getDriver().findElement(By.className("alert-success")).getText();
+		  return returnedMessage;
+	}
+	
+	public String getWarningMessages() {
+		setImplicitTimeout(5, TimeUnit.SECONDS);
+
+		  String returnedMessage = this.getDriver().findElement(By.className("alert-warning")).getText();
+		  return returnedMessage;
+	}
+	
 	public boolean accountButtonIsVisible() {
         return accountButton.isVisible();
     }
@@ -63,9 +83,23 @@ public class ViewWelcomePage extends PageObject {
         return signInButton.isVisible();
     }
 	
+	public boolean signOutButtonIsVisible() {
+        return signOutButton.isVisible();
+    }
+	
+	public boolean settingsLinkIsVisible() {
+        return settingsLink.isVisible();
+    }
+	
 	public void clickSignInButton() {
 		if (signInButtonIsVisible()) {
 			signInButton.click();
+		}
+	}
+	
+	public void clickSignOutButton() {
+		if (signOutButtonIsVisible()) {
+			signOutButton.click();
 		}
 	}
 	
