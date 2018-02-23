@@ -8,7 +8,7 @@ Feature: Login Role Permission Check
    	When I look for the Administration Tab
    	Then whether I should see the Tab is "true"
 
-   
+
    Scenario: User Permission Check
    Given I am logged in
    	When I look for the Administration Tab

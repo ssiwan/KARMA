@@ -77,6 +77,10 @@ public class ViewWelcomePage extends PageObject {
 	public boolean accountButtonIsVisible() {
         return accountButton.isVisible();
     }
+	
+	 public boolean AdministrationButtonVisible() { 
+		    return administrationButton.isVisible(); 
+	 } 
 
 	
 	public void clickAccountButton() {
