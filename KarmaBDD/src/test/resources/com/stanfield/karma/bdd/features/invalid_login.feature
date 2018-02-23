@@ -1,8 +1,8 @@
 Feature: Invalid Log In
 
-  In order to prevent unauthorized access
-  As a user of the application
-  I want to be displayed an that I have entered invalid log in if I enter incorrect login credentials
+  As a user, 
+  when I am presented with the welcoming page,
+  I do not want to be able to log into the application if I do not have proper authorization
 
   Scenario: Invalid Log In Attempt
     Given I am on the login page

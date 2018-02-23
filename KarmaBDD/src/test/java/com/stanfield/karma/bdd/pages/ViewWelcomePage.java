@@ -39,6 +39,9 @@ public class ViewWelcomePage extends PageObject {
 	@FindBy(id="password")
 	WebElementFacade passwordLink;
 	
+	@FindBy(id="admin-menu")
+	WebElementFacade administrationButton;
+	
 	String browserURL = null;
 	
 	public ViewWelcomePage(WebDriver driver) {

@@ -24,6 +24,7 @@ public class LogoutDefinitions {
 		loginSteps.clickSumbit();
 		loginSteps.verifySuccessMessage("You are logged in as user \"user\".");
 	}
+	
 
 	@When("^I click on the Sign out button$")
 	public void iClickOnTheSignOutButton() {
