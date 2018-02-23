@@ -36,6 +36,9 @@ public class ViewWelcomePage extends PageObject {
 	@FindBy(id="settings")
 	WebElementFacade settingsLink;
 	
+	@FindBy(id="password")
+	WebElementFacade passwordLink;
+	
 	String browserURL = null;
 	
 	public ViewWelcomePage(WebDriver driver) {
@@ -91,9 +94,19 @@ public class ViewWelcomePage extends PageObject {
         return settingsLink.isVisible();
     }
 	
+	public boolean passwordLinkIsVisible() {
+        return passwordLink.isVisible();
+    }
+	
 	public void clickSignInButton() {
 		if (signInButtonIsVisible()) {
 			signInButton.click();
+		}
+	}
+	
+	public void clickPasswordLinkButton() {
+		if (passwordLinkIsVisible()) {
+			passwordLink.click();
 		}
 	}
 	
