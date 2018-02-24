@@ -42,6 +42,14 @@ Based on our user-centered research and the prototype requirements from the RFI,
 For the KARMA prototype, Stanfield Systems' technical strategy is based on their [Work Environment Standards](https://github.com/StanfieldSystems/KARMA/wiki/Work_Environment_Standards).  
 
 #### Technical Architecture and Technologies
+
+Stanfield Systems implements a multi-tiered architecture as shown in the figure below. Our standard architecture and corresponding technologies are described in our [Technical Architecture](Technical_Architecture) along with examples.
+
+![Architecture](images/Architecture.jpg)
+
+The Presentation tier runs in a client browser and is implemented with [Model-View-Controller JavaScript patterns using Angular 4](Technical-Architecture#angular4client-project). The Angular Client uses HTTP to make calls to the RESTful API on the application server, using JSON to exchange information between the client and the application server.
+
+
 #### Accessibility
 #### Style Guide
 #### Version Control
