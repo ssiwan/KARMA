@@ -37,8 +37,8 @@ public class LoginDefinitions {
 		loginSteps.enterPassword(password);
 	}
 	
-	@When("^I click the Submit button$")
-	public void iClickTheSubmitButton() {
+	@When("^I click the Sign In button on the Sign In screen$")
+	public void iClickTheSignInButtonOnTheSignInScreen() {
 		loginSteps.clickSumbit();
 	}
 	

@@ -36,6 +36,9 @@ public class ViewWelcomePage extends PageObject {
 	@FindBy(id="settings")
 	WebElementFacade settingsLink;
 	
+	@FindBy(id="password")
+	WebElementFacade passwordLink;
+	
 	@FindBy(id="admin-menu")
 	WebElementFacade administrationButton;
 	
@@ -71,13 +74,13 @@ public class ViewWelcomePage extends PageObject {
 		  return returnedMessage;
 	}
 	
-	public boolean AdministrationButtonVisible() {
-		return administrationButton.isVisible();
-	}
-	
 	public boolean accountButtonIsVisible() {
         return accountButton.isVisible();
     }
+	
+	 public boolean AdministrationButtonVisible() { 
+		    return administrationButton.isVisible(); 
+	 } 
 
 	
 	public void clickAccountButton() {
@@ -98,9 +101,19 @@ public class ViewWelcomePage extends PageObject {
         return settingsLink.isVisible();
     }
 	
+	public boolean passwordLinkIsVisible() {
+        return passwordLink.isVisible();
+    }
+	
 	public void clickSignInButton() {
 		if (signInButtonIsVisible()) {
 			signInButton.click();
+		}
+	}
+	
+	public void clickPasswordLinkButton() {
+		if (passwordLinkIsVisible()) {
+			passwordLink.click();
 		}
 	}
 	

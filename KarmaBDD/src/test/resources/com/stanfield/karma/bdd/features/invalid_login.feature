@@ -10,5 +10,5 @@ Feature: Invalid Log In
     And I click on the Sign In button
     And I enter "dfsfdfd" in the Username field
     And I enter "dfsfdfd" in the Password field
-    And I click the Submit button
+    And I click the Sign In button on the Sign In screen
     Then I should see an error message with the text "Failed to sign in!"
