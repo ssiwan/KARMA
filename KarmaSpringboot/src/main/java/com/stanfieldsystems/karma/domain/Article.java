@@ -96,7 +96,7 @@ public class Article implements Serializable {
     public void setDate(ZonedDateTime date) {
     	//ZonedDateTime currentDate = ZonedDateTime.now();
         //this.date = currentDate;
-    	//this.date = date;
+    	this.date = date;
     }
 
     public Space getSpace() {
