@@ -49,9 +49,37 @@ Stanfield Systems implements a multi-tiered architecture as shown in the figure 
 
 The Presentation tier runs in a client browser and is implemented with [Model-View-Controller JavaScript patterns using Angular 4](https://github.com/StanfieldSystems/KARMA/wiki/Technical-Architecture#angular4client-project). The Angular Client uses HTTP to make calls to the RESTful API on the application server, using JSON to exchange information between the client and the application server.
 
+RESTful web services are implemented on the application server as Java components using the [Spring Boot framework](https://github.com/StanfieldSystems/KARMA/wiki/Technical-Architecture#springbootangularintegration-project). Application server includes several application tiers, as follows.
+
+* The **application** tier implements controller classes with methods that define the rest end points and services. Controller objects control application activity that occurs when a rest services is invoked via the JSON interface. Controller objects implement the Spring Web MVC Controller API.
+
+* The **service** tier implements service classes with methods that define business  data management services. Service objects define the scope of business transactions within the application, defining the steps to complete a transaction and persist or retrieve the results as appropriate. Service objects validate data inputs and relationships, enforce user authorization, and handle exceptions. Service objects implement the Spring Service API.
+
+* The **data access** tier implements repository classes to manage the retrieval and storage of business information from the persistent data repository.  Repository objects leverage the object-relational mapping annotations in the Entity Objects to map business objects to database tables using the Java Persistence API (JPA). Repository objects implement the Spring Data Repository API.
+
+Information is exchanged between components in the different tiers using entity objects, data transfer objects, and additional parameters as necessary.
+
+* **Entity Objects** are in-memory representations of business entities that are persisted in the database. Relational database tables and columns are mapped to entity objects using the Java Persistence API (JPA) 2.0 annotations. 
+
+* **Data Transfer Objects (DTOs)** are convenience objects used to group data together for transfer between components or processes. More specifically, DTOs are used for converting data from one or more entity objects to JSON when the mapping from entities to JSON data structures is somewhat complex.
+
+In this multi-tier architecture, some services are shared across multiple services. These are depicted in the figure above as **Infrastructure Components**.
+
+* [Logging](https://github.com/StanfieldSystems/KARMA/wiki/Technical-Architecture#logging) is implemented with **Log4j2**.
+* [**Swagger**](https://github.com/StanfieldSystems/KARMA/wiki/Technical-Architecture#swagger-2) is used to describe and document RESTful APIs
+
+Business information is persisted in a [PostgreSQL relational database](https://github.com/StanfieldSystems/KARMA/wiki/Technical-Architecture#postgresql).  
+
+#### Version Control
+
+All application code files, including database scripts, are stored in stored and managed in this **GitHub** version control repository.
+
+[**Flyway**](https://github.com/StanfieldSystems/KARMA/wiki/Technical-Architecture#flyway) is used to migrate versioned database changes to developer, integration, and production database servers within the continuous integration and build pipeline.
 
 #### Accessibility
 #### Style Guide
-#### Version Control
-#### Project Management and Collaboration
 #### Behavior (Test) Driven Development
+
+
+#### Project Management and Collaboration
+
