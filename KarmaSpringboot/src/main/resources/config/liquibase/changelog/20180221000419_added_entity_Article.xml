@@ -25,7 +25,7 @@
                 <constraints nullable="false" />
             </column>
 
-            <column name="content" type="varchar(2147483647)">
+            <column name="content" type="clob">
                 <constraints nullable="false" />
             </column>
 
