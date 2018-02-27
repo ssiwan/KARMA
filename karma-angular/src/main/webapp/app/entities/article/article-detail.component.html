@@ -8,7 +8,7 @@
         <dd>
             <span>{{article.title}}</span>
         </dd>
-        <dt><span>Stuff</span></dt>
+        <dt><span>Content</span></dt>
         <dd>
             <span>{{article.content}}</span>
         </dd>
@@ -30,6 +30,12 @@
         <dd>
             <span *ngFor="let tag of article.tags; let last = last">
                 <a [routerLink]="['/tag', tag?.id ]">{{tag.name}}</a>{{last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span>Article Type</span></dt>
+        <dd>
+            <span *ngFor="let articleType of article.articleTypes; let last = last">
+                <a [routerLink]="['/article-type', articleType?.id ]">{{articleType.name}}</a>{{last ? '' : ', '}}
             </span>
         </dd>
     </dl>

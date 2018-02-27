@@ -1,0 +1,36 @@
+
+<div *ngIf="spaceHistory">
+    <h2><span>Space History</span> {{spaceHistory.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Date Accessed</span></dt>
+        <dd>
+            <span>{{spaceHistory.dateAccessed | date:'medium'}}</span>
+        </dd>
+        <dt><span>Space</span></dt>
+        <dd>
+            <div *ngIf="spaceHistory.space">
+                <a [routerLink]="['/space', spaceHistory.space?.id]">{{spaceHistory.space?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>User</span></dt>
+        <dd>
+            {{spaceHistory.user?.id}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'space-history/'+ spaceHistory.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

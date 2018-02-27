@@ -49,6 +49,12 @@ public class Article implements Serializable {
                inverseJoinColumns = @JoinColumn(name="tags_id", referencedColumnName="id"))
     private Set<Tag> tags = new HashSet<>();
 
+    @ManyToMany
+    @JoinTable(name = "article_article_type",
+               joinColumns = @JoinColumn(name="articles_id", referencedColumnName="id"),
+               inverseJoinColumns = @JoinColumn(name="article_types_id", referencedColumnName="id"))
+    private Set<ArticleType> articleTypes = new HashSet<>();
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -94,9 +100,7 @@ public class Article implements Serializable {
     }
 
     public void setDate(ZonedDateTime date) {
-    	//ZonedDateTime currentDate = ZonedDateTime.now();
-        //this.date = currentDate;
-    	this.date = date;
+        this.date = date;
     }
 
     public Space getSpace() {
@@ -148,6 +152,31 @@ public class Article implements Serializable {
 
     public void setTags(Set<Tag> tags) {
         this.tags = tags;
+    }
+
+    public Set<ArticleType> getArticleTypes() {
+        return articleTypes;
+    }
+
+    public Article articleTypes(Set<ArticleType> articleTypes) {
+        this.articleTypes = articleTypes;
+        return this;
+    }
+
+    public Article addArticleType(ArticleType articleType) {
+        this.articleTypes.add(articleType);
+        articleType.getArticles().add(this);
+        return this;
+    }
+
+    public Article removeArticleType(ArticleType articleType) {
+        this.articleTypes.remove(articleType);
+        articleType.getArticles().remove(this);
+        return this;
+    }
+
+    public void setArticleTypes(Set<ArticleType> articleTypes) {
+        this.articleTypes = articleTypes;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

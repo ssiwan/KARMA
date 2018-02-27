@@ -16,10 +16,10 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
 
     @Query("select article from Article article where article.user.login = ?#{principal.username}")
     List<Article> findByUserIsCurrentUser();
-    @Query("select distinct article from Article article left join fetch article.tags")
+    @Query("select distinct article from Article article left join fetch article.tags left join fetch article.articleTypes")
     List<Article> findAllWithEagerRelationships();
 
-    @Query("select article from Article article left join fetch article.tags where article.id =:id")
+    @Query("select article from Article article left join fetch article.tags left join fetch article.articleTypes where article.id =:id")
     Article findOneWithEagerRelationships(@Param("id") Long id);
 
 }

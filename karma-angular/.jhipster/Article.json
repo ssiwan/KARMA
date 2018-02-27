@@ -20,6 +20,14 @@
             "otherEntityName": "tag",
             "otherEntityField": "name",
             "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "article",
+            "relationshipName": "articleType",
+            "otherEntityName": "articleType",
+            "otherEntityField": "name",
+            "ownerSide": true
         }
     ],
     "fields": [

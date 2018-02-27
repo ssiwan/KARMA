@@ -31,5 +31,16 @@
                                  referencedColumnNames="id"
                                  referencedTableName="tag"/>
         
+        <addForeignKeyConstraint baseColumnNames="articles_id"
+                                 baseTableName="article_article_type"
+                                 constraintName="fk_article_article_type_articles_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="article"/>
+        <addForeignKeyConstraint baseColumnNames="article_types_id"
+                                 baseTableName="article_article_type"
+                                 constraintName="fk_article_article_type_article_types_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="article_type"/>
+        
     </changeSet>
 </databaseChangeLog>

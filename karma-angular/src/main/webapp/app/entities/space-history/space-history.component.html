@@ -1,0 +1,68 @@
+<div>
+    <h2>
+        <span>Space Histories</span>
+        <button class="btn btn-primary float-right jh-create-entity create-space-history" [routerLink]="['/', { outlets: { popup: ['space-history-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Space History
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="spaceHistories">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Date Accessed</span></th>
+            <th><span>Space</span></th>
+            <th><span>User</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let spaceHistory of spaceHistories ;trackBy: trackId">
+                <td><a [routerLink]="['../space-history', spaceHistory.id ]">{{spaceHistory.id}}</a></td>
+                <td>{{spaceHistory.dateAccessed | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="spaceHistory.space">
+                        <a [routerLink]="['../space', spaceHistory.space?.id ]" >{{spaceHistory.space?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    {{spaceHistory.user?.id}}
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../space-history', spaceHistory.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'space-history/'+ spaceHistory.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'space-history/'+ spaceHistory.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

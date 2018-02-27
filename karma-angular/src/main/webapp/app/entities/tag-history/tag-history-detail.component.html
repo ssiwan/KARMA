@@ -1,0 +1,36 @@
+
+<div *ngIf="tagHistory">
+    <h2><span>Tag History</span> {{tagHistory.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Date Accessed</span></dt>
+        <dd>
+            <span>{{tagHistory.dateAccessed | date:'medium'}}</span>
+        </dd>
+        <dt><span>Tag</span></dt>
+        <dd>
+            <div *ngIf="tagHistory.tag">
+                <a [routerLink]="['/tag', tagHistory.tag?.id]">{{tagHistory.tag?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>User</span></dt>
+        <dd>
+            {{tagHistory.user?.id}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'tag-history/'+ tagHistory.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

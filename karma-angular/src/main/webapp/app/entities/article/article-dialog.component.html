@@ -26,7 +26,7 @@
         <div class="form-group">
             <label class="form-control-label" for="field_content">Content</label>
             <textarea class="form-control" name="content" id="field_content"
-                [(ngModel)]="article.content" rows=25 required></textarea>
+                [(ngModel)]="article.content" required></textarea>
             <div [hidden]="!(editForm.controls.content?.dirty && editForm.controls.content?.invalid)">
                 <small class="form-text text-danger"
                    [hidden]="!editForm.controls.content?.errors?.required">
@@ -70,6 +70,12 @@
             <label for="field_tag">Tag</label>
             <select class="form-control" id="field_tag" multiple name="tag" [(ngModel)]="article.tags">
                 <option [ngValue]="getSelected(article.tags, tagOption)" *ngFor="let tagOption of tags; trackBy: trackTagById">{{tagOption.name}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="field_articleType">Article Type</label>
+            <select class="form-control" id="field_articleType" multiple name="articleType" [(ngModel)]="article.articleTypes">
+                <option [ngValue]="getSelected(article.articleTypes, articleTypeOption)" *ngFor="let articleTypeOption of articletypes; trackBy: trackArticleTypeById">{{articleTypeOption.name}}</option>
             </select>
         </div>
     </div>

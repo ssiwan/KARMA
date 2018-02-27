@@ -9,6 +9,7 @@ export class Article implements BaseEntity {
         public space?: BaseEntity,
         public user?: User,
         public tags?: BaseEntity[],
+        public articleTypes?: BaseEntity[],
     ) {
     }
 }

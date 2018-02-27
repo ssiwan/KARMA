@@ -8,8 +8,15 @@
     <include file="config/liquibase/changelog/20180221000418_added_entity_Space.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180221000419_added_entity_Article.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180221000420_added_entity_Tag.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180226235243_added_entity_ArticleHistory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180226235244_added_entity_SpaceHistory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180226235246_added_entity_TagHistory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180226235247_added_entity_ArticleType.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20180221000418_added_entity_constraints_Space.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180221000419_added_entity_constraints_Article.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180226235243_added_entity_constraints_ArticleHistory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180226235244_added_entity_constraints_SpaceHistory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180226235246_added_entity_constraints_TagHistory.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

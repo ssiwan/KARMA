@@ -42,6 +42,7 @@ describe('Article e2e test', () => {
         articleDialogPage.spaceSelectLastOption();
         articleDialogPage.userSelectLastOption();
         // articleDialogPage.tagSelectLastOption();
+        // articleDialogPage.articleTypeSelectLastOption();
         articleDialogPage.save();
         expect(articleDialogPage.getSaveButton().isPresent()).toBeFalsy();
     });
@@ -74,6 +75,7 @@ export class ArticleDialogPage {
     spaceSelect = element(by.css('select#field_space'));
     userSelect = element(by.css('select#field_user'));
     tagSelect = element(by.css('select#field_tag'));
+    articleTypeSelect = element(by.css('select#field_articleType'));
 
     getModalTitle() {
         return this.modalTitle.getText();
@@ -149,6 +151,22 @@ export class ArticleDialogPage {
 
     getTagSelectedOption = function() {
         return this.tagSelect.element(by.css('option:checked')).getText();
+    };
+
+    articleTypeSelectLastOption = function() {
+        this.articleTypeSelect.all(by.tagName('option')).last().click();
+    };
+
+    articleTypeSelectOption = function(option) {
+        this.articleTypeSelect.sendKeys(option);
+    };
+
+    getArticleTypeSelect = function() {
+        return this.articleTypeSelect;
+    };
+
+    getArticleTypeSelectedOption = function() {
+        return this.articleTypeSelect.element(by.css('option:checked')).getText();
     };
 
     save() {

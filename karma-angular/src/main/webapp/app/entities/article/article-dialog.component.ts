@@ -12,6 +12,7 @@ import { ArticleService } from './article.service';
 import { Space, SpaceService } from '../space';
 import { User, UserService } from '../../shared';
 import { Tag, TagService } from '../tag';
+import { ArticleType, ArticleTypeService } from '../article-type';
 
 @Component({
     selector: 'jhi-article-dialog',
@@ -28,6 +29,8 @@ export class ArticleDialogComponent implements OnInit {
 
     tags: Tag[];
 
+    articletypes: ArticleType[];
+
     constructor(
         public activeModal: NgbActiveModal,
         private dataUtils: JhiDataUtils,
@@ -36,6 +39,7 @@ export class ArticleDialogComponent implements OnInit {
         private spaceService: SpaceService,
         private userService: UserService,
         private tagService: TagService,
+        private articleTypeService: ArticleTypeService,
         private eventManager: JhiEventManager
     ) {
     }
@@ -48,6 +52,8 @@ export class ArticleDialogComponent implements OnInit {
             .subscribe((res: HttpResponse<User[]>) => { this.users = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
         this.tagService.query()
             .subscribe((res: HttpResponse<Tag[]>) => { this.tags = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
+        this.articleTypeService.query()
+            .subscribe((res: HttpResponse<ArticleType[]>) => { this.articletypes = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     byteSize(field) {
@@ -105,6 +111,10 @@ export class ArticleDialogComponent implements OnInit {
     }
 
     trackTagById(index: number, item: Tag) {
+        return item.id;
+    }
+
+    trackArticleTypeById(index: number, item: ArticleType) {
         return item.id;
     }
 

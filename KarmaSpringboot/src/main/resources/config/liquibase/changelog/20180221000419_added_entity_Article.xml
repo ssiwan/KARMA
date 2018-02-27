@@ -56,6 +56,17 @@
 
         <addPrimaryKey columnNames="articles_id, tags_id" tableName="article_tag"/>
         
+        <createTable tableName="article_article_type">
+            <column name="article_types_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="articles_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="articles_id, article_types_id" tableName="article_article_type"/>
+        
     </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
 </databaseChangeLog>
