@@ -1,73 +1,39 @@
-<div class="row" [ngSwitch]="isAuthenticated()">
-	<div class="col-md-4" *ngSwitchCase="false">
-		<span class="hipster img-fluid rounded"
-			aria-label="Knowledge Items Diagram showing the circular flow of collecting, using, enriching, sharing, assessing, building, sustaining, and divesting Knowledge Items"></span>
-	</div>
-	<div class="col-md-7" *ngSwitchCase="true">
-		<div class="form-group">
-			<input class="col-md-6" type="search" ng-model="vm.query"
-				placeholder="Search Articles" ng-keyup="vm.search()" />
-		</div>
-		
-		<div class="form-group">
-			<label class="col-md-5 font-weight-bold">Recent Articles</label>
+<div class="row">
+    <div class="col-md-3">
+        <span class="hipster img-fluid rounded" aria-label="Knowledge Items Diagram showing the circular flow of collecting, using, enriching, sharing, assessing, building, sustaining, and divesting Knowledge Items"></span>
+    </div>
+    <div class="col-md-9">
+        <h1 id="welcomeHeader" class="display-4">Welcome to KARMA</h1>
+        <p class="lead">Knowledge Article Record Management Application</p>
 
-			<label class="col-md-5 font-weight-bold">Frequent Articles</label>
-		</div>
-		<div style="margin-top:300px"></div> <!-- Temporary space until content is loaded  -->
-		<div class="form-group">
-			<label class="col-md-5 font-weight-bold">Recent Knowledge Areas</label>
+        <div [ngSwitch]="isAuthenticated()">
+            <div class="alert alert-success" *ngSwitchCase="true">
+                <span *ngIf="account"
+                   > You are logged in as user "{{account.login}}". </span>
+            </div>
 
-			<label class="col-md-5 font-weight-bold">Recent Tags</label>
-		</div>
-		<div style="margin-top:300px"></div> <!-- Temporary space until content is loaded  -->
-	</div>
-	<div class="col-md-6" *ngSwitchCase="false">
-		<h1 id="welcomeHeader" class="display-4">Welcome to KARMA</h1>
-		<p class="lead">Knowledge Article Record Management Application</p>
+            <div class="alert alert-warning" *ngSwitchCase="false">
+                <span>If you want to </span>
+                <a class="alert-link" (click)="login()">sign in</a><span>, you can try the default accounts:<br/>- Administrator (login="admin" and password="admin") <br/>- User (login="user" and password="user").</span>
+            </div>
+            <div class="alert alert-warning" *ngSwitchCase="false">
+                <span>You don't have an account yet?</span>
+                <a class="alert-link" routerLink="register">Register a new account</a>
+            </div>
+        </div>
 
-		<div>
+        <p>
+            Some useful links:
+        </p>
 
-			<div class="alert alert-warning" *ngSwitchCase="false">
-				<span>If you want to </span> <a class="alert-link" (click)="login()">sign
-					in</a><span>, you can try the default accounts:<br />-
-					Administrator (login="admin" and password="admin") <br />- User
-					(login="user" and password="user").
-				</span>
-			</div>
-			<div class="alert alert-warning" *ngSwitchCase="false">
-				<span>You don't have an account yet?</span> <a class="alert-link"
-					routerLink="register">Register a new account</a>
-			</div>
-		</div>
+        <ul>
+            <li><a href="https://github.com/StanfieldSystems/KARMA" target="_blank" rel="noopener">KARMA GitHub location</a></li>
+            <li><a href="https://s3-us-west-2.amazonaws.com/stanfield-systems-karma-ci/karma-angular/index.html" target="_blank" rel="noopener">KARMA Behavior Driven Development (BDD) Test Results</a></li>
+            <li><a href="http://www.knowledge-management-tools.net/" target="_blank" rel="noopener">Knowledge Management Tools</a></li>
+        </ul>
 
-		<p>Some useful links:</p>
-
-		<ul>
-			<li><a href="https://github.com/StanfieldSystems/KARMA"
-				target="_blank" rel="noopener">KARMA GitHub location</a></li>
-			<li><a
-				href="https://s3-us-west-2.amazonaws.com/stanfield-systems-karma-ci/karma-angular/index.html"
-				target="_blank" rel="noopener">KARMA Behavior Driven Development
-					(BDD) Test Results</a></li>
-			<li><a href="http://www.knowledge-management-tools.net/"
-				target="_blank" rel="noopener">Knowledge Management Tools</a></li>
-		</ul>
-
-		<p>
-			<span>If you like this application, please check out our
-				company, </span> <a href="http://www.stanfieldsystems.com" target="_blank"
-				rel="noopener">Stanfield Systems Inc.</a><span>, a Service
-				Disabled Veteran Owned Small Business.</span>
-		</p>
-	</div>
-
-	<div class="col-md-5" *ngSwitchCase="true">
-		<h1 id="welcomeHeader" class="display-4">Welcome to KARMA</h1>
-		<div class="alert alert-success">
-			<span *ngIf="account"> You are logged in as user
-				"{{account.login}}". </span>
-		</div>
-
-	</div>
+        <p>
+            <span>If you like this application, please check out our company, </span> <a href="http://www.stanfieldsystems.com" target="_blank" rel="noopener">Stanfield Systems Inc.</a><span>, a Service Disabled Veteran Owned Small Business.</span>
+        </p>
+    </div>
 </div>
