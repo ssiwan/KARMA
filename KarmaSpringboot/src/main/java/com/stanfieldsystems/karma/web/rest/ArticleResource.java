@@ -113,21 +113,6 @@ public class ArticleResource {
         Article article = articleRepository.findOneWithEagerRelationships(id);
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(article));
     }
-    
-    
-    /**
-     * GET  /articles/:searchTitle : get Articles matching the "searchTitle".
-     *
-     * @param String that the title of the article to retrieve contains
-     * @return the ResponseEntity with status 200 (OK) and with body of list of articles, or with status 404 (Not Found)
-     */
-    @GetMapping("/articles/{searchTitle}")
-    @Timed
-    public ResponseEntity<List<Article>> getAllArticlesWhereTitleContains(String searchParam) {
-    	log.debug("REST request to get page of Articles");
-    	List<Article> articles = articleRepository.findAllByTitleContains(searchParam);
-    	return new ResponseEntity<>(articles, HttpStatus.OK);
-    }
 
     /**
      * DELETE  /articles/:id : delete the "id" article.
