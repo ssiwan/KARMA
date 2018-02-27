@@ -1,4 +1,3 @@
-
 Feature: Change user password
   As a user, when I log into the application, I can change my password 
   so that the password is meaningful and secure
@@ -12,6 +11,3 @@ Feature: Change user password
     And I enter a confirm password
     And I save the password
     Then I should see the success message "Password changed!"
-    
-
-  
