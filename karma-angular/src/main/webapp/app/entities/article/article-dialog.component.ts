@@ -13,6 +13,7 @@ import { Space, SpaceService } from '../space';
 import { User, UserService } from '../../shared';
 import { Tag, TagService } from '../tag';
 import { ArticleType, ArticleTypeService } from '../article-type';
+import {DatePipe} from '@angular/common';
 
 @Component({
     selector: 'jhi-article-dialog',
@@ -40,7 +41,8 @@ export class ArticleDialogComponent implements OnInit {
         private userService: UserService,
         private tagService: TagService,
         private articleTypeService: ArticleTypeService,
-        private eventManager: JhiEventManager
+        private eventManager: JhiEventManager,
+        private datePipe: DatePipe
     ) {
     }
 
@@ -78,6 +80,8 @@ export class ArticleDialogComponent implements OnInit {
             this.subscribeToSaveResponse(
                 this.articleService.update(this.article));
         } else {
+            const date = new Date();
+            this.article.date = this.datePipe.transform(date, 'yyyy-MM-dd:hh:mm');
             this.subscribeToSaveResponse(
                 this.articleService.create(this.article));
         }
