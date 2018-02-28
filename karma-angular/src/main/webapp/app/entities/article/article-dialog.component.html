@@ -26,7 +26,7 @@
         <div class="form-group">
             <label class="form-control-label" for="field_content">Content</label>
             <textarea class="form-control" name="content" id="field_content"
-                [(ngModel)]="article.content" required></textarea>
+                [(ngModel)]="article.content" rows=25 required></textarea>
             <div [hidden]="!(editForm.controls.content?.dirty && editForm.controls.content?.invalid)">
                 <small class="form-text text-danger"
                    [hidden]="!editForm.controls.content?.errors?.required">
