@@ -11,7 +11,7 @@ import { ITEMS_PER_PAGE, Principal } from '../../shared';
     selector: 'jhi-article',
     templateUrl: './article.component.html'
 })
-export class ArticleComponent implements OnInit, OnDestroy {
+export class ArticleListComponent implements OnInit, OnDestroy {
 
     articles: Article[];
     currentAccount: any;
