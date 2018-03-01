@@ -24,5 +24,8 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
     
     @Query("select article from Article article where article.title =:searchString")
     List<Article> findAllByTitleContains(@Param("searchString") String searchString);
+    
+    @Query("select article from Article article where article.space =:searchString")
+    List<Article> findAllBySpaceContains(@Param("searchString") String searchString);
 
 }

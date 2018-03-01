@@ -130,6 +130,22 @@ public class ArticleResource {
     }
 
     /**
+     * GET  /articles/:searchSpace : get Articles matching the "searchSpace".
+     *
+     * @param String that the space of the article to retrieve contains
+     * @return the ResponseEntity with status 200 (OK) and with body of list of articles, or with status 404 (Not Found)
+     */
+    @GetMapping("/articles/searchSpaces/{searchSpace}")
+    @Timed
+    public ResponseEntity<List<Article>> getAllArticlesWhereSpaceContains(@PathVariable String searchSpace) {
+    	log.debug("REST request to get page of Articles by Space");
+    	List<Article> articles = articleRepository.findAllBySpaceContains(searchSpace);
+    	return new ResponseEntity<>(articles, HttpStatus.OK);
+    }
+    
+    
+    
+    /**
      * DELETE  /articles/:id : delete the "id" article.
      *
      * @param id the id of the article to delete
