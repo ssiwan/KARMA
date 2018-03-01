@@ -1,8 +1,13 @@
+import { ArticleService } from '../entities/article/article.service';
 import { Component, OnInit } from '@angular/core';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { JhiEventManager } from 'ng-jhipster';
 
 import { Account, LoginModalService, Principal } from '../shared';
+
+import { Article } from '../entities/article/article.model';
+import { HttpErrorResponse } from '@angular/common/http';
+import { HttpResponse } from '@angular/common/http';
 
 @Component({
     selector: 'jhi-home',
@@ -15,12 +20,16 @@ import { Account, LoginModalService, Principal } from '../shared';
 export class HomeComponent implements OnInit {
     account: Account;
     modalRef: NgbModalRef;
+    searchArticles: Article[];
+    searchString: string;
 
     constructor(
         private principal: Principal,
         private loginModalService: LoginModalService,
+        private articleService: ArticleService,
         private eventManager: JhiEventManager
     ) {
+
     }
 
     ngOnInit() {
@@ -28,6 +37,9 @@ export class HomeComponent implements OnInit {
             this.account = account;
         });
         this.registerAuthenticationSuccess();
+
+      this.searchArticles = [];
+      this.searchString = '';
     }
 
     registerAuthenticationSuccess() {
@@ -39,10 +51,29 @@ export class HomeComponent implements OnInit {
     }
 
     isAuthenticated() {
-        return this.principal.isAuthenticated();
+      return this.principal.isAuthenticated();
     }
 
     login() {
-        this.modalRef = this.loginModalService.open();
+      this.modalRef = this.loginModalService.open();
+    }
+
+    searchTitle(searchString: string) {
+      this.articleService.search(searchString).subscribe(
+        (res: HttpResponse<Article[]>) => this.onSuccess(res.body, res.headers),
+        (res: HttpErrorResponse) => this.onError(res.message)
+      );
+    }
+
+  private onSuccess(data, headers) {
+//        this.links = this.parseLinks.parse(headers.get('link'));
+//        this.totalItems = headers.get('X-Total-Count');
+        for (let i = 0; i < data.length; i++) {
+            this.searchArticles.push(data[i]);
+        }
+    }
+
+    private onError(error) {
+//        this.jhiAlertService.error(error.message, null, null);
     }
 }

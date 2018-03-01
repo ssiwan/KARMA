@@ -34,9 +34,9 @@ export class ArticleService {
             .map((res: EntityResponseType) => this.convertResponse(res));
     }
 
-   search(searchString: string): Observable<EntityResponseType> {
-        return this.http.get<Article>(`${this.resourceUrl}/SearchTitle/${searchString}`, { observe: 'response'})
-            .map((res: EntityResponseType) => this.convertResponse(res));
+   search(searchString: string): Observable<HttpResponse<Article[]>> {
+        return this.http.get<Article[]>(`${this.resourceUrl}/searchTitles/${searchString}`, {observe: 'response'})
+            .map((res: HttpResponse<Article[]>) => this.convertArrayResponse(res));
     }
 
    searchBySpace(searchString: string): Observable<EntityResponseType> {

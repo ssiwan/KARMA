@@ -19,18 +19,12 @@ export class HomeService {
 
 
   isSaving: boolean;
-  articles: Article[];
 
   constructor(
     private http: HttpClient,
     private dateUtils: JhiDateUtils,
-    private articleService: ArticleService
   ) {
   }
   
-  searchTitle(searchString: string): Observable<HttpResponse<Article>> {
-    return this.articleService.search(searchString);
-  }
-
 
 }

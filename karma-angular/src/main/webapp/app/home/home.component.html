@@ -5,22 +5,26 @@
 	</div>
 	<div class="col-md-7" *ngSwitchCase="true">
 		<div class="form-group">
-			<input class="col-md-6" type="search" ng-model="vm.query"
-				placeholder="Search Articles" ng-keyup="vm.search()" />
-		</div>
-		
-		<div class="form-group">
-			<label class="col-md-5 font-weight-bold">Recent Articles</label>
+			<input class="col-md-6" type="search" [(ngModel)]="searchString"
+				placeholder="Search Articles" />
 
-			<label class="col-md-5 font-weight-bold">Frequent Articles</label>
+			<button type="button" class="btn btn-info" (click)="searchTitle(searchString)">
+				<span class="glyphicon glyphicon-search"></span> Search
+			</button>
 		</div>
-		<div style="margin-top:300px"></div> <!-- Temporary space until content is loaded  -->
-		<div class="form-group">
-			<label class="col-md-5 font-weight-bold">Recent Knowledge Areas</label>
 
-			<label class="col-md-5 font-weight-bold">Recent Tags</label>
+		<div class="form-group">
+			<label class="col-md-5 font-weight-bold">Recent Articles</label> <label
+				class="col-md-5 font-weight-bold">Frequent Articles</label>
 		</div>
-		<div style="margin-top:300px"></div> <!-- Temporary space until content is loaded  -->
+		<div style="margin-top: 300px"></div>
+		<!-- Temporary space until content is loaded  -->
+		<div class="form-group">
+			<label class="col-md-5 font-weight-bold">Recent Knowledge
+				Areas</label> <label class="col-md-5 font-weight-bold">Recent Tags</label>
+		</div>
+		<div style="margin-top: 300px"></div>
+		<!-- Temporary space until content is loaded  -->
 	</div>
 	<div class="col-md-6" *ngSwitchCase="false">
 		<h1 id="welcomeHeader" class="display-4">Welcome to KARMA</h1>
