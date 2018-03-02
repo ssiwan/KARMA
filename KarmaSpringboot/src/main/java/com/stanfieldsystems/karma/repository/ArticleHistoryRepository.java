@@ -4,6 +4,9 @@ import com.stanfieldsystems.karma.domain.ArticleHistory;
 import org.springframework.stereotype.Repository;
 
 import org.springframework.data.jpa.repository.*;
+import org.springframework.data.repository.query.Param;
+
+import java.time.ZonedDateTime;
 import java.util.List;
 
 /**
@@ -15,5 +18,5 @@ public interface ArticleHistoryRepository extends JpaRepository<ArticleHistory, 
 
     @Query("select article_history from ArticleHistory article_history where article_history.user.login = ?#{principal.username}")
     List<ArticleHistory> findByUserIsCurrentUser();
-
+   
 }

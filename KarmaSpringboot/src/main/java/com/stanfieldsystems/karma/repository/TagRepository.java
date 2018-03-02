@@ -3,7 +3,11 @@ package com.stanfieldsystems.karma.repository;
 import com.stanfieldsystems.karma.domain.Tag;
 import org.springframework.stereotype.Repository;
 
+import java.time.ZonedDateTime;
+import java.util.List;
+
 import org.springframework.data.jpa.repository.*;
+import org.springframework.data.repository.query.Param;
 
 
 /**
@@ -13,4 +17,15 @@ import org.springframework.data.jpa.repository.*;
 @Repository
 public interface TagRepository extends JpaRepository<Tag, Long> {
 
+	 @Query(value =" SELECT * from TAG WHERE ID in ( "
+	 		+ "  SELECT a.TAG_ID " +  
+		        "from ( " +  
+		        "   SELECT TAG_ID, MAX(DATE_ACCESSED) as maxDate " +  
+		        "   from TAG_HISTORY " +  
+		        "   group by TAG_ID " +  
+		        ") as x inner join TAG_HISTORY as a on a.TAG_ID = x.TAG_ID " 
+		        + "and a.DATE_ACCESSED  = x.maxDate " +  
+		        "where a.DATE_ACCESSED  >:monthsAgo AND a.USER_ID = :userId " +  
+		        "ORDER BY a.DATE_ACCESSED DESC LIMIT 10) ", nativeQuery = true) 
+	List<Tag> findRecentlyAccessedTags(@Param("userId") Long userId, @Param("monthsAgo") ZonedDateTime monthsAgo); 
 }

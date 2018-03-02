@@ -8,6 +8,8 @@ import com.stanfieldsystems.karma.web.rest.errors.BadRequestAlertException;
 import com.stanfieldsystems.karma.web.rest.util.HeaderUtil;
 import com.stanfieldsystems.karma.web.rest.util.PaginationUtil;
 import io.github.jhipster.web.util.ResponseUtil;
+
+import org.apache.commons.lang3.time.DateUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -21,7 +23,9 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
-
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -157,7 +161,23 @@ public class ArticleResource {
     }
     
     
-    
+    /** 
+     * GET /articles/recentlyAccessed/:userId : get recently accessed articles for a specific user. 
+     * 
+     * @param Long the userId of the user to retrieve recently accessed article history  
+     * @return the ResponseEntity with status 200 (OK) and with body of list of articles, or with status 404 (Not Found) 
+     */ 
+    @GetMapping("/articles/recentlyAccessed/{userId}") 
+    @Timed 
+    public ResponseEntity<List<Article>> getRecentlyAccessedArticles(@PathVariable Long userId) { 
+    	log.debug("REST request to get page of Articles"); 
+        Date threeMonthsago = DateUtils.addMonths(new Date(), -3); 
+        ZonedDateTime monthsAgo = threeMonthsago.toInstant().atZone(ZoneId.systemDefault()); 
+        
+        List<Article> articles = articleRepository.findRecentlyAccessedArticles(userId, monthsAgo);
+        
+        return new ResponseEntity<>(articles, HttpStatus.OK); 
+    }
     /**
      * DELETE  /articles/:id : delete the "id" article.
      *

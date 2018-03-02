@@ -32,6 +32,11 @@ export class TagService {
             .map((res: EntityResponseType) => this.convertResponse(res));
     }
 
+    findRecentlyAccessed(userId: number): Observable<HttpResponse<Tag[]>> {
+      return this.http.get<Tag[]>(`${this.resourceUrl}/recentlyAccessed/${userId}`, {observe: 'response'})
+        .map((res: HttpResponse<Tag[]>) => this.convertArrayResponse(res));
+    }
+
     query(req?: any): Observable<HttpResponse<Tag[]>> {
         const options = createRequestOption(req);
         return this.http.get<Tag[]>(this.resourceUrl, { params: options, observe: 'response' })
