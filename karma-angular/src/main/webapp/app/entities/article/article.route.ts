@@ -5,6 +5,7 @@ import { ArticleComponent } from './article.component';
 import { ArticleDetailComponent } from './article-detail.component';
 import { ArticlePopupComponent } from './article-dialog.component';
 import { ArticleDeletePopupComponent } from './article-delete-dialog.component';
+import { ArticleListComponent} from './article-list.component';
 
 export const articleRoute: Routes = [
     {
@@ -23,6 +24,13 @@ export const articleRoute: Routes = [
             pageTitle: 'Articles'
         },
         canActivate: [UserRouteAccessService]
+    }, {
+        path: 'article-list',
+        component: ArticleListComponent,
+        data: {
+          authories: ['ROLE_USER'],
+          pageTitle: 'Article List'
+        }
     }
 ];
 
