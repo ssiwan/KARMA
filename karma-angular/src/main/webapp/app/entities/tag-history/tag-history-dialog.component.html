@@ -32,7 +32,7 @@
 
         <div class="form-group">
             <label class="form-control-label" for="field_tag">Tag</label>
-            <select class="form-control" id="field_tag" name="tag" [(ngModel)]="tagHistory.tag">
+            <select class="form-control" id="field_tag" name="tag" [(ngModel)]="tagHistory.tag" >
                 <option [ngValue]="null"></option>
                 <option [ngValue]="tagOption.id === tagHistory.tag?.id ? tagHistory.tag : tagOption" *ngFor="let tagOption of tags; trackBy: trackTagById">{{tagOption.id}}</option>
             </select>

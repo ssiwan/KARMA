@@ -2,15 +2,12 @@ package com.stanfieldsystems.karma.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import com.stanfieldsystems.karma.domain.Article;
-import com.stanfieldsystems.karma.domain.ArticleHistory;
-import com.stanfieldsystems.karma.repository.ArticleHistoryRepository;
+
 import com.stanfieldsystems.karma.repository.ArticleRepository;
 import com.stanfieldsystems.karma.web.rest.errors.BadRequestAlertException;
 import com.stanfieldsystems.karma.web.rest.util.HeaderUtil;
 import com.stanfieldsystems.karma.web.rest.util.PaginationUtil;
 import io.github.jhipster.web.util.ResponseUtil;
-
-import org.apache.commons.lang3.time.DateUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -24,10 +21,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
-import java.util.ArrayList;
-import java.util.Date;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -44,12 +38,9 @@ public class ArticleResource {
     private static final String ENTITY_NAME = "article";
 
     private final ArticleRepository articleRepository;
-    
-    private final ArticleHistoryRepository articleHistoryRepository;
 
-    public ArticleResource(ArticleRepository articleRepository, ArticleHistoryRepository articleHistoryRepository) {
+    public ArticleResource(ArticleRepository articleRepository) {
         this.articleRepository = articleRepository;
-        this.articleHistoryRepository = articleHistoryRepository;
     }
 
     /**
@@ -123,43 +114,49 @@ public class ArticleResource {
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(article));
     }
     
+    
     /**
-     * GET  /articles/:searchTitle : get Articles matching the "searchTitle".
+     * GET  /articles/searchTitles/:searchTitle : get Articles matching the "searchTitle".
      *
      * @param String that the title of the article to retrieve contains
      * @return the ResponseEntity with status 200 (OK) and with body of list of articles, or with status 404 (Not Found)
      */
     @GetMapping("/articles/searchTitles/{searchTitle}")
     @Timed
-    public ResponseEntity<List<Article>> getAllArticlesWhereTitleContains(String searchParam) {
+    public ResponseEntity<List<Article>> getAllArticlesWhereTitleContains(@PathVariable String searchTitle) {
     	log.debug("REST request to get page of Articles");
-    	List<Article> articles = articleRepository.findAllByTitleContains(searchParam);
+    	List<Article> articles = articleRepository.findAllByTitleContains(searchTitle);
     	return new ResponseEntity<>(articles, HttpStatus.OK);
     }
     
-	/**
-     * GET /articles/recentlyAccessed/:userId : get recently accessed articles for a specific user.
+    /**
+     * GET  /articles/frequent : get top five most frequently visited articles in the last three months.
      *
-     * @param Long the userId of the user to retrieve recently accessed article history 
      * @return the ResponseEntity with status 200 (OK) and with body of list of articles, or with status 404 (Not Found)
      */
-    @GetMapping("/articles/recentlyAccessed/{userId}")
+//    @GetMapping("/articles/frequent/")
+//    @Timed
+//    public ResponseEntity<List<Article>> getAllArticlesWhereTitleContains() {
+//    	log.debug("REST request to get page of Articles");
+//    	List<Article> articles = articleRepository.findFrequentArticles();
+//    	return new ResponseEntity<>(articles, HttpStatus.OK);
+//    }
+
+    /**
+     * GET  /articles/:searchSpace : get Articles matching the "searchSpace".
+     *
+     * @param String that the space of the article to retrieve contains
+     * @return the ResponseEntity with status 200 (OK) and with body of list of articles, or with status 404 (Not Found)
+     */
+    @GetMapping("/articles/searchSpaces/{searchSpace}")
     @Timed
-    public ResponseEntity<List<Article>> getRecentlyAccessedArticles(@PathVariable Long userId) {
-    	log.debug("REST request to get page of Articles");
-    	Date threeMonthsago = DateUtils.addMonths(new Date(), -3);
-        ZonedDateTime monthsAgo = threeMonthsago.toInstant().atZone(ZoneId.systemDefault());
-        
-        List<ArticleHistory> listOfArticleHistory = articleHistoryRepository.findRecentlyAccessedArticles(userId, monthsAgo);
-        List<Article> articles = new ArrayList<Article>();
-        
-        for(ArticleHistory articleHistroy : listOfArticleHistory){
-        	Article newArticle = articleRepository.findOneWithEagerRelationships(articleHistroy.getArticle().getId());
-        	articles.add(newArticle);
-        }
-    	
+    public ResponseEntity<List<Article>> getAllArticlesWhereSpaceContains(@PathVariable String searchSpace) {
+    	log.debug("REST request to get page of Articles by Space");
+    	List<Article> articles = articleRepository.findAllBySpaceContains(searchSpace);
     	return new ResponseEntity<>(articles, HttpStatus.OK);
     }
+    
+    
     
     /**
      * DELETE  /articles/:id : delete the "id" article.

@@ -37,19 +37,8 @@ export class TagHistoryDialogComponent implements OnInit {
 
     ngOnInit() {
         this.isSaving = false;
-        this.tagService
-            .query({filter: 'taghistory-is-null'})
-            .subscribe((res: HttpResponse<Tag[]>) => {
-                if (!this.tagHistory.tag || !this.tagHistory.tag.id) {
-                    this.tags = res.body;
-                } else {
-                    this.tagService
-                        .find(this.tagHistory.tag.id)
-                        .subscribe((subRes: HttpResponse<Tag>) => {
-                            this.tags = [subRes.body].concat(res.body);
-                        }, (subRes: HttpErrorResponse) => this.onError(subRes.message));
-                }
-            }, (res: HttpErrorResponse) => this.onError(res.message));
+        this.tagService.query()
+            .subscribe((res: HttpResponse<Tag[]>) => { this.tags = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
         this.userService.query()
             .subscribe((res: HttpResponse<User[]>) => { this.users = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
     }

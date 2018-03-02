@@ -1,120 +1,79 @@
-import {ArticleService} from '../entities/article/article.service';
-import {Component, OnInit} from '@angular/core';
-import {NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
-import {JhiEventManager, JhiAlertService} from 'ng-jhipster';
+import { ArticleService } from '../entities/article/article.service';
+import { Component, OnInit } from '@angular/core';
+import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { JhiEventManager } from 'ng-jhipster';
 
-import {Account, LoginModalService, Principal} from '../shared';
+import { Account, LoginModalService, Principal } from '../shared';
 
-import {Article} from '../entities/article/article.model';
-import {TagService, Tag} from '../entities/tag';
-import {HttpErrorResponse} from '@angular/common/http';
-import {HttpResponse} from '@angular/common/http';
+import { Article } from '../entities/article/article.model';
+import { HttpErrorResponse } from '@angular/common/http';
+import { HttpResponse } from '@angular/common/http';
 
 @Component({
-  selector: 'jhi-home',
-  templateUrl: './home.component.html',
-  styleUrls: [
-    'home.css'
-  ]
+    selector: 'jhi-home',
+    templateUrl: './home.component.html',
+    styleUrls: [
+        'home.css'
+    ]
 
 })
 export class HomeComponent implements OnInit {
-  account: any;
-  modalRef: NgbModalRef;
-  searchArticles: Article[];
-  searchString: string;
-  recentArticles: Article[];
-  recentTags: Tag[];
+    account: Account;
+    modalRef: NgbModalRef;
+    searchArticles: Article[];
+    searchString: string;
 
-  constructor(
-    private principal: Principal,
-    private loginModalService: LoginModalService,
-    private articleService: ArticleService,
-    private eventManager: JhiEventManager,
-    private jhiAlertService: JhiAlertService,
-    private tagService: TagService
-  ) {
-  }
+    constructor(
+        private principal: Principal,
+        private loginModalService: LoginModalService,
+        private articleService: ArticleService,
+        private eventManager: JhiEventManager
+    ) {
 
-  ngOnInit() {
-    this.principal.identity().then((account) => {
-      this.account = account;
-      if (this.account != null) {
-        this.getRecentArtices();
-        this.getRecentTags();
-      }
-    });
-    this.registerAuthenticationSuccess();
+    }
 
-    this.searchArticles = [];
-    this.searchString = '';
-    this.recentArticles = [];
-    this.recentTags = [];
-  }
+    ngOnInit() {
+        this.principal.identity().then((account) => {
+            this.account = account;
+        });
+        this.registerAuthenticationSuccess();
 
-  registerAuthenticationSuccess() {
-    this.eventManager.subscribe('authenticationSuccess', (message) => {
-      this.principal.identity().then((account) => {
-        this.account = account;
-        if (this.account != null) {
-          this.recentArticles = [];
-          this.recentTags = [];
-          this.getRecentArtices();
-          this.getRecentTags();
-        }
-      });
-    });
-  }
+      this.searchArticles = [];
+      this.searchString = '';
+    }
 
-  isAuthenticated() {
-    return this.principal.isAuthenticated();
-  }
+    registerAuthenticationSuccess() {
+        this.eventManager.subscribe('authenticationSuccess', (message) => {
+            this.principal.identity().then((account) => {
+                this.account = account;
+            });
+        });
+    }
 
-  login() {
-    this.modalRef = this.loginModalService.open();
-  }
+    isAuthenticated() {
+      return this.principal.isAuthenticated();
+    }
 
-  searchTitle(searchString: string) {
-    this.articleService.search(searchString).subscribe(
-      (res: HttpResponse<Article[]>) => this.onSuccess(res.body, res.headers),
-      (res: HttpErrorResponse) => this.onError(res.message)
-    );
-  }
+    login() {
+      this.modalRef = this.loginModalService.open();
+    }
 
-  getRecentArtices() {
-    this.articleService.findRecentlyAccessed(this.account.id).subscribe(
-      (res: HttpResponse<Article[]>) => this.recentArticlesOnSuccess(res.body, res.headers),
-      (res: HttpErrorResponse) => this.onError(res.message)
-    );
-  }
-
-  getRecentTags() {
-    this.tagService.findRecentlyAccessed(this.account.id).subscribe(
-      (res: HttpResponse<Tag[]>) => this.recentTagsOnSuccess(res.body, res.headers),
-      (res: HttpErrorResponse) => this.onError(res.message)
-    );
-  }
+    searchTitle(searchString: string) {
+      this.articleService.search(searchString).subscribe(
+        (res: HttpResponse<Article[]>) => this.onSuccess(res.body, res.headers),
+        (res: HttpErrorResponse) => this.onError(res.message)
+      );
+    }
 
   private onSuccess(data, headers) {
-    //        this.links = this.parseLinks.parse(headers.get('link'));
-    //        this.totalItems = headers.get('X-Total-Count');
-    for (let i = 0; i < data.length; i++) {
-      this.searchArticles.push(data[i]);
+//        this.links = this.parseLinks.parse(headers.get('link'));
+//        this.totalItems = headers.get('X-Total-Count');
+        for (let i = 0; i < data.length; i++) {
+            this.searchArticles.push(data[i]);
+        }
     }
-  }
 
-  private recentArticlesOnSuccess(data, headers) {
-    for (let i = 0; i < data.length; i++) {
-      this.recentArticles.push(data[i]);
+    private onError(error) {
+//        this.jhiAlertService.error(error.message, null, null);
     }
-  }
-
-  private recentTagsOnSuccess(data, headers) {
-    for (let i = 0; i < data.length; i++) {
-      this.recentTags.push(data[i]);
-    }
-  }
-  private onError(error) {
-    this.jhiAlertService.error(error.message, null, null);
-  }
 }

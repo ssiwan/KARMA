@@ -37,19 +37,8 @@ export class SpaceHistoryDialogComponent implements OnInit {
 
     ngOnInit() {
         this.isSaving = false;
-        this.spaceService
-            .query({filter: 'spacehistory-is-null'})
-            .subscribe((res: HttpResponse<Space[]>) => {
-                if (!this.spaceHistory.space || !this.spaceHistory.space.id) {
-                    this.spaces = res.body;
-                } else {
-                    this.spaceService
-                        .find(this.spaceHistory.space.id)
-                        .subscribe((subRes: HttpResponse<Space>) => {
-                            this.spaces = [subRes.body].concat(res.body);
-                        }, (subRes: HttpErrorResponse) => this.onError(subRes.message));
-                }
-            }, (res: HttpErrorResponse) => this.onError(res.message));
+        this.spaceService.query()
+            .subscribe((res: HttpResponse<Space[]>) => { this.spaces = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
         this.userService.query()
             .subscribe((res: HttpResponse<User[]>) => { this.users = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
     }

@@ -5,36 +5,23 @@
 	</div>
 	<div class="col-md-7" *ngSwitchCase="true">
 		<div class="form-group">
-			<input class="col-md-6" type="search" ng-model="vm.query"
-				placeholder="Search Articles" ng-keyup="vm.search()" />
+			<input class="col-md-6" type="search" [(ngModel)]="searchString"
+				placeholder="Search Articles" />
+
+			<button type="button" class="btn btn-info" (click)="searchTitle(searchString)">
+				<span class="glyphicon glyphicon-search"></span> Search
+			</button>
 		</div>
+
 		<div class="form-group">
-			<div class="row">
-				<div class="col-sm">
-					<label class="font-weight-bold">Recent Articles</label>
-					<div *ngFor="let article of recentArticles">
-						<label>{{article.title}}</label>
-					</div>
-				</div>
-				<div class="col-sm">
-					<label class="font-weight-bold">Frequent Articles</label>
-				</div>
-			</div>
+			<label class="col-md-5 font-weight-bold">Recent Articles</label> <label
+				class="col-md-5 font-weight-bold">Frequent Articles</label>
 		</div>
 		<div style="margin-top: 300px"></div>
 		<!-- Temporary space until content is loaded  -->
 		<div class="form-group">
-			<div class="row">
-				<div class="col-sm">
-					<label class="font-weight-bold">Recent Knowledge Areas</label>
-				</div>
-				<div class="col-sm">
-					<label class="font-weight-bold">Recent Tags</label>
-					<div *ngFor="let tag of recentTags">
-						<label>{{tag.name}}</label>
-					</div>
-				</div>
-			</div>
+			<label class="col-md-5 font-weight-bold">Recent Knowledge
+				Areas</label> <label class="col-md-5 font-weight-bold">Recent Tags</label>
 		</div>
 		<div style="margin-top: 300px"></div>
 		<!-- Temporary space until content is loaded  -->

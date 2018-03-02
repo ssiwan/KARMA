@@ -7,6 +7,7 @@ import {
     ArticleService,
     ArticlePopupService,
     ArticleComponent,
+    ArticleListComponent,
     ArticleDetailComponent,
     ArticleDialogComponent,
     ArticlePopupComponent,
@@ -29,6 +30,7 @@ const ENTITY_STATES = [
     ],
     declarations: [
         ArticleComponent,
+        ArticleListComponent,
         ArticleDetailComponent,
         ArticleDialogComponent,
         ArticleDeleteDialogComponent,
@@ -37,6 +39,7 @@ const ENTITY_STATES = [
     ],
     entryComponents: [
         ArticleComponent,
+        ArticleListComponent,
         ArticleDialogComponent,
         ArticlePopupComponent,
         ArticleDeleteDialogComponent,

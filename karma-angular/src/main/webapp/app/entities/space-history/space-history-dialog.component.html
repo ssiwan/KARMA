@@ -32,7 +32,7 @@
 
         <div class="form-group">
             <label class="form-control-label" for="field_space">Space</label>
-            <select class="form-control" id="field_space" name="space" [(ngModel)]="spaceHistory.space">
+            <select class="form-control" id="field_space" name="space" [(ngModel)]="spaceHistory.space" >
                 <option [ngValue]="null"></option>
                 <option [ngValue]="spaceOption.id === spaceHistory.space?.id ? spaceHistory.space : spaceOption" *ngFor="let spaceOption of spaces; trackBy: trackSpaceById">{{spaceOption.id}}</option>
             </select>
