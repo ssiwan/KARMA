@@ -4,7 +4,7 @@ import com.stanfieldsystems.karma.domain.TagHistory;
 import org.springframework.stereotype.Repository;
 
 import org.springframework.data.jpa.repository.*;
-
+import java.util.List;
 
 /**
  * Spring Data JPA repository for the TagHistory entity.
@@ -12,5 +12,8 @@ import org.springframework.data.jpa.repository.*;
 @SuppressWarnings("unused")
 @Repository
 public interface TagHistoryRepository extends JpaRepository<TagHistory, Long> {
+
+    @Query("select tag_history from TagHistory tag_history where tag_history.user.login = ?#{principal.username}")
+    List<TagHistory> findByUserIsCurrentUser();
 
 }

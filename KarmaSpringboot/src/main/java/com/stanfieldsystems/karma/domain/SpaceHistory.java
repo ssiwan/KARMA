@@ -26,12 +26,10 @@ public class SpaceHistory implements Serializable {
     @Column(name = "date_accessed", nullable = false)
     private ZonedDateTime dateAccessed;
 
-    @OneToOne
-    @JoinColumn(unique = true)
+    @ManyToOne
     private Space space;
 
-    @OneToOne
-    @JoinColumn(unique = true)
+    @ManyToOne
     private User user;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

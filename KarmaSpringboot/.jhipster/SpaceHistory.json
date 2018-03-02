@@ -2,20 +2,16 @@
     "fluentMethods": true,
     "relationships": [
         {
-            "relationshipType": "one-to-one",
+            "relationshipType": "many-to-one",
             "relationshipName": "space",
             "otherEntityName": "space",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "spaceHistory"
+            "otherEntityField": "id"
         },
         {
-            "relationshipType": "one-to-one",
+            "relationshipType": "many-to-one",
             "relationshipName": "user",
             "otherEntityName": "user",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "spaceHistory"
+            "otherEntityField": "id"
         }
     ],
     "fields": [
