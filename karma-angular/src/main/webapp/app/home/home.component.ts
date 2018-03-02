@@ -1,10 +1,11 @@
-import {Article} from '../entities/article';
+import {ArticleService} from '../entities/article/article.service';
 import {Component, OnInit} from '@angular/core';
 import {NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
 import {JhiEventManager, JhiAlertService} from 'ng-jhipster';
 
 import {Account, LoginModalService, Principal} from '../shared';
-import {ArticleService} from '../entities/article/article.service';
+
+import {Article} from '../entities/article/article.model';
 import {HttpErrorResponse} from '@angular/common/http';
 import {HttpResponse} from '@angular/common/http';
 
@@ -19,16 +20,18 @@ import {HttpResponse} from '@angular/common/http';
 export class HomeComponent implements OnInit {
   account: any;
   modalRef: NgbModalRef;
+  searchArticles: Article[];
+  searchString: string;
   recentArticles: Article[];
 
   constructor(
     private principal: Principal,
     private loginModalService: LoginModalService,
-    private eventManager: JhiEventManager,
     private articleService: ArticleService,
-    private jhiAlertService: JhiAlertService,
+    private eventManager: JhiEventManager,
+    private jhiAlertService: JhiAlertService
   ) {
-    this.recentArticles = [];
+
   }
 
   ngOnInit() {
@@ -37,6 +40,9 @@ export class HomeComponent implements OnInit {
       this.getRecentArtices();
     });
     this.registerAuthenticationSuccess();
+
+    this.searchArticles = [];
+    this.searchString = '';
   }
 
   registerAuthenticationSuccess() {
@@ -55,6 +61,13 @@ export class HomeComponent implements OnInit {
     this.modalRef = this.loginModalService.open();
   }
 
+  searchTitle(searchString: string) {
+    this.articleService.search(searchString).subscribe(
+      (res: HttpResponse<Article[]>) => this.onSuccess(res.body, res.headers),
+      (res: HttpErrorResponse) => this.onError(res.message)
+    );
+  }
+
   getRecentArtices() {
     this.articleService.findRecentlyAccessed(this.account.id).subscribe(
       (res: HttpResponse<Article[]>) => this.recentAccessedOnSuccess(res.body, res.headers),
@@ -62,12 +75,19 @@ export class HomeComponent implements OnInit {
     );
   }
 
+  private onSuccess(data, headers) {
+    //        this.links = this.parseLinks.parse(headers.get('link'));
+    //        this.totalItems = headers.get('X-Total-Count');
+    for (let i = 0; i < data.length; i++) {
+      this.searchArticles.push(data[i]);
+    }
+  }
+
   private recentAccessedOnSuccess(data, headers) {
     for (let i = 0; i < data.length; i++) {
       this.recentArticles.push(data[i]);
     }
   }
-
   private onError(error) {
     this.jhiAlertService.error(error.message, null, null);
   }

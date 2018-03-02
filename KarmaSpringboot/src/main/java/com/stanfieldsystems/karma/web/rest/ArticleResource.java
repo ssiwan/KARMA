@@ -123,7 +123,6 @@ public class ArticleResource {
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(article));
     }
     
-    
     /**
      * GET  /articles/:searchTitle : get Articles matching the "searchTitle".
      *
@@ -138,7 +137,7 @@ public class ArticleResource {
     	return new ResponseEntity<>(articles, HttpStatus.OK);
     }
     
-    /**
+	/**
      * GET /articles/recentlyAccessed/:userId : get recently accessed articles for a specific user.
      *
      * @param Long the userId of the user to retrieve recently accessed article history 
@@ -161,7 +160,7 @@ public class ArticleResource {
     	
     	return new ResponseEntity<>(articles, HttpStatus.OK);
     }
-
+    
     /**
      * DELETE  /articles/:id : delete the "id" article.
      *
