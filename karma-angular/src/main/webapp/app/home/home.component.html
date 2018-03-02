@@ -24,8 +24,17 @@
 		<div style="margin-top: 300px"></div>
 		<!-- Temporary space until content is loaded  -->
 		<div class="form-group">
-			<label class="col-md-5 font-weight-bold">Recent Knowledge
-				Areas</label> <label class="col-md-5 font-weight-bold">Recent Tags</label>
+			<div class="row">
+				<div class="col-sm">
+					<label class="font-weight-bold">Recent Knowledge Areas</label>
+				</div>
+				<div class="col-sm">
+					<label class="font-weight-bold">Recent Tags</label>
+					<div *ngFor="let tag of recentTags">
+						<label>{{tag.name}}</label>
+					</div>
+				</div>
+			</div>
 		</div>
 		<div style="margin-top: 300px"></div>
 		<!-- Temporary space until content is loaded  -->

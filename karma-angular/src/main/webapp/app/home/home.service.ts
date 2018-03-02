@@ -26,9 +26,4 @@ export class HomeService {
     return this.articleService.search(searchString);
   }
 
-  findRecentlyAccessed(userId: number): Observable<HttpResponse<Article[]>> {
-    return this.articleService.findRecentlyAccessed(userId);
-  }
-
-
 }

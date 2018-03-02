@@ -150,7 +150,7 @@ public class ArticleResource {
     	Date threeMonthsago = DateUtils.addMonths(new Date(), -3);
         ZonedDateTime monthsAgo = threeMonthsago.toInstant().atZone(ZoneId.systemDefault());
         
-        List<ArticleHistory> listOfArticleHistory = articleHistoryRepository.findRecentlyAccessedArticles(new Long(4), monthsAgo);
+        List<ArticleHistory> listOfArticleHistory = articleHistoryRepository.findRecentlyAccessedArticles(userId, monthsAgo);
         List<Article> articles = new ArrayList<Article>();
         
         for(ArticleHistory articleHistroy : listOfArticleHistory){

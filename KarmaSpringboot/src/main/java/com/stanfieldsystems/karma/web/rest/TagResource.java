@@ -1,13 +1,19 @@
 package com.stanfieldsystems.karma.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import com.stanfieldsystems.karma.domain.Article;
+import com.stanfieldsystems.karma.domain.ArticleHistory;
 import com.stanfieldsystems.karma.domain.Tag;
-
+import com.stanfieldsystems.karma.domain.TagHistory;
+import com.stanfieldsystems.karma.repository.ArticleHistoryRepository;
+import com.stanfieldsystems.karma.repository.TagHistoryRepository;
 import com.stanfieldsystems.karma.repository.TagRepository;
 import com.stanfieldsystems.karma.web.rest.errors.BadRequestAlertException;
 import com.stanfieldsystems.karma.web.rest.util.HeaderUtil;
 import com.stanfieldsystems.karma.web.rest.util.PaginationUtil;
 import io.github.jhipster.web.util.ResponseUtil;
+
+import org.apache.commons.lang3.time.DateUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -20,7 +26,10 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
-
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -36,9 +45,12 @@ public class TagResource {
     private static final String ENTITY_NAME = "tag";
 
     private final TagRepository tagRepository;
+    
+    private final TagHistoryRepository tagHistoryRepository;
 
-    public TagResource(TagRepository tagRepository) {
+    public TagResource(TagRepository tagRepository, TagHistoryRepository tagHistoryRepository) {
         this.tagRepository = tagRepository;
+        this.tagHistoryRepository = tagHistoryRepository;
     }
 
     /**
@@ -124,5 +136,29 @@ public class TagResource {
         log.debug("REST request to delete Tag : {}", id);
         tagRepository.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
+    }
+    
+    /**
+     * GET /tags/recentlyAccessed/:userId : get recently accessed articles for a specific user.
+     *
+     * @param Long the userId of the user to retrieve recently accessed tag history 
+     * @return the ResponseEntity with status 200 (OK) and with body of list of articles, or with status 404 (Not Found)
+     */
+    @GetMapping("/tags/recentlyAccessed/{userId}")
+    @Timed
+    public ResponseEntity<List<Tag>> getRecentlyAccessedArticles(@PathVariable Long userId) {
+    	log.debug("REST request to get page of Articles");
+    	Date threeMonthsago = DateUtils.addMonths(new Date(), -3);
+        ZonedDateTime monthsAgo = threeMonthsago.toInstant().atZone(ZoneId.systemDefault());
+        
+        List<TagHistory> listOfTagHistory = tagHistoryRepository.findRecentlyAccessedTags(userId, monthsAgo);
+        List<Tag> tags = new ArrayList<Tag>();
+        
+        for(TagHistory tagHistroy : listOfTagHistory){
+        	Tag newTag = tagRepository.findOne(tagHistroy.getTag().getId());
+        	tags.add(newTag);
+        }
+    	
+    	return new ResponseEntity<>(tags, HttpStatus.OK);
     }
 }

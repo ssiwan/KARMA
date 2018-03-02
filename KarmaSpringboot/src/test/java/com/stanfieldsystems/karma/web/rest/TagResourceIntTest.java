@@ -3,6 +3,7 @@ package com.stanfieldsystems.karma.web.rest;
 import com.stanfieldsystems.karma.KarmaSpringbootApp;
 
 import com.stanfieldsystems.karma.domain.Tag;
+import com.stanfieldsystems.karma.repository.TagHistoryRepository;
 import com.stanfieldsystems.karma.repository.TagRepository;
 import com.stanfieldsystems.karma.web.rest.errors.ExceptionTranslator;
 
@@ -45,6 +46,9 @@ public class TagResourceIntTest {
     private TagRepository tagRepository;
 
     @Autowired
+    private TagHistoryRepository tagHistoryRepository;
+    
+    @Autowired
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
 
     @Autowired
@@ -63,7 +67,7 @@ public class TagResourceIntTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final TagResource tagResource = new TagResource(tagRepository);
+        final TagResource tagResource = new TagResource(tagRepository, tagHistoryRepository);
         this.restTagMockMvc = MockMvcBuilders.standaloneSetup(tagResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)
