@@ -1,24 +1,32 @@
 <div>
     <h1 style="color:#007bff;font-weight:bold">
         <span>Knowledge Articles</span>
-        <button class="btn btn-primary float-right jh-create-entity create-article" [routerLink]="['/', { outlets: { popup: ['article-new'] } }]">
+        <button class="btn btn-primary float-right jh-create-entity create-space" [routerLink]="['/', { outlets: { popup: ['space-new'] } }]">
             <span class="fa fa-plus"></span>
             <span >
-            Create new Article
+            Create new Knowledge Article
             </span>
         </button>
     </h1>
-    <div><p></p></div>
     <jhi-alert></jhi-alert>
     <div class="row">
+    </div>
     <br/>
     <div class="table-responsive" *ngIf="articles">
-		<div infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
-        	<div  *ngFor="let article of articles; trackBy: trackId">
-            	<h2 style="font-weight:bold">{{article.title}}</h2>
-            	<small>Created on {{article.date | date: 'short'}} by {{article.space.user.login}}</small>
-            	<div [innerHTML]="article.content"></div>
-            	<div class="btn-group flex-btn-group-container"">
+        <table class="table table-striped">
+            <thead>
+            </thead>
+            <tbody>
+            <tr *ngFor="let article of articles ;trackBy: trackId">
+               <td><h3><a [routerLink]="['../article', article.id ]">{{article.title}}</a></h3></td>
+               <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../article', article.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
                         <button type="submit"
                                 [routerLink]="['/', { outlets: { popup: 'article/'+ article.id + '/edit'} }]"
                                 replaceUrl="true"
@@ -35,7 +43,10 @@
                             <span class="fa fa-remove"></span>
                             <span class="d-none d-md-inline">Delete</span>
                         </button>
-            	</div>
-        	</div>
-    	</div>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
