@@ -39,6 +39,11 @@ export class ArticleService {
             .map((res: EntityResponseType) => this.convertResponse(res));
     }
 
+    findRecentlyAccessed(userId: number): Observable<HttpResponse<Article[]>> {
+      return this.http.get<Article[]>(`${this.resourceUrl}/recentlyAccessed/${userId}`, { observe: 'response'})
+            .map((res: HttpResponse<Article[]>) => this.convertArrayResponse(res));
+    }
+
     query(req?: any): Observable<HttpResponse<Article[]>> {
         const options = createRequestOption(req);
         return this.http.get<Article[]>(this.resourceUrl, { params: options, observe: 'response' })

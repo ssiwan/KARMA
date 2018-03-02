@@ -8,19 +8,27 @@
 			<input class="col-md-6" type="search" ng-model="vm.query"
 				placeholder="Search Articles" ng-keyup="vm.search()" />
 		</div>
-		
 		<div class="form-group">
-			<label class="col-md-5 font-weight-bold">Recent Articles</label>
-
-			<label class="col-md-5 font-weight-bold">Frequent Articles</label>
+			<div class="row">
+				<div class="col-sm">
+					<label class="font-weight-bold">Recent Articles</label>
+					<div *ngFor="let article of recentArticles">
+						<label>{{article.title}}</label>
+					</div>
+				</div>
+				<div class="col-sm">
+					<label class="font-weight-bold">Frequent Articles</label>
+				</div>
+			</div>
 		</div>
-		<div style="margin-top:300px"></div> <!-- Temporary space until content is loaded  -->
+		<div style="margin-top: 300px"></div>
+		<!-- Temporary space until content is loaded  -->
 		<div class="form-group">
-			<label class="col-md-5 font-weight-bold">Recent Knowledge Areas</label>
-
-			<label class="col-md-5 font-weight-bold">Recent Tags</label>
+			<label class="col-md-5 font-weight-bold">Recent Knowledge
+				Areas</label> <label class="col-md-5 font-weight-bold">Recent Tags</label>
 		</div>
-		<div style="margin-top:300px"></div> <!-- Temporary space until content is loaded  -->
+		<div style="margin-top: 300px"></div>
+		<!-- Temporary space until content is loaded  -->
 	</div>
 	<div class="col-md-6" *ngSwitchCase="false">
 		<h1 id="welcomeHeader" class="display-4">Welcome to KARMA</h1>
