@@ -18,6 +18,7 @@ import { KarmaAngularAdminModule } from './admin/admin.module';
 import { KarmaAngularAccountModule } from './account/account.module';
 import { KarmaAngularEntityModule } from './entities/entity.module';
 import { PaginationConfig } from './blocks/config/uib-pagination.config';
+import { Data } from './data';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import {
     JhiMainComponent,
@@ -48,6 +49,7 @@ import {
         FooterComponent
     ],
     providers: [
+        Data,
         ProfileService,
         PaginationConfig,
         UserRouteAccessService,

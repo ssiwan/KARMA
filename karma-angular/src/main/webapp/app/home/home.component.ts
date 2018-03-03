@@ -1,3 +1,4 @@
+import { Data } from '../data';
 import {ArticleService} from '../entities/article/article.service';
 import {Component, OnInit} from '@angular/core';
 import {NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
@@ -9,6 +10,7 @@ import {Article} from '../entities/article/article.model';
 import {TagService, Tag} from '../entities/tag';
 import {HttpErrorResponse} from '@angular/common/http';
 import {HttpResponse} from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'jhi-home',
@@ -32,7 +34,9 @@ export class HomeComponent implements OnInit {
     private articleService: ArticleService,
     private eventManager: JhiEventManager,
     private jhiAlertService: JhiAlertService,
-    private tagService: TagService
+    private tagService: TagService,
+    private data: Data,
+    private router: Router
   ) {
 
   }
@@ -77,7 +81,7 @@ export class HomeComponent implements OnInit {
 
   searchTitle(searchString: string) {
     this.articleService.search(searchString).subscribe(
-      (res: HttpResponse<Article[]>) => this.onSuccess(res.body, res.headers),
+      (res: HttpResponse<Article[]>) => this.searchTitleOnSuccess(res.body, res.headers),
       (res: HttpErrorResponse) => this.onError(res.message)
     );
   }
@@ -96,12 +100,12 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  private onSuccess(data, headers) {
-    //        this.links = this.parseLinks.parse(headers.get('link'));
-    //        this.totalItems = headers.get('X-Total-Count');
+  private searchTitleOnSuccess(data, headers) {
     for (let i = 0; i < data.length; i++) {
       this.searchArticles.push(data[i]);
     }
+    this.data.storage = this.searchArticles;
+    this.router.navigate(['/article-list']);
   }
 
   private recentAccessedOnSuccess(data, headers) {

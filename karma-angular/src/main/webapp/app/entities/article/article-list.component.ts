@@ -1,3 +1,4 @@
+import { Data } from '../../data';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Subscription } from 'rxjs/Subscription';
@@ -30,7 +31,8 @@ export class ArticleListComponent implements OnInit, OnDestroy {
         private dataUtils: JhiDataUtils,
         private eventManager: JhiEventManager,
         private parseLinks: JhiParseLinks,
-        private principal: Principal
+        private principal: Principal,
+        private data: Data
     ) {
         this.articles = [];
         this.itemsPerPage = ITEMS_PER_PAGE;
@@ -40,18 +42,23 @@ export class ArticleListComponent implements OnInit, OnDestroy {
         };
         this.predicate = 'id';
         this.reverse = true;
+
+        if (this.data.storage) {
+          this.articles = this.data.storage;
+        }
     }
 
     loadAll() {
-        this.articleService.query({
-            page: this.page,
-            size: this.itemsPerPage,
-            sort: this.sort()
-        }).subscribe(
-            (res: HttpResponse<Article[]>) => this.onSuccess(res.body, res.headers),
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
-    }
+//        this.articleService.query({
+//            page: this.page,
+//            size: this.itemsPerPage,
+//            sort: this.sort()
+//        }).subscribe(
+//            (res: HttpResponse<Article[]>) => this.onSuccess(res.body, res.headers),
+//            (res: HttpErrorResponse) => this.onError(res.message)
+//        );
+
+   }
 
     reset() {
         this.page = 0;
