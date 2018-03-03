@@ -3,7 +3,9 @@ package com.stanfieldsystems.karma.web.rest;
 import com.stanfieldsystems.karma.KarmaSpringbootApp;
 
 import com.stanfieldsystems.karma.domain.Article;
+import com.stanfieldsystems.karma.repository.ArticleHistoryRepository;
 import com.stanfieldsystems.karma.repository.ArticleRepository;
+import com.stanfieldsystems.karma.repository.TagHistoryRepository;
 import com.stanfieldsystems.karma.web.rest.errors.ExceptionTranslator;
 
 import org.junit.Before;
@@ -55,6 +57,12 @@ public class ArticleResourceIntTest {
 
     @Autowired
     private ArticleRepository articleRepository;
+    
+    @Autowired
+    private ArticleHistoryRepository articleHistoryRepository;
+    
+    @Autowired
+    private TagHistoryRepository tagHistoryRepository;
 
     @Autowired
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
@@ -75,7 +83,7 @@ public class ArticleResourceIntTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final ArticleResource articleResource = new ArticleResource(articleRepository);
+        final ArticleResource articleResource = new ArticleResource(articleRepository, articleHistoryRepository, tagHistoryRepository);
         this.restArticleMockMvc = MockMvcBuilders.standaloneSetup(articleResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)

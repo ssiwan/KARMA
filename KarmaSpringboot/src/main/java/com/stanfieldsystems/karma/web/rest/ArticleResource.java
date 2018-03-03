@@ -2,8 +2,12 @@ package com.stanfieldsystems.karma.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import com.stanfieldsystems.karma.domain.Article;
-
+import com.stanfieldsystems.karma.domain.ArticleHistory;
+import com.stanfieldsystems.karma.domain.Tag;
+import com.stanfieldsystems.karma.domain.TagHistory;
+import com.stanfieldsystems.karma.repository.ArticleHistoryRepository;
 import com.stanfieldsystems.karma.repository.ArticleRepository;
+import com.stanfieldsystems.karma.repository.TagHistoryRepository;
 import com.stanfieldsystems.karma.web.rest.errors.BadRequestAlertException;
 import com.stanfieldsystems.karma.web.rest.util.HeaderUtil;
 import com.stanfieldsystems.karma.web.rest.util.PaginationUtil;
@@ -25,6 +29,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -42,9 +47,15 @@ public class ArticleResource {
     private static final String ENTITY_NAME = "article";
 
     private final ArticleRepository articleRepository;
+    
+    private final ArticleHistoryRepository articleHistoryRepository;
+    
+    private final TagHistoryRepository tagHistoryRepository;
 
-    public ArticleResource(ArticleRepository articleRepository) {
+    public ArticleResource(ArticleRepository articleRepository, ArticleHistoryRepository articleHistoryRepository, TagHistoryRepository tagHistoryRepository) {
         this.articleRepository = articleRepository;
+        this.articleHistoryRepository = articleHistoryRepository;
+        this.tagHistoryRepository = tagHistoryRepository;
     }
 
     /**
@@ -115,6 +126,27 @@ public class ArticleResource {
     public ResponseEntity<Article> getArticle(@PathVariable Long id) {
         log.debug("REST request to get Article : {}", id);
         Article article = articleRepository.findOneWithEagerRelationships(id);
+        
+        if(article != null) {
+        	ArticleHistory articleHistory = new ArticleHistory();
+        	articleHistory.setDateAccessed(ZonedDateTime.now(ZoneId.systemDefault()));
+        	articleHistory.setArticle(article);
+        	articleHistory.setUser(article.getUser());
+        	articleHistoryRepository.save(articleHistory);
+        	
+        	List<Tag> tags = new ArrayList<Tag>(article.getTags());
+        	for(Tag tag : tags) {
+        		TagHistory tagHistory = new TagHistory();
+            	tagHistory.setDateAccessed(ZonedDateTime.now(ZoneId.systemDefault()));
+            	tagHistory.setTag(tag);
+            	tagHistory.setUser(article.getUser());
+            	tagHistoryRepository.save(tagHistory);
+        	}
+        	
+        	
+        	//tagHistoryRepository
+        }
+        
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(article));
     }
     

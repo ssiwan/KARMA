@@ -19,7 +19,8 @@
 				<div class="col-sm">
 					<label class="font-weight-bold">Recent Articles</label>
 					<div *ngFor="let article of recentArticles">
-						<label>{{article.title}}</label>
+						<a class="font-weight-normal btn btn-link" 
+						[routerLink]="['../article', article.id ]">{{article.title}}</a>
 					</div>
 				</div>
 				<div class="col-sm">
