@@ -138,13 +138,13 @@ public class ArticleResource {
      *
      * @return the ResponseEntity with status 200 (OK) and with body of list of articles, or with status 404 (Not Found)
      */
-//    @GetMapping("/articles/frequent/")
-//    @Timed
-//    public ResponseEntity<List<Article>> getAllArticlesWhereTitleContains() {
-//    	log.debug("REST request to get page of Articles");
-//    	List<Article> articles = articleRepository.findFrequentArticles();
-//    	return new ResponseEntity<>(articles, HttpStatus.OK);
-//    }
+    @GetMapping("/articles/frequent/")
+    @Timed
+    public ResponseEntity<List<Article>> getTopFrequentArticles() {
+    	log.debug("REST request to get page of Articles");
+    	List<Article> articles = articleRepository.findFrequentArticles();
+    	return new ResponseEntity<>(articles, HttpStatus.OK);
+    }
 
     /**
      * GET  /articles/:searchSpace : get Articles matching the "searchSpace".
