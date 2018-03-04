@@ -142,10 +142,23 @@ public class ArticleResource {
             	tagHistory.setUser(article.getUser());
             	tagHistoryRepository.save(tagHistory);
         	}
-        	
-        	
-        	//tagHistoryRepository
         }
+        
+        return ResponseUtil.wrapOrNotFound(Optional.ofNullable(article));
+    }
+    
+    /**
+     * GET  /articles/:tagId : get the "tagId" article.
+     *
+     * @param tagId the tagId associated with the article to retrieve
+     * @return the ResponseEntity with status 200 (OK) and with body the article, or with status 404 (Not Found)
+     */
+    @GetMapping("/articles/tag/{id}")
+    @Timed
+    public ResponseEntity<Article> getArticleByTagId(@PathVariable Long id) {
+        log.debug("REST request to get Article : {}", id);
+        
+        Article article = articleRepository.findArticleByTagId(id);
         
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(article));
     }

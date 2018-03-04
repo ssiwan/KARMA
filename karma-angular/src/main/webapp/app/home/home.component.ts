@@ -100,6 +100,13 @@ export class HomeComponent implements OnInit {
     );
   }
 
+  getArticleByTag(tagId) {
+    this.articleService.searchByTagId(tagId).subscribe(
+      (res: HttpResponse<Article>) => this.getArticleLinkByTag(res.body, res.headers),
+      (res: HttpErrorResponse) => this.onError(res.message)
+    );
+  }
+
   private searchTitleOnSuccess(data, headers) {
     for (let i = 0; i < data.length; i++) {
       this.searchArticles.push(data[i]);
@@ -118,6 +125,10 @@ export class HomeComponent implements OnInit {
     for (let i = 0; i < data.length; i++) {
       this.recentTags.push(data[i]);
     }
+  }
+
+  private getArticleLinkByTag(data, headers) {
+    this.router.navigate(['/article', data.id]);
   }
 
   private onError(error) {

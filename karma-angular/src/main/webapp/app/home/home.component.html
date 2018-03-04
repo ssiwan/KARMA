@@ -38,7 +38,8 @@
 				<div class="col-sm">
 					<label class="font-weight-bold">Recent Tags</label>
 					<div *ngFor="let tag of recentTags">
-						<label>{{tag.name}}</label>
+						<a class="font-weight-normal btn btn-link" 
+						  [routerLink]="" (click)="getArticleByTag(tag.id)">{{tag.name}}</a>
 					</div>
 				</div>
 			</div>

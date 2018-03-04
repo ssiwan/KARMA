@@ -49,6 +49,11 @@ export class ArticleService {
             .map((res: HttpResponse<Article[]>) => this.convertArrayResponse(res));
     }
 
+    searchByTagId(tagId: number): Observable<EntityResponseType> {
+     return this.http.get<Article>(`${this.resourceUrl}/tag/${tagId}`, { observe: 'response'})
+          .map((res: EntityResponseType) => this.convertResponse(res));
+    }
+
    query(req?: any): Observable<HttpResponse<Article[]>> {
         const options = createRequestOption(req);
         return this.http.get<Article[]>(this.resourceUrl, { params: options, observe: 'response' })

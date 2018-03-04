@@ -50,4 +50,8 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
     		"Group By ID" + 
     		"ORDER BY Count(*) DESC LIMIT 5", nativeQuery = true)
     List<Article> findFrequentArticles();
+    
+    @Query(value= "SELECT * FROM ARTICLE WHERE ID IN "
+    		+ "(SELECT ARTICLES_ID FROM ARTICLE_TAG where TAGS_ID = :tagId)", nativeQuery = true)
+    Article findArticleByTagId(@Param("tagId") Long tagId);
 }
