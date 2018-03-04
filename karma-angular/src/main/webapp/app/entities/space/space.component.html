@@ -22,8 +22,7 @@
             </thead>
             <tbody>
             <tr *ngFor="let space of spaces ;trackBy: trackId">
-               <td><a href="https://github.com/StanfieldSystems/KARMA"
-				       target="_blank" rel="noopener">{{space.name}}</a></td>
+               <td><h3><a [routerLink]="['../space', space.id ]">{{space.name}}</a></h3></td>
                <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"
