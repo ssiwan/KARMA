@@ -28,6 +28,10 @@
 				</div>
 				<div class="col-sm">
 					<label class="font-weight-bold">Frequent Articles</label>
+					<div *ngFor="let article of frequentArticles">
+						<label>{{article.title}}</label>
+					</div>
+					
 				</div>
 			</div>
 		</div>

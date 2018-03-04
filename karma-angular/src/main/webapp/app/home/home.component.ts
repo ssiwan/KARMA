@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit {
   searchString: string;
   recentArticles: Article[];
   recentTags: Tag[];
+  frequentArticles: Article[];
 
   constructor(
     private principal: Principal,
@@ -45,8 +46,9 @@ export class HomeComponent implements OnInit {
     this.principal.identity().then((account) => {
       this.account = account;
       if (this.account != null) {
-        this.getRecentArtices();
+        this.getRecentArticles();
         this.getRecentTags();
+        this.getFrequentArticles();
       }
     });
     this.registerAuthenticationSuccess();
@@ -55,6 +57,7 @@ export class HomeComponent implements OnInit {
     this.searchString = '';
     this.recentArticles = [];
     this.recentTags = [];
+    this.frequentArticles = [];
   }
 
   registerAuthenticationSuccess() {
@@ -64,8 +67,10 @@ export class HomeComponent implements OnInit {
         if (this.account != null) {
           this.recentArticles = [];
           this.recentTags = [];
-          this.getRecentArtices();
+          this.frequentArticles = [];
+          this.getRecentArticles();
           this.getRecentTags();
+          this.getFrequentArticles();
         }
       });
     });
@@ -86,9 +91,16 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  getRecentArtices() {
+  getRecentArticles() {
     this.articleService.findRecentlyAccessed(this.account.id).subscribe(
       (res: HttpResponse<Article[]>) => this.recentAccessedOnSuccess(res.body, res.headers),
+      (res: HttpErrorResponse) => this.onError(res.message)
+    );
+  }
+
+  getFrequentArticles() {
+    this.articleService.findFrequentlyAccessed().subscribe(
+      (res: HttpResponse<Article[]>) => this.frequentAccessedOnSuccess(res.body, res.headers),
       (res: HttpErrorResponse) => this.onError(res.message)
     );
   }
@@ -118,6 +130,12 @@ export class HomeComponent implements OnInit {
   private recentAccessedOnSuccess(data, headers) {
     for (let i = 0; i < data.length; i++) {
       this.recentArticles.push(data[i]);
+    }
+  }
+
+  private frequentAccessedOnSuccess(data, headers) {
+    for (let i = 0; i < data.length; i++) {
+      this.frequentArticles.push(data[i]);
     }
   }
 

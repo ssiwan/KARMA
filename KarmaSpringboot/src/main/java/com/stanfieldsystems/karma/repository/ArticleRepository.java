@@ -26,7 +26,7 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
     @Query("select article from Article article left join fetch article.tags left join fetch article.articleTypes where article.id =:id")
     Article findOneWithEagerRelationships(@Param("id") Long id);
     
-    @Query("select article from Article article where article.title like CONCAT('%',:searchString,'%')")
+    @Query("select article from Article article where Lower(article.title) like Lower(CONCAT('%',:searchString,'%'))")
     List<Article> findAllByTitleContains(@Param("searchString") String searchString);
     
     @Query("select article from Article article where article.space =:searchString")
@@ -45,10 +45,11 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
         List<Article> findRecentlyAccessedArticles(@Param("userId") Long userId, @Param("monthsAgo") ZonedDateTime monthsAgo);  
             
 
-    @Query(value = "Select article.Id, Count(*) From  (" + 
-    		"Select a.iD FROM Article a Inner Join ArticleHistor ah ON a.iD = ah.articleID where ah.dateAccessed >  DATEADD(month, -3, GETDATE())) b" + 
-    		"Group By ID" + 
-    		"ORDER BY Count(*) DESC LIMIT 5", nativeQuery = true)
+    @Query(value = "Select article.* from Article article where article.Id In (\r\n" + 
+    		"Select b.Id From  ( \r\n" + 
+    		"    		Select a.iD FROM Article a Inner Join Article_History ah ON a.ID = ah.ARTICLE_ID where ah.DATE_ACCESSED  >  DATEADD(month, -3, GETDATE())) b \r\n" + 
+    		"    		Group By ID  \r\n" + 
+    		"    		ORDER BY Count(*) DESC LIMIT 10 )", nativeQuery = true)
     List<Article> findFrequentArticles();
     
     @Query(value= "SELECT * FROM ARTICLE WHERE ID IN "
