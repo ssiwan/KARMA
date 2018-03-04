@@ -29,14 +29,14 @@
 				<div class="col-sm">
 					<label class="font-weight-bold">Frequent Articles</label>
 					<div *ngFor="let article of frequentArticles">
-						<label>{{article.title}}</label>
+						<a class="font-weight-normal btn btn-link" 
+						[routerLink]="['../article', article.id ]">{{article.title}}</a>
 					</div>
 					
 				</div>
 			</div>
 		</div>
-		<div style="margin-top: 300px"></div>
-		<!-- Temporary space until content is loaded  -->
+		<div style="margin-top: 50px"></div>
 		<div class="form-group">
 			<div class="row">
 				<div class="col-sm">
@@ -54,8 +54,7 @@
 				</div>
 			</div>
 		</div>
-		<div style="margin-top: 300px"></div>
-		<!-- Temporary space until content is loaded  -->
+		<div style="margin-top: 50px"></div>
 	</div>
 	<div class="col-md-6" *ngSwitchCase="false">
 		<h1 id="welcomeHeader" class="display-4">Welcome to KARMA</h1>
