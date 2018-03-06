@@ -205,6 +205,19 @@ public class ArticleResource {
     	return new ResponseEntity<>(articles, HttpStatus.OK);
     }
     
+    /**
+     * GET  /articles/:countBySpace : get count of Articles matching the "spaceId".
+     *
+     * @param id of the space of the article to retrieve
+     * @return the ResponseEntity with status 200 (OK) and with body of count, or with status 404 (Not Found)
+     */
+    @GetMapping("/articles/countBySpace/{spaceId}")
+    @Timed
+    public ResponseEntity<Integer> getAllArticlesWhereSpaceContains(@PathVariable int spaceId) {
+    	log.debug("REST request to get page of Articles by Space");
+    	int count = articleRepository.getArticleCountBySpaceId(spaceId);
+    	return new ResponseEntity<>(count, HttpStatus.OK);
+    }
     
     /** 
      * GET /articles/recentlyAccessed/:userId : get recently accessed articles for a specific user. 
