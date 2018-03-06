@@ -58,12 +58,16 @@ export class ArticleComponent implements OnInit, OnDestroy {
     reset() {
         this.page = 0;
         this.articles = [];
-        this.loadAll();
+        if (this.data.storage) {
+            this.articles = this.data.storage;
+        } else {
+            this.loadAll();
+        }
     }
 
     loadPage( page ) {
         this.page = page;
-        if ( this.data.storage ) {
+        if (this.data.storage) {
             this.articles = this.data.storage;
         } else {
             this.loadAll();
@@ -71,7 +75,11 @@ export class ArticleComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        this.loadAll();
+        if (this.data.storage) {
+            this.articles = this.data.storage;
+        } else {
+            this.loadAll();
+        }
         this.principal.identity().then((account) => {
             this.currentAccount = account;
         });
