@@ -155,12 +155,12 @@ public class ArticleResource {
      */
     @GetMapping("/articles/tag/{id}")
     @Timed
-    public ResponseEntity<Article> getArticleByTagId(@PathVariable Long id) {
+    public ResponseEntity<List<Article>> getArticleByTagId(@PathVariable Long id) {
         log.debug("REST request to get Article : {}", id);
         
-        Article article = articleRepository.findArticleByTagId(id);
+        List<Article> articles = articleRepository.findArticleByTagId(id);
         
-        return ResponseUtil.wrapOrNotFound(Optional.ofNullable(article));
+        return new ResponseEntity<>(articles, HttpStatus.OK);
     }
     
     

@@ -7,11 +7,6 @@
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
-        <div class="form-group" [hidden]="!article.id">
-            <label for="id">ID</label>
-            <input type="text" class="form-control" id="id" name="id"
-                   [(ngModel)]="article.id" readonly />
-        </div>
         <div class="form-group">
             <label class="form-control-label" for="field_title">Title</label>
             <input type="text" class="form-control" name="title" id="field_title"
@@ -35,7 +30,7 @@
             </div>
         </div>
          <div class="form-group">
-            <label class="form-control-label" for="field_space">Space</label>
+            <label class="form-control-label" for="field_space">Knowledge Area</label>
             <select class="form-control" id="field_space" name="space" [(ngModel)]="article.space" >
                 <option [ngValue]="null"></option>
                 <option [ngValue]="spaceOption.id === article.space?.id ? article.space : spaceOption" *ngFor="let spaceOption of spaces; trackBy: trackSpaceById">{{spaceOption.name}}</option>

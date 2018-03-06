@@ -54,5 +54,5 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
     
     @Query(value= "SELECT * FROM ARTICLE WHERE ID IN "
     		+ "(SELECT ARTICLES_ID FROM ARTICLE_TAG where TAGS_ID = :tagId)", nativeQuery = true)
-    Article findArticleByTagId(@Param("tagId") Long tagId);
+    List<Article> findArticleByTagId(@Param("tagId") Long tagId);
 }

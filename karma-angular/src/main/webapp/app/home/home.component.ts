@@ -114,7 +114,7 @@ export class HomeComponent implements OnInit {
 
   getArticleByTag(tagId) {
     this.articleService.searchByTagId(tagId).subscribe(
-      (res: HttpResponse<Article>) => this.getArticleLinkByTag(res.body, res.headers),
+      (res: HttpResponse<Article[]>) => this.getArticleLinkByTag(res.body, res.headers),
       (res: HttpErrorResponse) => this.onError(res.message)
     );
   }
@@ -146,7 +146,11 @@ export class HomeComponent implements OnInit {
   }
 
   private getArticleLinkByTag(data, headers) {
-    this.router.navigate(['/article', data.id]);
+    if (data.length > 1) {
+      this.searchTitleOnSuccess(data, headers);
+    }else {
+      this.router.navigate(['/article', data[0].id]);
+    }
   }
 
   private onError(error) {

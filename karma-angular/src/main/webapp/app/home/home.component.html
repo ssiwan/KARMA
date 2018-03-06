@@ -17,17 +17,17 @@
 		<div class="form-group">
 			<div class="row">
 				<div class="col-sm">
-					<label class="font-weight-bold">Recent Articles</label>
+					<label class="font-weight-bold">My Recent Articles</label>
 					<div *ngFor="let article of recentArticles">
 						<a class="font-weight-normal btn btn-link" 
 						[routerLink]="['../article', article.id ]">{{article.title}}</a>
 					</div>
 					<div>
-						<a routerLink="article" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">All Articles</a>
+						<a class="btn-link font-weight-bold" routerLink="article" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">All Articles</a>
 					</div>
 				</div>
 				<div class="col-sm">
-					<label class="font-weight-bold">Frequent Articles</label>
+					<label class="font-weight-bold">My Frequent Articles</label>
 					<div *ngFor="let article of frequentArticles">
 						<a class="font-weight-normal btn btn-link" 
 						[routerLink]="['../article', article.id ]">{{article.title}}</a>
@@ -40,13 +40,13 @@
 		<div class="form-group">
 			<div class="row">
 				<div class="col-sm">
-					<label class="font-weight-bold">Recent Knowledge Areas</label>
+					<label class="font-weight-bold">My Recent Knowledge Areas</label>
 					<div>
-						<a routerLink="space" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">All Knowledge Areas</a>
+						<a class="btn-link font-weight-bold" routerLink="space" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">All Knowledge Areas</a>
 					</div>
 				</div>
 				<div class="col-sm">
-					<label class="font-weight-bold">Recent Tags</label>
+					<label class="font-weight-bold">My Recent Tags</label>
 					<div *ngFor="let tag of recentTags">
 						<a class="font-weight-normal btn btn-link" 
 						  [routerLink]="" (click)="getArticleByTag(tag.id)">{{tag.name}}</a>

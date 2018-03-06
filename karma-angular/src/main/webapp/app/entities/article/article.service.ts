@@ -49,9 +49,9 @@ export class ArticleService {
             .map((res: HttpResponse<Article[]>) => this.convertArrayResponse(res));
     }
 
-    searchByTagId(tagId: number): Observable<EntityResponseType> {
-     return this.http.get<Article>(`${this.resourceUrl}/tag/${tagId}`, { observe: 'response'})
-          .map((res: EntityResponseType) => this.convertResponse(res));
+    searchByTagId(tagId: number): Observable<HttpResponse<Article[]>> {
+     return this.http.get<Article[]>(`${this.resourceUrl}/tag/${tagId}`, { observe: 'response'})
+          .map((res: HttpResponse<Article[]>) => this.convertArrayResponse(res));
     }
 
    findFrequentlyAccessed(): Observable<HttpResponse<Article[]>> {
