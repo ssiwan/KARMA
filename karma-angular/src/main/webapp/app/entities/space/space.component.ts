@@ -2,9 +2,13 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Subscription } from 'rxjs/Subscription';
 import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
+import { Router } from '@angular/router';
 
+import { Data } from '../../data';
+import {Article} from '../article/article.model';
 import { Space } from './space.model';
 import { SpaceService } from './space.service';
+import {ArticleService} from '../article/article.service';
 import { Principal } from '../../shared';
 
 @Component({
@@ -15,11 +19,15 @@ export class SpaceComponent implements OnInit, OnDestroy {
 spaces: Space[];
     currentAccount: any;
     eventSubscriber: Subscription;
+    articlesForSpace: Article[];
 
     constructor(
         private spaceService: SpaceService,
+        private articleService: ArticleService,
         private jhiAlertService: JhiAlertService,
         private eventManager: JhiEventManager,
+        private data: Data,
+        private router: Router,
         private principal: Principal
     ) {
     }
@@ -38,6 +46,7 @@ spaces: Space[];
             this.currentAccount = account;
         });
         this.registerChangeInSpaces();
+        this.articlesForSpace = [];
     }
 
     ngOnDestroy() {
@@ -53,5 +62,19 @@ spaces: Space[];
 
     private onError(error) {
         this.jhiAlertService.error(error.message, null, null);
+    }
+
+    getArticlesBySpace(searchId: number) {
+        this.articleService.searchBySpace(searchId).subscribe(
+          (res: HttpResponse<Article[]>) => this.getArticlesBySpaceOnSuccess(res.body, res.headers),
+          (res: HttpErrorResponse) => this.onError(res.message)
+        );
+    }
+    private getArticlesBySpaceOnSuccess(data, headers) {
+        for (let i = 0; i < data.length; i++) {
+          this.articlesForSpace.push(data[i]);
+        }
+        this.data.storage = this.articlesForSpace;
+        this.router.navigate(['/article']);
     }
 }

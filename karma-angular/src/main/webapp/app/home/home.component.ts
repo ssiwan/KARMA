@@ -124,7 +124,7 @@ export class HomeComponent implements OnInit {
       this.searchArticles.push(data[i]);
     }
     this.data.storage = this.searchArticles;
-    this.router.navigate(['/article-list']);
+    this.router.navigate(['/article']);
   }
 
   private recentAccessedOnSuccess(data, headers) {

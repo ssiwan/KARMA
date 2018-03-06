@@ -6,6 +6,7 @@ import { JhiEventManager, JhiParseLinks, JhiAlertService, JhiDataUtils } from 'n
 import { Article } from './article.model';
 import { ArticleService } from './article.service';
 import { ITEMS_PER_PAGE, Principal } from '../../shared';
+import { Data } from '../../data';
 
 @Component({
     selector: 'jhi-article',
@@ -30,6 +31,7 @@ export class ArticleComponent implements OnInit, OnDestroy {
         private dataUtils: JhiDataUtils,
         private eventManager: JhiEventManager,
         private parseLinks: JhiParseLinks,
+        private data: Data,
         private principal: Principal
     ) {
         this.articles = [];
@@ -59,10 +61,15 @@ export class ArticleComponent implements OnInit, OnDestroy {
         this.loadAll();
     }
 
-    loadPage(page) {
+    loadPage( page ) {
         this.page = page;
-        this.loadAll();
+        if ( this.data.storage ) {
+            this.articles = this.data.storage;
+        } else {
+            this.loadAll();
+        }
     }
+
     ngOnInit() {
         this.loadAll();
         this.principal.identity().then((account) => {
