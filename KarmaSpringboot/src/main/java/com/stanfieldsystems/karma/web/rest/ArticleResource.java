@@ -51,6 +51,9 @@ public class ArticleResource {
     private final ArticleHistoryRepository articleHistoryRepository;
     
     private final TagHistoryRepository tagHistoryRepository;
+    
+    private Date threeMonthsago = DateUtils.addMonths(new Date(), -3); 
+    private ZonedDateTime monthsAgo = threeMonthsago.toInstant().atZone(ZoneId.systemDefault()); 
 
     public ArticleResource(ArticleRepository articleRepository, ArticleHistoryRepository articleHistoryRepository, TagHistoryRepository tagHistoryRepository) {
         this.articleRepository = articleRepository;
@@ -187,7 +190,7 @@ public class ArticleResource {
     @Timed
     public ResponseEntity<List<Article>> getTopFrequentArticles() {
     	log.debug("REST request to get page of Articles");
-    	List<Article> articles = articleRepository.findFrequentArticles();
+    	List<Article> articles = articleRepository.findFrequentArticles(monthsAgo);
     	return new ResponseEntity<>(articles, HttpStatus.OK);
     }
 
@@ -229,8 +232,6 @@ public class ArticleResource {
     @Timed 
     public ResponseEntity<List<Article>> getRecentlyAccessedArticles(@PathVariable Long userId) { 
     	log.debug("REST request to get page of Articles"); 
-        Date threeMonthsago = DateUtils.addMonths(new Date(), -3); 
-        ZonedDateTime monthsAgo = threeMonthsago.toInstant().atZone(ZoneId.systemDefault()); 
         
         List<Article> articles = articleRepository.findRecentlyAccessedArticles(userId, monthsAgo);
         

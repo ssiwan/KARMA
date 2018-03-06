@@ -44,16 +44,17 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
                 "   ) as x inner join ARTICLE_HISTORY as a on a.ARTICLE_ID = x.ARTICLE_ID "  
                 + "and a.DATE_ACCESSED  = x.maxDate " +   
                 "where a.DATE_ACCESSED  >:monthsAgo AND a.USER_ID = :userId " +   
-                "ORDER BY a.DATE_ACCESSED DESC LIMIT 10)", nativeQuery = true)  
+                "ORDER BY a.DATE_ACCESSED DESC LIMIT 10) ", nativeQuery = true)  
         List<Article> findRecentlyAccessedArticles(@Param("userId") Long userId, @Param("monthsAgo") ZonedDateTime monthsAgo);  
             
 
-    @Query(value = "Select article.* from Article article where article.Id In (\r\n" + 
-    		"Select b.Id From  ( \r\n" + 
-    		"    		Select a.iD FROM Article a Inner Join Article_History ah ON a.ID = ah.ARTICLE_ID where ah.DATE_ACCESSED  >  DATEADD(month, -3, GETDATE())) b \r\n" + 
-    		"    		Group By ID  \r\n" + 
+    @Query(value = "Select article.* from Article article where article.Id In ( " + 
+    		"Select b.Id From  ( " + 
+    		"    		Select a.iD FROM Article a Inner Join Article_History ah ON a.ID = ah.ARTICLE_ID " +
+    		"           where ah.DATE_ACCESSED  > :monthsAgo ) b " + 
+    		"    		Group By ID  " + 
     		"    		ORDER BY Count(*) DESC LIMIT 10 )", nativeQuery = true)
-    List<Article> findFrequentArticles();
+    List<Article> findFrequentArticles(@Param("monthsAgo") ZonedDateTime monthsAgo);
     
     @Query(value= "SELECT * FROM ARTICLE WHERE ID IN "
     		+ "(SELECT ARTICLES_ID FROM ARTICLE_TAG where TAGS_ID = :tagId)", nativeQuery = true)

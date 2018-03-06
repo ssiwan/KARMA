@@ -40,6 +40,8 @@ public class TagResource {
 	private static final String ENTITY_NAME = "tag";
 
 	private final TagRepository tagRepository;
+	private Date threeMonthsago = DateUtils.addMonths(new Date(), -3);
+	private ZonedDateTime monthsAgo = threeMonthsago.toInstant().atZone(ZoneId.systemDefault());
 
 	public TagResource(TagRepository tagRepository) {
 		this.tagRepository = tagRepository;
@@ -136,8 +138,7 @@ public class TagResource {
 	@Timed
 	public ResponseEntity<List<Tag>> getRecentlyAccessedArticles(@PathVariable Long userId) {
 		log.debug("REST request to get page of Articles");
-		Date threeMonthsago = DateUtils.addMonths(new Date(), -3);
-		ZonedDateTime monthsAgo = threeMonthsago.toInstant().atZone(ZoneId.systemDefault());
+		
 
 		List<Tag> tags = tagRepository.findRecentlyAccessedTags(userId, monthsAgo);
 
