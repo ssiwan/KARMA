@@ -6,7 +6,8 @@
     <jhi-alert-error></jhi-alert-error>
     <dl class="row-md jh-entity-details">
         <dd>
-           	<span>{{article.content}}</span>
+           	<!-- <span>{{article.content}}</span> -->
+           	<span [innerHTML]="article.content"></span>
         </dd>
  	</dl>   
     <button type="submit"
