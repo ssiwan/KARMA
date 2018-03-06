@@ -39,10 +39,15 @@ export class ArticleService {
             .map((res: HttpResponse<Article[]>) => this.convertArrayResponse(res));
     }
 
-   searchBySpace(searchString: string): Observable<EntityResponseType> {
-       return this.http.get<Article>(`${this.resourceUrl}/SearchSpace/${searchString}`, { observe: 'response'})
-           .map((res: EntityResponseType) => this.convertResponse(res));
+   searchBySpace(spaceId: number): Observable<HttpResponse<Article[]>> {
+       return this.http.get<Article[]>(`${this.resourceUrl}/searchSpace/${spaceId}`, { observe: 'response'})
+       .map((res: HttpResponse<Article[]>) => this.convertArrayResponse(res));
    }
+
+  countBySpace(spaceId: number): Observable<HttpResponse<any>> {
+    return this.http.get<any>(`${this.resourceUrl}/countBySpace/${spaceId}`, { observe: 'response'});
+
+  }
 
     findRecentlyAccessed(userId: number): Observable<HttpResponse<Article[]>> {
       return this.http.get<Article[]>(`${this.resourceUrl}/recentlyAccessed/${userId}`, { observe: 'response'})

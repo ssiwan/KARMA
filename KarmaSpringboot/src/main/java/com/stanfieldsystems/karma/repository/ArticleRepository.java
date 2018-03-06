@@ -29,8 +29,11 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
     @Query("select article from Article article where Lower(article.title) like Lower(CONCAT('%',:searchString,'%'))")
     List<Article> findAllByTitleContains(@Param("searchString") String searchString);
     
-    @Query("select article from Article article where article.space =:searchString")
-    List<Article> findAllBySpaceContains(@Param("searchString") String searchString);
+    @Query(value="select article.* from Article article where article.space_Id =:spaceId", nativeQuery=true)
+    List<Article> findAllBySpaceId(@Param("spaceId") int spaceId);
+    
+    @Query(value="select count(*) from Article article  where article.space_Id =:spaceId", nativeQuery=true)
+    int getArticleCountBySpaceId(@Param("spaceId") int spaceId);
     
     @Query(value ="SELECT * from ARTICLE WHERE ID in ( " 
             + " SELECT a.ARTICLE_ID " +   

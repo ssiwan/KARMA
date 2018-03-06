@@ -192,19 +192,32 @@ public class ArticleResource {
     }
 
     /**
-     * GET  /articles/:searchSpace : get Articles matching the "searchSpace".
+     * GET  /articles/:spaceId : get Articles matching the "spaceId".
      *
-     * @param String that the space of the article to retrieve contains
+     * @param int that the space of the article to retrieve contains
      * @return the ResponseEntity with status 200 (OK) and with body of list of articles, or with status 404 (Not Found)
      */
-    @GetMapping("/articles/searchSpaces/{searchSpace}")
+    @GetMapping("/articles/searchSpace/{spaceId}")
     @Timed
-    public ResponseEntity<List<Article>> getAllArticlesWhereSpaceContains(@PathVariable String searchSpace) {
+    public ResponseEntity<List<Article>> getAllArticlesBySpaceId(@PathVariable int spaceId) {
     	log.debug("REST request to get page of Articles by Space");
-    	List<Article> articles = articleRepository.findAllBySpaceContains(searchSpace);
+    	List<Article> articles = articleRepository.findAllBySpaceId(spaceId);
     	return new ResponseEntity<>(articles, HttpStatus.OK);
     }
     
+    /**
+     * GET  /articles/:countBySpace : get count of Articles matching the "spaceId".
+     *
+     * @param id of the space of the article to retrieve
+     * @return the ResponseEntity with status 200 (OK) and with body of count, or with status 404 (Not Found)
+     */
+    @GetMapping("/articles/countBySpace/{spaceId}")
+    @Timed
+    public ResponseEntity<Integer> getCountOfArticlesBySpaceId(@PathVariable int spaceId) {
+    	log.debug("REST request to get page of Articles by Space");
+    	int count = articleRepository.getArticleCountBySpaceId(spaceId);
+    	return new ResponseEntity<>(count, HttpStatus.OK);
+    }
     
     /** 
      * GET /articles/recentlyAccessed/:userId : get recently accessed articles for a specific user. 
