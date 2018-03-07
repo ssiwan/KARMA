@@ -35,8 +35,8 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
     @Query(value="select count(*) from Article article  where article.space_Id =:spaceId", nativeQuery=true)
     int getArticleCountBySpaceId(@Param("spaceId") int spaceId);
     
-    @Query(value ="SELECT * from ARTICLE WHERE ID in ( " 
-            + " SELECT a.ARTICLE_ID " +   
+    @Query(value ="SELECT article.* from ARTICLE article inner join ( " +
+                "   SELECT a.ARTICLE_ID " +   
                 "   from ( " +   
                 "       SELECT ARTICLE_ID, MAX(DATE_ACCESSED) as maxDate " +   
                 "       from ARTICLE_HISTORY " +   
@@ -44,7 +44,7 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
                 "   ) as x inner join ARTICLE_HISTORY as a on a.ARTICLE_ID = x.ARTICLE_ID "  
                 + "and a.DATE_ACCESSED  = x.maxDate " +   
                 "where a.DATE_ACCESSED  >:monthsAgo AND a.USER_ID = :userId " +   
-                "ORDER BY a.DATE_ACCESSED DESC LIMIT 10) ", nativeQuery = true)  
+                "ORDER BY a.DATE_ACCESSED DESC LIMIT 10) sub on sub.ARTICLE_ID = article.id ", nativeQuery = true)  
         List<Article> findRecentlyAccessedArticles(@Param("userId") Long userId, @Param("monthsAgo") ZonedDateTime monthsAgo);  
             
 
