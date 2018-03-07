@@ -6,11 +6,12 @@ environments:
   cluster:
     minSize: 2
     desiredCapacity: 2
+    instanceType: t2.medium  
 
 service:
   name: karma-angular
-  cpu: 256
-  memory: 384
+  cpu: 950
+  memory: 1024
   port: 8080
   healthEndpoint: /management/health
   pathPatterns:
