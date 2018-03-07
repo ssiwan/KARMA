@@ -1,0 +1,1191 @@
+"ID"|"TITLE"|"CONTENT"|"JHI_DATE"|"SPACE_ID"|"USER_ID"
+"951"|"Accessibility"|"Accessibility is essential for developers and organizations that want to
+create high quality, Angular websites and, at the same time, insure that
+people are not excluded from functionality, participation, and
+associated products and services. Essentially, our goal with
+accessibility is to enable people with disabilities to participate
+equally on the Web.
+
+<h1>Strategy</h1>
+<h2>Integrate into Project Life Cycle</h2>
+
+Stanfield Systems will integrate accessibility throughout the product's
+lifecycle and during each iteration of the development process. This may
+by accomplished by comprehensive evaluations at key milestones and more
+light-weight reviews following each sprint. Starting early in the
+process reduces the risk of being constrained by early design decisions
+that become expensive to change later in the project. We promote
+accessibility within the team as a positive challenge to encourage
+creative thinking of accessible solutions.
+
+<h3>Key actions</h3>
+
+<ul>
+	<li>Start early and factor for iterative checks during the Agile
+		process</li>
+	<li>Evaluate all project design assets</li>
+	<li>Review accessibility solutions with key team members</li>
+	<li>Evaluate throughout the project and ensure a comprehensive
+		evaluation on completed website</li>
+	<li>Plan for a reasonable gap between completion and go-live to
+		address any final barriers</li>
+</ul>
+
+<h2>Share Knowledge and Outcomes</h2>
+
+Sharing what is learned as part of a project is key to ongoing
+improvements in accessibility. Keeping executives, stakeholders, key
+departments, and the broader organization informed increases
+organizational awareness and also ensures that there is practical
+knowledge available for subsequent projects.
+
+<h3>Key actions</h3>
+
+<ul>
+	<li>Report to stakeholders the project accessibility successes and
+		difficulties</li>
+	<li>Report design and technical achievements and knowledge to
+		others</li>
+	<li>Create internal publicity for new website accessibility</li>
+	<li>Consider creating an organization wide accessibility
+		monitoring and reporting framework</li>
+</ul>
+
+
+<h2>Ensure Ongoing Monitoring and Maintenance</h2>
+Monitoring website accessibility is important to ensure that all the
+good work involved in creating the website is not undermined. For
+organizations with many websites and services an effective monitoring
+process is an important part of broader accessibility efforts.
+
+<h3>Key actions</h3>
+
+<ul>
+	<li>Create a plan for regular checks and audits</li>
+	<li>Update publication process to include accessibility checks</li>
+	<li>Implement a public feedback process for accessibility issues</li>
+	<li>Schedule regular reviews and updates of policies and processes</li>
+</ul>
+
+<h1>Accessibility Guidelines and Checklists</h1>
+
+Developers will use accessibility checklist to insure that they are
+complying with all accessibility guidelines.
+
+<ul>
+<li><a href=""http://romeo.elsevier.com/accessibility_checklist/"">Web
+	Content Accessibility Checklist</a></li>
+
+
+<li><a href=""https://www.w3.org/TR/WCAG20-TECHS/Overview.html#contents"">Web
+	Content Accessibility Guidelines</a></li>
+
+
+<li><a href=""https://webaim.org/standards/wcag/checklist"">Web
+	Accessibility in Mind (WebAim) Checklist</a></li>
+
+
+<li><a
+	href=""https://webtools.ca.gov/web-content/web-accessibility/state-accessibility-standards/"">CA
+	State Accessibility Standards</a></li>
+</ul>
+
+<h1>Design Considerations</h1>
+
+<h2>Accessible Rich Internet Applications (ARIA)</h2>
+
+The <strong>ARIA</strong>
+specification gives us a means to add the missing semantics needed by
+assistive technologies such as screen readers. ARIA enables developers
+to describe their widgets in more detail by adding special attributes to
+the markup. Designed to fill the gap between standard HTML tags and the
+desktop-style controls found in dynamic web applications, ARIA provides
+roles and states that describe the behavior of the most familiar UI
+widgets. The ARIA specification is split up into three different types
+of attributes: roles, states, and properties:
+
+<ol>
+	<li><strong>Roles</strong> describe widgets that aren't otherwise
+		available in HTML such as sliders, menu bars, tabs, and dialogs.</li>
+	<li><strong> Properties</strong> describe characteristics of these
+		widgets, such as if they are draggable, checked, contain a required
+		element, or possess a popup associated with them.</li>
+	<li><strong> States</strong> describe the current interaction
+		state of an element, informing the assistive technology if it is busy,
+		disabled, selected, or hidden.</li>
+</ol>
+
+Stanfield Systems' development team leverages ARIA attributes as much as
+possible since they are designed to be interpreted automatically by the
+browser and translated to the operating system's native accessibility
+APIs. When ARIA is present, assistive technologies are able to recognize
+and interact with custom JavaScript controls in the same way that they
+do with desktop equivalents. This has the potential for providing a much
+more consistent user experience than was not possible in the previous
+generation of web applications. The
+<a href=""https://w3c.github.io/using-aria/#intro"">Using Aria</a>
+document provides a practical guide for developers on how to add
+accessibility using Aria.
+
+<h2>Semantic Markup</h2>
+
+Semantic Markup allows the application to be understood on a more
+general level rather than just by the details of what's being rendered.
+When structuring html, a major pitfall of some developers is
+implementing too many divs and using classes or ids to indicate their
+role.
+
+
+Standard HTML might provide an indication of the purpose of each
+element, but the class names and ids do not have any semantic meaning
+for browsers and screen readers. Instead, developers can give the
+elements more meaning by using the proper HTML elements.
+
+<h2>Keyboard Accessibility</h2>
+
+Keyboard accessibility describes the ability of an application to be
+navigated and used at a functional level with just a keyboard. Keyboard
+accessibility is one of the largest aspects of web accessibility since
+it targets those with motor disabilities who can't use a mouse, users
+who rely on screen readers and other assistive technology which require
+keyboard navigation, and those who prefer not to use a mouse.
+
+<h3>Focus</h3>
+
+Keyboard interaction is driven by <em>focus</em>. 
+In web applications, only one element on a document has focus at a
+time, and key presses should activate whatever function is bound to a
+particular element. If necessary, the currently focused element can be
+accessed programmatically through the
+<code>document.activeElement </code>
+DOM method. Visually, an element with focus is represented by default
+with a glowing border around the element.
+
+<h4>Focus Indicators</h4>
+
+All browsers display a visible outline around the element that currently
+has keyboard focus. This outline should NEVER be disabled using the
+
+
+<code>outline:none</code>
+
+property in CSS.  In order to provide users with an easy-to-see focus
+	indicator that is consistent across all browsers, use the :focus
+	selector in CSS to define a style change that happens when an element
+	has focus. For example, the following CSS code styles links as black
+	text on a white background by default; then reverses the foreground and
+	background colors when the element has keyboard focus (using> <code>:focus</code>
+		) or when the user is hovering over it with a mouse.
+
+
+
+
+
+<pre>
+a {
+ color: black;
+ background-color: white;
+ text-decoration: underline
+ }
+ a:focus, a:hover {
+   color: white;
+   background-color: black;
+   text-decoration: none
+ }
+ </pre>
+
+<h3>Tabbing</h3> 
+
+The most common way of moving focus along the page is
+through use of the <code>tab</code> key. Elements will be traversed in
+the order they appear in the document outline so the order of elements
+must be carefully considered during development. By default, only
+links, buttons and form controls can receive keyboard focus. Whenever
+possible, developers should bind behavior to elements that can
+natively receive focus such as using a <code>button</code> rather than
+a <code>div</code> . If a situation arises where you want to change
+the default behavior or tab order, the <code>tabindex</code> attribute
+can be used. The <code>tabindex</code> can be used. <strong>Keyboard
+	Shortcuts</strong> In addition to the tab key, considerable thought will given
+to keyboard shortcuts to make navigation as robust as possible. For
+example, a user might want to use shortcuts to jump between headings
+of an article if they just want to do a quick skim for information.
+
+<h2>Transitions</h2> 
+
+The majority of transitions that happen in an
+Angular application will not involve a page reload. This means that
+developers will need to carefully manage what happens to focus in
+these cases. It's important that if some action involves a transition
+away from the natural page flow, then focus should be handled as well.
+
+<h2>Visual Assistance</h2> 
+
+One large category of disability is visual
+impairment which includes not just considering the blind but also
+those who are <a
+href=""https://www.smashingmagazine.com/2016/06/improving-ux-for-color-blind-users/"">color
+	blind</a> or partially sighted.
+
+<h3>Partial Impairment</h3> 
+
+Strategies like enlarging the text size
+while hovering can greatly help partially impaired users of the
+application.
+
+<h3>Color Contrast</h3> 
+
+When choosing colors for text or elements on a
+website, the contrast between them needs to be considered. For WCAG
+2.0 AA, this means that the contrast ratio for text or visual
+representations of text needs to be at least <a
+href=""https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"">4.5:1</a>.
+Color can help a user's understanding of information, but it should
+never be the only way to convey information to a user. For example, a
+user with red/green color-blindness may have trouble discerning at a
+glance if an alert is informing them of success or failure.> When
+colors are used on charts and graphs, patterned overlays will be
+applied.
+
+<h3>Audiovisual Media</h3> 
+
+Audiovisual elements in the application
+such as video, sound effects or audio like podcasts need related
+textual representations such as transcripts, captions or descriptions.
+They also should never auto-play and playback controls should be
+provided to the user.
+
+
+
+<h1>Testing</h1> 
+
+We will employ a number of testing strategies to
+insure our applications meet accessibility requirements and
+guidelines. These strategies include testing with users, auditing with
+tools that evaluate an application for compliance, testing of our
+applications using screen readers and speech synthesizers, and
+automated testing.
+
+<h2>Testing with Users</h2>
+
+<ul>
+	<li>When planning for usability and acceptance testing, we will
+		make sure we include individuals with visual impairments in our user
+		profiles.</li>
+	<li>We will work with developers of assistive technology to test
+		our product throughout its development.</li>
+	<li>We will hire a usability specialist knowledgeable in
+		accessible design or provide training to existing staff.</li>
+	<li>We will perform product evaluations using user profiles of
+		persons with disabilities. For example, we will evaluate our
+		application using only a keyboard.</li>
+	<li>We will assume that others will work with an inverted
+		display (dark background) and a large font size. We will carry out
+		any task analyses under these conditions.</li>
+	<li>We will include accessibility elements, such as those
+		described above, in evaluation checklists or development guidelines.</li>
+	<li>As much as possible, we will work with local universities,
+		schools, and disability organizations and clubs to find users with
+		visual impairments willing to test our products.</li>
+	<li>We will monitor, post questions to, and find beta testers
+		through, disability-related electronic mailing lists.</li>
+	<li>We will obtain a set of accessibility aids, such as a screen
+		reader and speech synthesizer or screen magnification software.
+		Furthermore, we will carry out product evaluations while accessing
+		the program using these tools.</li>
+	<li>We will also employ browser extensions that increase
+		contract, set grayscale, invert colors, invert grayscale and use
+		yellow on black.</li>
+</ul>
+
+<h2>Using Tools that Audit Accessibility</h2> 
+
+There are many tools on
+the market where you simply enter the application's URL and the
+application will rate your site's accessibility. Essentially, the
+application makes sure that you adhere to recommended semantic markup
+and apply additional accessibility functionality. <a
+href=""http://www.evaluera.co.uk/"">A-Tester</a> by Evaluera is an
+example of such a tool. <a
+href=""https://chrome.google.com/webstore/detail/accessibility-developer-t/fpkknkljclfencbdbgkenhalefipecmb?hl=en"">Google's
+	Accessibility Developer Tools</a> is a useful chrome extension that
+performs an accessibility audit and provides an Accessibility sidebar
+pane in the elements tab to the chrome developer tools. <a
+href=""https://chrome.google.com/webstore/detail/chromelens/idikgljglpfilbhaboonnpnnincjhjkd"">Chrome
+	Lens</a> by Google provides a suite of tools to help with development.
+Lens interacts with a website as a <strong>completely/partially
+	blind or color blind person</strong>. We can also run the website through a
+series of accessibility rules and easily discover elements in the
+website that do not comply with them. With the tab tracker feature, we
+can visually track the flow of navigation through a website.
+
+<h2>Automated Tests</h2> 
+
+Accessibility tests can be run in an
+automated fashion by integrating Selenium, Serenity, Cucumber and <a
+href=""https://axe-core.org/"">Axe</a> into a framework that, when tied
+into continuous deployment, provides nightly reports on
+accessibility. In this manner, at any time we know the state of the
+application as far as adherence to accessibility goals.
+"|"2018-03-06 01:43:00.0"|"1001"|"3"
+"952"|"Angular Advantages"|"This document describes the advantages of using Angular, one of the most popular frameworks for front-end development.
+
+<h1>Advantages</h1>
+<h2>Component Based Architecture</h2>
+Angular allows developers to create applications using component-based Architecture, small pieces of an interface that act independently of each other.  Web components are the latest set of standards currently proposed by the World Wide Web Consortium (W3C).  The goal is to simplify web development by providing low-level APIs that allow developers to build complex web applications from custom made elements.
+
+Reusability. Components of a similar nature are well encapsulated, in other words, self-sufficient. Developers can reuse them across different parts of an application. This is particularly useful in enterprise-scope applications where different systems converge but may have many similar elements like search boxes, date pickers, sorting lists, etc.
+
+Readability. Encapsulation also ensures that new developers – who have recently transitioned to an ongoing product team – can read code better and eventually reach their plateau of productivity faster.
+
+Unit-test Friendly. The independent nature of components simplifies unit tests which greatly supports quality assurance procedures aimed at verifying the performance of the smallest parts of the application.
+
+Maintainability. Components that are easily decoupled from each other can be easily replaced with better implementations. Basically, your engineering team will be more efficient in maintaining and updating the code within the iterative development workflow.
+
+<h2>TypeScript</h2>
+Angular uses typescript, a superset of javascript. Typescript provides developers with development-time warnings and errors. It also articulates intention and removes ambiguity.  Angular is not the only framework that works well with TypeScript — most modern frameworks do. But it is the only mainstream framework where the whole ecosystem works well with TypeScript: every single tool and every single library.
+
+Great Tools. With typescript, developing rich development tools has been an explicit goal from day one which allows developers to write code using advanced auto-completion, intellisense, and navigation, thereby simplifying refactoring.
+
+Abstraction. A good design is all about well-defined interfaces. And it is much easier to express the idea of an interface in a language that supports them.  In a statically-typed language, boundaries between subsystems are defined using interfaces. Since JavaScript lacks interfaces, boundaries are not well expressed in plain JavaScript. Not being able to clearly see the boundaries, developers start depending on concrete types instead of abstract interfaces, which leads to tight coupling.
+
+<h2>Platform Agnostic</h2>
+Angular was developed with the mobile-first approach in mind. The idea is to share code base and ultimately the engineering skillset across web, iOS, and Android applications.  Furthermore, to support building mobile apps, but Angular concepts such as dependency injection, data binding, services, and routing are similar both for NativeScript and Angular.  This agnostic approach facilitates using the same engineering skillset for both web applications and mobile apps.
+
+<h2>High Performance</h2>
+Multiple factors can help in making an application faster. With Angular, the main boost is ensured by hierarchical dependency injection and Angular Universal support.
+
+Hierarchical dependency injection.  Angular uses improved hierarchical dependency injection, a technique that decouples actual components from their dependencies by running them parallel to each other. Angular builds a separate tree of dependency injectors that can be altered without reconfiguring the components. Classes do not have dependencies in themselves but consume them from the external source.
+
+Angular Universal. Angular Universal is a service that allows for rendering applications view on a server instead of client browsers. Google provides a set of tools to either pre-render your application or re-render it for each request by a user.
+
+<h2>Organizational Benefits</h2>
+Angular is a great choice for companies of all sizes, big or small.
+
+No Fragmentation.  The Angular community is not fragmented. Almost all applications are built using the Angular CLI, use the Angular router, and many use NgRx (or plan to use it) to manage state and side effects. This uniformity leads to greater consistency...so when a new developer joins a team, he or she can become productive in days.
+
+Semantic Versioning.  A new version of Angular is released every six months. If a breaking change is about to be introduced, you will have a year to update your applications.
+
+<h2>Long-Term Support</h2>
+Some software engineers consider the mere fact that Angular is supported by Google a major advantage of the technology."|"2018-03-06 01:58:00.0"|"1001"|"4"
+"953"|"Continuous Integration and Delivery Using AWS"|"
+<h1>Strategy</h1>
+
+Stanfield Systems has chosen to deploy our applications as
+<a href=""http://microservices.io/"">microservices</a>, 
+independent deployable components that are decoupled from other
+components and highly cohesive around a single business capability. A
+developer can use the AWS Console to access tools like Amazon's
+<a href=""https://aws.amazon.com/codebuild/"">CodeBuild </a> and
+<a href=""https://aws.amazon.com/codepipeline/"">CodePipeline </a>
+to create continuous integration and delivery pipelines for their
+microservices. However, the AWS Console tools are laborious, time
+consuming and complicated and, at the same time, require a tremendous
+learning curve. In order to mitigate these drawbacks, Stanfield Systems
+will be using a powerful tool called
+
+<a
+	href=""https://stelligent.com/2017/04/11/mu-introduction-ecs-for-microservices/"">mu
+</a>
+and the
+<a href=""https://aws.amazon.com/cli/"">AWS Command Line (AWS CLI) </a>
+to simplify the declaration and administration of the AWS resources
+necessary to support our microservices.
+
+<a
+	href=""https://stelligent.com/2017/04/11/mu-introduction-ecs-for-microservices/"">mu
+</a>
+
+addresses infrastructure and engineering overhead costs associated with
+microservices and makes deployment of microservices via containers
+simple and cost-efficient. The tool also ensures the deployments are
+repeatable and non-dramatic by utilizing a continuous delivery pipeline
+for orchestrating the flow of software changes into production. Cloud
+formation stacks manage all state formation so, at any point, we can
+stop using mu and continue to manage our AWS resources via the AWS
+Console or CLI. Furthermore, everything that is necessary to create and
+configure our pipelines is stored in GitHub with the microservice.
+
+
+<h1>Installation</h1>
+
+
+MU and AWS CLI will need to be installed locally on your computer. To
+install the tools, please refer to the how-to document,
+<a
+	href=""https://stanfieldsystems.atlassian.net/wiki/spaces/SSIS/pages/204242951/SSISA-OSS+How+to+install+AWS+CLI+and+MU"">SSISA-OSS
+	How to install AWS CLI and MU</a>. 
+	You will also need to configure AWS CLI. Please refer to the document,
+<a
+	href=""https://stanfieldsystems.atlassian.net/wiki/spaces/SSIS/pages/204308554/SSISA-OSS+How+to+Configure+AWS+CLI"">SSISA-OSS
+	How to Configure AWS CLI</a>. 
+	You will notice that this latter document also shows you how to gain
+access to the AWS Console. Git for Windows will need to be installed on
+your computer because Mu needs access to our git repository on GitHub.
+To install git, go to the
+<a href=""https://git-scm.com/download/win"">Git Download page</a>. 
+Place Git in your path as you did similarly with MU and AWS CLI.
+Finally, i n order to upload a microservice to the AWS Pipeline, you
+will need to have a GitHub access token. Please refer to the how-to
+article,
+<a
+	href=""https://stanfieldsystems.atlassian.net/wiki/spaces/SSIS/pages/207683585/SSISA-OSS+How+to+Create+a+Personal+Access+Token+in+GitHub"">SSISA-OSS
+	How to Create a Personal Access Token in GitHub</a>.
+
+<h1>Setting Up Our Microservice</h1>
+
+
+In order for mu to manage a continuous delivery pipeline for our chosen
+microservice, you will need to use mu from within a git repository. You
+will need to clone the repository using the
+<em><strong>git</strong> </em>
+command line tool. Accomplish the clone in the directory where you want
+to store your local repository. For the Angular Prototype, use the
+following command:
+<strong>C:amazonAngular-Prototype&gt; git clone
+	https://github.com/StanfieldSystems/Angular-Prototype.git. </strong>
+As you can see for this example, the local repository for the Angular
+Prototype is located in the Angular-Prototype directory.
+
+<h1>Configuration</h1>
+
+
+The Angular Prototype GitHub repository (
+<a href=""https://github.com/StanfieldSystems/Angular-Prototype"">https://github.com/StanfieldSystems/Angular-Prototype</a>
+) contains the artifacts necessary to build the complete AWS pipelines
+for an angular project with a Spring Boot backend. The configuration can
+be adjusted or edited for a new microservice. The files that need to be
+edited include the
+<strong>Dockerfile</strong>
+,
+<strong>buildspec.yml</strong>
+,
+<strong>buildspec-test.yml</strong>
+, and the
+<strong>mu.yml</strong>
+. For a new product, you simply adjust the parameters or configuration
+attributes highlighted in red below .
+
+
+<h2>Configuring &quot;Build - Artifact&quot; Action</h2>
+
+The Artifact action in the Build stage handles any compilation, unit
+testing and packaging of the application. The work for this action is
+peformed by
+<a href=""https://aws.amazon.com/codebuild/"" rel=""nofollow"">AWS
+	CodeBuild</a>
+. To make changes to the steps performed in this action, edit the
+<strong><code>buildspec.yml</code></strong>
+
+file as per the
+<a
+	href=""https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html""
+	rel=""nofollow"">Build Specification Reference</a>
+. For the buildspec.yml file, simply change the location of the Spring
+Boot project for the mvn command. 
+<br />
+Compile spring boot app
+<br />
+<strong>- mvn -f SpringBootProjectName /pom.xml </strong> package 
+<br />
+And, make sure that the <strong>npm install</strong> occurs in the proper directory for the Angular project by
+specifying the name of the Angular project as the directory. 
+
+<br />
+Build
+angular app 
+
+<br />
+
+<strong>- cd angularProjectName</strong>
+
+<h2>Configuring &quot;Build - Image&quot; Action</h2>
+
+After the
+<strong>Artifact</strong>
+action is completed, the
+<strong>Image</strong>
+action then takes the artifacts from that action and creates a Docker
+image. To change the contents of the Docker image, edit the
+<strong><code>Dockerfile</code> </strong>
+as per the
+<a href=""https://docs.docker.com/engine/reference/builder/""
+	rel=""nofollow"">Dockerfile Reference</a>
+. Once the Docker image is created, it is the pushed up to the
+<a href=""https://aws.amazon.com/ecr/"" rel=""nofollow"">Amazon Elastic
+	Container Registry (ECR)</a>
+that was created for the pipeline. The image is tagged with the SHA-1
+hash of the Git commit id that triggered the pipeline execution. In the
+Dockerfile, change the name of the Spring Boot project in the ADD
+instruction.
+
+<br />
+ADD SpringBootProjectName/target/SpringBootProjectName-*.jar /app/boot.jar
+
+<h2>Configuring &quot;Acceptance - Deploy Site&quot; Action</h2>
+
+The
+<a href=""https://github.com/stelligent/mu-cloudfront"">mu-cloudfront</a>
+
+extension is used to manage the CloudFront distribution for the
+application. The extension requires 2 parameters; the ID of the ACM
+certificate to use for the distribution and the path in the application
+source repository to upload to the S3 bucket. In the
+<strong>mu.yml</strong>
+file , you will need to accomplish the following changes: First, specify
+the angular project name for the sourcePath. ### configure extension for
+handling CloudFront and static assets
+<br /><br />
+extensions:
+<br /><br />
+- url: https://github.com/stelligent/mu-cloudfront/archive/v0.3.zip
+<br /><br />
+parameters:
+<br /><br />
+mu-loadbalancer-acceptance:
+<br /><br />
+CloudFrontCert: &quot;86a733d7-b890-478b-bc24-4ec0b40ea66d&quot;
+<br /><br />
+mu-pipeline-.*:
+<br /><br />
+SourcePath: angularprojectname/dist
+<br /><br />
+Under environments, specify the name of your hosted zone. hostedzone:
+aws.stanfieldsystems.com
+<br /><br />
+For the service, designate a name for the name label. name:
+nameofservice
+<br /><br />
+Specify your database name and masterUsername for the database. Use the
+name you used when you created the database. database:
+<br /><br />
+name: nameofdatabase
+<br />
+masterUsername: nameofdatabase
+<br /><br />
+
+<h2>Configuring &quot;Acceptance - Test&quot; Action</h2>
+
+The <strong>Test</strong> action in the <strong>Build</strong>
+stage performs the end-to-end (e2e) testing of the application. The work
+for this action is peformed by
+<a href=""https://aws.amazon.com/codebuild/"" rel=""nofollow"">AWS
+	CodeBuild</a>. To make changes to the steps performed in this action, edit the
+<strong><code>buildspec-test.yml</code></strong> file as per the
+<a
+	href=""https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html""
+	rel=""nofollow"">Build Specification Reference</a>. In the buildspec-test yml file, change the mvn command to reference
+the BDD project name. 
+<br /><br />
+mvn -f BDDProjectName/pom.xml verify
+<br /><br /> 
+For the
+-Dwebdriver.base.url, add the appropriate path to the application's URL.
+<br /><br />
+
+-Dwebdriver.base.url=${BASE_URL}/stanfieldprototype/customer 
+<br /><br />
+For the
+-aws command, reference the BDD project name. 
+<br /><br />
+- aws s3 sync --delete BDDProjectName/target/site/serenity/<a>s3://stanfield-systems-ci</a><a /></a>
+nameofservice
+<br /><br />
+
+The results of the test are uploaded to an S3 bucket to be viewed by
+team members. The S3 bucket is configured via
+<a href=""https://github.com/stelligent/mu/wiki/Custom-CloudFormation"">custom
+	CloudFormation</a>
+in the <strong><code>mu.yml</code></strong>
+file. Additionally, the format of the email message is also configured
+in the custom CloudFormation. To apply any changes made to the custom
+CloudFormation, run
+<code>mu pipeline up</code>
+. The S3 bucket has a policy on it to restrict access to a specific set
+of CIDR blocks as shown in the following snippet from
+
+<code>mu.yml</code>
+:
+
+<pre>
+		<code>Condition:
+                  IpAddress:
+                    aws:SourceIp:
+                    - 73.151.106.136/32
+                    - 96.81.182.193/32</code>
+	</pre>
+
+
+The list of email recipients for build notifications is defined in the
+
+
+<code>notify:</code>
+
+section of the
+<code>mu.yml</code>
+
+file:
+
+<pre>
+<code>notify:
+    - cplee@nektos.com
+    - pgrogan@stanfieldsystems.com</code>
+	</pre>
+	
+<h1>Terminating an Existing Pipeline for a Microservice</h1>
+
+<br /><br />
+<strong>mu pipeline term</strong>
+<br /><br />
+
+The command to terminate a pipeline actually completely removes the
+pipeline from AWS. But keep in mind, all the information to rebuild the
+pipeline exists in GitHub so mu has access to everything it needs to
+once again restore the pipeline. Also, remember to execute this command
+within the git directory for the microservice. After a few minutes, the
+command will terminate and you will see an error message appear at the
+bottom of the output. The error indicates that one of the S3 buckets
+needs to be emptied before it can be deleted. You need to empty this
+bucket in the AWS Console and rerun the
+<strong>mu pipeline term</strong>
+command. But how do you know which bucket? You will find your answer
+using the AWS Console! 
+<br /><br />
+After logging into the AWS Console, click on the
+CloudFormation link. After clicking the link, you will
+navigate you to a page that shows the CloudFormation stacks. Notice the
+status column shows DELETE_FAILED. Now click on the Resources tab on the
+bottom of the page. The Resources tab will help you diagnose the error
+message from the mu pipeline term command:
+
+
+<strong>CIBucket (AWS::S3::Bucket) DELETE_FAILED The bucket you
+	tried to delete is not empty func1 ERROR Ended in failed status
+	DELETE_FAILED The following resource(s) failed to delete: [CIBucket].</strong>
+
+
+The tab shows you the Logical ID and Physical ID (bucket name) of the S3
+bucket that failed to delete. Notice that the Logical ID,
+<strong>CIBucket</strong>
+corresponds to the Physical ID,
+<strong>stanfield-systems-ci</strong>
+. You now know that you need to empty the S3 bucket named
+<strong>stanfield-systems-ci</strong>
+. At this point, you need to go back to the main AWS services page and
+click the S3 link under Storage (see below).
+
+
+<br />
+
+
+The link will bring you to a list of S3 buckets on Amazon S3. One of the
+rows has a bucket name of
+<strong>stanfield-systems-ci</strong>
+. Clicking on the bucket icon just right of the bucket name will enable
+the Empty bucket button on top of the page. At this point, you can now
+empty the bucket by clicking the button. As an added precaution, you
+will need to type the name of the bucket and click the
+<em><strong>confirm</strong> </em>
+button. Execute the
+<em><strong>mu pipeline term</strong></em>
+command again. Be patient...the progress will take as long as 5 minutes!
+If the process finishes without any errors (see below), you have
+successfully terminated the pipeline.
+
+
+<h1>Creating the Pipeline</h1>
+
+<br /><br />
+<strong> mu pipeline up</strong>
+<br /><br />
+
+For this command, you will need your GitHub token with the
+<strong>repo</strong>
+and
+<strong>admin:repo_hook</strong>
+scopes that you created previously. If you have not completed this step,
+please refer to the how-to document,
+<a
+	href=""https://stanfieldsystems.atlassian.net/wiki/spaces/SSIS/pages/207683585/SSISA-OSS+How+to+Create+a+Personal+Access+Token+in+GitHub"">
+	SSISA-OSS How to Create a Personal Access Token in GitHub</a>
+. After typing the command you will be prompted for you GitHub token.
+
+
+
+Copy your GitHub token from your secure location and use Control V to
+paste at the prompt. Do not be alarmed if you do not see the token
+paste...this is done on purpose!
+
+<h1>Terminating an Existing Environment</h1>
+
+<br />
+<strong> mu env term acceptance</strong>
+<br /><br />
+
+
+
+Use this command to remove the entire acceptance environment. Note: if
+you terminate the pipeline and the environment using the commands,
+<strong>mu pipeline term</strong>
+followed by
+<strong>mu env term acceptance</strong>
+, you only need to execute the command
+<strong>mu pipeline up</strong>
+to create both the pipeline and the environment. The first time a
+pipeline runs, the environment is created in the deploy step. If a
+pipeline has been previously terminated, the program considers the
+situation to be a &quot;first time&quot;.
+
+
+<h1>Other Common Commands</h1>
+
+<br />
+<strong> mu env show acceptance</strong>
+<br /><br />
+
+You can use this command to o btain the Elastic Load Balancing (ELB)
+endpoint in the acceptance environment. In the output below, you can see
+that the URL of our deployed microservice service is
+<a href=""https://acceptance.bigbluesign.com."">https://acceptance.bigbluesign.com.</a>
+Place this URL in the browser to see the Angular Prototype.
+
+<br /><br />
+<strong> mu svc show</strong>
+<br /><br />
+
+
+
+This command is used to show the status of the pipeline. For the below
+example, the status column shows
+<strong>Succeeded</strong>. But if you previously terminated the pipeline and you are in the
+process of bringing the pipeline back up, the status column would show
+<strong>InProgress</strong>.
+
+
+<h2>Application Logs</h2>
+
+<br />
+<strong> mu service logs -f acceptance</strong>
+<br /><br />
+
+Once the pipeline has been deployed successfully, you can use this
+command to view logs from the service. The -f acts like a unix tail
+command, continually showing the last lines of the log file.
+
+<br /><br />
+<strong> mu pipeline logs -f</strong>
+<br /><br />
+
+This command shows the build logs.
+"|"2018-03-06 02:34:00.0"|"1001"|"4"
+"954"|"Construction Phase"|"Construction activities are oriented around construction iterations
+(known as sprints in the Scrum methodology). Each sprint includes
+preparation activities prior to the sprint and planning, execution, and
+conclusion activities during the sprint. The construction iteration
+workflow is shown in the figure below. Work processes are represented
+with rounded rectangles and work products are depicted with graphic
+symbols enclosed in rectangles. Heavy lines and arrows represent process
+flow while light lines and arrows represent both process flow and data
+flow.
+
+<h1>Prepare for the sprint</h1>
+
+<ol>
+	<li>Backlog Refinement - Using the Release Plan as a road map,
+		prepare the product backlog with sufficient work for one or more
+		successful sprints. Prepared work should be well-defined and
+		understood, sufficiently small to complete in a single sprint,
+		estimated (e.g. with story points), and should have defined acceptance
+		criteria.</li>
+	<li>Look-Ahead Modeling - Using the Technical Architecture for
+		guidance, analyze requirements and design solutions for high priority
+		items in the product backlog. The goals of look-ahead planning are to
+		improve understanding of and clarify acceptance criteria for upcoming
+		work, thereby facilitating decomposition and estimation of the work
+		for planning purposes. Look-ahead modeling follows the process defined
+		for Analysis and Design (Model Storming).</li>
+</ol>
+
+<h1>Plan the sprint</h1>
+
+<ol>
+	<li>Sprint Planning - Collaboratively allocate prioritized work
+		items from the product backlog to create a sprint backlog that
+		contains work items to be completed in the upcoming sprint.</li>
+</ol>
+
+<h1>Execute the sprint</h1>
+
+Sprint execution involves a variety of tasks associated with the
+development of working features satisfying defined acceptance criteria.
+Execution tasks are those frequently associated with the application
+development lifecycle such as requirements analysis, design,
+implementation, testing, verification, and documentation. A typical
+sprint includes an iteration modeling session early in the sprint to
+agree on how the allocated features will be implemented. Each day
+typically begins with a status meeting in which each team member
+identifies work items completed, work items planned, and impediments to
+completing any work items. During this status meeting team members may
+also schedule follow-on meetings for model storming, demonstrations, or
+peer reviews.
+
+<ol>
+	<li>Iteration Modeling - Schedule one or more Analysis and Design
+		(Model Storming) sessions to clarify and refine the work scheduled to
+		be completed during the upcoming sprint. Iteration modeling should be
+		completed early in the sprint to provide more flexibility for
+		completing the sprint backlog.</li>
+	<li>Daily Status Update (Stand-Up) - Meet briefly each day to
+		report daily accomplishments, to identify impediments to completing
+		work, and to plan daily activities. Follow-up meetings may also be
+		scheduled for activities such as model storming, demonstrations, or
+		peer reviews.</li>
+	<li>Analysis and Design (Model Storming) - Analysis and design
+		activities during a sprint are typically concerned with modeling and
+		agreeing on detailed requirements or design specifications for
+		implementing the feature.</li>
+	<li>Feature Development. Develop an application feature using a
+		behavior or test driven approach. Plan, analyze, design, specify
+		behavior, implement, integrate, test, verify, and validate each
+		feature.</li>
+	<li>Feature Demonstration - A feature demonstration may be held in
+		conjunction with model storming or behavior modeling to demonstrate
+		and agree on feature implementation. Once a feature is complete, a
+		feature demonstration is used to validate that the working code
+		correctly implements the feature in accordance with defined acceptance
+		criteria and specifications. When used to validate completed work, the
+		feature demonstration may satisfy the demonstration requirements for
+		concluding the sprint.</li>
+	<li>Peer Review - All work products associated with feature
+		development are reviewed by another team member to improve accuracy,
+		consistency, and maintainability of the application. Identified
+		defects should be resolved immediately or entered into the backlog as
+		technical debt.</li>
+	<li>Defect Resolution. Where possible, identified defects should
+		be resolved immediately. Any defects not resolved during a sprint
+		should be entered into the product backlog (JIRA) and Managed as
+		Technical Debt. Technical Debt should be prioritized and resolved
+		along with other backlog items in subsequent sprints.</li>
+	<li>Documentation - All new or updated models, specifications,
+		findings, or other artifacts should be stored in the appropriate
+		product repository (e.g. Confluence or JIRA). If formal documentation
+		deliverables are required, models and specifications should be
+		incorporated into the appropriate documentation deliverable.</li>
+</ol>
+
+<h1>Conclude the Sprint</h1>
+<ol>
+	<li>Feature Demonstration - Validate completed features, stories,
+		or requirements with working code that demonstrates how capabilities
+		meet the acceptance criteria. A feature demonstration may be held any
+		time during the sprint to validate a feature.</li>
+	<li>Sprint Review and Assessment - Analyze the success of the
+		sprint against stated goals and review overall progress against
+		release plans.</li>
+	<li>Sprint Retrospective - Review team effectiveness during the
+		sprint, analyzing opportunities for improvement or for sharing best
+		practices.</li>
+</ol>
+"|"2018-03-06 03:04:00.0"|"1002"|"3"
+"955"|"Inception Phase"|"A short Inception phase occurs at the beginning of the product
+life-cycle to achieve concurrence on the direction the team will take to
+deliver the product. The Inception phase includes several high-level
+planning, modeling, and architectural activities as shown in the figure
+below. In this figure, work processes are represented with rounded
+rectangles and work products are depicted with graphic symbols enclosed
+in rectangles. Heavy lines and arrows represent process flow while light
+lines and arrows represent both process flow and data flow. Although
+there are dependencies among work products, the order in which the work
+process take place may vary - frequently involving many short feedback
+cycles among the various processes.
+
+<ol>
+	<li>The product vision describes the high level scope and purpose
+		of the product to guide team efforts. A clear and concise statement
+		helps establish expectations and establishes a mutual understanding of
+		the product end state. This activity may take place at a high-level
+		conceptual level to support budget and resource proposals prior to
+		project inception. Generally, this conceptual proposal is revisited
+		and adjusted at project inception.</li>
+	<li>To get started, stakeholders must form the initial team. Apply
+		the concepts and principles in Team Organization Rules and Guidelines
+		to establish the size and organization of the team. Define a strategy
+		for staffing, training, and evolving the team as the product and
+		process evolve. This activity may take place at a high-level
+		conceptual level to support budget and resource proposals prior to
+		project inception. Generally, this conceptual proposal is revisited
+		and adjusted at project inception.</li>
+	<li>The team must identify risks to determine potential threats
+		before they occur. These risks must be managed to mitigate adverse
+		effects on product objectives.</li>
+	<li>Product vision, scope, release schedule, risk, and team
+		requirements guide the development of a budget to secure funding for
+		the product development effort.</li>
+	<li>Team members must collaborate and agree on the product scope
+		and goals to facilitate prioritization and release planning. In
+		exploring scope, team members consider the entire user experience to
+		guide the allocation and prioritization of product requirements. The
+		product scope is captured in a set of initial user stories or epics in
+		the product backlog.</li>
+	<li>The team reaches agreement on a technical strategy that
+		describes the high level technical architecture, business
+		architecture, user interface architecture, and delivery strategy. The
+		technical strategy provides sufficient guidance and direction for the
+		team to begin development.</li>
+	<li>Release planning organizes work into potentially consumable
+		increments of the solution that can be demonstrated to the customer.
+		The set of iterations result in an internal release to a demo or
+		testing environment, or an external release into production based on
+		the prescribed release cadence. An important consideration in release
+		planning is to deliver early in often - with the initial release
+		focused on a Minimal Viable Product that includes the minimal amount
+		of capability required for end users to start using the product.</li>
+	<li>For the product to be successful, it must align with the
+		enterprise goals, objectives, environments, and strategies of the
+		organization. The team needs to understand both the technical and
+		business strategies that are relevant to their situation and must
+		identify existing assets that they can leverage to streamline their
+		activities.</li>
+	<li>In a test driven development approach, the product test
+		strategy must be defined early. The initial test strategy defines the
+		approach, tools, and timing for test activities. The strategy
+		ultimately describes how the team will approach verification and
+		validation of the product. Behavioral Driven Development (BDD) is
+		Stanfield System's standard testing practice. The test strategy can be
+		tailored to meet individual project needs dependent on the size and
+		complexity of the product.</li>
+	<li>The work environment for the team facilitates efficient
+		execution of construction activities. Stanfield Systems applies a
+		DevOps environment with automated continuous integration and testing,
+		in-person or web-based communications, and collaboration portals for
+		project management and knowledge sharing.
+</ol>"|"2018-03-06 03:10:00.0"|"1002"|"3"
+"956"|"Backlog Refinement"|"Backlog refinement sessions are held to improve the product backlog.  This may involve several different activities such as:
+
+<ul>
+<li>Writing user stories</li>
+<li>Breaking down user stories that are too big</li>
+<li>Improving user stories that are poorly written</li>
+<li>Estimating backlog items</li>
+<li>Adding acceptance criteria</li>
+<li>Analyze the backlog in order to accomplish longer-range technical planning</li>
+</ul>
+
+<h1>Purpose</h1>
+
+As a minimum, backlog refinement prepares the product backlog with sufficient work for one or more successful sprints.  This requires user stories that are:
+
+<ul>
+<li>Well defined and understood</li>
+<li>Sufficiently small to confidently complete in a single sprint</li>
+<li>Estimated (e.g. with Story Points)</li>
+<li>Defined acceptance criteria</li>
+</ul>
+
+<h1>Participants</h1>
+The entire product delivery team participates in backlog grooming.  
+
+<ul>
+<li>Team Lead (Scrum Master)</li>
+<li>Product Owner</li>
+<li>Team Members</li>
+</ul>
+
+Additional stakeholders should be included as necessary to understand and define requirements.  To facilitate effective meetings, limit the number of stakeholders.  If necessary, hold multiple sessions to accommodate a larger number of stakeholders.
+
+<ul>
+<li>Entry Criteria</h1>
+<li>Explore Initial Scope</li>
+<li>Define a goal for the session</li>
+</ul>
+
+<h1>Inputs</h1>
+<ul>
+<li>Existing backlog of epics and user stories</li>
+</ul>
+
+<h1>Approach</h1>
+
+<h2>Confirm goal for backlog refinement session</h2> 
+Discuss the goal of the backlog refinement session. Ensure all participants understand and agree to the goal and corresponding objectives.
+
+<h2>Prioritize existing epics and stories</h2> 
+Evaluate the business value associated with existing epics and stories.
+<br />
+Create a ranked list of epics and stories based on business value such that work items of higher business value are ranked higher in the list.
+<br />
+Adjust rankings based on
+
+<ul>
+<li>Known dependencies. If a work item is dependent on another work item being completed, than the dependent work item should be ranked lower in the list.</li>
+<li>Risk. To minimize the likelihood or impact of risks, some work items may be prioritized above work items of higher business value.</li>
+<li>Due date. Items with externally dictated deadlines may be prioritized above work items of higher business value.</li>
+</ul>
+
+<h2>Decompose high priority epics and stories</h2> 
+Analyze epic, user story, or other work item and break it into smaller work items.  Each work item should meet the INVEST criteria.
+
+<ul>
+<li>""I"" ndependent (of all others)</li>
+<li>""N"" egotiable (not a specific contract for features)</li>
+<li>""V"" aluable (or vertical)</li>
+<li>""E"" stimable (to a good approximation)</li>
+<li>""S"" mall (so as to fit within an iteration)</li>
+<li>""T"" estable (in principle, even if there isn't a test for it yet)</li>
+</ul>
+
+Consider the following aspects for decomposition.
+
+<ul>
+<li>By program (e.g. user screen)</li>
+<li>By workflow (e.g. create, retrieve, update, delete)</li>
+<li>By layer (e.g. user interface, application, data)</li>
+<li>By business rule (e.g. unique field, data constraints)</li>
+<li>By integration aspect (e.g. security, logging, exception handling)</li>
+<li>By support activities (e.g. unit test, documentation, peer review)</li>
+</ul>
+If the epics or user story is not sufficiently defined or understood, a Analysis and Design (Model Storming) session should be scheduled to define and agree on the work item prior to the backlog refinement session.
+<br />
+Record new work items in backlog and show traceability to parent work item. Decomposed work items, in their entirety, should completely cover the parent work item.
+
+<h2>Prioritize new or modified stories</h2> 
+Using the same prioritization criteria (business value, known dependencies, risk, due date), prioritize any new or modified work items against into the ranked list.
+
+<h2>Estimate story points for decomposed stories</h2> 
+Estimate the relative size of decomposed stories in Story Points using an appropriate Estimating Story Points technique.
+
+<h1>Exit Criteria</h1>
+
+<ul>
+<li>Is the backlog sufficient to proceed with sprint planning for all teams?</li>
+<li>Have high-priority work items been adequately decomposed?  </li>
+<li>Have high-priority work items been estimated?</li>
+<li>Can each high-priority work item be completed within a single sprint?</li>
+<li>Have acceptance criteria been defined for high-priority work items?</li>
+<li>Does team understand and agree on meaning of high-priority work items?</li>
+<li>Are we looking ahead 2-4 sprints to make sure there will be no unmet dependencies for future work?</li>
+</ul>
+
+<h1>Outputs</h1>
+
+<ul>
+<li>Prioritized product backlog</li>
+<li>Sufficient user stories for next sprint</li>
+<ul>
+<li>Estimated</li>
+<li>Understood</li>
+<li>Small enough to complete in a single sprint</li>
+<li>Defined acceptance criteria</li>
+</ul>
+</ul>
+
+<h1>Metrics</h1>
+
+<ul>
+<li>Number of user stories</li>
+<li>Number of unestimated stories</li>
+<li>Number of user stories by epic</li>
+</ul>
+
+Over time, the percentage of unestimated stories should decline.
+
+
+
+
+
+"|"2018-03-06 03:27:00.0"|"1002"|"3"
+"957"|"Sprint Planning"|"Collaborate with the agile team, including the product owner, to allocate work from the product backlog to the upcoming sprint.
+
+<h1>Purpose</h1>
+<ul>
+Define and commit to the work items to be completed in the upcoming sprint
+<li>Estimate work to facilitate tracking of progress</li>
+</ul>
+
+<h1>Participants</h1>
+The entire product delivery team participates in sprint planning.  
+<ul>
+<li>Team Lead (Scrum Master) - facilitates the meeting</li>
+<li>Product Owner - clarifies requirements</li>
+<li>Team Members - commit to planned work</li>
+</ul>
+Additional stakeholders may be included as necessary to assist in determining business value.  To facilitate effective meetings, limit the number of stakeholders.
+
+<h1>Entry Criteria</h1>
+<ul>
+<li>Sufficient work has been defined, estimated, and prioritized through the Backlog Refinement process.  </li>
+<li>Prioritized work items must be decomposed so that they can be completed in a single sprint.</li>
+</ul>
+
+<h1>Inputs</h1>
+<ul>
+<li>Product Backlog</li>
+</ul>
+
+<h1>Approach</h1>
+A Sprint Planning meeting takes place at the beginning of each sprint.  This is a time-boxed meeting that is usually scheduled for 1-2 hours depending on the size of the team and the length of the sprint.  The general procedure for sprint planning is as follows.
+<ol>
+<li>Determine the availability of team members to work on sprint activities in the upcoming sprint.  Consider vacations, holidays, and other planned activities (e.g. resolution of technical debt, support tasks) that are not directed toward completing user stories.</li>
+<li>Determine historical team velocity and identify potential variances in planned velocity due to team availability.</li>
+<li>Select highest priority work items (stories, tasks, etc) from the product backlog and place them into the sprint backlog.  Continue adding highest priority work items to the sprint backlog until planned work for the sprint matches planned velocity (or comes close).  Story points are the preferred metric for analyzing velocity and planning work; however, other metrics such as number of sub-tasks, estimated hours of effort, etc. may also be used.</li>
+<li>Obtain commitment from team members.
+</ol>
+
+<h2>Other planning considerations</h2>
+In some cases, teams may have insufficient information to reliably determine historical team velocity or planned velocity.  In such cases, teams may user other approaches for sprint planning.  The following approach may be used for this purpose.  This approach may also be used in planning for work items such as resolution of technical debt or support tasks that impact team availability. 
+
+<ul>
+<li>For each selected work item:</li>
+<ol>
+<li>Identify sub-tasks needed to complete the work item.  Include sub-tasks to document, test, peer review, and demonstrate the results.</li>
+<li>Identify any dependencies.  If only some of the sub-tasks are impacted by the dependencies, it may be useful to divide the backlog item into more than one backlog task or story.</li>
+<li>Identify any risks or uncertainties.  Uncertainties are difficult to estimate and may need to be separated out as separate tasks or stories – either for additional model storming or future development.</li>
+<li>Estimate the time to complete each sub-task.  Summarize the time for the story estimate.</li>
+</ol>
+<li>Validate that estimated time to complete all selected work items does not exceed available time.</li>
+</ul>
+
+<h1>Exit Criteria</h1>
+<ul>
+<li>Have all team members committed to completing the items allocated to the sprint?</li>
+<li>Have uncertainties been identified and separated into new tasks/stories  or otherwise accounted for?</li>
+<li>Have dependencies and impediments been identified and accounted for?</li>
+<li>Have all steps to complete the story been identified?</li>
+<li>Does a clear definition of “done” exist?</li>
+</ul>
+
+<h1>Outputs</h1>
+<ul>
+<li>Sprint Backlog</li>
+</ul>
+
+<h1>Metrics</h1>
+<ul>
+<li>Team availability (relative to average)</li>
+<li>Average velocity (over last N sprints)</li>
+<li>Planned story points</li>
+<li>Number of planned tasks (i.e. work items other than estimated stories)</li>
+</ul>"|"2018-03-06 03:45:00.0"|"1002"|"3"
+"1051"|"Technical Architecture"|"<h1>Technical Architecture</h1> 
+
+Stanfield Systems implements a multi-tiered architecture as shown in the figure below. The Presentation tier is runs in a client browser and is implemented using Angular 4. The Angular Client uses JSON to call RESTful services on the application server, using JSON to exchange information between the client and the application server. RESTful web services are implemented on the application server as Java components using the Spring MVC framework. As shown in the figure above, the Application server includes several application tiers, as follows. 
+
+<ul> 
+<li>Application. The application tier implements controller classes with methods that define the rest end points and services. Controller objects control application activity that occurs when a rest services is invoked via the JSON interface. Controller objects contain a minimal amount of logic to invoke the corresponding service objects and handle exceptions. Controller objects implement the Spring Web MVC Controller API. 
+</li> 
+<li>Service. The service tier implements service classes with methods that define business services and data management services. Service objects define the scope of business transactions within the application, defining the steps to complete a transaction and persist or retrieve the results as appropriate. Service objects validate data inputs and relationships, enforce user authorization, and handle exceptions. Service objects implement the Spring Service API. 
+</li> 
+<li>Data Access. The data access tier implements repository classes to manage the retrieval and storage of business information from the persistent data repository. Repository objects provide create, retrieve, update, and delete (CRUD) functionality and also include custom queries as necessary to support business rules. Repository objects leverage the object-relational mapping annotations in the Entity Objects to map business objects to database tables using the Java Persistence API (JPA). Repository objects implement the Spring Data Repository API. 
+</li> 
+</ul> 
+
+Information is exchanged between components in the different tiers using entity objects, data transfer objects, and additional parameters as necessary. 
+
+<ul> 
+<li>Entity Objects are in-memory representations of business entities that are persisted in the database. Relational database tables and columns are mapped to entity objects using the Java Persistence API (JPA) 2.0 annotations. (JPA is implemented with Hibernate to perform object-relational mapping between the database and the KARMA entity objects. 
+</li> 
+<li>Data Transfer Objects (DTOs) are convenience objects used to group data together for transfer between components or processes. More specifically, DTOs are used for converting data from one or more entity objects to JSON when the mapping from entities to JSON data structures is somewhat complex. 
+</li> 
+</ul> 
+
+In this multi-tier architecture, some services are shared across multiple services. These are depicted in the figure above as Infrastructure Services. "|"2018-03-06 11:41:00.0"|"1001"|"3"

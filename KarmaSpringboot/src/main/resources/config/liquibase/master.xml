@@ -19,4 +19,5 @@
     <include file="config/liquibase/changelog/20180226235244_added_entity_constraints_SpaceHistory.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180226235246_added_entity_constraints_TagHistory.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+    <include file="config/liquibase/changelog/20180306120400_load_data.xml" relativeToChangelogFile="false"/>
 </databaseChangeLog>
