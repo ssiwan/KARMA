@@ -1,5 +1,5 @@
-"ID"|"TITLE"|"CONTENT"|"JHI_DATE"|"SPACE_ID"|"USER_ID"
-"951"|"Accessibility"|"Accessibility is essential for developers and organizations that want to
+﻿"ID"|"TITLE"|"CONTENT"|"JHI_DATE"|"SPACE_ID"|"USER_ID"
+"999999"|"Accessibility"|"Accessibility is essential for developers and organizations that want to
 create high quality, Angular websites and, at the same time, insure that
 people are not excluded from functionality, participation, and
 associated products and services. Essentially, our goal with
@@ -327,8 +327,8 @@ href=""https://axe-core.org/"">Axe</a> into a framework that, when tied
 into continuous deployment, provides nightly reports on
 accessibility. In this manner, at any time we know the state of the
 application as far as adherence to accessibility goals.
-"|"2018-03-06 01:43:00.0"|"1001"|"3"
-"952"|"Angular Advantages"|"This document describes the advantages of using Angular, one of the most popular frameworks for front-end development.
+"|"2018-03-06 01:43:00.0"|"999999"|"3"
+"999998"|"Angular Advantages"|"This document describes the advantages of using Angular, one of the most popular frameworks for front-end development.
 
 <h1>Advantages</h1>
 <h2>Component Based Architecture</h2>
@@ -367,8 +367,8 @@ No Fragmentation.  The Angular community is not fragmented. Almost all applicati
 Semantic Versioning.  A new version of Angular is released every six months. If a breaking change is about to be introduced, you will have a year to update your applications.
 
 <h2>Long-Term Support</h2>
-Some software engineers consider the mere fact that Angular is supported by Google a major advantage of the technology."|"2018-03-06 01:58:00.0"|"1001"|"4"
-"953"|"Continuous Integration and Delivery Using AWS"|"
+Some software engineers consider the mere fact that Angular is supported by Google a major advantage of the technology."|"2018-03-06 01:58:00.0"|"999999"|"4"
+"999997"|"Continuous Integration and Delivery Using AWS"|"
 <h1>Strategy</h1>
 
 Stanfield Systems has chosen to deploy our applications as
@@ -777,8 +777,8 @@ command, continually showing the last lines of the log file.
 <br /><br />
 
 This command shows the build logs.
-"|"2018-03-06 02:34:00.0"|"1001"|"4"
-"954"|"Construction Phase"|"Construction activities are oriented around construction iterations
+"|"2018-03-06 02:34:00.0"|"999999"|"4"
+"999996"|"Construction Phase"|"Construction activities are oriented around construction iterations
 (known as sprints in the Scrum methodology). Each sprint includes
 preparation activities prior to the sprint and planning, execution, and
 conclusion activities during the sprint. The construction iteration
@@ -886,8 +886,8 @@ peer reviews.
 		sprint, analyzing opportunities for improvement or for sharing best
 		practices.</li>
 </ol>
-"|"2018-03-06 03:04:00.0"|"1002"|"3"
-"955"|"Inception Phase"|"A short Inception phase occurs at the beginning of the product
+"|"2018-03-06 03:04:00.0"|"999998"|"3"
+"999995"|"Inception Phase"|"A short Inception phase occurs at the beginning of the product
 life-cycle to achieve concurrence on the direction the team will take to
 deliver the product. The Inception phase includes several high-level
 planning, modeling, and architectural activities as shown in the figure
@@ -959,8 +959,8 @@ cycles among the various processes.
 		DevOps environment with automated continuous integration and testing,
 		in-person or web-based communications, and collaboration portals for
 		project management and knowledge sharing.
-</ol>"|"2018-03-06 03:10:00.0"|"1002"|"3"
-"956"|"Backlog Refinement"|"Backlog refinement sessions are held to improve the product backlog.  This may involve several different activities such as:
+</ol>"|"2018-03-06 03:10:00.0"|"999998"|"3"
+"999994"|"Backlog Refinement"|"Backlog refinement sessions are held to improve the product backlog.  This may involve several different activities such as:
 
 <ul>
 <li>Writing user stories</li>
@@ -1093,8 +1093,8 @@ Over time, the percentage of unestimated stories should decline.
 
 
 
-"|"2018-03-06 03:27:00.0"|"1002"|"3"
-"957"|"Sprint Planning"|"Collaborate with the agile team, including the product owner, to allocate work from the product backlog to the upcoming sprint.
+"|"2018-03-06 03:27:00.0"|"999998"|"3"
+"999993"|"Sprint Planning"|"Collaborate with the agile team, including the product owner, to allocate work from the product backlog to the upcoming sprint.
 
 <h1>Purpose</h1>
 <ul>
@@ -1165,8 +1165,8 @@ In some cases, teams may have insufficient information to reliably determine his
 <li>Average velocity (over last N sprints)</li>
 <li>Planned story points</li>
 <li>Number of planned tasks (i.e. work items other than estimated stories)</li>
-</ul>"|"2018-03-06 03:45:00.0"|"1002"|"3"
-"1051"|"Technical Architecture"|"<h1>Technical Architecture</h1> 
+</ul>"|"2018-03-06 03:45:00.0"|"999998"|"3"
+"999992"|"Technical Architecture"|"<h1>Technical Architecture</h1> 
 
 Stanfield Systems implements a multi-tiered architecture as shown in the figure below. The Presentation tier is runs in a client browser and is implemented using Angular 4. The Angular Client uses JSON to call RESTful services on the application server, using JSON to exchange information between the client and the application server. RESTful web services are implemented on the application server as Java components using the Spring MVC framework. As shown in the figure above, the Application server includes several application tiers, as follows. 
 
@@ -1188,4 +1188,4 @@ Information is exchanged between components in the different tiers using entity 
 </li> 
 </ul> 
 
-In this multi-tier architecture, some services are shared across multiple services. These are depicted in the figure above as Infrastructure Services. "|"2018-03-06 11:41:00.0"|"1001"|"3"
+In this multi-tier architecture, some services are shared across multiple services. These are depicted in the figure above as Infrastructure Services. "|"2018-03-06 11:41:00.0"|"999999"|"3"

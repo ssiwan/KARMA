@@ -20,5 +20,10 @@
 
         <loadData tableName="space" separator="|" file="config/liquibase/space.csv" encoding="UTF-8"></loadData>
         <loadData tableName="article" separator="|" file="config/liquibase/article.csv" encoding="UTF-8"></loadData>
+        <loadData tableName="tag" separator="|" file="config/liquibase/tag.csv" encoding="UTF-8"></loadData>
+        <loadData tableName="article_tag" separator="|" file="config/liquibase/article_tag.csv" encoding="UTF-8"></loadData>
+        <loadData tableName="article_history" separator="|" file="config/liquibase/article_history.csv" encoding="UTF-8"></loadData>
+        <loadData tableName="tag_history" separator="|" file="config/liquibase/tag_history.csv" encoding="UTF-8"></loadData>
+        
     </changeSet>
 </databaseChangeLog>
