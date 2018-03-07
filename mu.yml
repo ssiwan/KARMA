@@ -48,6 +48,11 @@ parameters:
 
 ### custom cloudformation for managing the bucket with BDD reports
 templates:
+  mu-service-.*:
+    Resources:
+      EcsService:
+        Properties:
+          HealthCheckGracePeriodSeconds: 600
   mu-pipeline-karma-angular:
     Resources:
       PipelineFailedEventRule:
