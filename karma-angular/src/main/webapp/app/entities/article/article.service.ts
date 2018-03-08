@@ -49,6 +49,10 @@ export class ArticleService {
 
   }
 
+  countByUserId(userId: number): Observable<HttpResponse<any>> {
+    return this.http.get<any>(`${this.resourceUrl}/countByUserId/${userId}`, { observe: 'response'});
+
+  }
     findRecentlyAccessed(userId: number): Observable<HttpResponse<Article[]>> {
       return this.http.get<Article[]>(`${this.resourceUrl}/recentlyAccessed/${userId}`, { observe: 'response'})
             .map((res: HttpResponse<Article[]>) => this.convertArrayResponse(res));

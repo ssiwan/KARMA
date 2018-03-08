@@ -38,6 +38,11 @@ export class SpaceService {
             .map((res: HttpResponse<Space[]>) => this.convertArrayResponse(res));
     }
 
+    countByUserId(userId: number): Observable<HttpResponse<any>> {
+      return this.http.get<any>(`${this.resourceUrl}/countByUserId/${userId}`, { observe: 'response'});
+
+    }
+
     delete(id: number): Observable<HttpResponse<any>> {
         return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response'});
     }

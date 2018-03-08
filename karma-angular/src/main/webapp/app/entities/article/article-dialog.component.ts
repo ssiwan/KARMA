@@ -10,7 +10,7 @@ import { Article } from './article.model';
 import { ArticlePopupService } from './article-popup.service';
 import { ArticleService } from './article.service';
 import { Space, SpaceService } from '../space';
-import { User, UserService } from '../../shared';
+import { User, UserService, Principal } from '../../shared';
 import { Tag, TagService } from '../tag';
 import { ArticleType, ArticleTypeService } from '../article-type';
 import {DatePipe} from '@angular/common';
@@ -23,6 +23,7 @@ export class ArticleDialogComponent implements OnInit {
 
     article: Article;
     isSaving: boolean;
+    account: any;
 
     spaces: Space[];
 
@@ -42,11 +43,17 @@ export class ArticleDialogComponent implements OnInit {
         private tagService: TagService,
         private articleTypeService: ArticleTypeService,
         private eventManager: JhiEventManager,
-        private datePipe: DatePipe
+        private datePipe: DatePipe,
+        private principal: Principal
     ) {
     }
 
     ngOnInit() {
+
+      this.principal.identity().then((account) => {
+        this.account = account;
+
+      });
         this.isSaving = false;
         this.spaceService.query()
             .subscribe((res: HttpResponse<Space[]>) => { this.spaces = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));

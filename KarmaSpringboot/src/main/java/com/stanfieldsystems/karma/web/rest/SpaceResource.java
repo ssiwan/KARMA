@@ -2,13 +2,14 @@ package com.stanfieldsystems.karma.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import com.stanfieldsystems.karma.domain.Space;
-
+import com.stanfieldsystems.karma.repository.SpaceHistoryRepository;
 import com.stanfieldsystems.karma.repository.SpaceRepository;
 import com.stanfieldsystems.karma.web.rest.errors.BadRequestAlertException;
 import com.stanfieldsystems.karma.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,9 +32,12 @@ public class SpaceResource {
     private static final String ENTITY_NAME = "space";
 
     private final SpaceRepository spaceRepository;
+    
+    private final SpaceHistoryRepository spaceHistoryRepository;
 
-    public SpaceResource(SpaceRepository spaceRepository) {
+    public SpaceResource(SpaceRepository spaceRepository, SpaceHistoryRepository spaceHistoryRepository) {
         this.spaceRepository = spaceRepository;
+        this.spaceHistoryRepository = spaceHistoryRepository;
     }
 
     /**
@@ -114,7 +118,23 @@ public class SpaceResource {
     @Timed
     public ResponseEntity<Void> deleteSpace(@PathVariable Long id) {
         log.debug("REST request to delete Space : {}", id);
+        spaceHistoryRepository.deleteSpaceHistoryBySpaceId(id);
         spaceRepository.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
     }
+    
+    /**
+     * GET  /spaces/:countByUserId : get count of Spaces matching the "userId".
+     *
+     * @param id of the space of the space to retrieve
+     * @return the ResponseEntity with status 200 (OK) and with body of count, or with status 404 (Not Found)
+     */
+    @GetMapping("/spaces/countByUserId/{userId}")
+    @Timed
+    public ResponseEntity<Integer> getCountOfSpaceByUserId(@PathVariable Long userId) {
+    	log.debug("REST request to get page of Articles by Space");
+    	int count = spaceRepository.getSpaceCountByUserId(userId);
+    	return new ResponseEntity<>(count, HttpStatus.OK);
+    }
+    
 }

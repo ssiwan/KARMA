@@ -3,6 +3,7 @@ package com.stanfieldsystems.karma.web.rest;
 import com.stanfieldsystems.karma.KarmaSpringbootApp;
 import com.stanfieldsystems.karma.domain.Authority;
 import com.stanfieldsystems.karma.domain.User;
+import com.stanfieldsystems.karma.repository.TagHistoryRepository;
 import com.stanfieldsystems.karma.repository.UserRepository;
 import com.stanfieldsystems.karma.security.AuthoritiesConstants;
 import com.stanfieldsystems.karma.service.MailService;
@@ -76,6 +77,9 @@ public class UserResourceIntTest {
 
     @Autowired
     private UserService userService;
+    
+    @Autowired
+    private TagHistoryRepository tagHistoryRepository;
 
     @Autowired
     private UserMapper userMapper;
@@ -99,7 +103,7 @@ public class UserResourceIntTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        UserResource userResource = new UserResource(userRepository, userService, mailService);
+        UserResource userResource = new UserResource(userRepository, userService, mailService, tagHistoryRepository);
         this.restUserMockMvc = MockMvcBuilders.standaloneSetup(userResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)
@@ -492,7 +496,7 @@ public class UserResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$").isArray())
-            .andExpect(jsonPath("$").value(containsInAnyOrder(AuthoritiesConstants.USER, AuthoritiesConstants.ADMIN)));
+            .andExpect(jsonPath("$").value(containsInAnyOrder(AuthoritiesConstants.USER, AuthoritiesConstants.ADMIN, AuthoritiesConstants.OWNER, AuthoritiesConstants.EDITOR)));
     }
 
     @Test

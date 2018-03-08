@@ -35,6 +35,9 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
     @Query(value="select count(*) from Article article  where article.space_Id =:spaceId", nativeQuery=true)
     int getArticleCountBySpaceId(@Param("spaceId") int spaceId);
     
+    @Query("select count(*) from Article article  where article.user.id =:userId")
+    int getArticleCountByUserId(@Param("userId") Long userId);
+    
     @Query(value ="SELECT article.* from ARTICLE article inner join ( " +
                 "   SELECT a.ARTICLE_ID " +   
                 "   from ( " +   

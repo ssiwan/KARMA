@@ -238,6 +238,21 @@ public class ArticleResource {
     	return new ResponseEntity<>(count, HttpStatus.OK);
     }
     
+    /**
+     * GET  /articles/:countByUserId : get count of Articles matching the "spaceId".
+     *
+     * @param id of the space of the article to retrieve
+     * @return the ResponseEntity with status 200 (OK) and with body of count, or with status 404 (Not Found)
+     */
+    @GetMapping("/articles/countByUserId/{userId}")
+    @Timed
+    public ResponseEntity<Integer> getCountOfArticlesByUserId(@PathVariable Long userId) {
+    	log.debug("REST request to get page of Articles by UserId");
+    	int count = articleRepository.getArticleCountByUserId(userId);
+    	return new ResponseEntity<>(count, HttpStatus.OK);
+    }
+    
+    
     /** 
      * GET /articles/recentlyAccessed/:userId : get recently accessed articles for a specific user. 
      * 
@@ -263,6 +278,7 @@ public class ArticleResource {
     @Timed
     public ResponseEntity<Void> deleteArticle(@PathVariable Long id) {
         log.debug("REST request to delete Article : {}", id);
+        articleHistoryRepository.deleteArticleHistoryByArticleId(id);
         articleRepository.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
     }

@@ -3,6 +3,7 @@ package com.stanfieldsystems.karma.web.rest;
 import com.stanfieldsystems.karma.config.Constants;
 import com.codahale.metrics.annotation.Timed;
 import com.stanfieldsystems.karma.domain.User;
+import com.stanfieldsystems.karma.repository.TagHistoryRepository;
 import com.stanfieldsystems.karma.repository.UserRepository;
 import com.stanfieldsystems.karma.security.AuthoritiesConstants;
 import com.stanfieldsystems.karma.service.MailService;
@@ -37,7 +38,7 @@ import java.util.*;
  * <p>
  * For a normal use-case, it would be better to have an eager relationship between User and Authority,
  * and send everything to the client side: there would be no View Model and DTO, a lot less code, and an outer-join
- * which would be good for performance.
+ * which would be,m good for performance.
  * <p>
  * We use a View Model and a DTO for 3 reasons:
  * <ul>
@@ -63,14 +64,17 @@ public class UserResource {
     private final UserRepository userRepository;
 
     private final UserService userService;
+    
+    private final TagHistoryRepository tagHistoryRepository;
 
     private final MailService mailService;
 
-    public UserResource(UserRepository userRepository, UserService userService, MailService mailService) {
+    public UserResource(UserRepository userRepository, UserService userService, MailService mailService, TagHistoryRepository tagHistoryRepository) {
 
         this.userRepository = userRepository;
         this.userService = userService;
         this.mailService = mailService;
+        this.tagHistoryRepository = tagHistoryRepository;
     }
 
     /**
@@ -184,6 +188,10 @@ public class UserResource {
     @Secured(AuthoritiesConstants.ADMIN)
     public ResponseEntity<Void> deleteUser(@PathVariable String login) {
         log.debug("REST request to delete User: {}", login);
+        Optional<User> userOption = userService.getUserWithAuthoritiesByLogin(login);
+        User user = userOption.get();
+                
+        tagHistoryRepository.deleteTagHistoryByUserId(user.getId());
         userService.deleteUser(login);
         return ResponseEntity.ok().headers(HeaderUtil.createAlert( "A user is deleted with identifier " + login, login)).build();
     }
