@@ -12,6 +12,9 @@
 
     <property name="floatType" value="float4" dbms="postgresql, h2"/>
     <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+    
+    <property name="clobType" value="text" dbms="postgresql"/>
+	<property name="clobType" value="varchar" dbms="h2"/>	
 
     <!--
         Added the entity Article.
@@ -25,7 +28,7 @@
                 <constraints nullable="false" />
             </column>
 
-            <column name="content" type="clob">
+            <column name="content" type="${clobType}">
                 <constraints nullable="false" />
             </column>
 

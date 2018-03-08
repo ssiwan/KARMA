@@ -29,8 +29,7 @@ public class Article implements Serializable {
     private String title;
 
     @NotNull
-    @Lob
-    @Column(name = "content", nullable = false)
+    @Column(name = "content", columnDefinition = "text", nullable = false)
     private String content;
 
     @NotNull
