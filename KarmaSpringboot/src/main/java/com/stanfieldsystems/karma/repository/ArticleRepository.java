@@ -44,7 +44,7 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
                 "   ) as x inner join ARTICLE_HISTORY as a on a.ARTICLE_ID = x.ARTICLE_ID "  
                 + "and a.DATE_ACCESSED  = x.maxDate " +   
                 "where a.DATE_ACCESSED  >:monthsAgo AND a.USER_ID = :userId " +   
-                "ORDER BY a.DATE_ACCESSED DESC LIMIT 10) sub on sub.ARTICLE_ID = article.id ", nativeQuery = true)  
+                "ORDER BY a.DATE_ACCESSED DESC LIMIT 5) sub on sub.ARTICLE_ID = article.id ", nativeQuery = true)  
         List<Article> findRecentlyAccessedArticles(@Param("userId") Long userId, @Param("monthsAgo") ZonedDateTime monthsAgo);  
             
 
@@ -53,7 +53,7 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
     		"    		Select a.iD FROM Article a Inner Join Article_History ah ON a.ID = ah.ARTICLE_ID " +
     		"           where ah.DATE_ACCESSED  > :monthsAgo ) b " + 
     		"    		Group By ID  " + 
-    		"    		ORDER BY Count(*) DESC LIMIT 10 )", nativeQuery = true)
+    		"    		ORDER BY Count(*) DESC LIMIT 5 )", nativeQuery = true)
     List<Article> findFrequentArticles(@Param("monthsAgo") ZonedDateTime monthsAgo);
     
     @Query(value= "SELECT * FROM ARTICLE WHERE ID IN "

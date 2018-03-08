@@ -27,7 +27,7 @@
 					</div>
 				</div>
 				<div class="col-sm">
-					<label class="font-weight-bold">My Frequent Articles</label>
+					<label class="font-weight-bold">Popular Articles</label>
 					<div *ngFor="let article of frequentArticles">
 						<a class="font-weight-normal btn btn-link" 
 						[routerLink]="['../article', article.id ]">{{article.title}}</a>

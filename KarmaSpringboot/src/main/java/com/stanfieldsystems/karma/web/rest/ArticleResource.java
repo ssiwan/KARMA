@@ -5,9 +5,11 @@ import com.stanfieldsystems.karma.domain.Article;
 import com.stanfieldsystems.karma.domain.ArticleHistory;
 import com.stanfieldsystems.karma.domain.Tag;
 import com.stanfieldsystems.karma.domain.TagHistory;
+import com.stanfieldsystems.karma.domain.User;
 import com.stanfieldsystems.karma.repository.ArticleHistoryRepository;
 import com.stanfieldsystems.karma.repository.ArticleRepository;
 import com.stanfieldsystems.karma.repository.TagHistoryRepository;
+import com.stanfieldsystems.karma.repository.UserRepository;
 import com.stanfieldsystems.karma.web.rest.errors.BadRequestAlertException;
 import com.stanfieldsystems.karma.web.rest.util.HeaderUtil;
 import com.stanfieldsystems.karma.web.rest.util.PaginationUtil;
@@ -21,6 +23,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
@@ -50,15 +54,19 @@ public class ArticleResource {
     
     private final ArticleHistoryRepository articleHistoryRepository;
     
+    private final UserRepository userRepository;
+    
     private final TagHistoryRepository tagHistoryRepository;
     
     private Date threeMonthsago = DateUtils.addMonths(new Date(), -3); 
     private ZonedDateTime monthsAgo = threeMonthsago.toInstant().atZone(ZoneId.systemDefault()); 
 
-    public ArticleResource(ArticleRepository articleRepository, ArticleHistoryRepository articleHistoryRepository, TagHistoryRepository tagHistoryRepository) {
+    public ArticleResource(ArticleRepository articleRepository, ArticleHistoryRepository articleHistoryRepository, 
+    		TagHistoryRepository tagHistoryRepository, UserRepository userRepository) {
         this.articleRepository = articleRepository;
         this.articleHistoryRepository = articleHistoryRepository;
         this.tagHistoryRepository = tagHistoryRepository;
+        this.userRepository = userRepository;
     }
 
     /**
@@ -128,22 +136,30 @@ public class ArticleResource {
     @Timed
     public ResponseEntity<Article> getArticle(@PathVariable Long id) {
         log.debug("REST request to get Article : {}", id);
+        
         Article article = articleRepository.findOneWithEagerRelationships(id);
         
         if(article != null) {
-        	ArticleHistory articleHistory = new ArticleHistory();
-        	articleHistory.setDateAccessed(ZonedDateTime.now(ZoneId.systemDefault()));
-        	articleHistory.setArticle(article);
-        	articleHistory.setUser(article.getUser());
-        	articleHistoryRepository.save(articleHistory);
+        	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         	
-        	List<Tag> tags = new ArrayList<Tag>(article.getTags());
-        	for(Tag tag : tags) {
-        		TagHistory tagHistory = new TagHistory();
-            	tagHistory.setDateAccessed(ZonedDateTime.now(ZoneId.systemDefault()));
-            	tagHistory.setTag(tag);
-            	tagHistory.setUser(article.getUser());
-            	tagHistoryRepository.save(tagHistory);
+        	if(auth != null) { //write history for current user
+        		 String userName = auth.getName();
+                 User currentUser = userRepository.findOneByLogin(userName).orElseThrow(null);
+                 
+             	ArticleHistory articleHistory = new ArticleHistory();
+             	articleHistory.setDateAccessed(ZonedDateTime.now(ZoneId.systemDefault()));
+             	articleHistory.setArticle(article);
+             	articleHistory.setUser(currentUser);
+             	articleHistoryRepository.save(articleHistory);
+             	
+             	List<Tag> tags = new ArrayList<Tag>(article.getTags());
+             	for(Tag tag : tags) {
+             		TagHistory tagHistory = new TagHistory();
+                 	tagHistory.setDateAccessed(ZonedDateTime.now(ZoneId.systemDefault()));
+                 	tagHistory.setTag(tag);
+                 	tagHistory.setUser(currentUser);
+                 	tagHistoryRepository.save(tagHistory);
+             	}
         	}
         }
         

@@ -6,6 +6,7 @@ import com.stanfieldsystems.karma.domain.Article;
 import com.stanfieldsystems.karma.repository.ArticleHistoryRepository;
 import com.stanfieldsystems.karma.repository.ArticleRepository;
 import com.stanfieldsystems.karma.repository.TagHistoryRepository;
+import com.stanfieldsystems.karma.repository.UserRepository;
 import com.stanfieldsystems.karma.web.rest.errors.ExceptionTranslator;
 
 import org.junit.Before;
@@ -21,7 +22,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.Base64Utils;
 
 import javax.persistence.EntityManager;
 import java.time.Instant;
@@ -63,6 +63,9 @@ public class ArticleResourceIntTest {
     
     @Autowired
     private TagHistoryRepository tagHistoryRepository;
+    
+    @Autowired
+    private  UserRepository userRepository;
 
     @Autowired
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
@@ -83,7 +86,8 @@ public class ArticleResourceIntTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final ArticleResource articleResource = new ArticleResource(articleRepository, articleHistoryRepository, tagHistoryRepository);
+        final ArticleResource articleResource = new ArticleResource(articleRepository, articleHistoryRepository, 
+        		tagHistoryRepository, userRepository);
         this.restArticleMockMvc = MockMvcBuilders.standaloneSetup(articleResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)

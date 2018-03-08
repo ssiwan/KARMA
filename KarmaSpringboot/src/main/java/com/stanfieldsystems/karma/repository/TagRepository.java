@@ -26,6 +26,6 @@ public interface TagRepository extends JpaRepository<Tag, Long> {
 		        ") as x inner join TAG_HISTORY as a on a.TAG_ID = x.TAG_ID " 
 		        + "and a.DATE_ACCESSED  = x.maxDate " +  
 		        "where a.DATE_ACCESSED  >:monthsAgo AND a.USER_ID = :userId " +  
-		        "ORDER BY a.DATE_ACCESSED DESC LIMIT 10) sub on sub.TAG_ID = tag.id ", nativeQuery = true) 
+		        "ORDER BY a.DATE_ACCESSED DESC LIMIT 5) sub on sub.TAG_ID = tag.id ", nativeQuery = true) 
 	List<Tag> findRecentlyAccessedTags(@Param("userId") Long userId, @Param("monthsAgo") ZonedDateTime monthsAgo); 
 }
