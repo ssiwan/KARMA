@@ -88,6 +88,7 @@ export class ArticleDialogComponent implements OnInit {
                 this.articleService.update(this.article));
         } else {
             const date = new Date();
+            this.article.user = this.account;
             this.article.date = this.datePipe.transform(date, 'yyyy-MM-dd:hh:mm');
             this.subscribeToSaveResponse(
                 this.articleService.create(this.article));

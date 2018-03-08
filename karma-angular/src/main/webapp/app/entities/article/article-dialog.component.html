@@ -37,13 +37,6 @@
             </select>
         </div>
         <div class="form-group">
-            <label class="form-control-label" for="field_user">User</label>
-            <select class="form-control" id="field_user" name="user" [(ngModel)]="article.user" >
-                <option [ngValue]="null"></option>
-                <option [ngValue]="userOption.id === article.user?.id ? article.user : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
-            </select>
-        </div>
-        <div class="form-group">
             <label for="field_tag">Tag</label>
             <select class="form-control" id="field_tag" multiple name="tag" [(ngModel)]="article.tags">
                 <option [ngValue]="getSelected(article.tags, tagOption)" *ngFor="let tagOption of tags; trackBy: trackTagById">{{tagOption.name}}</option>
