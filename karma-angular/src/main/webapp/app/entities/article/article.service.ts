@@ -39,6 +39,11 @@ export class ArticleService {
             .map((res: HttpResponse<Article[]>) => this.convertArrayResponse(res));
     }
 
+   filterArticles(rout: string, param: string): Observable<HttpResponse<Article[]>> {
+        return this.http.get<Article[]>(`${this.resourceUrl}/` + rout + `/${param}`, {observe: 'response'})
+            .map((res: HttpResponse<Article[]>) => this.convertArrayResponse(res));
+    }
+
    searchBySpace(spaceId: number): Observable<HttpResponse<Article[]>> {
        return this.http.get<Article[]>(`${this.resourceUrl}/searchSpace/${spaceId}`, { observe: 'response'})
        .map((res: HttpResponse<Article[]>) => this.convertArrayResponse(res));

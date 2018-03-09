@@ -4,14 +4,10 @@ import { Injectable } from '@angular/core';
 export class Data {
 
   public storage: any;
-
+  public routingPath: any;
+  public param: any;
+  public heading: string;
+  public all: boolean;
   constructor() {}
-
-   setData(data) {
-    this.storage = data;
-  }
-  getData() {
-    return this.storage;
-  }
 
 }

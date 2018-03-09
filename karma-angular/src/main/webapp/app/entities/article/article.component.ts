@@ -58,28 +58,28 @@ export class ArticleComponent implements OnInit, OnDestroy {
     reset() {
         this.page = 0;
         this.articles = [];
-        if (this.data.storage) {
-            this.articles = this.data.storage;
-        } else {
-            this.loadAll();
-        }
+        this.loadData();
     }
 
     loadPage( page ) {
         this.page = page;
-        if (this.data.storage) {
-            this.articles = this.data.storage;
-        } else {
-            this.loadAll();
-        }
+        this.loadData();
+    }
+
+    loadData() {
+      if (this.data.all === false) {
+        this.articleService.filterArticles(this.data.routingPath, this.data.param).subscribe(
+          (res: HttpResponse<Article[]>) => this.filterOnSuccess(res.body, res.headers),
+          (res: HttpErrorResponse) => this.onError(res.message)
+        );
+      } else {
+        this.loadAll();
+      }
     }
 
     ngOnInit() {
-        if (this.data.storage) {
-            this.articles = this.data.storage;
-        } else {
-            this.loadAll();
-        }
+        this.loadData();
+
         this.principal.identity().then((account) => {
             this.currentAccount = account;
         });
@@ -120,6 +120,12 @@ export class ArticleComponent implements OnInit, OnDestroy {
             this.articles.push(data[i]);
         }
     }
+
+    private filterOnSuccess(data, headers) {
+    for (let i = 0; i < data.length; i++) {
+      this.articles.push(data[i]);
+    }
+  }
 
     private onError(error) {
         this.jhiAlertService.error(error.message, null, null);

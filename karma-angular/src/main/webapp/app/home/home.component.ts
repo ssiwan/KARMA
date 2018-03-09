@@ -85,10 +85,11 @@ export class HomeComponent implements OnInit {
   }
 
   searchTitle(searchString: string) {
-    this.articleService.search(searchString).subscribe(
-      (res: HttpResponse<Article[]>) => this.searchTitleOnSuccess(res.body, res.headers),
-      (res: HttpErrorResponse) => this.onError(res.message)
-    );
+    this.data.routingPath = 'searchTitles';
+    this.data.param = searchString;
+    this.data.heading = 'Searched by: ' + searchString;
+    this.data.all = false;
+    this.router.navigate(['/article']);
   }
 
   getRecentArticles() {
@@ -112,11 +113,20 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  getArticleByTag(tagId) {
-    this.articleService.searchByTagId(tagId).subscribe(
-      (res: HttpResponse<Article[]>) => this.getArticleLinkByTag(res.body, res.headers),
-      (res: HttpErrorResponse) => this.onError(res.message)
-    );
+  getAllArticles() {
+    this.data.routingPath = '';
+    this.data.param = null;
+    this.data.heading = 'All';
+    this.data.all = true;
+    this.router.navigate(['/article']);
+  }
+
+  getArticleByTag(tagId, tagName) {
+    this.data.routingPath = 'tag';
+    this.data.param = tagId;
+    this.data.heading = 'Tag: ' + tagName;
+    this.data.all = false;
+    this.router.navigate(['/article']);
   }
 
   private searchTitleOnSuccess(data, headers) {
@@ -124,6 +134,7 @@ export class HomeComponent implements OnInit {
       this.searchArticles.push(data[i]);
     }
     this.data.storage = this.searchArticles;
+    this.data.routingPath = '';
     this.router.navigate(['/article']);
   }
 

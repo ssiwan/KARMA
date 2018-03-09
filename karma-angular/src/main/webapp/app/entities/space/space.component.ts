@@ -64,11 +64,12 @@ spaces: Space[];
         this.jhiAlertService.error(error.message, null, null);
     }
 
-    getArticlesBySpace(searchId: number) {
-        this.articleService.searchBySpace(searchId).subscribe(
-          (res: HttpResponse<Article[]>) => this.getArticlesBySpaceOnSuccess(res.body, res.headers),
-          (res: HttpErrorResponse) => this.onError(res.message)
-        );
+    getArticlesBySpace(searchId: number, spaceName: string) {
+      this.data.routingPath = 'searchSpace';
+      this.data.param = searchId;
+      this.data.heading = 'Space: ' + spaceName;
+      this.data.all = false;
+      this.router.navigate(['/article']);
     }
     private getArticlesBySpaceOnSuccess(data, headers) {
         for (let i = 0; i < data.length; i++) {

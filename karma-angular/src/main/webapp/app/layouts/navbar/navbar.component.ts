@@ -6,6 +6,7 @@ import { ProfileService } from '../profiles/profile.service';
 import { Principal, LoginModalService, LoginService } from '../../shared';
 
 import { VERSION } from '../../app.constants';
+import { Data } from '../../data';
 
 @Component({
     selector: 'jhi-navbar',
@@ -27,7 +28,8 @@ export class NavbarComponent implements OnInit {
         private principal: Principal,
         private loginModalService: LoginModalService,
         private profileService: ProfileService,
-        private router: Router
+        private router: Router,
+        private data: Data
     ) {
         this.version = VERSION ? 'v' + VERSION : '';
         this.isNavbarCollapsed = true;
@@ -38,6 +40,16 @@ export class NavbarComponent implements OnInit {
             this.inProduction = profileInfo.inProduction;
             this.swaggerEnabled = profileInfo.swaggerEnabled;
         });
+    }
+
+    getAllArticles() {
+      this.data.routingPath = '';
+      this.data.param = null;
+      this.data.heading = 'All';
+      this.data.all = true;
+
+      this.collapseNavbar();
+      this.router.navigate(['/article']);
     }
 
     collapseNavbar() {

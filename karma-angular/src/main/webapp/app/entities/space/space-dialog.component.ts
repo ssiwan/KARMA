@@ -9,7 +9,7 @@ import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 import { Space } from './space.model';
 import { SpacePopupService } from './space-popup.service';
 import { SpaceService } from './space.service';
-import { User, UserService } from '../../shared';
+import { User, UserService, Principal } from '../../shared';
 
 @Component({
     selector: 'jhi-space-dialog',
@@ -19,6 +19,7 @@ export class SpaceDialogComponent implements OnInit {
 
     space: Space;
     isSaving: boolean;
+    account: any;
 
     users: User[];
 
@@ -27,11 +28,17 @@ export class SpaceDialogComponent implements OnInit {
         private jhiAlertService: JhiAlertService,
         private spaceService: SpaceService,
         private userService: UserService,
-        private eventManager: JhiEventManager
+        private eventManager: JhiEventManager,
+        private principal: Principal
     ) {
     }
 
     ngOnInit() {
+      this.principal.identity().then((account) => {
+        this.account = account;
+
+      });
+
         this.isSaving = false;
         this.userService.query()
             .subscribe((res: HttpResponse<User[]>) => { this.users = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
@@ -47,6 +54,8 @@ export class SpaceDialogComponent implements OnInit {
             this.subscribeToSaveResponse(
                 this.spaceService.update(this.space));
         } else {
+            this.space.user = this.account;
+            this.space.handle = this.space.name;
             this.subscribeToSaveResponse(
                 this.spaceService.create(this.space));
         }
