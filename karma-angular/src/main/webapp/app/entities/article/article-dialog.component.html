@@ -29,16 +29,16 @@
                 </small>
             </div>
         </div>
-         <div class="form-group">
-            <label class="form-control-label font-weight-bold" for="field_space">Knowledge Area</label>
-            <select class="form-control" id="field_space" name="space" [(ngModel)]="article.space" >
+         <div class="form-group" *ngIf="!hasSpace">
+            <label class="form-control-label" for="field_space">Knowledge Area</label>
+            <select class="form-control" id="field_space" name="space" [(ngModel)]="article.space" required>
                 <option [ngValue]="spaceOption.id === article.space?.id ? article.space : spaceOption" *ngFor="let spaceOption of spaces; trackBy: trackSpaceById">{{spaceOption.name}}</option>
             </select>
-            <div [hidden]="!(editForm.controls.space?.dirty && editForm.controls.space?.invalid)">
-              	<small class="form-text text-danger"
-               		[hidden]="!editForm.controls.content?.errors?.required">
-               		This field is required.
-               	</small>
+             <div [hidden]="!(editForm.controls.space?.dirty && editForm.controls.space?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.title?.errors?.required">
+                   This field is required.
+                </small>
             </div>
         </div>
         <div class="form-group">

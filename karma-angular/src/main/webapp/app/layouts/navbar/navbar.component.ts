@@ -47,6 +47,7 @@ export class NavbarComponent implements OnInit {
       this.data.param = null;
       this.data.heading = 'All';
       this.data.all = true;
+      this.data.space = null;
 
       this.collapseNavbar();
       this.router.navigate(['/article']);
