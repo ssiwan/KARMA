@@ -1,7 +1,8 @@
 <div>
     <h1 style="color:#007bff;font-weight:bold">
+    	<span *ngIf="showAll">All</span>
         <span>Knowledge Articles</span>
-        <span style="color:black; margin-left:40px; font-size: large;">  {{data.heading}}</span>
+        <span *ngIf="!showAll" style="color:black; margin-left:40px; font-size: large; vertical-align: middle;" >  {{filterHeading}}</span>
         <button class="btn btn-primary float-right jh-create-entity create-space" [routerLink]="['/', { outlets: { popup: ['article-new'] } }]">
             <span class="fa fa-plus"></span>
             <span >

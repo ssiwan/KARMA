@@ -24,6 +24,8 @@ export class ArticleComponent implements OnInit, OnDestroy {
     queryCount: any;
     reverse: any;
     totalItems: number;
+    public filterHeading: string;
+    public showAll: boolean;
 
     constructor(
         private articleService: ArticleService,
@@ -68,11 +70,13 @@ export class ArticleComponent implements OnInit, OnDestroy {
 
     loadData() {
       if (this.data.all === false) {
+        this.filterHeading = this.data.heading;
         this.articleService.filterArticles(this.data.routingPath, this.data.param).subscribe(
           (res: HttpResponse<Article[]>) => this.filterOnSuccess(res.body, res.headers),
           (res: HttpErrorResponse) => this.onError(res.message)
         );
       } else {
+        this.showAll = true;
         this.loadAll();
       }
     }

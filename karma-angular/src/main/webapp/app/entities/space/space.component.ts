@@ -67,7 +67,7 @@ spaces: Space[];
     getArticlesBySpace(searchId: number, spaceName: string) {
       this.data.routingPath = 'searchSpace';
       this.data.param = searchId;
-      this.data.heading = 'Knowledge Area: ' + spaceName;
+      this.data.heading = 'Search by Knowledge Area: ' + spaceName;
       this.data.all = false;
       this.router.navigate(['/article']);
     }

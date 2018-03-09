@@ -87,7 +87,7 @@ export class HomeComponent implements OnInit {
   searchTitle(searchString: string) {
     this.data.routingPath = 'searchTitles';
     this.data.param = searchString;
-    this.data.heading = 'Searched by: ' + searchString;
+    this.data.heading = 'Searched by Keyword: ' + searchString;
     this.data.all = false;
     this.router.navigate(['/article']);
   }
@@ -124,7 +124,7 @@ export class HomeComponent implements OnInit {
   getArticleByTag(tagId, tagName) {
     this.data.routingPath = 'tag';
     this.data.param = tagId;
-    this.data.heading = 'Tag: ' + tagName;
+    this.data.heading = 'Search by Tag: ' + tagName;
     this.data.all = false;
     this.router.navigate(['/article']);
   }
