@@ -17,7 +17,7 @@ import org.springframework.data.repository.query.Param;
 @Repository
 public interface TagRepository extends JpaRepository<Tag, Long> {
 
-	 @Query(value =" SELECT tag.* from TAG tag inner join ( "
+	@Query(value =" SELECT tag.* from TAG tag inner join ( "
 	 		+ "  SELECT a.TAG_ID " +  
 		        "from ( " +  
 		        "   SELECT TAG_ID, MAX(DATE_ACCESSED) as maxDate " +  

@@ -19,8 +19,8 @@
 				<div class="col-sm">
 					<label class="font-weight-bold">My Recent Articles</label>
 					<div *ngFor="let article of recentArticles">
-						<a class="font-weight-normal btn btn-link" 
-						[routerLink]="['../article', article.id ]">{{article.title}}</a>
+						<a class="font-weight-normal btn btn-link"
+							[routerLink]="['../article', article.id ]">{{article.title}}</a>
 					</div>
 					<div>
 						<a class="btn-link font-weight-bold" routerLink="article" routerLinkActive="active" (click)="getAllArticles()">All Articles</a>
@@ -29,10 +29,10 @@
 				<div class="col-sm">
 					<label class="font-weight-bold">Popular Articles</label>
 					<div *ngFor="let article of frequentArticles">
-						<a class="font-weight-normal btn btn-link" 
-						[routerLink]="['../article', article.id ]">{{article.title}}</a>
+						<a class="font-weight-normal btn btn-link"
+							[routerLink]="['../article', article.id ]">{{article.title}}</a>
 					</div>
-					
+
 				</div>
 			</div>
 		</div>
@@ -41,8 +41,16 @@
 			<div class="row">
 				<div class="col-sm">
 					<label class="font-weight-bold">My Recent Knowledge Areas</label>
+					<div *ngFor="let space of recentSpaces">
+						<a class="font-weight-normal btn btn-link"
+							[routerLink]="['../space', space.id ]">{{space.name}}</a>
+					</div>
 					<div>
-						<a class="btn-link font-weight-bold" routerLink="space" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">All Knowledge Areas</a>
+						<a class="btn-link font-weight-bold" routerLink="space"
+							routerLinkActive="active"
+							[routerLinkActiveOptions]="{ exact: true }">All Knowledge
+							Areas</a>
+							
 					</div>
 				</div>
 				<div class="col-sm">
@@ -104,4 +112,5 @@
 		</div>
 
 	</div>
+	
 </div>

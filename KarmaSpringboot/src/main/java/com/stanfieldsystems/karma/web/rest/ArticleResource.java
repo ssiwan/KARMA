@@ -3,11 +3,13 @@ package com.stanfieldsystems.karma.web.rest;
 import com.codahale.metrics.annotation.Timed;
 import com.stanfieldsystems.karma.domain.Article;
 import com.stanfieldsystems.karma.domain.ArticleHistory;
+import com.stanfieldsystems.karma.domain.SpaceHistory;
 import com.stanfieldsystems.karma.domain.Tag;
 import com.stanfieldsystems.karma.domain.TagHistory;
 import com.stanfieldsystems.karma.domain.User;
 import com.stanfieldsystems.karma.repository.ArticleHistoryRepository;
 import com.stanfieldsystems.karma.repository.ArticleRepository;
+import com.stanfieldsystems.karma.repository.SpaceHistoryRepository;
 import com.stanfieldsystems.karma.repository.TagHistoryRepository;
 import com.stanfieldsystems.karma.repository.UserRepository;
 import com.stanfieldsystems.karma.web.rest.errors.BadRequestAlertException;
@@ -56,17 +58,20 @@ public class ArticleResource {
     
     private final UserRepository userRepository;
     
+    private final SpaceHistoryRepository spaceHistoryRepository;
+    
     private final TagHistoryRepository tagHistoryRepository;
     
     private Date threeMonthsago = DateUtils.addMonths(new Date(), -3); 
     private ZonedDateTime monthsAgo = threeMonthsago.toInstant().atZone(ZoneId.systemDefault()); 
 
     public ArticleResource(ArticleRepository articleRepository, ArticleHistoryRepository articleHistoryRepository, 
-    		TagHistoryRepository tagHistoryRepository, UserRepository userRepository) {
+    		TagHistoryRepository tagHistoryRepository, UserRepository userRepository, SpaceHistoryRepository spaceHistoryRepository) {
         this.articleRepository = articleRepository;
         this.articleHistoryRepository = articleHistoryRepository;
         this.tagHistoryRepository = tagHistoryRepository;
         this.userRepository = userRepository;
+        this.spaceHistoryRepository = spaceHistoryRepository;
     }
 
     /**
@@ -125,6 +130,21 @@ public class ArticleResource {
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/articles");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
+    
+    /**
+     * GET  /articles : get all the articles with lazy loading.
+     *
+     * @param pageable the pagination information
+     * @return the ResponseEntity with status 200 (OK) and the list of articles in body
+     */
+    @GetMapping("/articles/all")
+    @Timed
+    public ResponseEntity<List<Article>> getAllArticlesLazy() {
+        log.debug("REST request to get a page of Articles");
+        List<Article> articles = articleRepository.findAllWithEagerRelationships();
+       
+        return new ResponseEntity<>(articles, HttpStatus.OK);
+    }
 
     /**
      * GET  /articles/:id : get the "id" article.
@@ -143,8 +163,8 @@ public class ArticleResource {
         	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         	
         	if(auth != null) { //write history for current user
-        		 String userName = auth.getName();
-                 User currentUser = userRepository.findOneByLogin(userName).orElseThrow(null);
+        		String userName = auth.getName();
+                User currentUser = userRepository.findOneByLogin(userName).orElseThrow(null);
                  
              	ArticleHistory articleHistory = new ArticleHistory();
              	articleHistory.setDateAccessed(ZonedDateTime.now(ZoneId.systemDefault()));
@@ -221,6 +241,22 @@ public class ArticleResource {
     public ResponseEntity<List<Article>> getAllArticlesBySpaceId(@PathVariable int spaceId) {
     	log.debug("REST request to get page of Articles by Space");
     	List<Article> articles = articleRepository.findAllBySpaceId(spaceId);
+    	
+    	if(articles != null && articles.get(0).getSpace() != null) {
+    		
+        	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        	if(auth != null) { //write history for current user
+        		String userName = auth.getName();
+                User currentUser = userRepository.findOneByLogin(userName).orElseThrow(null);
+                
+                SpaceHistory spaceHistory = new SpaceHistory();
+                spaceHistory.setDateAccessed(ZonedDateTime.now(ZoneId.systemDefault()));
+                spaceHistory.setSpace(articles.get(0).getSpace());
+                spaceHistory.setUser(currentUser);
+                spaceHistoryRepository.save(spaceHistory);
+        	}
+            
+    	}
     	return new ResponseEntity<>(articles, HttpStatus.OK);
     }
     
@@ -268,6 +304,8 @@ public class ArticleResource {
         
         return new ResponseEntity<>(articles, HttpStatus.OK); 
     }
+    
+    
     /**
      * DELETE  /articles/:id : delete the "id" article.
      *

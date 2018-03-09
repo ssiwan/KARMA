@@ -5,6 +5,7 @@ import com.stanfieldsystems.karma.KarmaSpringbootApp;
 import com.stanfieldsystems.karma.domain.Space;
 import com.stanfieldsystems.karma.repository.SpaceHistoryRepository;
 import com.stanfieldsystems.karma.repository.SpaceRepository;
+import com.stanfieldsystems.karma.repository.UserRepository;
 import com.stanfieldsystems.karma.web.rest.errors.ExceptionTranslator;
 
 import org.junit.Before;
@@ -50,6 +51,9 @@ public class SpaceResourceIntTest {
     
     @Autowired
     private SpaceHistoryRepository spaceHistoryRepository;
+    
+    @Autowired
+    private UserRepository userRepository;
 
     @Autowired
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
@@ -70,7 +74,8 @@ public class SpaceResourceIntTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final SpaceResource spaceResource = new SpaceResource(spaceRepository, spaceHistoryRepository);
+        final SpaceResource spaceResource = new SpaceResource(spaceRepository, spaceHistoryRepository,
+        		userRepository);
         this.restSpaceMockMvc = MockMvcBuilders.standaloneSetup(spaceResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)

@@ -38,6 +38,11 @@ export class SpaceService {
             .map((res: HttpResponse<Space[]>) => this.convertArrayResponse(res));
     }
 
+    findRecentlyAccessed(userId: number): Observable<HttpResponse<Space[]>> {
+      return this.http.get<Space[]>(`${this.resourceUrl}/recentlyAccessed/${userId}`, { observe: 'response'})
+            .map((res: HttpResponse<Space[]>) => this.convertArrayResponse(res));
+    }
+
     countByUserId(userId: number): Observable<HttpResponse<any>> {
       return this.http.get<any>(`${this.resourceUrl}/countByUserId/${userId}`, { observe: 'response'});
 

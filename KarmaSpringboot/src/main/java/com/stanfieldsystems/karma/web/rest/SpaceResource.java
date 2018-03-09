@@ -2,21 +2,30 @@ package com.stanfieldsystems.karma.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import com.stanfieldsystems.karma.domain.Space;
+import com.stanfieldsystems.karma.domain.SpaceHistory;
+import com.stanfieldsystems.karma.domain.User;
 import com.stanfieldsystems.karma.repository.SpaceHistoryRepository;
 import com.stanfieldsystems.karma.repository.SpaceRepository;
+import com.stanfieldsystems.karma.repository.UserRepository;
 import com.stanfieldsystems.karma.web.rest.errors.BadRequestAlertException;
 import com.stanfieldsystems.karma.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
+
+import org.apache.commons.lang3.time.DateUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
-
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,10 +43,17 @@ public class SpaceResource {
     private final SpaceRepository spaceRepository;
     
     private final SpaceHistoryRepository spaceHistoryRepository;
+    
+    private final UserRepository userRepository;
+    
+    private Date threeMonthsago = DateUtils.addMonths(new Date(), -3); 
+    private ZonedDateTime monthsAgo = threeMonthsago.toInstant().atZone(ZoneId.systemDefault()); 
 
-    public SpaceResource(SpaceRepository spaceRepository, SpaceHistoryRepository spaceHistoryRepository) {
+    public SpaceResource(SpaceRepository spaceRepository, SpaceHistoryRepository spaceHistoryRepository,
+    		UserRepository userRepository) {
         this.spaceRepository = spaceRepository;
         this.spaceHistoryRepository = spaceHistoryRepository;
+        this.userRepository = userRepository;
     }
 
     /**
@@ -105,6 +121,20 @@ public class SpaceResource {
     public ResponseEntity<Space> getSpace(@PathVariable Long id) {
         log.debug("REST request to get Space : {}", id);
         Space space = spaceRepository.findOne(id);
+        
+        if(space != null) {
+        	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        	if(auth != null) { //write history for current user
+        		String userName = auth.getName();
+                User currentUser = userRepository.findOneByLogin(userName).orElseThrow(null);
+                
+                SpaceHistory spaceHistory = new SpaceHistory();
+                spaceHistory.setDateAccessed(ZonedDateTime.now(ZoneId.systemDefault()));
+                spaceHistory.setSpace(space);
+                spaceHistory.setUser(currentUser);
+                spaceHistoryRepository.save(spaceHistory);
+        	}
+        }
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(space));
     }
 
@@ -135,6 +165,22 @@ public class SpaceResource {
     	log.debug("REST request to get page of Articles by Space");
     	int count = spaceRepository.getSpaceCountByUserId(userId);
     	return new ResponseEntity<>(count, HttpStatus.OK);
+    }
+    
+    /** 
+     * GET /spaces/recentlyAccessed/:userId : get recently accessed spaces for a specific user. 
+     * 
+     * @param Long the userId of the user to retrieve recently accessed space history  
+     * @return the ResponseEntity with status 200 (OK) and with body of list of spaces, or with status 404 (Not Found) 
+     */ 
+    @GetMapping("/spaces/recentlyAccessed/{userId}") 
+    @Timed 
+    public ResponseEntity<List<Space>> getRecentlyAccessedSpaces(@PathVariable Long userId) { 
+    	log.debug("REST request to get page of Articles"); 
+        
+        List<Space> spaces = spaceRepository.findRecentlyAccessedSpaces(userId, monthsAgo);
+        
+        return new ResponseEntity<>(spaces, HttpStatus.OK); 
     }
     
 }

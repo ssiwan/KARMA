@@ -5,6 +5,7 @@ import com.stanfieldsystems.karma.KarmaSpringbootApp;
 import com.stanfieldsystems.karma.domain.Article;
 import com.stanfieldsystems.karma.repository.ArticleHistoryRepository;
 import com.stanfieldsystems.karma.repository.ArticleRepository;
+import com.stanfieldsystems.karma.repository.SpaceHistoryRepository;
 import com.stanfieldsystems.karma.repository.TagHistoryRepository;
 import com.stanfieldsystems.karma.repository.UserRepository;
 import com.stanfieldsystems.karma.web.rest.errors.ExceptionTranslator;
@@ -65,6 +66,9 @@ public class ArticleResourceIntTest {
     private TagHistoryRepository tagHistoryRepository;
     
     @Autowired
+    private SpaceHistoryRepository spaceHistoryRepository;
+    
+    @Autowired
     private  UserRepository userRepository;
 
     @Autowired
@@ -87,7 +91,7 @@ public class ArticleResourceIntTest {
     public void setup() {
         MockitoAnnotations.initMocks(this);
         final ArticleResource articleResource = new ArticleResource(articleRepository, articleHistoryRepository, 
-        		tagHistoryRepository, userRepository);
+        		tagHistoryRepository, userRepository, spaceHistoryRepository);
         this.restArticleMockMvc = MockMvcBuilders.standaloneSetup(articleResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)

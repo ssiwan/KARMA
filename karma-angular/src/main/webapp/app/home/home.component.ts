@@ -7,6 +7,7 @@ import {JhiEventManager, JhiAlertService} from 'ng-jhipster';
 import {Account, LoginModalService, Principal} from '../shared';
 
 import {Article} from '../entities/article/article.model';
+import { Space, SpaceService } from '../entities/space';
 import {TagService, Tag} from '../entities/tag';
 import {HttpErrorResponse} from '@angular/common/http';
 import {HttpResponse} from '@angular/common/http';
@@ -27,7 +28,11 @@ export class HomeComponent implements OnInit {
   searchString: string;
   recentArticles: Article[];
   recentTags: Tag[];
+  recentSpaces: Space[];
   frequentArticles: Article[];
+  articles: Article[];
+  articlesForSpace: Article[];
+  allSpaces: Space[];
 
   constructor(
     private principal: Principal,
@@ -36,10 +41,10 @@ export class HomeComponent implements OnInit {
     private eventManager: JhiEventManager,
     private jhiAlertService: JhiAlertService,
     private tagService: TagService,
+    private spaceService: SpaceService,
     private data: Data,
     private router: Router
   ) {
-
   }
 
   ngOnInit() {
@@ -49,6 +54,7 @@ export class HomeComponent implements OnInit {
         this.getRecentArticles();
         this.getRecentTags();
         this.getFrequentArticles();
+        this.getRecentSpaces();
       }
     });
     this.registerAuthenticationSuccess();
@@ -57,7 +63,11 @@ export class HomeComponent implements OnInit {
     this.searchString = '';
     this.recentArticles = [];
     this.recentTags = [];
+    this.recentSpaces = [];
     this.frequentArticles = [];
+    this.articles = [];
+    this.articlesForSpace = [];
+    this.allSpaces = [];
   }
 
   registerAuthenticationSuccess() {
@@ -67,9 +77,11 @@ export class HomeComponent implements OnInit {
         if (this.account != null) {
           this.recentArticles = [];
           this.recentTags = [];
+          this.recentSpaces = [];
           this.frequentArticles = [];
           this.getRecentArticles();
           this.getRecentTags();
+          this.getRecentSpaces();
           this.getFrequentArticles();
         }
       });
@@ -121,6 +133,13 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/article']);
   }
 
+  getRecentSpaces() {
+    this.spaceService.findRecentlyAccessed(this.account.id).subscribe(
+      (res: HttpResponse<Space[]>) => this.recentSpacesOnSuccess(res.body, res.headers),
+      (res: HttpErrorResponse) => this.onError(res.message)
+    );
+  }
+
   getArticleByTag(tagId, tagName) {
     this.data.routingPath = 'tag';
     this.data.param = tagId;
@@ -156,11 +175,9 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  private getArticleLinkByTag(data, headers) {
-    if (data.length > 1) {
-      this.searchTitleOnSuccess(data, headers);
-    }else {
-      this.router.navigate(['/article', data[0].id]);
+  private recentSpacesOnSuccess(data, headers) {
+    for (let i = 0; i < data.length; i++) {
+      this.recentSpaces.push(data[i]);
     }
   }
 
