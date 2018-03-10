@@ -3,67 +3,83 @@
 		<span class="hipster img-fluid rounded"
 			aria-label="Knowledge Items Diagram showing the circular flow of collecting, using, enriching, sharing, assessing, building, sustaining, and divesting Knowledge Items"></span>
 	</div>
-	<div class="col-md-7" *ngSwitchCase="true">
+	
+	<div class="col-md-5" style="margin-top: 10px;" *ngSwitchCase="true">
 		<div class="form-group">
-			<input class="col-md-6" type="search" [(ngModel)]="searchString"
-				placeholder="Search Articles" />
-
-			<button type="button" class="btn btn-info"
-				(click)="searchTitle(searchString)">
-				<span class="glyphicon glyphicon-search"></span> Search
-			</button>
-		</div>
-
-		<div class="form-group">
-			<div class="row">
+			<div class="row form-group" style="margin-left: 10px;">
 				<div class="col-sm">
-					<label class="font-weight-bold">My Recent Articles</label>
+					<h4 class="font-weight-bold">My Recent Articles</h4>
 					<div *ngFor="let article of recentArticles">
 						<a class="font-weight-normal btn btn-link"
 							[routerLink]="['../article', article.id ]">{{article.title}}</a>
 					</div>
-					<div>
-						<a class="btn-link font-weight-bold" routerLink="article" routerLinkActive="active" (click)="getAllArticles()">All Articles</a>
-					</div>
-				</div>
-				<div class="col-sm">
-					<label class="font-weight-bold">Popular Articles</label>
-					<div *ngFor="let article of frequentArticles">
-						<a class="font-weight-normal btn btn-link"
-							[routerLink]="['../article', article.id ]">{{article.title}}</a>
-					</div>
-
 				</div>
 			</div>
-		</div>
-		<div style="margin-top: 50px"></div>
-		<div class="form-group">
-			<div class="row">
+			
+			<div class="row form-group" style="margin-left: 10px;">
 				<div class="col-sm">
-					<label class="font-weight-bold">My Recent Knowledge Areas</label>
+					<h4 class="font-weight-bold">My Recent Knowledge Areas</h4>
 					<div *ngFor="let space of recentSpaces">
 						<a class="font-weight-normal btn btn-link"
 							[routerLink]="['../space', space.id ]">{{space.name}}</a>
 					</div>
-					<div>
-						<a class="btn-link font-weight-bold" routerLink="space"
-							routerLinkActive="active"
-							[routerLinkActiveOptions]="{ exact: true }">All Knowledge
-							Areas</a>
-							
-					</div>
 				</div>
+			</div>
+			
+			<div class="row" style="margin-left: 10px;">
 				<div class="col-sm">
-					<label class="font-weight-bold">My Recent Tags</label>
+					<h4 class="font-weight-bold">My Recent Tags</h4>
 					<div *ngFor="let tag of recentTags">
 						<a class="font-weight-normal btn btn-link" 
 						  [routerLink]="" (click)="getArticleByTag(tag.id, tag.name)">{{tag.name}}</a>
 					</div>
 				</div>
 			</div>
+			
 		</div>
-		<div style="margin-top: 50px"></div>
 	</div>
+	
+	<div class="col-md-5 " *ngSwitchCase="true">
+		<div class="form-group bg-light">
+			<div class="form-group" style="margin-left: 25px;">
+				<input class="col-md-6" type="search" [(ngModel)]="searchString"
+					placeholder="Search Articles" />
+	
+				<button type="button" class="btn btn-info"
+					(click)="searchTitle(searchString)">
+					<span class="glyphicon glyphicon-search"></span> Search
+				</button>
+			</div>
+			<div class="row form-group" style="margin-left: 10px;">
+				<div class="col-sm">
+					<h4 class="font-weight-bold">Popular Articles</h4>
+					<div *ngFor="let article of frequentArticles">
+						<a class="font-weight-normal btn btn-link"
+							[routerLink]="['../article', article.id ]">{{article.title}}</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="form-group bg-light">
+			<div style="margin-left: 40px;">
+				<div class="row">
+					<a class="font-weight-normal btn btn-link" routerLink="article" 
+						routerLinkActive="active" (click)="getAllArticles()">All Articles</a>
+				</div>
+				<div class="row">
+					<a class="font-weight-normal btn btn-link" routerLink="space"
+						routerLinkActive="active">All Knowledge
+						Areas</a>
+				</div>
+				<div class="row">
+					<a class="font-weight-normal btn btn-link" routerLink="tag"
+						routerLinkActive="active">All Tags</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	
 	<div class="col-md-6" *ngSwitchCase="false">
 		<h1 id="welcomeHeader" class="display-4">Welcome to KARMA</h1>
 		<p class="lead">Knowledge Article Record Management Application</p>
@@ -104,13 +120,13 @@
 		</p>
 	</div>
 
-	<div class="col-md-5" *ngSwitchCase="true">
+	<!-- <div class="col-md-5" *ngSwitchCase="true">
 		<h1 id="welcomeHeader" class="display-4">Welcome to KARMA</h1>
 		<div class="alert alert-success">
 			<span *ngIf="account"> You are logged in as user
 				"{{account.login}}". </span>
 		</div>
 
-	</div>
+	</div> -->
 	
 </div>

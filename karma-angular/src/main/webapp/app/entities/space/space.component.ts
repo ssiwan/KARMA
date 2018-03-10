@@ -64,18 +64,13 @@ spaces: Space[];
         this.jhiAlertService.error(error.message, null, null);
     }
 
-    getArticlesBySpace(searchId: number, spaceName: string) {
+    getArticlesBySpace(space: Space) {
       this.data.routingPath = 'searchSpace';
-      this.data.param = searchId;
-      this.data.heading = 'Search by Knowledge Area: ' + spaceName;
+      this.data.param = space.id;
+      this.data.heading = 'Search by Knowledge Area: ' + space.name;
       this.data.all = false;
+      this.data.space = space;
       this.router.navigate(['/article']);
     }
-    private getArticlesBySpaceOnSuccess(data, headers) {
-        for (let i = 0; i < data.length; i++) {
-          this.articlesForSpace.push(data[i]);
-        }
-        this.data.storage = this.articlesForSpace;
-        this.router.navigate(['/article']);
-    }
+
 }
