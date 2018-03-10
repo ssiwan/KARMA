@@ -1,5 +1,5 @@
 <div>
-    <h1 style="color:#007bff;font-weight:bold">
+    <h1 class="font-weight-bold">
     	<span *ngIf="showAll">All</span>
         <span>Knowledge Articles</span>
         <span *ngIf="!showAll" style="color:black; margin-left:40px; font-size: large; vertical-align: middle;" >  {{filterHeading}}</span>
@@ -17,10 +17,16 @@
     <div class="table-responsive" *ngIf="articles">
         <table class="table table-striped">
             <thead>
+            	<tr>
+            		<th><span class="font-weight-bold">Title</span></th>
+            		<th><span class="font-weight-bold">Space</span></th>
+            	<th></th>
+            	</tr>
             </thead>
             <tbody>
             <tr *ngFor="let article of articles ;trackBy: trackId">
-               <td><h3><a [routerLink]="['../article', article.id ]">{{article.title}}</a></h3></td>
+               <td><a class="btn-link" [routerLink]="['../article', article.id ]">{{article.title}}</a></td>
+               <td><span>{{article.space.name}}</span></td>
                <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

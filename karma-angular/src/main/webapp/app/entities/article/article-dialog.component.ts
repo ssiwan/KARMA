@@ -1,3 +1,4 @@
+import { Data } from '../../data';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
@@ -24,6 +25,8 @@ export class ArticleDialogComponent implements OnInit {
     article: Article;
     isSaving: boolean;
     account: any;
+    public space: Space;
+    public hasSpace: boolean;
 
     spaces: Space[];
 
@@ -44,11 +47,18 @@ export class ArticleDialogComponent implements OnInit {
         private articleTypeService: ArticleTypeService,
         private eventManager: JhiEventManager,
         private datePipe: DatePipe,
-        private principal: Principal
+        private principal: Principal,
+        private data: Data
     ) {
     }
 
     ngOnInit() {
+      if (this.data.space != null) {
+        this.hasSpace = true;
+        this.space = this.data.space;
+      } else {
+        this.hasSpace = false;
+      }
 
       this.principal.identity().then((account) => {
         this.account = account;
@@ -88,6 +98,7 @@ export class ArticleDialogComponent implements OnInit {
                 this.articleService.update(this.article));
         } else {
             const date = new Date();
+            this.article.space = this.space;
             this.article.user = this.account;
             this.article.date = this.datePipe.transform(date, 'yyyy-MM-dd:hh:mm');
             this.subscribeToSaveResponse(
