@@ -13,6 +13,12 @@
 						<a class="font-weight-normal btn btn-link"
 							[routerLink]="['../article', article.id ]">{{article.title}}</a>
 					</div>
+					<button
+						class="btn btn-primary jh-create-entity create-space"
+						[routerLink]="['/', { outlets: { popup: ['article-new'] } }]">
+						<span class="fa fa-plus"></span> <span> Create new
+							Knowledge Article </span>
+					</button>
 				</div>
 			</div>
 			
@@ -21,7 +27,7 @@
 					<h4 class="font-weight-bold">My Recent Knowledge Areas</h4>
 					<div *ngFor="let space of recentSpaces">
 						<a class="font-weight-normal btn btn-link"
-							[routerLink]="['../space', space.id ]">{{space.name}}</a>
+							(click)="getArticlesBySpace(space)">{{space.name}}</a>
 					</div>
 				</div>
 			</div>

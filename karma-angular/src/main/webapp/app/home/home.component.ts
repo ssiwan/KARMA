@@ -105,6 +105,15 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/article']);
   }
 
+  getArticlesBySpace(space: Space) {
+      this.data.routingPath = 'searchSpace';
+      this.data.param = space.id;
+      this.data.heading = 'Search by Knowledge Area: ' + space.name;
+      this.data.all = false;
+      this.data.space = space;
+      this.router.navigate(['/article']);
+  }
+
   getRecentArticles() {
     this.articleService.findRecentlyAccessed(this.account.id).subscribe(
       (res: HttpResponse<Article[]>) => this.recentAccessedOnSuccess(res.body, res.headers),
