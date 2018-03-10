@@ -58,6 +58,7 @@ export class HomeComponent implements OnInit {
       }
     });
     this.registerAuthenticationSuccess();
+    this.data.space = null;
 
     this.searchArticles = [];
     this.searchString = '';
@@ -74,6 +75,7 @@ export class HomeComponent implements OnInit {
     this.eventManager.subscribe('authenticationSuccess', (message) => {
       this.principal.identity().then((account) => {
         this.account = account;
+        this.data.space = null;
         if (this.account != null) {
           this.recentArticles = [];
           this.recentTags = [];
