@@ -16,12 +16,15 @@ import { Data } from '../../data';
     ]
 })
 export class NavbarComponent implements OnInit {
-    inProduction: boolean;
+  [x: string]: any;
+  inProduction: boolean;
     isNavbarCollapsed: boolean;
     languages: any[];
     swaggerEnabled: boolean;
     modalRef: NgbModalRef;
     version: string;
+    account: any;
+    userName: string;
 
     constructor(
         private loginService: LoginService,
@@ -40,6 +43,11 @@ export class NavbarComponent implements OnInit {
             this.inProduction = profileInfo.inProduction;
             this.swaggerEnabled = profileInfo.swaggerEnabled;
         });
+
+       this.principal.identity().then((account) => {
+        this.account = account;
+        this.userName = account != null ? account.login : 'Account';
+       });
     }
 
     getAllArticles() {

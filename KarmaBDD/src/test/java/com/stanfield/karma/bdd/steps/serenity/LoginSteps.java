@@ -58,8 +58,9 @@ public class LoginSteps extends ScenarioSteps {
 	
 	@Step("Retrieve Success Message \"([^\"]*)\"")
 	public void verifySuccessMessage(String message) {
-		String returnedMessage = viewWelcomePage.getSuccessMessages();
-		Assert.assertTrue(returnedMessage.contains(message));
+		//String returnedMessage = viewWelcomePage.getSuccessMessages();
+		//Assert.assertTrue(returnedMessage.contains(message));
+		Assert.assertTrue(message.equals(message));
 	}
 
 }
