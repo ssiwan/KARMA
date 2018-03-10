@@ -1,5 +1,5 @@
 <div>
-    <h1 style="color:#007bff;font-weight:bold">
+    <h1 class="font-weight-bold"">
         <span>Knowledge Areas</span>
         <button class="btn btn-primary float-right jh-create-entity create-space" [routerLink]="['/', { outlets: { popup: ['space-new'] } }]">
             <span class="fa fa-plus"></span>
@@ -16,13 +16,13 @@
         <table class="table table-striped">
             <thead>
             <tr>
-            <th><span>Name</span></th>
+            <th><span class="font-weight-bold">Name</span></th>
             <th></th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let space of spaces ;trackBy: trackId">
-               <td><h3><a (click)="getArticlesBySpace(space.id, space.name)">{{space.name}}</a></h3></td>
+               <td><a class="btn-link" style="color:#007bff" (click)="getArticlesBySpace(space.id, space.name)">{{space.name}}</a></td>
                <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"
