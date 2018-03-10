@@ -1,16 +1,12 @@
 
 <div *ngIf="space">
-    <h2><span>Space</span> {{space.id}}</h2>
+    <h1 class="font-weight-bold"> {{space.name}}</h1>
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="row-md jh-entity-details">
         <dt><span>Name</span></dt>
         <dd>
             <span>{{space.name}}</span>
-        </dd>
-        <dt><span>Handle</span></dt>
-        <dd>
-            <span>{{space.handle}}</span>
         </dd>
         <dt><span>User</span></dt>
         <dd>

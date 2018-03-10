@@ -1,33 +1,36 @@
+<jhi-alert></jhi-alert>
 <div class="row" [ngSwitch]="isAuthenticated()">
 	<div class="col-md-4" *ngSwitchCase="false">
 		<span class="hipster img-fluid rounded"
 			aria-label="Knowledge Items Diagram showing the circular flow of collecting, using, enriching, sharing, assessing, building, sustaining, and divesting Knowledge Items"></span>
 	</div>
-	
+
 	<div class="col-md-5" style="margin-top: 10px;" *ngSwitchCase="true">
 		<div class="form-group">
 			<div class="row form-group" style="margin-left: 10px;">
 				<div class="col-sm">
-					<h4 class="font-weight-bold">My Recent Articles</h4>
+					<h4 class="font-weight-bold">My Recent Articles </h4>
 					<div *ngFor="let article of recentArticles">
 						<a class="font-weight-normal btn btn-link"
 							[routerLink]="['../article', article.id ]">{{article.title}}</a>
 					</div>
-					<button
-						class="btn btn-primary jh-create-entity create-space"
+					<button style="margin-top:10px;"
+						class="btn btn-info jh-create-entity create-space"
 						[routerLink]="['/', { outlets: { popup: ['article-new'] } }]">
 						<span class="fa fa-plus"></span> <span> Create new
 							Knowledge Article </span>
-					</button>
+					</button> 
 				</div>
 			</div>
+			
+		    <br />
 			
 			<div class="row form-group" style="margin-left: 10px;">
 				<div class="col-sm">
 					<h4 class="font-weight-bold">My Recent Knowledge Areas</h4>
 					<div *ngFor="let space of recentSpaces">
 						<a class="font-weight-normal btn btn-link"
-							(click)="getArticlesBySpace(space)">{{space.name}}</a>
+							[routerLink]="" (click)="getArticlesBySpace(space)">{{space.name}}</a>
 					</div>
 				</div>
 			</div>
@@ -67,7 +70,7 @@
 			</div>
 		</div>
 		
-		<div class="form-group bg-light">
+		<div class="form-group bg-light" style="margin-top:20px;">
 			<div style="margin-left: 40px;">
 				<div class="row">
 					<a class="font-weight-normal btn btn-link" routerLink="article" 
@@ -126,13 +129,5 @@
 		</p>
 	</div>
 
-	<!-- <div class="col-md-5" *ngSwitchCase="true">
-		<h1 id="welcomeHeader" class="display-4">Welcome to KARMA</h1>
-		<div class="alert alert-success">
-			<span *ngIf="account"> You are logged in as user
-				"{{account.login}}". </span>
-		</div>
-
-	</div> -->
 	
 </div>

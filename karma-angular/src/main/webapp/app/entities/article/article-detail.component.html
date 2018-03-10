@@ -1,6 +1,6 @@
 
 <div *ngIf="article">
-    <span><h1 style="color:#007bff;font-weight:bold">{{article.title}}</h1></span>
+    <h1 class="font-weight-bold">{{article.title}}</h1>
     <span><small>Created on {{article.date | date: 'short'}} by {{article.space.user.login}}</small></span>
     <hr>
     <jhi-alert-error></jhi-alert-error>
