@@ -22,7 +22,7 @@
             </thead>
             <tbody>
             <tr *ngFor="let space of spaces ;trackBy: trackId">
-               <td><a class="btn-link" style="color:#007bff" (click)="getArticlesBySpace(space.id, space.name)">{{space.name}}</a></td>
+               <td><a class="btn-link" style="color:#007bff" (click)="getArticlesBySpace(space)">{{space.name}}</a></td>
                <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"
