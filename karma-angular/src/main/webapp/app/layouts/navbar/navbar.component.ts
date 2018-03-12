@@ -22,6 +22,8 @@ export class NavbarComponent implements OnInit {
     swaggerEnabled: boolean;
     modalRef: NgbModalRef;
     version: string;
+    public account: any;
+    isAuth: boolean;
 
     constructor(
         private loginService: LoginService,
@@ -40,6 +42,7 @@ export class NavbarComponent implements OnInit {
             this.inProduction = profileInfo.inProduction;
             this.swaggerEnabled = profileInfo.swaggerEnabled;
         });
+
     }
 
     getAllArticles() {
@@ -58,17 +61,25 @@ export class NavbarComponent implements OnInit {
     }
 
     isAuthenticated() {
-        return this.principal.isAuthenticated();
+      this.isAuth = this.principal.isAuthenticated();
+      if (this.isAuth === true && this.account == null) {
+        this.principal.identity().then((account) => {
+          this.account = account;
+        });
+      }
+      return this.isAuth;
     }
 
     login() {
         this.modalRef = this.loginModalService.open();
+
     }
 
     logout() {
         this.collapseNavbar();
         this.loginService.logout();
         this.router.navigate(['']);
+        this.account = null;
     }
 
     toggleNavbar() {
@@ -78,4 +89,5 @@ export class NavbarComponent implements OnInit {
     getImageUrl() {
         return this.isAuthenticated() ? this.principal.getImageUrl() : null;
     }
+
 }
