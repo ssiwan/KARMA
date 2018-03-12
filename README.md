@@ -36,6 +36,12 @@ _(Summarize techniques and results here.  Reference process and result artifacts
 
 Based on our user-centered research and the prototype requirements from the RFI, we identified high-level user stories which were documented in our Jira project as epics forming the initial product backlog.
 
+### Develop Release Plan
+
+Since the delivery date for the prototype is fixed, release planning was really about determining the minimal viable product that could be developed by the delivery date.  We focused on key issues identified during our initial user research (stakeholder interview) and contextual inquiry.  This led to a prioritization of the dashboard display to provide rapid access to articles of interest with dependencies on logging in, knowledge creation, and finding relevant knowledge.  These four epics were the focus of our minimal viable product for the release.
+
+Release planning was complicated somewhat due to dependencies between user-centered design and related development activities.  To overcome these dependencies we performed initial development and user-centered design activities in parallel during Sprint 1.  In Sprint 2, we then refactored the working application to incorporate user centered design results.  We performed usability testing early in Sprint 3 and incorporated some of the findings into the application.  Other usability findings were added to the product backlog for prioritization after the initial prototype release.
+
 ### Technical Strategy and Work Environment
 (_RFI Requirements e, f, g, h, k, l, m, o, p, r, t_)
 
@@ -43,13 +49,13 @@ For the KARMA prototype, Stanfield Systems' technical strategy is based on their
 
 #### Technical Architecture and Technologies
 
-Stanfield Systems implements a multi-tiered architecture as shown in the figure below. Our standard architecture and corresponding technologies are described in our [Technical Architecture](https://github.com/StanfieldSystems/KARMA/wiki/Technical-Architecture#technical-architecture) along with examples.
+Stanfield Systems implements a multi-tiered architecture as shown in the figure below. Our standard architecture and corresponding technologies are described in our [Technical Architecture](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#technical-architecture) along with examples.
 
 ![Architecture](docs/Architecture.jpg)
 
-The Presentation tier runs in a client browser and is implemented with [Model-View-Controller JavaScript patterns using Angular 4](https://github.com/StanfieldSystems/KARMA/wiki/Technical-Architecture#angular4client-project). The Angular Client uses HTTP to make calls to the RESTful API on the application server, using JSON to exchange information between the client and the application server.
+The Presentation tier runs in a client browser and is implemented with [Model-View-Controller JavaScript patterns using Angular 5](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#angular4client-project). The Angular Client uses HTTP to make calls to the RESTful API on the application server, using JSON to exchange information between the client and the application server.
 
-RESTful web services are implemented on the application server as Java components using the [Spring Boot framework](https://github.com/StanfieldSystems/KARMA/wiki/Technical-Architecture#springbootangularintegration-project). Application server includes several application tiers, as follows.
+RESTful web services are implemented on the application server as Java components using the [Spring Boot framework](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#springbootangularintegration-project). Application server includes several application tiers, as follows.
 
 * The **application** tier implements controller classes with methods that define the rest end points and services. Controller objects control application activity that occurs when a rest services is invoked via the JSON interface. Controller objects implement the Spring Web MVC Controller API.
 
@@ -65,16 +71,16 @@ Information is exchanged between components in the different tiers using entity 
 
 In this multi-tier architecture, some services are shared across multiple services. These are depicted in the figure above as **Infrastructure Components**.
 
-* [Logging](https://github.com/StanfieldSystems/KARMA/wiki/Technical-Architecture#logging) is implemented with **Log4j2**.
-* [**Swagger**](https://github.com/StanfieldSystems/KARMA/wiki/Technical-Architecture#swagger-2) is used to describe and document RESTful APIs
+* [Logging](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#logging) is implemented with **Log4j2**.
+* [**Swagger**](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#swagger-2) is used to describe and document RESTful APIs in accordance with the OpenAPI Specification
 
-Business information is persisted in a [PostgreSQL relational database](https://github.com/StanfieldSystems/KARMA/wiki/Technical-Architecture#postgresql).  
+Business information is persisted in a [PostgreSQL relational database](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#postgresql).  
 
 #### Version Control
 
 All application code files, including database scripts, are stored in stored and managed in this **GitHub** version control repository.
 
-[**Flyway**](https://github.com/StanfieldSystems/KARMA/wiki/Technical-Architecture#flyway) is used to migrate versioned database changes to developer, integration, and production database servers within the continuous integration and build pipeline.
+[**Flyway**](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#flyway) is used to migrate versioned database changes to developer, integration, and production database servers within the continuous integration and build pipeline.
 
 #### Accessibility
 #### Style Guide
