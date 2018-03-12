@@ -1,6 +1,7 @@
 import { Data } from '../data';
 import {ArticleService} from '../entities/article/article.service';
-import {Component, OnInit} from '@angular/core';
+import { Subscription } from 'rxjs/Subscription';
+import {Component, OnInit, OnDestroy} from '@angular/core';
 import {NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
 import {JhiEventManager, JhiAlertService} from 'ng-jhipster';
 
@@ -21,7 +22,7 @@ import { Router } from '@angular/router';
   ]
 
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
   account: any;
   modalRef: NgbModalRef;
   searchArticles: Article[];
@@ -33,6 +34,7 @@ export class HomeComponent implements OnInit {
   articles: Article[];
   articlesForSpace: Article[];
   allSpaces: Space[];
+  eventSubscriber: Subscription;
 
   constructor(
     private principal: Principal,
@@ -58,6 +60,7 @@ export class HomeComponent implements OnInit {
       }
     });
     this.registerAuthenticationSuccess();
+    this.registerChangeInArticles();
     this.data.space = null;
 
     this.searchArticles = [];
@@ -71,13 +74,24 @@ export class HomeComponent implements OnInit {
     this.allSpaces = [];
   }
 
+  ngOnDestroy() {
+        this.eventManager.destroy(this.eventSubscriber);
+    }
+
   registerAuthenticationSuccess() {
     this.eventManager.subscribe('authenticationSuccess', (message) => {
       this.principal.identity().then((account) => {
         this.account = account;
         this.data.space = null;
         if (this.account != null) {
-          this.recentArticles = [];
+          this.getRecentInfo();
+        }
+      });
+    });
+  }
+
+  private getRecentInfo() {
+    this.recentArticles = [];
           this.recentTags = [];
           this.recentSpaces = [];
           this.frequentArticles = [];
@@ -85,9 +99,6 @@ export class HomeComponent implements OnInit {
           this.getRecentTags();
           this.getRecentSpaces();
           this.getFrequentArticles();
-        }
-      });
-    });
   }
 
   isAuthenticated() {
@@ -160,6 +171,14 @@ export class HomeComponent implements OnInit {
     this.data.all = false;
     this.data.space = null;
     this.router.navigate(['/article']);
+  }
+
+  registerChangeInArticles() {
+        this.eventSubscriber = this.eventManager.subscribe('articleListModification', (response) => this.reset());
+    }
+
+  private reset() {
+    this.getRecentInfo();
   }
 
   private recentAccessedOnSuccess(data, headers) {

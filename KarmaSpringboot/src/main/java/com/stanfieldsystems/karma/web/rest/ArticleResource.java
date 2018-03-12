@@ -89,6 +89,7 @@ public class ArticleResource {
             throw new BadRequestAlertException("A new article cannot already have an ID", ENTITY_NAME, "idexists");
         }
         Article result = articleRepository.save(article);
+        writeHistory(result);
         return ResponseEntity.created(new URI("/api/articles/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
             .body(result);
@@ -111,6 +112,7 @@ public class ArticleResource {
             return createArticle(article);
         }
         Article result = articleRepository.save(article);
+        writeHistory(result);
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, article.getId().toString()))
             .body(result);
@@ -160,30 +162,34 @@ public class ArticleResource {
         Article article = articleRepository.findOneWithEagerRelationships(id);
         
         if(article != null) {
-        	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        	
-        	if(auth != null) { //write history for current user
-        		String userName = auth.getName();
-                User currentUser = userRepository.findOneByLogin(userName).orElseThrow(null);
-                 
-             	ArticleHistory articleHistory = new ArticleHistory();
-             	articleHistory.setDateAccessed(ZonedDateTime.now(ZoneId.systemDefault()));
-             	articleHistory.setArticle(article);
-             	articleHistory.setUser(currentUser);
-             	articleHistoryRepository.save(articleHistory);
-             	
-             	List<Tag> tags = new ArrayList<Tag>(article.getTags());
-             	for(Tag tag : tags) {
-             		TagHistory tagHistory = new TagHistory();
-                 	tagHistory.setDateAccessed(ZonedDateTime.now(ZoneId.systemDefault()));
-                 	tagHistory.setTag(tag);
-                 	tagHistory.setUser(currentUser);
-                 	tagHistoryRepository.save(tagHistory);
-             	}
-        	}
+        	writeHistory(article);
         }
         
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(article));
+    }
+    
+    private void writeHistory(Article article) {
+    	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+    	
+    	if(auth != null) { //write history for current user
+    		String userName = auth.getName();
+            User currentUser = userRepository.findOneByLogin(userName).orElseThrow(null);
+             
+         	ArticleHistory articleHistory = new ArticleHistory();
+         	articleHistory.setDateAccessed(ZonedDateTime.now(ZoneId.systemDefault()));
+         	articleHistory.setArticle(article);
+         	articleHistory.setUser(currentUser);
+         	articleHistoryRepository.save(articleHistory);
+         	
+         	List<Tag> tags = new ArrayList<Tag>(article.getTags());
+         	for(Tag tag : tags) {
+         		TagHistory tagHistory = new TagHistory();
+             	tagHistory.setDateAccessed(ZonedDateTime.now(ZoneId.systemDefault()));
+             	tagHistory.setTag(tag);
+             	tagHistory.setUser(currentUser);
+             	tagHistoryRepository.save(tagHistory);
+         	}
+    	}
     }
     
     /**
