@@ -12,11 +12,11 @@
  	</dl>   
     <button type="submit"
             (click)="previousState()"
-            class="btn btn-info">
+            class="btn btn-secondary">
         <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
     </button>
 
-    <button type="button"
+    <button style="background-color:#485b8c;border-color:#9B9B9B;border-width:1px;" type="button"
             [routerLink]="['/', { outlets: { popup: 'article/'+ article.id + '/edit'} }]"
             replaceUrl="true"
             queryParamsHandling="merge"
