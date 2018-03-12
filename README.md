@@ -47,7 +47,7 @@ Stanfield Systems implements a multi-tiered architecture as shown in the figure 
 
 ![Architecture](docs/Architecture.jpg)
 
-The Presentation tier runs in a client browser and is implemented with [Model-View-Controller JavaScript patterns using Angular 4](https://github.com/StanfieldSystems/KARMA/wiki/Technical-Architecture#angular4client-project). The Angular Client uses HTTP to make calls to the RESTful API on the application server, using JSON to exchange information between the client and the application server.
+The Presentation tier runs in a client browser and is implemented with [Model-View-Controller JavaScript patterns using Angular 5](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#angular4client-project). The Angular Client uses HTTP to make calls to the RESTful API on the application server, using JSON to exchange information between the client and the application server.
 
 RESTful web services are implemented on the application server as Java components using the [Spring Boot framework](https://github.com/StanfieldSystems/KARMA/wiki/Technical-Architecture#springbootangularintegration-project). Application server includes several application tiers, as follows.
 
