@@ -43,13 +43,13 @@ For the KARMA prototype, Stanfield Systems' technical strategy is based on their
 
 #### Technical Architecture and Technologies
 
-Stanfield Systems implements a multi-tiered architecture as shown in the figure below. Our standard architecture and corresponding technologies are described in our [Technical Architecture](https://github.com/StanfieldSystems/KARMA/wiki/Technical-Architecture#technical-architecture) along with examples.
+Stanfield Systems implements a multi-tiered architecture as shown in the figure below. Our standard architecture and corresponding technologies are described in our [Technical Architecture](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#technical-architecture) along with examples.
 
 ![Architecture](docs/Architecture.jpg)
 
 The Presentation tier runs in a client browser and is implemented with [Model-View-Controller JavaScript patterns using Angular 5](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#angular4client-project). The Angular Client uses HTTP to make calls to the RESTful API on the application server, using JSON to exchange information between the client and the application server.
 
-RESTful web services are implemented on the application server as Java components using the [Spring Boot framework](https://github.com/StanfieldSystems/KARMA/wiki/Technical-Architecture#springbootangularintegration-project). Application server includes several application tiers, as follows.
+RESTful web services are implemented on the application server as Java components using the [Spring Boot framework](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#springbootangularintegration-project). Application server includes several application tiers, as follows.
 
 * The **application** tier implements controller classes with methods that define the rest end points and services. Controller objects control application activity that occurs when a rest services is invoked via the JSON interface. Controller objects implement the Spring Web MVC Controller API.
 
@@ -65,16 +65,16 @@ Information is exchanged between components in the different tiers using entity 
 
 In this multi-tier architecture, some services are shared across multiple services. These are depicted in the figure above as **Infrastructure Components**.
 
-* [Logging](https://github.com/StanfieldSystems/KARMA/wiki/Technical-Architecture#logging) is implemented with **Log4j2**.
-* [**Swagger**](https://github.com/StanfieldSystems/KARMA/wiki/Technical-Architecture#swagger-2) is used to describe and document RESTful APIs
+* [Logging](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#logging) is implemented with **Log4j2**.
+* [**Swagger**](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#swagger-2) is used to describe and document RESTful APIs in accordance with the OpenAPI Specification
 
-Business information is persisted in a [PostgreSQL relational database](https://github.com/StanfieldSystems/KARMA/wiki/Technical-Architecture#postgresql).  
+Business information is persisted in a [PostgreSQL relational database](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#postgresql).  
 
 #### Version Control
 
 All application code files, including database scripts, are stored in stored and managed in this **GitHub** version control repository.
 
-[**Flyway**](https://github.com/StanfieldSystems/KARMA/wiki/Technical-Architecture#flyway) is used to migrate versioned database changes to developer, integration, and production database servers within the continuous integration and build pipeline.
+[**Flyway**](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#flyway) is used to migrate versioned database changes to developer, integration, and production database servers within the continuous integration and build pipeline.
 
 #### Accessibility
 #### Style Guide
