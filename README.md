@@ -12,18 +12,18 @@ Login information is available on the landing page.  The _User_ account will pro
 
 As a provider of custom application development solutions, the company creates a lot of knowledge regarding management processes, technical processes, and technical solutions.  Much of this knowledge can be applied across multiple products with some tailoring for different teams and solutions and some evolution for new techniques and technologies.  The company envisions a knowledge management application that can store this knowledge and make it easier to share, reuse, and adapt across products.  Initially, the application will facilitate efficient storage and retrieval of relevant knowledge; however, the ultimate vision is for the application to apply artifical intelligence techniques to suggest relevant knowledge and automatically adapt it to match product requirements and delivery teams.
 
-## Prototype
+# Prototype
 
 Stanfield Systems applied their [Agile Delivery Process](#agile-delivery-process) to identify application features and define the application architecture and technologies.
 
-### Application Features
+## Application Features
 
 * Login to the application so that content can be tailored for a particular user.  
 * Create and edit knowledge articles for sharing with other users
 * Find and retrieve knowledge relevant to a particular user
 * Provide a single location (dashboard) to access knowledge relevant to a particular uer
 
-### Application Architecture and Technologies
+## Application Architecture and Technologies
 
 Stanfield Systems implemented KARMA using open source technologies in a multi-tiered architecture as shown in the figure below. Our standard architecture and corresponding technologies are described in our [Technical Architecture](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#technical-architecture) along with examples.
 
@@ -48,11 +48,11 @@ Information is exchanged between components in the different tiers using entity 
 In this multi-tier architecture, some services are shared across multiple services. These are depicted in the figure above as **Infrastructure Components**.
 
 * [Logging](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#logging) is implemented with **Log4j2**.
-* [**Swagger**](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#swagger-2) is used to describe and document RESTful APIs in accordance with the **OpenAPI Specification** (_RFI Requirement f_).  To access this API documentation, login to KARMA as the admin user and select [_API_](https://acceptance.bigbluesign.com/#/docs) from the _Administration_ menu.
+* [**Swagger**](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#swagger-2) is used to describe and document RESTful APIs in accordance with the **OpenAPI Specification** _(RFI Requirement f)_.  To access this API documentation, login to KARMA as the admin user and select [_API_](https://acceptance.bigbluesign.com/#/docs) from the _Administration_ menu.
 
 Business information is persisted in a [**PostgreSQL**](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#postgresql) relational database. 
 
-##  Agile Delivery Process
+#  Agile Delivery Process
 
 Stanfield Systems applies a [Scrum-Based, Disciplined Agile Delivery (DAD)](https://github.com/StanfieldSystems/KARMA/wiki) life-cycle for product development and release.  Stanfield Systems' DAD life-cycle is referenced throughout this documented with links to relevant process descriptions in the [KARMA GitHub Wiki](https://github.com/StanfieldSystems/KARMA/wiki).
 
@@ -61,7 +61,7 @@ Stanfield Systems applies a [Scrum-Based, Disciplined Agile Delivery (DAD)](http
 Stanfield Systems begins product development with a short [Inception Phase](https://github.com/StanfieldSystems/KARMA/wiki/Inception)  to achieve concurrence on the direction the team will take to deliver the product.  For the KARMA prototype, this phase lasted a single sprint (Sprint 0) and included the following activities.
 
 ### Form Team
-(_RFI Requirements a, b_)
+_(RFI Requirements a, b)_
 
 Applying our [guidelines for forming agile teams](https://github.com/StanfieldSystems/KARMA/wiki/Form_and_Evolve_Team), Stanfield Systems established a six person team to develop the KARMA prototype and prepare documentation for the RFI response.  This multidisciplinary and collaborative team includes 8 of the PQVP AD-DS Labor Categories as specified below.
 
@@ -78,7 +78,7 @@ Applying our [guidelines for forming agile teams](https://github.com/StanfieldSy
 The Product Manager is the team leader with authority and responsibility for successful delivery of a quality working prototype.
 
 ### Explore Initial Scope
-(_RFI Requirements c, d_)
+_(RFI Requirements c, d)_
 
 _(Tie in [Explore Initial Scope](https://github.com/StanfieldSystems/kmt/wiki/Explore_Initial_Scope) process description)_
 
@@ -95,21 +95,28 @@ Since the delivery date for the prototype is fixed, release planning was really 
 Release planning was complicated somewhat due to dependencies between user-centered design and related development activities.  To overcome these dependencies we performed initial development and user-centered design activities in parallel during Sprint 1.  In Sprint 2, we then refactored the working application to incorporate user centered design results.  We performed usability testing early in Sprint 3 and incorporated some of the findings into the application.  Other usability findings were added to the product backlog for prioritization after the initial prototype release.
 
 ### Technical Strategy and Work Environment
-(_RFI Requirements e, f, g, h, k, l, m, o, p, r, t_)
+_(RFI Requirements e, f, g, h, k, l, m, o, p, r, t)_
 
-For the KARMA prototype, Stanfield Systems' technical strategy is based on their [Work Environment Standards](https://github.com/StanfieldSystems/KARMA/wiki/Work_Environment_Standards).  
+For the KARMA prototype, Stanfield Systems' technical strategy is based on their [Work Environment Standards](https://github.com/StanfieldSystems/KARMA/wiki/Work_Environment_Standards).  All technologies and platforms used to create and run the prototype are openly licensed and free of charge _(RFI Requirement t)_.  (Note:  Amazon Web Services and Atlassian Cloud Services to incur minimal hosting costs.)  
 
+#### Version Control and Configuration Management
+_(RFI Requirement e, p)_
 
-#### Version Control
-(_RFI Requirement e, p_)
-
-All application code files, including database scripts, are stored and managed in this **GitHub** version control repository.
+All application code files, including database scripts, are stored and managed in this [**GitHub**](https://github.com/StanfieldSystems/KARMA) version control repository.
 
 [**Liquibase**](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#liquibase) is used to migrate versioned database changes to developer, integration, and production database servers within the continuous integration and build pipeline.
 
+#### Continuous Integration and Deployment
+_(RFI Requirement m, o, p, q, r, s)_
+
 #### Accessibility
+_(RFI Requirement g, k)_
+
 #### Style Guide
+_(RFI Requirement h)_
+
 #### Behavior (Test) Driven Development
+_(RFI Requirement n)_
 
 
 #### Project Management and Collaboration
@@ -123,3 +130,5 @@ Stanfield Systems uses the [Jira](https://www.atlassian.com/software/jira) issue
 * Risks are tracked as _Risks_
 
 Stanfield Systems uses the [Confluence](https://www.atlassian.com/software/confluence) project collaboration portal to manage artifacts created during the development process.  For the KARMA prototype, these artifacts are also incorporated into GitHub - as files in the _docs_ folder of the code repository or as markdown articles in the project _Wiki_.
+
+##
