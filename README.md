@@ -2,7 +2,7 @@
 
 ## The Essentials
 
-The KARMA prototype is deployed on Amazon Web Services and can be accessed through the site Site URL: 
+The KARMA prototype is deployed on Amazon Web Services and can be accessed through the site URL: 
 
 **<https://acceptance.bigbluesign.com>**  
 
@@ -21,7 +21,7 @@ Stanfield Systems applied their [Agile Delivery Process](#agile-delivery-process
 * Login to the application so that content can be tailored for a particular user.  
 * Create and edit knowledge articles for sharing with other users
 * Find and retrieve knowledge relevant to a particular user
-* Provide a single location (dashboard) to access knowledge relevant to a particular uer
+* Provide a single location (dashboard) to access knowledge relevant to a particular user
 
 ## Application Architecture and Technologies
 
@@ -86,7 +86,20 @@ Applying user-centered design techniques Stanfield Systems worked directly with 
 
 _(Summarize techniques and results here.  Reference process and result artifacts.)_
 
-Based on our user-centered research and the prototype requirements from the RFI, we identified high-level user stories which were documented in our Jira project as epics forming the initial product backlog.
+Based on our user-centered research and the prototype requirements from the RFI, we identified the following high-level user stories which were documented as epics for our initial product backlog.
+
+* Login to the application so that content can be tailored for a particular user.  
+* Create and edit knowledge articles for sharing with other users
+* Find and retrieve knowledge articles relevant to a particular user
+* Provide a single location (dashboard) to access knowledge relevant to a particular user
+* Define rules for creating knowledge articles in a consistent format
+* Approve and publish articles using a pre-defined workflow
+* Control access to knowledge articles based on roles and business rules
+* Notify users when the status of relevant articles is changed
+* Assess the value of knowledge articles based on usage and feedback
+* Define work flow rules for life-cycle management of knowledge articles
+* Review new or modified knowledge articles prior to approval
+* Provide access to system features for users with disabilities
 
 ### Develop Release Plan
 
