@@ -41,7 +41,7 @@ Information is exchanged between components in the different tiers using entity 
 In this multi-tier architecture, some services are shared across multiple services. These are depicted in the figure above as **Infrastructure Components**.
 
 * [Logging](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#logging) is implemented with **Log4j2**.
-* [**Swagger**](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#swagger-2) is used to describe and document RESTful APIs in accordance with the OpenAPI Specification
+* [**Swagger**](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#swagger-2) is used to describe and document RESTful APIs in accordance with the OpenAPI Specification.  To access this API documentation, login to KARMA as the admin user and select [_API_](https://acceptance.bigbluesign.com/#/docs) from the _Administration_ menu.
 
 Business information is persisted in a **[PostgreSQL relational database](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#postgresql)**.  
 
