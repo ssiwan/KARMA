@@ -2,7 +2,11 @@
 
 ## The Essentials
 
-The KARMA prototype is deployed on Amazon Web Services and can be accessed through the site Site URL:  **https://acceptance.bigbluesign.com**.  Login information is available on the landing page.  The _User_ account will provide access to basic services for knowledge article creation and retrieval.  All common _User_ account services are accessible from the _Dashboard_ which serves as the _Home_ page and is automatically loaded upon successful login.  Additional _User_ account services for metadata management are available from the _Manage_ menu.  The _Admin_ account provides access to the _Administration_ menu which includes several application management and monitoring services.
+The KARMA prototype is deployed on Amazon Web Services and can be accessed through the site Site URL: 
+
+**<https://acceptance.bigbluesign.com>**  
+
+Login information is available on the landing page.  The _User_ account will provide access to basic services for knowledge article creation and retrieval.  All common _User_ account services are accessible from the _Dashboard_ which serves as the _Home_ page and is automatically loaded upon successful login.  Additional _User_ account services for metadata management are available from the _Manage_ menu.  The _Admin_ account provides access to the _Administration_ menu which includes several application management and monitoring services.
 
 ## Product Vision
 
