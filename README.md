@@ -125,6 +125,10 @@ _(RFI Requirement m, o, p, q, r, s)_
 #### Accessibility
 _(RFI Requirement g, k)_
 
+Accessibility and Section 508 compliance is incorporated into our agile delivery process as described in our [Accessibility](https://github.com/StanfieldSystems/KARMA/wiki/Accessibility) guidelines and procedures.  We check for proper implementation of accessibility guidelines through peer reviews, automated Behavioral Driven Development tests, and static analyzers.  
+
+The Angular 5 client integrates **Bootstrap** libraries to present a responsive design that works on multiple devices with varying screen resolutions.
+
 #### Style Guide
 _(RFI Requirement h)_
 
