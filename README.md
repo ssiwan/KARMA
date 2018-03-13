@@ -14,7 +14,7 @@ As a provider of custom application development solutions, the company creates a
 
 ## Prototype
 
-Stanfield Systems applied their [Agile Delivery Process](##agile-delivery-process) in this document, to identify application features define the application architecture and technologies.
+Stanfield Systems applied their [Agile Delivery Process](#agile-delivery-process) in this document, to identify application features define the application architecture and technologies.
 
 ### Application Features
 
