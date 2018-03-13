@@ -14,9 +14,14 @@ As a provider of custom application development solutions, the company creates a
 
 ## Prototype
 
-Stanfield Systems applied their [Agile Delivery Process](#agile-delivery-process) in this document, to identify application features define the application architecture and technologies.
+Stanfield Systems applied their [Agile Delivery Process](#agile-delivery-process) to identify application features and define the application architecture and technologies.
 
 ### Application Features
+
+* Login to the application so that content can be tailored for a particular user.  
+* Create and edit knowledge articles for sharing with other users
+* Find and retrieve knowledge relevant to a particular user
+* Provide a single location (dashboard) to access knowledge relevant to a particular uer
 
 ### Application Architecture and Technologies
 
@@ -43,9 +48,9 @@ Information is exchanged between components in the different tiers using entity 
 In this multi-tier architecture, some services are shared across multiple services. These are depicted in the figure above as **Infrastructure Components**.
 
 * [Logging](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#logging) is implemented with **Log4j2**.
-* [**Swagger**](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#swagger-2) is used to describe and document RESTful APIs in accordance with the OpenAPI Specification.  To access this API documentation, login to KARMA as the admin user and select [_API_](https://acceptance.bigbluesign.com/#/docs) from the _Administration_ menu.
+* [**Swagger**](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#swagger-2) is used to describe and document RESTful APIs in accordance with the **OpenAPI Specification** (_RFI Requirement f_).  To access this API documentation, login to KARMA as the admin user and select [_API_](https://acceptance.bigbluesign.com/#/docs) from the _Administration_ menu.
 
-Business information is persisted in a **[PostgreSQL relational database](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#postgresql)**.  
+Business information is persisted in a [**PostgreSQL**](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#postgresql) relational database. 
 
 ##  Agile Delivery Process
 
@@ -96,6 +101,7 @@ For the KARMA prototype, Stanfield Systems' technical strategy is based on their
 
 
 #### Version Control
+(_RFI Requirement e, p_)
 
 All application code files, including database scripts, are stored and managed in this **GitHub** version control repository.
 
@@ -108,3 +114,12 @@ All application code files, including database scripts, are stored and managed i
 
 #### Project Management and Collaboration
 
+Stanfield Systems uses the [Jira](https://www.atlassian.com/software/jira) issue tracking system to manage product and sprint backlogs.
+
+* Major features of the application are tracked as _Epics_ 
+* Specific user requirements are tracked as _User Stories_.
+* Design, development, administrative, or management activities are tracked as _Tasks_ or _Subtasks_
+* Defects and technical debt are tracked as _Bugs_ or _Issues_
+* Risks are tracked as _Risks_
+
+Stanfield Systems uses the [Confluence](https://www.atlassian.com/software/confluence) project collaboration portal to manage artifacts created during the development process.  For the KARMA prototype, these artifacts are also incorporated into GitHub - as files in the _docs_ folder of the code repository or as markdown articles in the project _Wiki_.
