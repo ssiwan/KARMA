@@ -51,10 +51,10 @@
 	<div class="col-md-5 " *ngSwitchCase="true">
 		<div class="form-group bg-light">
 			<div class="form-group" style="margin-left: 25px;">
-				<input class="col-md-6" type="search" [(ngModel)]="searchString"
+				<input class="col-md-6" type="search" [(ngModel)]="searchString" id="search"
 					placeholder="Search Articles" />
 	
-				<button type="button" class="btn btn-info"
+				<button type="button" class="btn btn-info" id="searchButton"
 					(click)="searchTitle(searchString)">
 					<span class="glyphicon glyphicon-search"></span> Search
 				</button>
