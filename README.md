@@ -110,7 +110,9 @@ Release planning was complicated somewhat due to dependencies between user-cente
 ### Technical Strategy and Work Environment
 _(RFI Requirements e, f, g, h, k, l, m, o, p, r, t)_
 
-For the KARMA prototype, Stanfield Systems' technical strategy is based on their [Work Environment Standards](https://github.com/StanfieldSystems/KARMA/wiki/Work_Environment_Standards).  All technologies and platforms used to create and run the prototype are openly licensed and free of charge _(RFI Requirement t)_.  (Note:  Amazon Web Services and Atlassian Cloud Services to incur minimal hosting costs.)  
+Applying our [Technical Strategy](https://github.com/StanfieldSystems/KARMA/wiki/Define_Technical_Strategy) process be based the technical approach for the KARMA prototype on our established [Work Environment Standards](https://github.com/StanfieldSystems/KARMA/wiki/Work_Environment_Standards) and [Technical Architecture](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture).  
+
+All technologies and platforms used to create and run the prototype are openly licensed and free of charge _(RFI Requirement t)_.  (Note:  Amazon Web Services and Atlassian Cloud Services to incur minimal hosting costs.)  
 
 #### Version Control and Configuration Management
 _(RFI Requirement e, p)_
@@ -132,6 +134,15 @@ The Angular 5 client integrates **Bootstrap** libraries to present a responsive 
 #### Style Guide
 _(RFI Requirement h)_
 
+Stanfield Systems applied User Interface style guidelines from the [U.S. Web Design Standards](https://designsystem.digital.gov/).  Specific standards for KARMA were defined and implemented based on feedback from our UX design expert.
+
+* [General Guidelines](docs/KarmaStyles.png)
+* [Create/Edit Page](docs/CreateScreen.png)
+* [View Page](docs/ViewScreen.png)
+* [List Page](docs/ListScreen.png)
+
+Stanfield Systems also leveraged model-view-controller patterns provided in Angular 5 libraries and documentation.
+
 #### Behavior (Test) Driven Development
 _(RFI Requirement n)_
 
@@ -143,7 +154,7 @@ Stanfield Systems implements Test Driven development using an automated Behavior
 Stanfield Systems also generates automated JUnit tests for complete coverage of the application code.  
 
 * [Unit Testing Process and Configuration](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#unit-testing)
-* [KARMS Unit Test Results]
+* [KARMA Unit Test Results]
 
 #### Project Management and Collaboration
 
