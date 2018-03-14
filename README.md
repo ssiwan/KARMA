@@ -203,7 +203,7 @@ In developing the KARMA prototype, Stanfield Systems completed 4 Sprints.  The g
 
 * Sprint 1
     * Implement knowledge article creation and editing for logged-in user 
-    * Design a dashboard for a logged-in user to view relevant information (See [Initial Concept](docs/Ka
+    * Design a dashboard for a logged-in user to view relevant information (See [Initial Concept](docs/KarmaDashboardConcept))
 * Sprint 2
     * Implement initial version of the dashboard
     * Create design guidelines for user interface to create or edit a knowledge article
