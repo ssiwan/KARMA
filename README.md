@@ -95,7 +95,7 @@ Applying [user-centered design](https://github.com/StanfieldSystems/KARMA/wiki/U
 * **Contextual Interviews**. Leveraging our observations from shadowing users, we conducted contextual interviews to further identify and refine common needs, tasks, and concerns.  
 * **Affinity Diagrams**.  In response to the user research findings, the product team conducted a "popcorn-style" task analysis resulting in an affinity diagramming session to help priortize features for the first design iteration.  The outcome was used for validation in subsequent usability testing.
 
-See [User Research Findings](docs/UserResearchFindings.pdf)
+See [User Research Findings](docs/UserResearchFindings.pdf) for the results of these user research activities.
 
 The result of this research included a list of pain points that KARMA could be designed to resolve.  By identifying these pain points, user experience research helped the team prioritize and focus on a couple key areas.  
 
@@ -119,9 +119,7 @@ Based on our user-centered research and the prototype requirements from the RFI,
 
 ### Develop Release Plan
 
-Since the delivery date for the prototype is fixed, release planning was really about determining the minimal viable product that could be developed by the delivery date.  We focused on key issues identified during our initial user research (stakeholder interview) and contextual inquiry.  This led to a prioritization of the dashboard display to provide rapid access to articles of interest with dependencies on logging in, knowledge creation, and finding relevant knowledge.  These four epics were the focus of our minimal viable product for the release.
-
-Release planning was complicated somewhat due to dependencies between user-centered design and related development activities.  To overcome these dependencies we performed initial development and user-centered design activities in parallel during Sprint 1.  In Sprint 2, we then refactored the working application to incorporate user centered design results.  We performed usability testing early in Sprint 3 and incorporated some of the findings into the application.  Other usability findings were added to the product backlog for prioritization after the initial prototype release.
+Since the delivery date for the prototype is fixed, release planning was really about determining the minimal viable product that could be developed by the delivery date.  We focused on key issues identified during our initial user research.  This led to a prioritization of the dashboard display to provide rapid access to articles of interest with dependencies on logging in, knowledge creation, and finding relevant knowledge.  These four epics (1-4 above) were the focus of our minimal viable product for the release.
 
 ### Technical Strategy and Work Environment
 _(RFI Requirements e, f, g, h, k, l, m, o, p, r, t)_
@@ -204,8 +202,8 @@ The core of Stanfield Systems' agile delivery process is the [Construction Phase
 In developing the KARMA prototype, Stanfield Systems completed 4 Sprints.  The goals for each sprint are summarized here.
 
 * Sprint 1
-    * Implement knowledge article creation and editing for logged-in user
-    * Design a dashboard for a logged-in user to view relevant information
+    * Implement knowledge article creation and editing for logged-in user 
+    * Design a dashboard for a logged-in user to view relevant information (See [Initial Concept](docs/Ka
 * Sprint 2
     * Implement initial version of the dashboard
     * Create design guidelines for user interface to create or edit a knowledge article
@@ -218,6 +216,8 @@ In developing the KARMA prototype, Stanfield Systems completed 4 Sprints.  The g
     * Conduct initial usability test
     * Implement remaining user interface guidelines
     * Address issues identified during usability test
+
+As evidenced in these Sprint Goals, there were multiple design-build iterations with the findings from one sprint being incorporated into improved designs and implementations in subsequent sprints. A summary of this design evolution can be found in [Design Evolution](docs/KarmaDesignEvolution.pdf).
 
 Detailed user stories and tasks performed during each sprint, along with the remaining product backlog, are listed in a [Jira Report].
 
