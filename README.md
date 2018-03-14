@@ -207,6 +207,8 @@ The core of Stanfield Systems' agile delivery process is the [Construction Phase
 * [Sprint Review and Assessment](https://github.com/StanfieldSystems/KARMA/wiki/Sprint_Review_and_Assessment)
 * [Sprint Retrospective](https://github.com/StanfieldSystems/KARMA/wiki/Sprint_Retrospective)
 
+### KARMA Prototype Sprint Summary
+
 In developing the KARMA prototype, Stanfield Systems completed 4 Sprints.  The goals for each sprint are summarized here.
 
 * Sprint 1
@@ -229,7 +231,25 @@ As evidenced in these Sprint Goals, there were multiple design-build iterations 
 
 Detailed user stories and tasks performed during each sprint, along with the remaining product backlog, are listed in a [Jira Report].
 
-Stanfield Systems estimated the relative size of work using [Story Points](https://github.com/StanfieldSystems/KARMA/wiki/Estimating_and_Monitoring_Performance_with_Story_Points).  Our average sprint velocity was 27 story points with a high of 31 in Sprint 1 and a low of 23 in Sprint 3.  In Sprint 3 we fell short of our Sprint Planning commitment of 35 story points.  During our Sprint Review and Assessment for Sprint 3, our analysis of the variance pointed to increased emphasis and time spent on usability - which we had not correctly estimated during our Backlog Refinement and Sprint Planning.
+### Usability Testing
+
+Once a testable version was completed, our usability expert created a [Test Plan](docs/KarmaUsabilityTestPlan.pdf), which contained the objectives of the test, outlined the logistics and listed the tasks and questions to be used.
+
+The test objectives included:
+●	Observe how users interpret & interact w/ KARMA’s interface and pages
+●	Are the terms used in the system natural and understandable?
+●	Can users successfully log in/log out?
+●	Will users feel the simpler home page will make their tasks more efficient?
+●	Does the design influence how users prioritize work?
+●	How discoverable is creating a new article
+●	Will users search?
+●	Is the workflow natural?  Will user be able to return to their home page/dashboard easily?
+
+Usability testing was conducted in-person with three content consumer/editor users.  Each test participant was brought to the testing room where they used functioning software on a laptop to complete the test.  Each test took approximately 30 minutes and validated the design.  This usability test utilized both qualitative and quantitative research methods since the users were asked to accomplish a task, which had a value of pass/fail/struggle.  Test participants were also asked a series of follow up questions which provided quantitative data as to their satisfaction of the product and their experience.  [Usability Test Results](docs/KarmaDashboardUsabilityFindings.pdf) were documented, discussed with the product team, and used to generate new user stories in the product backlog to improve usabililty in future iterations.
+
+### Sprint Analysis
+
+Stanfield Systems estimated the relative size of work using [Story Points](https://github.com/StanfieldSystems/KARMA/wiki/Estimating_and_Monitoring_Performance_with_Story_Points).  Our average sprint velocity was 27 story points with a high of 31 in Sprint 1 and a low of 23 in Sprint 3.  In Sprint 3 we fell short of our Sprint Planning commitment of 35 story points.  During our Sprint Review and Assessment for Sprint 3, our analysis of the variance pointed to increased emphasis and time spent on usability - which we had not accurately estimated during our Backlog Refinement and Sprint Planning.
 
 ## Transition
 
