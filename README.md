@@ -211,7 +211,7 @@ In developing the KARMA prototype, Stanfield Systems completed 4 Sprints.  The g
 
 * Sprint 1
     * Implement knowledge article creation and editing for logged-in user 
-    * Design a dashboard for a logged-in user to view relevant information (See [Initial Concept](docs/KarmaDashboardConcept))
+    * Design a dashboard for a logged-in user to view relevant information (See [Initial Concept](docs/KarmaDashboardConcept.pdf))
 * Sprint 2
     * Implement initial version of the dashboard
     * Create design guidelines for user interface to create or edit a knowledge article
@@ -230,3 +230,7 @@ As evidenced in these Sprint Goals, there were multiple design-build iterations 
 Detailed user stories and tasks performed during each sprint, along with the remaining product backlog, are listed in a [Jira Report].
 
 Stanfield Systems estimated the relative size of work using [Story Points](https://github.com/StanfieldSystems/KARMA/wiki/Estimating_and_Monitoring_Performance_with_Story_Points).  Our average sprint velocity was 27 story points with a high of 31 in Sprint 1 and a low of 23 in Sprint 3.  In Sprint 3 we fell short of our Sprint Planning commitment of 35 story points.  During our Sprint Review and Assessment for Sprint 3, our analysis of the variance pointed to increased emphasis and time spent on usability - which we had not correctly estimated during our Backlog Refinement and Sprint Planning.
+
+## Transition
+
+Stanfield Systems agile delivery process completes each release with a short [Transition Phase](https://github.com/StanfieldSystems/KARMA/wiki/Transition) that confirms the product is ready for release.  For the KARMA, transition activities were incorporated into Sprint 4.  These activities were primarily focused on validating prototype behavior and preparing documentation in response to the PQVP RFI.
