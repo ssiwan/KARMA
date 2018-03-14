@@ -27,6 +27,8 @@ Based on the results of our inception activities (in particular, [Explore Initia
 * Find and retrieve knowledge relevant to a particular user
 * Provide a single location (dashboard) to access knowledge relevant to a particular user
 
+For guidance on how to access and use these features, please see the [User Guide](docs/UserGuide.md).
+
 ## Application Architecture and Technologies
 
 Stanfield Systems implemented KARMA using open source technologies in a multi-tiered architecture as shown in the figure below. Our standard architecture and corresponding technologies are described in our [Technical Architecture](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#technical-architecture) along with examples.
