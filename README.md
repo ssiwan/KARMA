@@ -37,9 +37,9 @@ The Presentation tier runs in a client browser and is implemented with **Model-V
 
 RESTful web services are implemented on the application server as Java components using the **[Spring Boot framework](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#springbootangularintegration-project)**. The application server includes several application tiers, as follows.
 
-* The **application** tier implements controller classes with methods that define the rest end points and services. Controller objects control application activity that occurs when a rest services is invoked via the JSON interface. Controller objects implement the **Spring Web MVC Controller API**.
+* The **application** tier implements controller classes with methods that define the rest end points and services. Controller objects implement the **Spring Web MVC Controller API**.
 
-* The **service** tier implements service classes with methods that define business and data management services. Service objects define the scope of business transactions within the application, defining the steps to complete a transaction and persist or retrieve the results as appropriate. Service objects validate data inputs and relationships, enforce user authorization, and handle exceptions. Service objects implement the **Spring Service API**.
+* The **service** tier implements service classes with methods that define business and data management services. Service objects validate data inputs and relationships, enforce user authorization, and handle exceptions. Service objects implement the **Spring Service API**.
 
 * The **data access** tier implements repository classes to manage the retrieval and storage of business information from the persistent data repository.  Repository objects leverage the object-relational mapping annotations in the Entity Objects to map business objects to database tables using the **Java Persistence API (JPA)**. Repository objects implement the **Spring Data Repository API**.
 
@@ -67,7 +67,7 @@ Stanfield Systems begins product development with a short [Inception Phase](http
 ### Form Team
 _(RFI Requirements a, b)_
 
-Applying our [guidelines for forming agile teams](https://github.com/StanfieldSystems/KARMA/wiki/Form_and_Evolve_Team), Stanfield Systems established a six person team to develop the KARMA prototype and prepare documentation for the RFI response.  This multidisciplinary and collaborative team includes 8 of the PQVP AD-DS Labor Categories as specified below.
+Applying our [guidelines for forming agile teams](https://github.com/StanfieldSystems/KARMA/wiki/Form_and_Evolve_Team), Stanfield Systems established a six-person team to develop the KARMA prototype and prepare documentation for the RFI response.  This multidisciplinary and collaborative team includes 8 of the PQVP AD-DS Labor Categories as specified below.
 
 - Product Manager (Christine Cox)
 - Technical Architect (Patrick Grogan)
@@ -131,7 +131,7 @@ While focused on actual users, user experience design benefits by knowledge from
 
 ### Develop Release Plan
 
-Since the delivery date for the prototype is fixed, release planning was really about determining the minimal viable product that could be developed by the delivery date.  We focused on key issues identified during our initial user research.  This led to a prioritization of the dashboard display to provide rapid access to articles of interest with dependencies on logging in, knowledge creation, and finding relevant knowledge.  These four epics (1-4 above) were the focus of our minimal viable product for the release.
+Since the delivery date for the prototype is fixed, release planning focused on determining the minimal viable product that could be developed by the delivery date.  We focused on key issues identified during our initial user research.  This led to a prioritization of the dashboard display to provide rapid access to articles of interest with dependencies on logging in, knowledge creation, and finding relevant knowledge.  These four epics (1-4 above) were the focus of our minimal viable product for the release.
 
 ### Technical Strategy and Work Environment
 _(RFI Requirements e, f, g, h, k, l, m, o, p, r, t)_
@@ -158,8 +158,6 @@ KARMA is [continuously integrated and delivered to Amazon Web Services (AWS)](ht
 
 Stanfield Systems configures and manages the code deployment pipeline using the open source application [**mu**](https://stelligent.com/2017/04/11/mu-introduction-ecs-for-microservices/).  **mu** applies the same build configuration (e.g. Maven, npm) used in the development deployment, and then packages and deploys the application as configured in a **mu** script.  
 
-Whenever a developer commits code to Github, the AWS pipeline checks the code out from GitHub, builds the code, runs the unit tests and if all unit tests pass, builds the database tables using Liquibase and deploys the solution.  Once the application is deployed to the integration environment, the pipeline manages the execution of BDD tests, deploys the results of the BDD tests, and then notifies everyone on the product team.
-
 KARMA can be deployed on any workstation or server using command line tools as described in [How to Deploy and Run Karma](https://github.com/StanfieldSystems/KARMA/wiki/How_to_Deploy_and_Run_Karma).
 
 #### Continuous Monitoring
@@ -169,7 +167,8 @@ The Karma application generates several dashboards to [monitor](https://github.c
 * The metrics dashboard uses Dropwizard metrics to give a detailed view of the application performance. 
 * The health dashboard uses Spring Boot Actuator’s health endpoint to give health information on various parts of the application. 
 * The audits dashboard monitors access to the application and provides the status of whether users were successful during the authentication process.
-* All Developers can monitor the status of Karma's code pipeline by looking at the [AWS Code Pipeline dashboard](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#aws-continuous-integration-and-delivery-dashboard).  The CI and CD processes are initiated every time a developer checks-in source code.  The dashboard shows the real-time status of retrieving source code, the build and unit tests, the deploy to acceptance, and the running of BDD acceptance tests.  
+
+All Developers can monitor the status of Karma's code pipeline by looking at the [AWS Code Pipeline dashboard](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#aws-continuous-integration-and-delivery-dashboard).  The CI and CD processes are initiated every time a developer checks-in source code.  The dashboard shows the real-time status of retrieving source code, the build and unit tests, the deploy to acceptance, and the running of BDD acceptance tests.  Developers are notified whenever a build is completed.
 
 #### Accessibility
 _(RFI Requirement g, k)_
@@ -217,20 +216,7 @@ Stanfield Systems uses the [Confluence](https://www.atlassian.com/software/confl
 
 ## Construction
 
-The core of Stanfield Systems' agile delivery process is the [Construction Phase](https://github.com/StanfieldSystems/KARMA/wiki/Construction) during which the team performs detailed planning, design, implementation, and testing activities in one week Sprints - with working code at the end of each sprint.  Key activities conducted during each sprint include the following.
-
-* [Backlog Refinement](https://github.com/StanfieldSystems/KARMA/wiki/Backlog_Refinement)
-* [Sprint Planning](https://github.com/StanfieldSystems/KARMA/wiki/Sprint_Planning)
-* [Daily Status Update (Stand-Up)](https://github.com/StanfieldSystems/KARMA/wiki/Daily_Status_Update_Stand-Up_)
-* [Feature Development](https://github.com/StanfieldSystems/KARMA/wiki/Feature_Development) - to include:
-    * User-Centered Analysis and Design (Model Storming)
-    * Behavior Driven Development
-    * Peer Reviews
-    * Continuous Integration and Testing
-    * Feature Demonstrations (for Stakeholders)
-    * Defect Resolution
-* [Sprint Review and Assessment](https://github.com/StanfieldSystems/KARMA/wiki/Sprint_Review_and_Assessment)
-* [Sprint Retrospective](https://github.com/StanfieldSystems/KARMA/wiki/Sprint_Retrospective)
+The core of Stanfield Systems' agile delivery process is the [Construction Phase](https://github.com/StanfieldSystems/KARMA/wiki/Construction) during which the team performs detailed planning, design, implementation, and testing activities in one week Sprints - with working code at the end of each sprint. 
 
 ### KARMA Prototype Sprint Summary
 
@@ -260,17 +246,7 @@ Detailed user stories and tasks performed during each sprint, along with the rem
 
 Once a testable version was completed, our usability expert created a [Test Plan](docs/KarmaUsabilityTestPlan.pdf), which contained the objectives of the test, outlined the logistics and listed the tasks and questions to be used.
 
-The test objectives included:
-* Observe how users interpret & interact w/ KARMA’s interface and pages
-* Are the terms used in the system natural and understandable?
-* Can users successfully log in/log out?
-* Will users feel the simpler home page will make their tasks more efficient?
-* Does the design influence how users prioritize work?
-* How discoverable is creating a new article
-* Will users search?
-* Is the workflow natural?  Will user be able to return to their home page/dashboard easily?
-
-Usability testing was conducted in-person with three content consumer/editor users.  Each test participant was brought to the testing room where they used functioning software on a laptop to complete the test.  Each test took approximately 30 minutes and validated the design.  This usability test utilized both qualitative and quantitative research methods since the users were asked to accomplish a task, which had a value of pass/fail/struggle.  Test participants were also asked a series of follow up questions which provided quantitative data as to their satisfaction of the product and their experience.  [Usability Test Results](docs/KarmaDashboardUsabilityFindings.pdf) were documented, discussed with the product team, and used to generate new user stories in the product backlog to improve usabililty in future iterations.
+Usability testing was conducted in-person with three content consumer/editor users.  Each test participant was brought to the testing room where they used functioning software on a laptop to complete the test.  This usability test utilized both qualitative and quantitative research methods since the users were asked to accomplish a task, which had a value of pass/fail/struggle.  Test participants were also asked a series of follow up questions which provided quantitative data as to their satisfaction of the product and their experience.  [Usability Test Results](docs/KarmaDashboardUsabilityFindings.pdf) were documented, discussed with the product team, and used to generate new user stories in the product backlog to improve usabililty in future iterations.
 
 ### Sprint Analysis
 
