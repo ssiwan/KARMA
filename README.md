@@ -88,34 +88,34 @@ Applying [user-centered design](https://github.com/StanfieldSystems/KARMA/wiki/U
 
 * **Personas**.  We identified an initial set of users and developed a persona for each class of user. Each persona identified a user by a name, a set of believable personal and professional attributes, and a list of typical tasks with scenarios.  This rich resource was used as reference and validation throughout the project lifecycle.  
 
-    * ![Consumer Persona](docs/PersonaConsumer.pdf)
-    * ![Project Manager Persona](docs/PersonaProjectManager.pdf)
+    * [Consumer Persona](docs/PersonaConsumer.pdf)
+    * [Project Manager Persona](docs/PersonaProjectManager.pdf)
     
 * **Shadow Users**.  We observed people using similar tools, shadowing real users in their work space and letting them lead the conversation.   The potential KARMA users guided the researcher through the knowledge management tool they currently used and highlighted features, workflow and tools that worked well plus gave unfiltered feedback on what did not work for them.
 * **Contextual Interviews**. Leveraging our observations from shadowing users, we conducted contextual interviews to further identify and refine common needs, tasks, and concerns.  
 * **Affinity Diagrams**.  In response to the user research findings, the product team conducted a "popcorn-style" task analysis resulting in an affinity diagramming session to help priortize features for the first design iteration.  The outcome was used for validation in subsequent usability testing.
 
-See ![User Research Findings](docs/UserResearchFindings.pdf)
+See [User Research Findings](docs/UserResearchFindings.pdf)
 
 The result of this research included a list of pain points that KARMA could be designed to resolve.  By identifying these pain points, user experience research helped the team prioritize and focus on a couple key areas.  
 
-1	Get the user to their work right away
-2	Make “creating” an article easier
+1.	Get the user to their work right away
+2.	Make “creating” an article easier
 
 Based on our user-centered research and the prototype requirements from the RFI, we identified the following high-level user stories which were documented as epics for our initial product backlog.
 
-* Login to the application so that content can be tailored for a particular user.  
-* Create and edit knowledge articles for sharing with other users
-* Find and retrieve knowledge articles relevant to a particular user
-* Provide a single location (dashboard) to access knowledge relevant to a particular user
-* Define rules for creating knowledge articles in a consistent format
-* Approve and publish articles using a pre-defined workflow
-* Control access to knowledge articles based on roles and business rules
-* Notify users when the status of relevant articles is changed
-* Assess the value of knowledge articles based on usage and feedback
-* Define work flow rules for life-cycle management of knowledge articles
-* Review new or modified knowledge articles prior to approval
-* Provide access to system features for users with disabilities
+1. Login to the application so that content can be tailored for a particular user.  
+1. Create and edit knowledge articles for sharing with other users
+1. Find and retrieve knowledge articles relevant to a particular user
+1. Provide a single location (dashboard) to access knowledge relevant to a particular user
+1. Define rules for creating knowledge articles in a consistent format
+1. Approve and publish articles using a pre-defined workflow
+1. Control access to knowledge articles based on roles and business rules
+1. Notify users when the status of relevant articles is changed
+1. Assess the value of knowledge articles based on usage and feedback
+1. Define work flow rules for life-cycle management of knowledge articles
+1. Review new or modified knowledge articles prior to approval
+1. Provide access to system features for users with disabilities
 
 ### Develop Release Plan
 
