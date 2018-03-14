@@ -1,7 +1,5 @@
 package com.stanfield.karma.bdd.pages;
 
-import java.util.List;
-
 import org.openqa.selenium.WebDriver;
 
 import net.thucydides.core.annotations.DefaultUrl;
@@ -10,17 +8,14 @@ import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 
 @DefaultUrl("http://localhost:9000/")
-public class ArticleListPage extends PageObject{
+public class ArticlePage extends PageObject{
 	
-	@FindBy(tagName="tr")
-	List<WebElementFacade> articles;
-	
-	@FindBy(className="btn-link")
-	WebElementFacade firstArticleLink;
+	@FindBy(className="jh-entity-details")
+	WebElementFacade articleContent;
 	
 	String browserURL = null;
 	
-	public ArticleListPage(WebDriver driver) {
+	public ArticlePage(WebDriver driver) {
 		super(driver);
 		browserURL = System.getProperty("browser.url");
 		if (browserURL != null) {
@@ -29,12 +24,8 @@ public class ArticleListPage extends PageObject{
 		}
 	}
 	
-	public boolean hasArticles() {
-		return articles.size() > 0;
-	}
-	
-	public void clickOnFirst() {
-		firstArticleLink.click();
+	public boolean containsContent(String contentText) {
+		return articleContent.containsText(contentText);
 	}
 	
   

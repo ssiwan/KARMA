@@ -1,7 +1,5 @@
 package com.stanfield.karma.bdd.steps;
 
-import org.junit.Assert;
-
 import com.stanfield.karma.bdd.steps.serenity.*;
 
 import cucumber.api.java.en.Then;

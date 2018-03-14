@@ -62,5 +62,10 @@ public class LoginSteps extends ScenarioSteps {
 		//Assert.assertTrue(returnedMessage.contains(message));
 		Assert.assertTrue(message.equals(message));
 	}
+	
+	@Step("Has Section \"([^\"]*)\"")
+	public void hasSection(String section) {
+		Assert.assertTrue(viewWelcomePage.hasSection(section));
+	}
 
 }

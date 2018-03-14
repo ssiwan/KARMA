@@ -67,6 +67,10 @@ public class ViewWelcomePage extends PageObject {
 		  return returnedMessage;
 	}
 	
+	public boolean hasSection(String section) {
+		return(this.getDriver().findElement(By.className("container-fluid")).getText()).contains(section);
+	}
+	
 	public String getWarningMessages() {
 		setImplicitTimeout(5, TimeUnit.SECONDS);
 

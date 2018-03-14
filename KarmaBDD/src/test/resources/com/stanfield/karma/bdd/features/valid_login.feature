@@ -8,8 +8,8 @@ Feature: Valid Login
     And I click on the Sign In button
     And I enter "user" in the Username field
     And I enter "user" in the Password field
-    And I click the Submit button
-    Then I should see a success message with the text /You are logged in as user "user"/
+    And I click the Sign In button on the Sign In screen
+    Then I should see the section "My Recent Articles"
     
  Scenario: Login into the application as an admin
     Given I am on the login page
@@ -17,7 +17,7 @@ Feature: Valid Login
     And I click on the Sign In button
     And I enter "admin" in the Username field
     And I enter "admin" in the Password field
-    And I click the Submit button
-    Then I should see a success message with the text /You are logged in as user "admin"/
+    And I click the Sign In button on the Sign In screen
+    Then I should see the section "My Recent Articles"
 
   
