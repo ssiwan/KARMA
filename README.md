@@ -8,6 +8,8 @@ The KARMA prototype is deployed on Amazon Web Services and can be accessed throu
 
 Login information is available on the landing page.  The _User_ account will provide access to basic services for knowledge article creation and retrieval.  All common _User_ account services are accessible from the _Dashboard_ which serves as the _Home_ page and is automatically loaded upon successful login.  Additional _User_ account services for metadata management are available from the _Manage_ menu.  The _Admin_ account provides access to the _Administration_ menu which includes several application management and monitoring services.
 
+This document references detailed documentation in the [KARMA GitHub Wiki](https://github.com/StanfieldSystems/KARMA/wiki) regarding processes and technologies used by Stanfield Systems. In addition, the document references artifacts created for the KARMA prototype with links to files in the _docs_ folder in this repository.  All references include navigable links.
+
 ## Product Vision
 
 As a provider of custom application development solutions, the company creates a lot of knowledge regarding management processes, technical processes, and technical solutions.  Much of this knowledge can be applied across multiple products with some tailoring for different teams and solutions and some evolution for new techniques and technologies.  The company envisions a knowledge management application that can store this knowledge and make it easier to share, reuse, and adapt across products.  Initially, the application will facilitate efficient storage and retrieval of relevant knowledge; however, the ultimate vision is for the application to apply artifical intelligence techniques to suggest relevant knowledge and automatically adapt it to match product requirements and delivery teams.
@@ -54,7 +56,7 @@ Business information is persisted in a [**PostgreSQL**](https://github.com/Stanf
 
 #  Agile Delivery Process
 
-Stanfield Systems applies a [Scrum-Based, Disciplined Agile Delivery (DAD)](https://github.com/StanfieldSystems/KARMA/wiki) life-cycle for product development and release.  Stanfield Systems' DAD life-cycle is referenced throughout this documented with links to relevant process descriptions in the [KARMA GitHub Wiki](https://github.com/StanfieldSystems/KARMA/wiki).
+Stanfield Systems applies a [Scrum-Based, Disciplined Agile Delivery (DAD)](https://github.com/StanfieldSystems/KARMA/wiki) life-cycle for product development and release.  
 
 ## Inception
 
@@ -168,4 +170,41 @@ Stanfield Systems uses the [Jira](https://www.atlassian.com/software/jira) issue
 
 Stanfield Systems uses the [Confluence](https://www.atlassian.com/software/confluence) project collaboration portal to manage artifacts created during the development process.  For the KARMA prototype, these artifacts are also incorporated into GitHub - as files in the _docs_ folder of the code repository or as markdown articles in the project _Wiki_.
 
-##
+## Construction
+
+The core of Stanfield Systems' agile delivery process is the [Construction Phase](https://github.com/StanfieldSystems/KARMA/wiki/Construction) during which the team performs detailed planning, design, implementation, and testing activities in one week Sprints - with working code at the end of each sprint.  Key activities conducted during each sprint include the following.
+
+* [Backlog Refinement](https://github.com/StanfieldSystems/KARMA/wiki/Backlog_Refinement)
+* [Sprint Planning](https://github.com/StanfieldSystems/KARMA/wiki/Sprint_Planning)
+* [Daily Status Update (Stand-Up)](https://github.com/StanfieldSystems/KARMA/wiki/Daily_Status_Update_Stand-Up_)
+* [Feature Development](https://github.com/StanfieldSystems/KARMA/wiki/Feature_Development) - to include:
+    * User-Centered Analysis and Design (Model Storming)
+    * Behavior Driven Development
+    * Peer Reviews
+    * Continuous Integration and Testing
+    * Feature Demonstrations (for Stakeholders)
+    * Defect Resolution
+* [Sprint Review and Assessment](https://github.com/StanfieldSystems/KARMA/wiki/Sprint_Review_and_Assessment)
+* [Sprint Retrospective](https://github.com/StanfieldSystems/KARMA/wiki/Sprint_Retrospective)
+
+In developing the KARMA prototype, Stanfield Systems completed 4 Sprints.  The goals for each sprint are summarized here.
+
+* Sprint 1
+    * Implement a basic knowledge article application which includes log in/out and role establishment and design a dashboard
+    * Design a dashboard for a logged-in user to view relevant information
+* Sprint 2
+    * Implement initial version of the dashboard
+    * Create design guidelines for user interface to create or edit a knowledge article
+* Sprint 3
+    * Finish implementing dashboard by incorporating user interface design recommendations and guidelines
+    * Implement features to create knowledge article templates and types 
+    * Create test data
+    * Develop usability test plan
+* Sprint 4 (2 days for construction, 3 days for transition)
+    * Conduct initial usability test
+    * Implement remaining user interface guidelines
+    * Address issues identified during usability test
+
+Detailed user stories and tasks performed during each sprint, along with the remaining product backlog, are listed in a [Jira Report].
+
+Stanfield Systems estimated the relative size of work using [Story Points](https://github.com/StanfieldSystems/KARMA/wiki/Estimating_and_Monitoring_Performance_with_Story_Points).  Our average sprint velocity was 27 story points with a high of 31 in Sprint 1 and a low of 23 in Sprint 3.  In Sprint 3 we fell short of our Sprint Planning commitment of 35 story points.  During our Sprint Review and Assessment for Sprint 3, our analysis of the variance pointed to increased emphasis and time spent on usability - which we had not correctly estimated during our Backlog Refinement and Sprint Planning.
