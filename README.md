@@ -82,11 +82,25 @@ The Product Manager is the team leader with authority and responsibility for suc
 ### Explore Initial Scope
 _(RFI Requirements c, d)_
 
-_(Tie in [Explore Initial Scope](https://github.com/StanfieldSystems/kmt/wiki/Explore_Initial_Scope) process description)_
+In [Exploring Initial Scope](https://github.com/StanfieldSystems/kmt/wiki/Explore_Initial_Scope) the team performs lightweight requirements envisioning - developing usage models, domain models, user interface models, process models, and other user-centric approaches. 
 
-Applying user-centered design techniques Stanfield Systems worked directly with users to understand what the users need to perform their tasks.  These user-centered techniques address the entire user experience from start to finish.
+Applying [user-centered design](https://github.com/StanfieldSystems/KARMA/wiki/User_Centered_Design techniques) Stanfield Systems worked directly with users to understand what the users need to perform their tasks.  These user-centered techniques address the entire user experience from start to finish.
 
-_(Summarize techniques and results here.  Reference process and result artifacts.)_
+* **Personas**.  We identified an initial set of users and developed a persona for each class of user. Each persona identified a user by a name, a set of believable personal and professional attributes, and a list of typical tasks with scenarios.  This rich resource was used as reference and validation throughout the project lifecycle.  
+
+    * ![Consumer Persona](docs/PersonaConsumer.pdf)
+    * ![Project Manager Persona](docs/PersonaProjectManager.pdf)
+    
+* **Shadow Users**.  We observed people using similar tools, shadowing real users in their work space and letting them lead the conversation.   The potential KARMA users guided the researcher through the knowledge management tool they currently used and highlighted features, workflow and tools that worked well plus gave unfiltered feedback on what did not work for them.
+* **Contextual Interviews**. Leveraging our observations from shadowing users, we conducted contextual interviews to further identify and refine common needs, tasks, and concerns.  
+* **Affinity Diagrams**.  In response to the user research findings, the product team conducted a "popcorn-style" task analysis resulting in an affinity diagramming session to help priortize features for the first design iteration.  The outcome was used for validation in subsequent usability testing.
+
+See ![User Research Findings](docs/UserResearchFindings.pdf)
+
+The result of this research included a list of pain points that KARMA could be designed to resolve.  By identifying these pain points, user experience research helped the team prioritize and focus on a couple key areas.  
+
+1	Get the user to their work right away
+2	Make “creating” an article easier
 
 Based on our user-centered research and the prototype requirements from the RFI, we identified the following high-level user stories which were documented as epics for our initial product backlog.
 
