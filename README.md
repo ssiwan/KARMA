@@ -20,6 +20,8 @@ Stanfield Systems applied their [Agile Delivery Process](#agile-delivery-process
 
 ## Application Features
 
+Based on the results of our inception activities (in particular, [Explore Initial Scope](https://github.com/StanfieldSystems/KARMA/blob/master/README.md#explore-initial-scope) and [Develop Release Plan](https://github.com/StanfieldSystems/KARMA/blob/master/README.md#develop-release-plan)), the product team prioritized and selected user stories for the following key features to be implemented as the KARMA prototype release.
+
 * Login to the application so that content can be tailored for a particular user.  
 * Create and edit knowledge articles for sharing with other users
 * Find and retrieve knowledge relevant to a particular user
@@ -102,6 +104,8 @@ The result of this research included a list of pain points that KARMA could be d
 1.	Get the user to their work right away
 2.	Make “creating” an article easier
 
+#### Initial Product Backlog
+
 Based on our user-centered research and the prototype requirements from the RFI, we identified the following high-level user stories which were documented as epics for our initial product backlog.
 
 1. Login to the application so that content can be tailored for a particular user.  
@@ -117,7 +121,7 @@ Based on our user-centered research and the prototype requirements from the RFI,
 1. Review new or modified knowledge articles prior to approval
 1. Provide access to system features for users with disabilities
 
-### User Experience
+#### User Experience Goals
 
 While focused on actual users, user experience design benefits by knowledge from all stakeholders.  Not just the end user, but the development team and business stakeholders.  This knowledge helped shape the overall user experience goals of the project. 
 
