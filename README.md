@@ -152,6 +152,14 @@ All application code files, including database scripts, are stored and managed i
 #### Continuous Integration and Deployment
 _(RFI Requirement m, o, p, q, r, s)_
 
+KARMA is [continuously integrated and delivered to Amazon Web Services (AWS)](https://aws.amazon.com/blogs/opensource/mu-pipelines-container-applications/).
+
+* Static resources such as html and javascript files for the front end pushed to an Amazon Simple Cloud Storage (S3) bucket that is fronted by the CloudFront Content Delivery Network (CDN). 
+* The RESTful service API is deployed as an Amazon Elastic Container Service (ECS) using **Docker** containers.
+* The PostgresSQL database is provisioned on Amazon Relational Data Service (RDS).
+
+Stanfield Systems configures and manages the code deployment pipeline using the open source application [**mu**](https://stelligent.com/2017/04/11/mu-introduction-ecs-for-microservices/).  **mu** applies the same build configuration (e.g. Maven, npm) used in the development deployment, and then packages and deploys the application as configured in a **mu** script.  Once the application is deployed to the integration environment, **mu** also manages the execution of BDD tests using configured drivers.
+
 #### Continuous Monitoring
 
 The Karma application generates several dashboards to [monitor](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#monitoring) the application.  These dashboards are available when you log into Karma using the admin user and admin password.  The dashboards are available at runtime, and are the easiest way to do some simple monitoring.
