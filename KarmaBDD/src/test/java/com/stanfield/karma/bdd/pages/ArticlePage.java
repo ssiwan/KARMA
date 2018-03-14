@@ -1,7 +1,5 @@
 package com.stanfield.karma.bdd.pages;
 
-import java.util.List;
-
 import org.openqa.selenium.WebDriver;
 
 import net.thucydides.core.annotations.DefaultUrl;

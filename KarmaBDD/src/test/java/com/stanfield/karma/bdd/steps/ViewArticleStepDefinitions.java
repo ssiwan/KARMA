@@ -1,7 +1,5 @@
 package com.stanfield.karma.bdd.steps;
 
-import org.junit.Assert;
-
 import com.stanfield.karma.bdd.steps.serenity.*;
 
 import cucumber.api.java.en.Then;
@@ -20,7 +18,7 @@ public class ViewArticleStepDefinitions {
     
     @Then("^I should see the Article Content \"([^\"]*)\"$")
     public void iShouldSeeTheArticleContent(String contentText) {
-    	articleSteps.containtContent(contentText);
+    	articleSteps.containsContent(contentText);
     }
  
 }

@@ -3,18 +3,11 @@ package com.stanfield.karma.bdd.steps.serenity;
 import com.stanfield.karma.bdd.pages.ArticleListPage;
 import com.stanfield.karma.bdd.pages.ArticlePage;
 import com.stanfield.karma.bdd.pages.DashboardPage;
-import com.stanfield.karma.bdd.pages.WelcomePage; 
-import com.stanfield.karma.bdd.helpers.EntityFactory;
-
-import cucumber.api.Scenario;
-import cucumber.api.java.After;
-import cucumber.api.java.Before;
 
 import net.thucydides.core.steps.ScenarioSteps;
 
 import org.testng.Assert;
 
-import net.serenitybdd.core.Serenity;
 import net.thucydides.core.annotations.Step;
 
 public class ArticleSteps extends ScenarioSteps{
@@ -42,7 +35,7 @@ public class ArticleSteps extends ScenarioSteps{
     }
     
     @Step("Article has content")
-    public void containtContent(String contentText) {
+    public void containsContent(String contentText) {
     	Assert.assertTrue(articlePage.containsContent(contentText));
     }
 }
