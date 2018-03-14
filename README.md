@@ -190,7 +190,7 @@ The core of Stanfield Systems' agile delivery process is the [Construction Phase
 In developing the KARMA prototype, Stanfield Systems completed 4 Sprints.  The goals for each sprint are summarized here.
 
 * Sprint 1
-    * Implement a basic knowledge article application which includes log in/out and role establishment and design a dashboard
+    * Implement knowledge article creation and editing for logged-in user
     * Design a dashboard for a logged-in user to view relevant information
 * Sprint 2
     * Implement initial version of the dashboard
