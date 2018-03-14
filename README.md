@@ -6,7 +6,7 @@ The KARMA prototype is deployed on Amazon Web Services and can be accessed throu
 
 **<https://acceptance.bigbluesign.com>**  
 
-Login information is available on the landing page.  The _User_ account will provide access to basic services for knowledge article creation and retrieval.  All common _User_ account services are accessible from the _Dashboard_ which serves as the _Home_ page and is automatically loaded upon successful login.  Additional _User_ account services for metadata management are available from the _Manage_ menu.  The _Admin_ account provides access to the _Administration_ menu which includes several application management and monitoring services.
+Login information is available on the landing page.  The _User_ account will provide access to basic services for knowledge article creation and retrieval.  All common _User_ account services are accessible from the _Dashboard_ which serves as the _Home_ page and is automatically loaded upon successful login.  Additional _User_ account services for metadata management are available from the _Manage_ menu.  The _Admin_ account provides access to the _Administration_ menu which includes several application management and monitoring services.  For guidance on how to use KARMA, please see the [User Guide](docs/UserGuide.md)
 
 This document references detailed documentation in the [KARMA GitHub Wiki](https://github.com/StanfieldSystems/KARMA/wiki) regarding processes and technologies used by Stanfield Systems. In addition, the document references artifacts created for the KARMA prototype with links to files in the _docs_ folder in this repository.  All references include navigable links.
 
@@ -26,8 +26,6 @@ Based on the results of our inception activities (in particular, [Explore Initia
 * Create and edit knowledge articles for sharing with other users
 * Find and retrieve knowledge relevant to a particular user
 * Provide a single location (dashboard) to access knowledge relevant to a particular user
-
-For guidance on how to access and use these features, please see the [User Guide](docs/UserGuide.md).
 
 ## Application Architecture and Technologies
 
@@ -263,14 +261,14 @@ Detailed user stories and tasks performed during each sprint, along with the rem
 Once a testable version was completed, our usability expert created a [Test Plan](docs/KarmaUsabilityTestPlan.pdf), which contained the objectives of the test, outlined the logistics and listed the tasks and questions to be used.
 
 The test objectives included:
-●	Observe how users interpret & interact w/ KARMA’s interface and pages
-●	Are the terms used in the system natural and understandable?
-●	Can users successfully log in/log out?
-●	Will users feel the simpler home page will make their tasks more efficient?
-●	Does the design influence how users prioritize work?
-●	How discoverable is creating a new article
-●	Will users search?
-●	Is the workflow natural?  Will user be able to return to their home page/dashboard easily?
+* Observe how users interpret & interact w/ KARMA’s interface and pages
+* Are the terms used in the system natural and understandable?
+* Can users successfully log in/log out?
+* Will users feel the simpler home page will make their tasks more efficient?
+* Does the design influence how users prioritize work?
+* How discoverable is creating a new article
+* Will users search?
+* Is the workflow natural?  Will user be able to return to their home page/dashboard easily?
 
 Usability testing was conducted in-person with three content consumer/editor users.  Each test participant was brought to the testing room where they used functioning software on a laptop to complete the test.  Each test took approximately 30 minutes and validated the design.  This usability test utilized both qualitative and quantitative research methods since the users were asked to accomplish a task, which had a value of pass/fail/struggle.  Test participants were also asked a series of follow up questions which provided quantitative data as to their satisfaction of the product and their experience.  [Usability Test Results](docs/KarmaDashboardUsabilityFindings.pdf) were documented, discussed with the product team, and used to generate new user stories in the product backlog to improve usabililty in future iterations.
 
