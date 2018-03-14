@@ -10,17 +10,14 @@ import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 
 @DefaultUrl("http://localhost:9000/")
-public class ArticleListPage extends PageObject{
+public class KnowledgeAreaListPage extends PageObject{
 	
 	@FindBy(tagName="tr")
-	List<WebElementFacade> articles;
-	
-	@FindBy(className="btn-link")
-	WebElementFacade firstArticleLink;
+	List<WebElementFacade> knowledgeArea;
 	
 	String browserURL = null;
 	
-	public ArticleListPage(WebDriver driver) {
+	public KnowledgeAreaListPage(WebDriver driver) {
 		super(driver);
 		browserURL = System.getProperty("browser.url");
 		if (browserURL != null) {
@@ -29,12 +26,8 @@ public class ArticleListPage extends PageObject{
 		}
 	}
 	
-	public boolean hasArticles() {
-		return articles.size() > 0;
-	}
-	
-	public void clickOnFirst() {
-		firstArticleLink.click();
+	public boolean hasKnowledgeAreas() {
+		return knowledgeArea.size() > 0;
 	}
 	
   

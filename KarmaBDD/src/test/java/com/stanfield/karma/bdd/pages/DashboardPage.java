@@ -16,6 +16,15 @@ public class DashboardPage extends PageObject{
 	@FindBy(id="searchButton")
 	WebElementFacade searchButton;
 	
+	@FindBy(linkText="All Articles")
+	WebElementFacade allArticlesLink;
+	
+	@FindBy(linkText="All Knowledge Areas")
+	WebElementFacade allKnowledgeAreasLink;
+	
+	@FindBy(linkText="All Tags")
+	WebElementFacade allTagLink;
+	
 	String browserURL = null;
 	
 	public DashboardPage(WebDriver driver) {
@@ -31,6 +40,18 @@ public class DashboardPage extends PageObject{
 		searchField.clear();
 		searchField.sendKeys(searchString);
 		searchButton.click();
+	}
+	
+	public void clickAllArticles() {
+		allArticlesLink.click();
+	}
+	
+	public void clickAllKnowledgeArea() {
+		allKnowledgeAreasLink.click();
+	}
+	
+	public void clickAllTags() {
+		allTagLink.click();
 	}
 	
 
