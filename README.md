@@ -84,7 +84,7 @@ _(RFI Requirements c, d)_
 
 In [Exploring Initial Scope](https://github.com/StanfieldSystems/kmt/wiki/Explore_Initial_Scope) the team performs lightweight requirements envisioning - developing usage models, domain models, user interface models, process models, and other user-centric approaches. 
 
-Applying [user-centered design](https://github.com/StanfieldSystems/KARMA/wiki/User_Centered_Design techniques) Stanfield Systems worked directly with users to understand what the users need to perform their tasks.  These user-centered techniques address the entire user experience from start to finish.
+Applying [user-centered design](https://github.com/StanfieldSystems/KARMA/wiki/User_Centered_Design) techniques Stanfield Systems worked directly with users to understand what the users need to perform their tasks.  These user-centered techniques address the entire user experience from start to finish.
 
 * **Personas**.  We identified an initial set of users and developed a persona for each class of user. Each persona identified a user by a name, a set of believable personal and professional attributes, and a list of typical tasks with scenarios.  This rich resource was used as reference and validation throughout the project lifecycle.  
 
@@ -116,6 +116,14 @@ Based on our user-centered research and the prototype requirements from the RFI,
 1. Define work flow rules for life-cycle management of knowledge articles
 1. Review new or modified knowledge articles prior to approval
 1. Provide access to system features for users with disabilities
+
+### User Experience
+
+While focused on actual users, user experience design benefits by knowledge from all stakeholders.  Not just the end user, but the development team and business stakeholders.  This knowledge helped shape the overall user experience goals of the project. 
+
+* Delight the user (to be measured by quantitative activities such as interviews and surveys)
+* Clean and uncluttered user interface (to be measured by qualitative and quantitative activities such as usability testing and contextual interviews)
+* Efficient navigation throughout the workflow (to be measured by qualitative and quantitative activities such as usability testing and contextual interviews)
 
 ### Develop Release Plan
 
