@@ -154,11 +154,15 @@ _(RFI Requirement m, o, p, q, r, s)_
 
 KARMA is [continuously integrated and delivered to Amazon Web Services (AWS)](https://aws.amazon.com/blogs/opensource/mu-pipelines-container-applications/).
 
-* Static resources such as html and javascript files for the front end pushed to an Amazon Simple Cloud Storage (S3) bucket that is fronted by the CloudFront Content Delivery Network (CDN). 
-* The RESTful service API is deployed as an Amazon Elastic Container Service (ECS) using **Docker** containers.
+* Static resources such as the Angular front end (including html, typescropt, javascript, image, and configuration files) are pushed to an Amazon Simple Cloud Storage (S3) bucket that is fronted by the CloudFront Content Delivery Network (CDN). 
+* The RESTful service API (e.g. the SpringBoot project) is deployed as an Amazon Elastic Container Service (ECS) using **Docker** containers.
 * The PostgresSQL database is provisioned on Amazon Relational Data Service (RDS).
 
-Stanfield Systems configures and manages the code deployment pipeline using the open source application [**mu**](https://stelligent.com/2017/04/11/mu-introduction-ecs-for-microservices/).  **mu** applies the same build configuration (e.g. Maven, npm) used in the development deployment, and then packages and deploys the application as configured in a **mu** script.  Once the application is deployed to the integration environment, **mu** also manages the execution of BDD tests using configured drivers.
+Stanfield Systems configures and manages the code deployment pipeline using the open source application [**mu**](https://stelligent.com/2017/04/11/mu-introduction-ecs-for-microservices/).  **mu** applies the same build configuration (e.g. Maven, npm) used in the development deployment, and then packages and deploys the application as configured in a **mu** script.  
+
+Whenever a developer commits code to Github, the AWS pipeline checks the code out from GitHub, builds the code, runs the unit tests and if all unit tests pass, builds the database tables using Liquibase and deploys the solution.  Once the application is deployed to the integration environment, the pipeline manages the execution of BDD tests, deploys the results of the BDD tests, and then notifies everyone on the product team.
+
+KARMA can be deployed on any workstation or server using command line tools as described in [How to Deploy and Run Karma](https://github.com/StanfieldSystems/KARMA/wiki/How_to_Deploy_and_Run_Karma).
 
 #### Continuous Monitoring
 
