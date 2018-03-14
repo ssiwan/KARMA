@@ -29,32 +29,16 @@ Based on the results of our inception activities (in particular, [Explore Initia
 
 ## Application Architecture and Technologies
 
-Stanfield Systems implemented KARMA using open source technologies in a multi-tiered architecture as shown in the figure below. Our standard architecture and corresponding technologies are described in our [Technical Architecture](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#technical-architecture) along with examples.
+Stanfield Systems implemented KARMA using open source technologies in a multi-tiered architecture as described in our [Technical Architecture](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#technical-architecture).
 
-![Architecture](docs/Architecture.jpg)
+KARMA uses the following open source technologies
 
-The Presentation tier runs in a client browser and is implemented with **Model-View-Controller JavaScript/TypeScript patterns** using **[Angular 5](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#angular4client-project)**. The Angular Client uses HTTP to make calls to the RESTful API on the application server, using **JSON** to exchange information between the client and the application server.
-
-RESTful web services are implemented on the application server as Java components using the **[Spring Boot framework](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#springbootangularintegration-project)**. The application server includes several application tiers, as follows.
-
-* The **application** tier implements controller classes with methods that define the rest end points and services. Controller objects implement the **Spring Web MVC Controller API**.
-
-* The **service** tier implements service classes with methods that define business and data management services. Service objects validate data inputs and relationships, enforce user authorization, and handle exceptions. Service objects implement the **Spring Service API**.
-
-* The **data access** tier implements repository classes to manage the retrieval and storage of business information from the persistent data repository.  Repository objects leverage the object-relational mapping annotations in the Entity Objects to map business objects to database tables using the **Java Persistence API (JPA)**. Repository objects implement the **Spring Data Repository API**.
-
-Information is exchanged between components in the different tiers using entity objects, data transfer objects, and additional parameters as necessary.
-
-* **Entity Objects** are in-memory representations of business entities that are persisted in the database. Relational database tables and columns are mapped to entity objects using the **Java Persistence API (JPA) 2.0** annotations. 
-
-* **Data Transfer Objects (DTOs)** are convenience objects used to group data together for transfer between components or processes. More specifically, DTOs are used for converting data from one or more entity objects to JSON when the mapping from entities to JSON data structures is somewhat complex.
-
-In this multi-tier architecture, some services are shared across multiple services. These are depicted in the figure above as **Infrastructure Components**.
-
-* [Logging](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#logging) is implemented with **Log4j2**.
+* [**Angular 5**](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#angular4client-project) - provides Model-View-Controller JavaScript/TypeScript patterns for defining user interface views on the client.  The Angular client uses HTTP to make calls to the RESTful API on the application server, using **JSON** to exchange information between the client and the application server.
+* **Bootstrap** - integrated with the Angular 5 client to present a responsive design that works on multiple devices with varying screen resolutions.
+*  [**Spring Boot framework**](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#springbootangularintegration-project)** - used to develop RESTful web services for the API.
+* [**Log4j2**](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#logging) - used for application logging.
 * [**Swagger**](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#swagger-2) is used to describe and document RESTful APIs in accordance with the **OpenAPI Specification** _(RFI Requirement f)_.  To access this API documentation, login to KARMA as the admin user and select [_API_](https://acceptance.bigbluesign.com/#/docs) from the _Administration_ menu.
-
-Business information is persisted in a [**PostgreSQL**](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#postgresql) relational database. 
+[**PostgreSQL**](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#postgresql) - persists application data in a  relational database. 
 
 #  Agile Delivery Process
 
