@@ -152,6 +152,15 @@ All application code files, including database scripts, are stored and managed i
 #### Continuous Integration and Deployment
 _(RFI Requirement m, o, p, q, r, s)_
 
+#### Continuous Monitoring
+
+The Karma application generates several dashboards to [monitor](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#monitoring) the application.  These dashboards are available when you log into Karma using the admin user and admin password.  The dashboards are available at runtime, and are the easiest way to do some simple monitoring.
+
+* The metrics dashboard uses Dropwizard metrics to give a detailed view of the application performance. 
+* The health dashboard uses Spring Boot Actuator’s health endpoint to give health information on various parts of the application. 
+* The audits dashboard monitors access to the application and provides the status of whether users were successful during the authentication process.
+* All Developers can monitor the status of Karma's code pipeline by looking at the [AWS Code Pipeline dashboard](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#aws-continuous-integration-and-delivery-dashboard).  The CI and CD processes are initiated every time a developer checks-in source code.  The dashboard shows the real-time status of retrieving source code, the build and unit tests, the deploy to acceptance, and the running of BDD acceptance tests.  
+
 #### Accessibility
 _(RFI Requirement g, k)_
 
