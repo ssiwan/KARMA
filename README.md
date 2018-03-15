@@ -180,7 +180,7 @@ We use the [Confluence](https://www.atlassian.com/software/confluence) collabora
 
 ## Construction
 
-In the [Construction Phase](https://github.com/StanfieldSystems/KARMA/wiki/Construction) we interatively performed detailed planning, design, implementation, and testing activities within week long Sprints - with working code at the end of each sprint. 
+In the [Construction Phase](https://github.com/StanfieldSystems/KARMA/wiki/Construction) we iteratively performed detailed planning, design, implementation, and testing activities within week long Sprints - with working code at the end of each sprint. 
 
 ### KARMA Prototype Sprint Summary
 _(Requirement j)_
