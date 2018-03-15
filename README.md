@@ -129,6 +129,8 @@ _(RFI Requirement e, p)_
 
 All application code files, including database scripts, are stored and managed in this [**GitHub**](https://github.com/StanfieldSystems/KARMA) version control repository.
 
+The configuration of application resources, dependencies, and deployment services are stored in various configuration files that are stored and managed in GitHub. These configuration files are processed automatically by continuous integration and deployment tools to ensure the proper resources are in place.  These configuration files, along with run time configuration tools in the application, are described in the [Configuration Management](https://github.com/StanfieldSystems/KARMA/wiki/Configuration-Management) wiki page.
+
 [**Liquibase**](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#liquibase) is used to migrate versioned database changes to developer, integration, and production database servers within the continuous integration and build pipeline.
 
 #### Continuous Integration and Deployment
