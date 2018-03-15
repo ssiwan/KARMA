@@ -12,7 +12,7 @@ This document references detailed documentation in the [KARMA GitHub Wiki](https
 
 ## Product Vision
 
-As a provider of custom application development solutions, the company creates a lot of knowledge regarding management processes, technical processes, and technical solutions.  Much of this knowledge can be applied across multiple products with some tailoring for different teams and solutions and some evolution for new techniques and technologies.  The company envisions a knowledge management application that can store this knowledge and make it easier to share, reuse, and adapt across products.  Initially, the application will facilitate efficient storage and retrieval of relevant knowledge; however, the ultimate vision is for the application to apply artifical intelligence techniques to suggest relevant knowledge and automatically adapt it to match product requirements and delivery teams.
+The company envisions a knowledge management application that can store technical and management knowledge and make it easier to share, reuse, and adapt across products.  Initially, the application will facilitate efficient storage and retrieval of relevant knowledge; however, the ultimate vision is for the application to apply artifical intelligence techniques to suggest relevant knowledge and automatically adapt it to match product requirements and delivery teams.
 
 # Prototype
 
@@ -106,14 +106,6 @@ Based on our user-centered research and the prototype requirements from the RFI,
 1. Review new or modified knowledge articles prior to approval
 1. Provide access to system features for users with disabilities
 
-#### User Experience Goals
-
-While focused on actual users, user experience design benefits by knowledge from all stakeholders.  Not just the end user, but the development team and business stakeholders.  This knowledge helped shape the overall user experience goals of the project. 
-
-* Delight the user (to be measured by quantitative activities such as interviews and surveys)
-* Clean and uncluttered user interface (to be measured by qualitative and quantitative activities such as usability testing and contextual interviews)
-* Efficient navigation throughout the workflow (to be measured by qualitative and quantitative activities such as usability testing and contextual interviews)
-
 ### Develop Release Plan
 
 Since the delivery date for the prototype is fixed, release planning focused on determining the minimal viable product that could be developed by the delivery date.  We focused on key issues identified during our initial user research.  This led to a prioritization of the dashboard display to provide rapid access to articles of interest with dependencies on logging in, knowledge creation, and finding relevant knowledge.  These four epics (1-4 above) were the focus of our minimal viable product for the release.
@@ -151,10 +143,6 @@ _(RFI REquirement q)
 
 The Karma application generates several dashboards to [monitor](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#monitoring) the application.  These dashboards are available when you log into Karma using the admin user and admin password.  The dashboards are available at runtime, and are the easiest way to do some simple monitoring.
 
-* The metrics dashboard uses Dropwizard metrics to give a detailed view of the application performance. 
-* The health dashboard uses Spring Boot Actuator’s health endpoint to give health information on various parts of the application. 
-* The audits dashboard monitors access to the application and provides the status of whether users were successful during the authentication process.
-
 All Developers can monitor the status of Karma's code pipeline by looking at the [AWS Code Pipeline dashboard](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#aws-continuous-integration-and-delivery-dashboard).  The CI and CD processes are initiated every time a developer checks-in source code.  The dashboard shows the real-time status of retrieving source code, the build and unit tests, the deploy to acceptance, and the running of BDD acceptance tests.  Developers are notified whenever a build is completed.
 
 #### Accessibility
@@ -191,13 +179,7 @@ Stanfield Systems also generates automated JUnit tests for complete coverage of 
 
 #### Project Management and Collaboration
 
-Stanfield Systems uses the [Jira](https://www.atlassian.com/software/jira) issue tracking system to manage product and sprint backlogs.
-
-* Major features of the application are tracked as _Epics_ 
-* Specific user requirements are tracked as _User Stories_.
-* Design, development, administrative, or management activities are tracked as _Tasks_ or _Subtasks_
-* Defects and technical debt are tracked as _Bugs_ or _Issues_
-* Risks are tracked as _Risks_
+Stanfield Systems uses the [Jira](https://www.atlassian.com/software/jira) issue tracking system to manage product and sprint backlogs as described in our procedure [Manage Backlog in Jira]](https://github.com/StanfieldSystems/KARMA/wiki/Manage_Backlog_in_JIRA).
 
 Stanfield Systems uses the [Confluence](https://www.atlassian.com/software/confluence) project collaboration portal to manage artifacts created during the development process.  For the KARMA prototype, these artifacts are also incorporated into GitHub - as files in the _docs_ folder of the code repository or as markdown articles in the project _Wiki_.
 
@@ -235,7 +217,7 @@ _(RFI Requirement i)_
 
 Once a testable version was completed, our usability expert created a [Test Plan](docs/KarmaUsabilityTestPlan.pdf), which contained the objectives of the test, outlined the logistics and listed the tasks and questions to be used.
 
-Usability testing was conducted in-person with three content consumer/editor users.  Each test participant was brought to the testing room where they used functioning software on a laptop to complete the test.  This usability test utilized both qualitative and quantitative research methods since the users were asked to accomplish a task, which had a value of pass/fail/struggle.  Test participants were also asked a series of follow up questions which provided quantitative data as to their satisfaction of the product and their experience.  [Usability Test Results](docs/KarmaDashboardUsabilityFindings.pdf) were documented, discussed with the product team, and used to generate new user stories in the product backlog to improve usabililty in future iterations.
+The usability test utilized both qualitative and quantitative research methods since the users were asked to accomplish a task, which had a value of pass/fail/struggle.  Test participants were also asked a series of follow up questions which provided quantitative data as to their satisfaction of the product and their experience.  [Usability Test Results](docs/KarmaDashboardUsabilityFindings.pdf) were documented, discussed with the product team, and used to generate new user stories in the product backlog to improve usabililty in future iterations.
 
 ### Sprint Analysis
 
