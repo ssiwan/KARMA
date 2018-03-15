@@ -125,7 +125,7 @@ The configuration of application resources, dependencies, and deployment service
 #### Continuous Integration and Deployment
 _(Requirement m, o, r, s)_
 
-KARMA is [continuously integrated and delivered to Amazon Web Services (AWS)](https://aws.amazon.com/blogs/opensource/mu-pipelines-container-applications/).
+KARMA is [continuously integrated and delivered to Amazon Web Services (AWS)](https://github.com/StanfieldSystems/KARMA/wiki/Continuous_Integration_and_Delivery_using_AWS).
 
 * Static resources such as the Angular front end are pushed to an Amazon Simple Cloud Storage (S3) bucket that is fronted by the CloudFront Content Delivery Network (CDN). 
 * The RESTful service API (SpringBoot project) is deployed as an Amazon Elastic Container Service (ECS) using **Docker** containers.
