@@ -6,7 +6,7 @@ The KARMA prototype is deployed on Amazon Web Services and can be accessed throu
 
 **<https://acceptance.bigbluesign.com>**  
 
-Login information is available on the landing page.  The _User_ account will provide access to basic services for knowledge article creation and retrieval.  All common _User_ account services are accessible from the _Dashboard_ which serves as the _Home_ page and is automatically loaded upon successful login.  Additional _User_ account services for metadata management are available from the _Manage_ menu.  The _Admin_ account provides access to the _Administration_ menu which includes several application management and monitoring services.  For guidance on how to use KARMA, please see the [User Guide](docs/UserGuide.md)
+Login information is available on the landing page.  For guidance on how to use KARMA, please see the [User Guide](docs/UserGuide.md)
 
 This document references detailed documentation in the [KARMA GitHub Wiki](https://github.com/StanfieldSystems/KARMA/wiki) regarding processes and technologies used by Stanfield Systems. In addition, the document references artifacts created for the KARMA prototype with links to files in the _docs_ folder in this repository.  All references include navigable links.
 
