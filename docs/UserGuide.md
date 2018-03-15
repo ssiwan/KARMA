@@ -40,7 +40,7 @@ The KARMA home page is a dashboard that provides efficient access to articles of
 * Users can create new knowledge articles from the dashboard by clicking the green "Create new Knowledge Article" button.
 * A red panel on the left of the creation page indicates a mandatory field.
 
-![Create Screen](CreateScreen.jpg)
+![Create Edit](CreateEdit.jpg)
 
 * Enter the title of the knowledge article, create the content, and scroll to the bottom of the page to select the knowledge area that best categorizes the article, and one or more knowledge tags.
 * Once the user clicks the Save button, the knowledge article should display on the dashboard.
