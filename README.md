@@ -33,7 +33,7 @@ Stanfield Systems implemented KARMA using open source technologies in a multi-ti
 
 KARMA uses the following open source technologies.
 
-* [**Angular 5**](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#angular4client-project) - provides Model-View-Controller patterns for defining user interface views on the client.  The Angular client uses HTTP to make calls to the RESTful API on the application server, using **JSON** to exchange information between the client and the application server.
+* [**Angular 5**](https://github.com/StanfieldSystems/KARMA/wiki/Advantages_of_Using_Angular) - provides a component based architecture for implementing an interactive user interface on the client.  The [Angular client](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#angular4client-project) implements Model-View-Controller patterns to make calls to the RESTful API on the application server, using **JSON** to exchange information.
 * **Bootstrap** - integrated with the Angular 5 client to present a responsive design that works on multiple devices with varying screen resolutions.
 *  [**Spring Boot framework**](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#springbootangularintegration-project)** - used to develop RESTful web services for the API.
 * [**Log4j2**](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#logging) - used for application logging.
@@ -162,7 +162,7 @@ Stanfield Systems also leveraged model-view-controller patterns provided in Angu
 #### Behavior (Test) Driven Development
 _(Requirement n)_
 
-In accordance with our [Test Strategy](https://github.com/StanfieldSystems/KARMA/wiki/Initial_Test_Strategy), we implement Acceptance Test Driven development using Behavior Driven Development, a refined and improved approach that directly maps to user stories. We use [Cucumber](https://cucumber.io/docs) as the BDD framework, [Serenity](http://www.thucydides.info/) for reporting, [REST Assured](https://github.com/serenity-bdd/serenity-documentation/blob/master/src/asciidoc/serenity-rest.adoc) for making REST calls, and [Selenium](http://www.seleniumhq.org/) for driving the web.  
+In accordance with our [Test Strategy](https://github.com/StanfieldSystems/KARMA/wiki/Initial_Test_Strategy), we implement Acceptance Test Driven development using [Behavior Driven Development (BDD)](https://www.agilealliance.org/glossary/bdd/), a refined and improved approach that directly maps to user stories. We use [Cucumber](https://cucumber.io/docs) as the BDD framework, [Serenity](http://www.thucydides.info/) for reporting, [REST Assured](https://github.com/serenity-bdd/serenity-documentation/blob/master/src/asciidoc/serenity-rest.adoc) for making REST calls, and [Selenium](http://www.seleniumhq.org/) for driving the web.  
 
 * [BDD Process and Configuration](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#prototypebdd-project)
 * [KARMA BDD Test Results](https://s3-us-west-2.amazonaws.com/stanfield-systems-karma-ci/karma-angular/index.html)
