@@ -1,6 +1,6 @@
 # KARMA User Guide
 
-Login information is available on the landing page.  
+Login information is available on the landing page.  Users login from the Account menu at the top right.
 
 There are two types of users.
 
