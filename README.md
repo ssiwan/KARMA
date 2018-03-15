@@ -73,18 +73,18 @@ In [Exploring Initial Scope](https://github.com/StanfieldSystems/kmt/wiki/Explor
 
 Applying [user-centered design](https://github.com/StanfieldSystems/KARMA/wiki/User_Centered_Design) techniques Stanfield Systems worked directly with users to understand what the users need to perform their tasks.  These user-centered techniques address the entire user experience from start to finish.
 
-* **Personas**.  We identified an initial set of users and developed a persona for each class of user. Each persona identified a user by a name, a set of believable personal and professional attributes, and a list of typical tasks with scenarios.  This rich resource was used as reference and validation throughout the project lifecycle.  
+* **Personas**.  We identified an initial set of users and developed a persona for each class of user. 
 
     * [Consumer Persona](docs/PersonaConsumer.pdf)
     * [Project Manager Persona](docs/PersonaProjectManager.pdf)
     
-* **Shadow Users**.  We observed people using similar tools, shadowing real users in their work space and letting them lead the conversation.   The potential KARMA users guided the researcher through the knowledge management tool they currently used and highlighted features, workflow and tools that worked well plus gave unfiltered feedback on what did not work for them.
+* **Shadow Users**.  We observed people using similar tools, shadowing real users in their work space and letting them lead the conversation.   
 * **Contextual Interviews**. Leveraging our observations from shadowing users, we conducted contextual interviews to further identify and refine common needs, tasks, and concerns.  
-* **Affinity Diagrams**.  In response to the user research findings, the product team conducted a "popcorn-style" task analysis resulting in an affinity diagramming session to help priortize features for the first design iteration.  The outcome was used for validation in subsequent usability testing.
+* **Affinity Diagrams**.  In response to the user research findings, the product team conducted a "popcorn-style" task analysis resulting in an affinity diagramming session to help priortize features for the first design iteration.  
 
-See [User Research Findings](docs/UserResearchFindings.pdf) for the results of these user research activities.
+See [Initial User Research](docs/InitialUserResearch.pdf) for additional details on these activities.
 
-The result of this research included a list of pain points that KARMA could be designed to resolve.  By identifying these pain points, user experience research helped the team prioritize and focus on a couple key areas.  
+The result of this research included a list of pain points that KARMA could be designed to resolve.  
 
 1.	Get the user to their work right away
 2.	Make “creating” an article easier
