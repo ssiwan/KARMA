@@ -221,3 +221,4 @@ We estimated the relative size of work using [Story Points](https://github.com/S
 ## Transition
 
 Our agile process completes each release with a [Transition Phase](https://github.com/StanfieldSystems/KARMA/wiki/Transition) that confirms the product is ready for release.  For KARMA, transition activities were incorporated into Sprint 4 and focused on validating prototype behavior and preparing documentation.
+
