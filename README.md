@@ -8,7 +8,7 @@ The KARMA prototype is deployed on Amazon Web Services and can be accessed throu
 
 Login information is available on the landing page.  For guidance on how to use KARMA, please see the [User Guide](docs/UserGuide.md)
 
-This document references detailed documentation in the [KARMA GitHub Wiki](https://github.com/StanfieldSystems/KARMA/wiki) regarding processes and technologies used by Stanfield Systems. In addition, the document references artifacts created for the KARMA prototype with links to files in the _docs_ folder in this repository.  All references include navigable links.
+This document references detailed documentation in the [KARMA GitHub Wiki](https://github.com/StanfieldSystems/KARMA/wiki) regarding processes and technologies. The document also references design and development artifacts that are stored in th _docs_ folder in this repository.  All references include navigable links.
 
 ## Product Vision
 
@@ -20,7 +20,7 @@ Stanfield Systems applied their [Agile Delivery Process](#agile-delivery-process
 
 ## Application Features
 
-Based on the results of our inception activities (in particular, [Explore Initial Scope](https://github.com/StanfieldSystems/KARMA/blob/master/README.md#explore-initial-scope) and [Develop Release Plan](https://github.com/StanfieldSystems/KARMA/blob/master/README.md#develop-release-plan)), the product team prioritized and selected user stories for the following key features to be implemented as the KARMA prototype release.
+Based on the results of our inception activities (in particular, [Explore Initial Scope](https://github.com/StanfieldSystems/KARMA/blob/master/README.md#explore-initial-scope) and [Develop Release Plan](https://github.com/StanfieldSystems/KARMA/blob/master/README.md#develop-release-plan)), the product team prioritized and selected user stories for the four key features implemented in the prototype.
 
 * Login to the application so that content can be tailored for a particular user.  
 * Create and edit knowledge articles for sharing with other users
@@ -32,13 +32,13 @@ _(RFI Requirement f, k, l)_
 
 Stanfield Systems implemented KARMA using open source technologies in a multi-tiered architecture as described in our [Technical Architecture](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#technical-architecture).
 
-KARMA uses the following open source technologies
+KARMA uses the following open source technologies.
 
-* [**Angular 5**](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#angular4client-project) - provides Model-View-Controller JavaScript/TypeScript patterns for defining user interface views on the client.  The Angular client uses HTTP to make calls to the RESTful API on the application server, using **JSON** to exchange information between the client and the application server.
+* [**Angular 5**](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#angular4client-project) - provides Model-View-Controller patterns for defining user interface views on the client.  The Angular client uses HTTP to make calls to the RESTful API on the application server, using **JSON** to exchange information between the client and the application server.
 * **Bootstrap** - integrated with the Angular 5 client to present a responsive design that works on multiple devices with varying screen resolutions.
 *  [**Spring Boot framework**](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#springbootangularintegration-project)** - used to develop RESTful web services for the API.
 * [**Log4j2**](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#logging) - used for application logging.
-* [**Swagger**](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#swagger-2) is used to describe and document RESTful APIs in accordance with the **OpenAPI Specification** _(RFI Requirement f)_.  To access this API documentation, login to KARMA as the admin user and select [_API_](https://acceptance.bigbluesign.com/#/docs) from the _Administration_ menu.
+* [**Swagger**](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#swagger-2) - used to describe and document RESTful APIs in accordance with the **OpenAPI Specification**.  To access this API documentation, login to KARMA as the admin user and select [_API_](https://acceptance.bigbluesign.com/#/docs) from the _Administration_ menu.
 [**PostgreSQL**](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#postgresql) - persists application data in a  relational database. 
 
 #  Agile Delivery Process
@@ -47,12 +47,12 @@ Stanfield Systems applies a [Scrum-Based, Disciplined Agile Delivery (DAD)](http
 
 ## Inception
 
-Stanfield Systems begins product development with a short [Inception Phase](https://github.com/StanfieldSystems/KARMA/wiki/Inception)  to achieve concurrence on the direction the team will take to deliver the product.  For the KARMA prototype, this phase lasted a single sprint (Sprint 0) and included the following activities.
+Product development begins with a short [Inception Phase](https://github.com/StanfieldSystems/KARMA/wiki/Inception)  to achieve concurrence on the direction the team will take to deliver the product.  This phase lasted a single sprint (Sprint 0) and included the following activities.
 
 ### Form Team
 _(RFI Requirements a, b)_
 
-Applying our [guidelines for forming agile teams](https://github.com/StanfieldSystems/KARMA/wiki/Form_and_Evolve_Team), Stanfield Systems established a six-person team to develop the KARMA prototype and prepare documentation for the RFI response.  This multidisciplinary and collaborative team includes 8 of the PQVP AD-DS Labor Categories as specified below.
+Applying our [guidelines for forming agile teams](https://github.com/StanfieldSystems/KARMA/wiki/Form_and_Evolve_Team), Stanfield Systems established a six-person, multi-disciplinary team to develop the KARMA prototype. The team includes  8 of the PQVP AD-DS Labor Categories.
 
 - Product Manager (Christine Cox)
 - Technical Architect (Patrick Grogan)
@@ -61,17 +61,15 @@ Applying our [guidelines for forming agile teams](https://github.com/StanfieldSy
 - Delivery Manager (Tim Jacobs)
 - Agile Coach (Patrick Grogan)
 - Business Analyst (Christine Cox)
-- Full Stack Developer #1 (Kamal Singh)
-- Full Stack Developer #2 (Aben Kebede)
+- Full Stack Developer (Kamal Singh)
+- Full Stack Developer (Aben Kebede)
 
 The Product Manager is the team leader with authority and responsibility for successful delivery of a quality working prototype.
 
 ### Explore Initial Scope
 _(RFI Requirements c, d)_
 
-In [Exploring Initial Scope](https://github.com/StanfieldSystems/kmt/wiki/Explore_Initial_Scope) the team performs lightweight requirements envisioning - developing usage models, domain models, user interface models, process models, and other user-centric approaches. 
-
-Applying [user-centered design](https://github.com/StanfieldSystems/KARMA/wiki/User_Centered_Design) techniques Stanfield Systems worked directly with users to understand what the users need to perform their tasks.  These user-centered techniques address the entire user experience from start to finish.
+In [Exploring Initial Scope](https://github.com/StanfieldSystems/kmt/wiki/Explore_Initial_Scope) the team performs lightweight requirements envisioning. Applying [user-centered design](https://github.com/StanfieldSystems/KARMA/wiki/User_Centered_Design) techniques, Stanfield Systems worked directly with users to understand what users need to perform their tasks.  These user-centered techniques address the entire user experience from start to finish.
 
 * **Personas**.  We identified an initial set of users and developed a persona for each class of user. 
 
@@ -91,7 +89,7 @@ The result of this research included a list of pain points that KARMA could be d
 
 #### Initial Product Backlog
 
-Based on our user-centered research and the prototype requirements from the RFI, we identified the following high-level user stories which were documented as epics for our initial product backlog.
+Based on our user-centered research and the prototype requirements from the RFI, we identified the following as epics for our initial product backlog.
 
 1. Login to the application so that content can be tailored for a particular user.  
 1. Create and edit knowledge articles for sharing with other users
@@ -108,11 +106,11 @@ Based on our user-centered research and the prototype requirements from the RFI,
 
 ### Develop Release Plan
 
-Since the delivery date for the prototype is fixed, release planning focused on determining the minimal viable product that could be developed by the delivery date.  We focused on key issues identified during our initial user research.  This led to a prioritization of the dashboard display to provide rapid access to articles of interest with dependencies on logging in, knowledge creation, and finding relevant knowledge.  These four epics (1-4 above) were the focus of our minimal viable product for the release.
+Release planning focused on determining the minimal viable product that could be developed by the delivery date.  We focused on key issues identified during initial user research, leading to prioritization of the dashboard display.  To implement the dashboard, we also prioritized epics for logging in, knowledge creation, and finding relevant knowledge since these are required for the dashboard to work.  These four epics (1-4 above) were the focus of our minimal viable product for the release.
 
 ### Technical Strategy and Work Environment
 
-Applying our [Technical Strategy](https://github.com/StanfieldSystems/KARMA/wiki/Define_Technical_Strategy) process be based the technical approach for the KARMA prototype on our established [Work Environment Standards](https://github.com/StanfieldSystems/KARMA/wiki/Work_Environment_Standards) and [Technical Architecture](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture).  
+Applying our process for defining [Technical Strategy](https://github.com/StanfieldSystems/KARMA/wiki/Define_Technical_Strategy) we based the technical approach for the KARMA prototype on our established [Work Environment Standards](https://github.com/StanfieldSystems/KARMA/wiki/Work_Environment_Standards) and [Technical Architecture](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture).  
 
 All technologies and platforms used to create and run the prototype are openly licensed and free of charge _(RFI Requirement t)_.  (Note:  Amazon Web Services and Atlassian Cloud Services to incur minimal hosting costs.)  
 
@@ -121,7 +119,7 @@ _(RFI Requirement e, p)_
 
 All application code files, including database scripts, are stored and managed in this [**GitHub**](https://github.com/StanfieldSystems/KARMA) version control repository.
 
-The configuration of application resources, dependencies, and deployment services are stored in various configuration files that are stored and managed in GitHub. These configuration files are processed automatically by continuous integration and deployment tools to ensure the proper resources are in place.  These configuration files, along with run time configuration tools in the application, are described in the [Configuration Management](https://github.com/StanfieldSystems/KARMA/wiki/Configuration-Management) wiki page.
+The configuration of application resources, dependencies, and deployment services are stored in various configuration files that are stored and managed in GitHub. These configuration files are processed automatically by continuous integration and deployment tools to ensure the proper resources are in place.  See [Configuration Management](https://github.com/StanfieldSystems/KARMA/wiki/Configuration-Management) for details.
 
 [**Liquibase**](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#liquibase) is used to migrate versioned database changes to developer, integration, and production database servers within the continuous integration and build pipeline.
 
@@ -130,27 +128,25 @@ _(RFI Requirement m, o, r, s)_
 
 KARMA is [continuously integrated and delivered to Amazon Web Services (AWS)](https://aws.amazon.com/blogs/opensource/mu-pipelines-container-applications/).
 
-* Static resources such as the Angular front end (including html, typescropt, javascript, image, and configuration files) are pushed to an Amazon Simple Cloud Storage (S3) bucket that is fronted by the CloudFront Content Delivery Network (CDN). 
-* The RESTful service API (e.g. the SpringBoot project) is deployed as an Amazon Elastic Container Service (ECS) using **Docker** containers.
+* Static resources such as the Angular front end are pushed to an Amazon Simple Cloud Storage (S3) bucket that is fronted by the CloudFront Content Delivery Network (CDN). 
+* The RESTful service API (SpringBoot project) is deployed as an Amazon Elastic Container Service (ECS) using **Docker** containers.
 * The PostgresSQL database is provisioned on Amazon Relational Data Service (RDS).
 
-Stanfield Systems configures and manages the code deployment pipeline using the open source application [**mu**](https://stelligent.com/2017/04/11/mu-introduction-ecs-for-microservices/).  **mu** applies the same build configuration (e.g. Maven, npm) used in the development deployment, and then packages and deploys the application as configured in a **mu** script.  
+Stanfield Systems configures and manages the code deployment pipeline using the open source application [**mu**](https://stelligent.com/2017/04/11/mu-introduction-ecs-for-microservices/).    
 
 KARMA can be deployed on any workstation or server using command line tools as described in [How to Deploy and Run Karma](https://github.com/StanfieldSystems/KARMA/wiki/How_to_Deploy_and_Run_Karma).
 
 #### Continuous Monitoring
 _(RFI REquirement q)
 
-The Karma application generates several dashboards to [monitor](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#monitoring) the application.  These dashboards are available when you log into Karma using the admin user and admin password.  The dashboards are available at runtime, and are the easiest way to do some simple monitoring.
+The Karma application generates several dashboards to [monitor](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#monitoring) the application.  These dashboards are available when you log into Karma using the admin user and admin password.  
 
 All Developers can monitor the status of Karma's code pipeline by looking at the [AWS Code Pipeline dashboard](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#aws-continuous-integration-and-delivery-dashboard).  The CI and CD processes are initiated every time a developer checks-in source code.  The dashboard shows the real-time status of retrieving source code, the build and unit tests, the deploy to acceptance, and the running of BDD acceptance tests.  Developers are notified whenever a build is completed.
 
 #### Accessibility
-_(RFI Requirement g, k)_
+_(RFI Requirement g)_
 
 Accessibility and Section 508 compliance is incorporated into our agile delivery process as described in our [Accessibility](https://github.com/StanfieldSystems/KARMA/wiki/Accessibility) guidelines and procedures.  We check for proper implementation of accessibility guidelines through peer reviews, automated Behavioral Driven Development tests, static analyzers, and manual testing using accessibility browser tools.  
-
-The Angular 5 client integrates **Bootstrap** libraries to present a responsive design that works on multiple devices with varying screen resolutions.
 
 #### Style Guide
 _(RFI Requirement h)_
@@ -210,14 +206,14 @@ In developing the KARMA prototype, Stanfield Systems completed 4 Sprints.  The g
 
 As evidenced in these Sprint Goals, there were multiple design-build iterations with the findings from one sprint being incorporated into improved designs and implementations in subsequent sprints. A summary of this design evolution can be found in [Design Evolution](docs/KarmaDesignEvolution.pdf).
 
-Detailed user stories and tasks performed during each sprint, along with the remaining product backlog, are listed in a [Jira Report].
+Detailed user stories and tasks performed during each sprint, along with the remaining product backlog, are listed in a [Jira Report](docs/BacklogReport.pdf).
 
 ### Usability Testing
 _(RFI Requirement i)_
 
-Once a testable version was completed, our usability expert created a [Test Plan](docs/KarmaUsabilityTestPlan.pdf), which contained the objectives of the test, outlined the logistics and listed the tasks and questions to be used.
+Once a testable version was completed, our usability expert created a [Test Plan](docs/KarmaUsabilityTestPlan.pdf) which contained the objectives of the test, outlined the logistics, and listed the tasks and questions to be used.
 
-The usability test utilized both qualitative and quantitative research methods since the users were asked to accomplish a task, which had a value of pass/fail/struggle.  Test participants were also asked a series of follow up questions which provided quantitative data as to their satisfaction of the product and their experience.  [Usability Test Results](docs/KarmaDashboardUsabilityFindings.pdf) were documented, discussed with the product team, and used to generate new user stories in the product backlog to improve usabililty in future iterations.
+The usability test utilized both qualitative and quantitative research methods since the users were asked to accomplish a task, which had a value of pass/fail/struggle.  Test participants were  asked a series of follow up questions which provided quantitative data as to their satisfaction of the product and their experience.  [Usability Test Results](docs/KarmaDashboardUsabilityFindings.pdf) were documented, discussed with the product team, and used to generate new user stories in the product backlog to improve usabililty in future iterations.
 
 ### Sprint Analysis
 
@@ -225,4 +221,4 @@ Stanfield Systems estimated the relative size of work using [Story Points](https
 
 ## Transition
 
-Stanfield Systems agile delivery process completes each release with a short [Transition Phase](https://github.com/StanfieldSystems/KARMA/wiki/Transition) that confirms the product is ready for release.  For the KARMA, transition activities were incorporated into Sprint 4.  These activities were primarily focused on validating prototype behavior and preparing documentation in response to the PQVP RFI.
+Stanfield Systems agile delivery process completes each release with a short [Transition Phase](https://github.com/StanfieldSystems/KARMA/wiki/Transition) that confirms the product is ready for release.  For KARMA, transition activities were incorporated into Sprint 4.  These activities were primarily focused on validating prototype behavior and preparing documentation in response to the PQVP RFI.
