@@ -1,17 +1,17 @@
 # Knowledge Article Record Management Application (KARMA) - Technical Approach
 ## The Essentials
 
-The KARMA prototype is deployed on Amazon Web Services and can be accessed through the site URL: 
+The KARMA prototype is deployed on Amazon Web Services with the following URL: 
 
 **<https://acceptance.bigbluesign.com>**  
 
 Login information is available on the landing page.  For guidance on how to use KARMA, please see the [User Guide](docs/UserGuide.md)
 
-This document references detailed documentation in the [KARMA GitHub Wiki](https://github.com/StanfieldSystems/KARMA/wiki) regarding processes and technologies. The document also references design and development artifacts that are stored in th _docs_ folder in this repository.  All references include navigable links.
+This document references detailed documentation in the [KARMA GitHub Wiki](https://github.com/StanfieldSystems/KARMA/wiki) regarding processes and technologies. The document also references design and development artifacts that in the _docs_ folder of this repository.  All references include navigable links.
 
 ## Product Vision
 
-The company envisions a knowledge management application that can store technical and management knowledge and make it easier to share, reuse, and adapt across products.  Initially, the application will facilitate efficient storage and retrieval of relevant knowledge; however, the ultimate vision is for the application to apply artifical intelligence techniques to suggest relevant knowledge and automatically adapt it to match product requirements and delivery teams.
+The company envisions a knowledge management application that can store technical knowledge and make it easier to share, reuse, and adapt across products.  Initially, the application will facilitate efficient storage and retrieval of relevant knowledge; however, the ultimate vision is to apply artificial intelligence techniques to suggest relevant knowledge and automatically adapt it to match product requirements and delivery teams.
 
 # Prototype
 
@@ -19,12 +19,12 @@ Stanfield Systems applied their [Agile Delivery Process](#agile-delivery-process
 
 ## Application Features
 
-Based on the results of our inception activities (in particular, [Explore Initial Scope](https://github.com/StanfieldSystems/KARMA/blob/master/README.md#explore-initial-scope) and [Develop Release Plan](https://github.com/StanfieldSystems/KARMA/blob/master/README.md#develop-release-plan)), the product team prioritized and selected user stories for the four key features implemented in the prototype.
+Based on the results of our inception activities (in particular, [Explore Initial Scope](https://github.com/StanfieldSystems/KARMA/blob/master/README.md#explore-initial-scope) and [Develop Release Plan](https://github.com/StanfieldSystems/KARMA/blob/master/README.md#develop-release-plan)), the product team implemented user stories for  four key features.
 
-* Login to the application so that content can be tailored for a particular user.  
-* Create and edit knowledge articles for sharing with other users
-* Find and retrieve knowledge relevant to a particular user
-* Provide a single location (dashboard) to access knowledge relevant to a particular user
+1. Login to the application so that content can be tailored for a user.  
+1. Create and edit knowledge articles for sharing with other users
+1. Find and retrieve knowledge relevant to a user
+1. Provide a single location (dashboard) to access knowledge relevant to a user
 
 ## Application Architecture and Technologies
 _(Requirement f, k, l)_
@@ -77,11 +77,11 @@ In [Exploring Initial Scope](https://github.com/StanfieldSystems/kmt/wiki/Explor
     
 * **Shadow Users**.  We observed people using similar tools, shadowing real users in their work space and letting them lead the conversation.   
 * **Contextual Interviews**. Leveraging our observations from shadowing users, we conducted contextual interviews to further identify and refine common needs, tasks, and concerns.  
-* **Affinity Diagrams**.  In response to the user research findings, the product team conducted a "popcorn-style" task analysis resulting in an affinity diagramming session to help priortize features for the first design iteration.  
+* **Affinity Diagrams**.  In response to the user research findings, the product team conducted a "popcorn-style" task analysis resulting in an affinity diagramming session to help prioritize features for the first design iteration.  
 
 See [Initial User Research](docs/InitialUserResearch.pdf) for additional details on these activities.
 
-The result of this research included a list of pain points that KARMA could be designed to resolve.  
+The result of this research identified two key pain points that KARMA was designed to address.  
 
 1.	Get the user to their work right away
 2.	Make “creating” an article easier
@@ -90,10 +90,10 @@ The result of this research included a list of pain points that KARMA could be d
 
 Based on our user-centered research and the prototype requirements, we identified the following as epics for our initial product backlog.
 
-1. Login to the application so that content can be tailored for a particular user.  
+1. Login to the application so that content can be tailored for a user.  
 1. Create and edit knowledge articles for sharing with other users
-1. Find and retrieve knowledge articles relevant to a particular user
-1. Provide a single location (dashboard) to access knowledge relevant to a particular user
+1. Find and retrieve knowledge articles relevant to a user
+1. Provide a single location (dashboard) to access knowledge relevant to a user
 1. Define rules for creating knowledge articles in a consistent format
 1. Approve and publish articles using a pre-defined workflow
 1. Control access to knowledge articles based on roles and business rules
@@ -136,7 +136,7 @@ Stanfield Systems configures and manages the code deployment pipeline using the 
 KARMA can be deployed on any workstation or server using command line tools as described in [How to Deploy and Run Karma](https://github.com/StanfieldSystems/KARMA/wiki/How_to_Deploy_and_Run_Karma).
 
 #### Continuous Monitoring
-_(Requirement q)
+_(Requirement q)_
 
 The Karma application generates several dashboards to [monitor](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#monitoring) the application.  These dashboards are available when you log into Karma using the admin user and admin password.  
 
@@ -174,13 +174,13 @@ Stanfield Systems also generates automated JUnit tests for complete coverage of 
 
 #### Project Management and Collaboration
 
-Stanfield Systems uses the [Jira](https://www.atlassian.com/software/jira) issue tracking system to manage product and sprint backlogs as described in our procedure [Manage Backlog in Jira]](https://github.com/StanfieldSystems/KARMA/wiki/Manage_Backlog_in_JIRA).
+Stanfield Systems uses the [Jira](https://www.atlassian.com/software/jira) issue tracking system to manage product and sprint backlogs as described in our procedure [Manage Backlog in Jira](https://github.com/StanfieldSystems/KARMA/wiki/Manage_Backlog_in_JIRA).
 
 Stanfield Systems uses the [Confluence](https://www.atlassian.com/software/confluence) project collaboration portal to manage artifacts created during the development process.  For the KARMA prototype, these artifacts are also incorporated into GitHub - as files in the _docs_ folder of the code repository or as markdown articles in the project _Wiki_.
 
 ## Construction
 
-The core of Stanfield Systems' agile delivery process is the [Construction Phase](https://github.com/StanfieldSystems/KARMA/wiki/Construction) during which the team performs detailed planning, design, implementation, and testing activities in one week Sprints - with working code at the end of each sprint. 
+The core of Stanfield Systems' agile delivery process is the [Construction Phase](https://github.com/StanfieldSystems/KARMA/wiki/Construction) during which the team performs detailed planning, design, implementation, and testing activities in week long Sprints - with working code at the end of each sprint. 
 
 ### KARMA Prototype Sprint Summary
 _(Requirement j)_
@@ -212,7 +212,7 @@ _(Requirement i)_
 
 Once a testable version was completed, our usability expert created a [Test Plan](docs/KarmaUsabilityTestPlan.pdf) which contained the objectives of the test, outlined the logistics, and listed the tasks and questions to be used.
 
-The usability test utilized both qualitative and quantitative research methods since the users were asked to accomplish a task, which had a value of pass/fail/struggle.  Test participants were  asked a series of follow up questions which provided quantitative data as to their satisfaction of the product and their experience.  [Usability Test Results](docs/KarmaDashboardUsabilityFindings.pdf) were documented, discussed with the product team, and used to generate new user stories in the product backlog to improve usabililty in future iterations.
+The usability test utilized both qualitative and quantitative research methods since the users were asked to accomplish a task, which had a value of pass/fail/struggle.  Test participants were  asked a series of follow up questions which provided quantitative data as to their satisfaction of the product and their experience.  [Usability Test Results](docs/KarmaDashboardUsabilityFindings.pdf) were documented, discussed with the product team, and used to generate new user stories in the product backlog to improve usability in future iterations.
 
 ### Sprint Analysis
 
