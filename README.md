@@ -162,15 +162,17 @@ Stanfield Systems also leveraged model-view-controller patterns provided in Angu
 #### Behavior (Test) Driven Development
 _(Requirement n)_
 
-Stanfield Systems implements Test Driven development using an automated Behavior Driven Development process in accordance with our [Test Strategy](https://github.com/StanfieldSystems/KARMA/wiki/Initial_Test_Strategy).  We use [Cucumber](https://cucumber.io/docs) as the BDD framework, [Serenity](http://www.thucydides.info/) for reporting, [REST Assured](https://github.com/serenity-bdd/serenity-documentation/blob/master/src/asciidoc/serenity-rest.adoc) for making REST calls, and [Selenium](http://www.seleniumhq.org/) for driving the web.  
+In accordance with our [Test Strategy](https://github.com/StanfieldSystems/KARMA/wiki/Initial_Test_Strategy), we implement Acceptance Test Driven development using Behavior Driven Development, a refined and improved approach that directly maps to user stories. We use [Cucumber](https://cucumber.io/docs) as the BDD framework, [Serenity](http://www.thucydides.info/) for reporting, [REST Assured](https://github.com/serenity-bdd/serenity-documentation/blob/master/src/asciidoc/serenity-rest.adoc) for making REST calls, and [Selenium](http://www.seleniumhq.org/) for driving the web.  
 
 * [BDD Process and Configuration](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#prototypebdd-project)
 * [KARMA BDD Test Results](https://s3-us-west-2.amazonaws.com/stanfield-systems-karma-ci/karma-angular/index.html)
 
-Stanfield Systems also generates automated JUnit tests for complete coverage of the application code.  
+We also implement Test Driven Development with JUnit tests to insure a test-first approach for blocks of code while achieving comprehensive code coverage.  
 
 * [Unit Testing Process and Configuration](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#unit-testing)
 * [KARMA Unit Test Results]
+
+Our BDD and JUnit tests are automated and run as regression tests whenever changes to code are committed to GitHub.
 
 #### Project Management and Collaboration
 
