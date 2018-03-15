@@ -128,7 +128,7 @@ _(Requirement m, o, r, s)_
 KARMA is [continuously integrated and delivered to Amazon Web Services (AWS)](https://github.com/StanfieldSystems/KARMA/wiki/Continuous_Integration_and_Delivery_using_AWS).
 
 * Static resources such as the Angular front end are pushed to an Amazon Simple Cloud Storage (S3) bucket that is fronted by the CloudFront Content Delivery Network (CDN). 
-* The RESTful service API (SpringBoot project) is deployed as an Amazon Elastic Container Service (ECS) using **Docker** containers.
+* The RESTful service API (SpringBoot project) is deployed as an Amazon Elastic Container Service (ECS) using Docker containers.
 * The PostgresSQL database is provisioned on Amazon Relational Data Service (RDS).
 
 Stanfield Systems configures and manages the code deployment pipeline using the open source application [**mu**](https://stelligent.com/2017/04/11/mu-introduction-ecs-for-microservices/).    
@@ -170,7 +170,7 @@ In accordance with our [Test Strategy](https://github.com/StanfieldSystems/KARMA
 We also implement Test Driven Development with JUnit tests to insure a test-first approach for blocks of code while achieving comprehensive code coverage.  
 
 * [Unit Testing Process and Configuration](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#unit-testing)
-* [KARMA Unit Test Results]
+* [KARMA Unit Test Results](https://unittests.stanfieldsystems.com) _(Tests run: 202, Failures: 0, Errors: 0, Skipped: 0)_
 
 Our BDD and JUnit tests are automated and run as regression tests whenever changes to code are committed to GitHub.
 
