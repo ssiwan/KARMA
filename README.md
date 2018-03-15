@@ -7,7 +7,7 @@ The KARMA prototype is deployed on Amazon Web Services with the following URL:
 
 Login information is available on the landing page.  For guidance on how to use KARMA, please see the [User Guide](docs/UserGuide.md)
 
-This document references detailed documentation in the [KARMA GitHub Wiki](https://github.com/StanfieldSystems/KARMA/wiki) regarding processes and technologies. The document also references working artifacts in the _docs_ folder of this repository.  All references include navigable links.
+This document references additional documentation in the [KARMA GitHub Wiki](https://github.com/StanfieldSystems/KARMA/wiki) and working artifacts in the _docs_ folder of this repository.  All references include navigable links. (Note:  Internal markdown links (e.g. #header) don't work correctly in all browsers.  Usually, a refresh will fix the issue.)
 
 ## Product Vision
 
@@ -33,9 +33,9 @@ Stanfield Systems implemented KARMA using open source technologies in a multi-ti
 
 KARMA uses the following open source technologies.
 
-* [**Angular 5**](https://github.com/StanfieldSystems/KARMA/wiki/Advantages_of_Using_Angular) - provides a component based architecture for implementing an interactive user interface on the client.  The [Angular client](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#angular4client-project) implements Model-View-Controller patterns to make calls to the RESTful API on the application server, using **JSON** to exchange information.
-* **Bootstrap** - integrated with the Angular 5 client to present a responsive design that works on multiple devices with varying screen resolutions.
-*  [**Spring Boot**](https://projects.spring.io/spring-boot/) framework - for the [server application components](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#springbootangularintegration-project) implementing RESTful web services for the API.
+* [**Angular 5**](https://github.com/StanfieldSystems/KARMA/wiki/Advantages_of_Using_Angular) - provides a component based architecture for implementing an interactive user interface on the client.  The [Angular client](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#angular4client-project) implements Model-View-Controller patterns to make calls to the RESTful API on the application server, using JSON to exchange information.
+* [**Bootstrap**](https://getbootstrap.com/) - integrated with the Angular 5 client to present a responsive design that works on multiple devices with varying screen resolutions.
+*  [**Spring Boot**](https://projects.spring.io/spring-boot/) framework - used for the [server application components](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#springbootangularintegration-project) implementing RESTful web services for the API.
 * [**Log4j2**](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#logging) - used for application logging.
 * [**Swagger**](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#swagger-2) - used to describe and document RESTful APIs in accordance with the **OpenAPI Specification**.  To access this API documentation, login to KARMA as the admin user and select [**API**](https://acceptance.bigbluesign.com/#/docs) from the _Administration_ menu.
 * [**PostgreSQL**](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#postgresql) - persists application data in a  relational database. 
@@ -125,7 +125,7 @@ The configuration of application resources, dependencies, and deployment service
 #### Continuous Integration and Deployment
 _(Requirement m, o, r, s)_
 
-KARMA is [continuously integrated and delivered to Amazon Web Services (AWS)](https://aws.amazon.com/blogs/opensource/mu-pipelines-container-applications/).
+KARMA is [continuously integrated and delivered to Amazon Web Services (AWS)](https://github.com/StanfieldSystems/KARMA/wiki/Continuous_Integration_and_Delivery_using_AWS).
 
 * Static resources such as the Angular front end are pushed to an Amazon Simple Cloud Storage (S3) bucket that is fronted by the CloudFront Content Delivery Network (CDN). 
 * The RESTful service API (SpringBoot project) is deployed as an Amazon Elastic Container Service (ECS) using **Docker** containers.
