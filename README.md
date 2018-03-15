@@ -7,7 +7,7 @@ The KARMA prototype is deployed on Amazon Web Services with the URL:
 
 Login information is available on the landing page.  For guidance on how to use KARMA, see the [User Guide](docs/UserGuide.md)
 
-This document references additional documentation in the [KARMA GitHub Wiki](https://github.com/StanfieldSystems/KARMA/wiki) and working artifacts in the _docs_ folder of this repository.  All references include navigable links. (Note:  Internal markdown links (e.g. #header) don't work correctly in all browsers.  Usually, a refresh will fix the issue.)
+This document references additional documentation in the [KARMA GitHub Wiki](https://github.com/StanfieldSystems/KARMA/wiki) and working artifacts in the _docs_ folder of this repository.  All references include navigable (blue) links. (Note:  Internal markdown links (e.g. #header) don't work correctly in all browsers.  Usually, a refresh will fix the issue.)
 
 ## Product Vision
 
