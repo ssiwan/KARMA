@@ -37,7 +37,7 @@ KARMA uses the following open source technologies.
 * [**Bootstrap**](https://getbootstrap.com/) - integrated with the Angular 5 client to present a responsive design that works on multiple devices with varying screen resolutions.
 *  [**Spring Boot**](https://projects.spring.io/spring-boot/) framework - used for the [server application components](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#springbootangularintegration-project) implementing RESTful web services for the API.
 * [**Log4j2**](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#logging) - used for application logging.
-* [**Swagger**](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#swagger-2) - used to describe and document RESTful APIs in accordance with the **OpenAPI Specification**.  To access this API documentation, login to KARMA as the admin user and select [**API**](https://acceptance.bigbluesign.com/#/docs) from the _Administration_ menu.
+* [**Swagger**](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#swagger-2) - used to describe and document RESTful APIs in accordance with the **OpenAPI Specification**.  To access this API documentation, login to KARMA as the admin user (password: admin) and select [**API**](https://acceptance.bigbluesign.com/#/docs) from the _Administration_ menu.
 * [**PostgreSQL**](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#postgresql) - persists application data in a  relational database. 
 
 #  Agile Delivery Process
