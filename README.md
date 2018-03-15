@@ -68,7 +68,7 @@ The Product Manager is the team leader with authority and responsibility for suc
 ### Explore Initial Scope
 _(Requirements c, d)_
 
-In [Exploring Initial Scope](https://github.com/StanfieldSystems/kmt/wiki/Explore_Initial_Scope) the team performs lightweight requirements envisioning. Applying [user-centered design](https://github.com/StanfieldSystems/KARMA/wiki/User_Centered_Design) techniques, Stanfield Systems worked directly with users to understand what users need to perform their tasks.  These user-centered techniques address the entire user experience from start to finish.
+In [Exploring Initial Scope](https://github.com/StanfieldSystems/karma/wiki/Explore_Initial_Scope) the team performs lightweight requirements envisioning. Applying [user-centered design](https://github.com/StanfieldSystems/KARMA/wiki/User_Centered_Design) techniques, Stanfield Systems worked directly with users to understand what users need to perform their tasks.  These user-centered techniques address the entire user experience from start to finish.
 
 * **Personas**.  We identified an initial set of users and developed a persona for each class of user. 
 
