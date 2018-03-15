@@ -7,7 +7,7 @@ The KARMA prototype is deployed on Amazon Web Services with the following URL:
 
 Login information is available on the landing page.  For guidance on how to use KARMA, please see the [User Guide](docs/UserGuide.md)
 
-This document references detailed documentation in the [KARMA GitHub Wiki](https://github.com/StanfieldSystems/KARMA/wiki) regarding processes and technologies. The document also references design and development artifacts that in the _docs_ folder of this repository.  All references include navigable links.
+This document references detailed documentation in the [KARMA GitHub Wiki](https://github.com/StanfieldSystems/KARMA/wiki) regarding processes and technologies. The document also references working artifacts in the _docs_ folder of this repository.  All references include navigable links.
 
 ## Product Vision
 
@@ -79,7 +79,7 @@ In [Exploring Initial Scope](https://github.com/StanfieldSystems/kmt/wiki/Explor
 * **Contextual Interviews**. Leveraging our observations from shadowing users, we conducted contextual interviews to further identify and refine common needs, tasks, and concerns.  
 * **Affinity Diagrams**.  In response to the user research findings, the product team conducted a "popcorn-style" task analysis resulting in an affinity diagramming session to help prioritize features for the first design iteration.  
 
-See [Initial User Research](docs/InitialUserResearch.pdf) for additional details on these activities.
+See [Initial User Research](docs/InitialUserResearch.pdf) for working documentation on these activities.
 
 The result of this research identified two key pain points that KARMA was designed to address.  
 
