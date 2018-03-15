@@ -68,6 +68,11 @@ public class ViewWelcomePage extends PageObject {
 	}
 	
 	public boolean hasSection(String section) {
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		return(this.getDriver().findElement(By.className("container-fluid")).getText()).contains(section);
 	}
 	
