@@ -28,6 +28,7 @@ Based on the results of our inception activities (in particular, [Explore Initia
 * Provide a single location (dashboard) to access knowledge relevant to a particular user
 
 ## Application Architecture and Technologies
+_(RFI Requirement f, k, l)_
 
 Stanfield Systems implemented KARMA using open source technologies in a multi-tiered architecture as described in our [Technical Architecture](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#technical-architecture).
 
@@ -118,7 +119,6 @@ While focused on actual users, user experience design benefits by knowledge from
 Since the delivery date for the prototype is fixed, release planning focused on determining the minimal viable product that could be developed by the delivery date.  We focused on key issues identified during our initial user research.  This led to a prioritization of the dashboard display to provide rapid access to articles of interest with dependencies on logging in, knowledge creation, and finding relevant knowledge.  These four epics (1-4 above) were the focus of our minimal viable product for the release.
 
 ### Technical Strategy and Work Environment
-_(RFI Requirements e, f, g, h, k, l, m, o, p, r, t)_
 
 Applying our [Technical Strategy](https://github.com/StanfieldSystems/KARMA/wiki/Define_Technical_Strategy) process be based the technical approach for the KARMA prototype on our established [Work Environment Standards](https://github.com/StanfieldSystems/KARMA/wiki/Work_Environment_Standards) and [Technical Architecture](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture).  
 
@@ -132,7 +132,7 @@ All application code files, including database scripts, are stored and managed i
 [**Liquibase**](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#liquibase) is used to migrate versioned database changes to developer, integration, and production database servers within the continuous integration and build pipeline.
 
 #### Continuous Integration and Deployment
-_(RFI Requirement m, o, p, q, r, s)_
+_(RFI Requirement m, o, r, s)_
 
 KARMA is [continuously integrated and delivered to Amazon Web Services (AWS)](https://aws.amazon.com/blogs/opensource/mu-pipelines-container-applications/).
 
@@ -145,6 +145,7 @@ Stanfield Systems configures and manages the code deployment pipeline using the 
 KARMA can be deployed on any workstation or server using command line tools as described in [How to Deploy and Run Karma](https://github.com/StanfieldSystems/KARMA/wiki/How_to_Deploy_and_Run_Karma).
 
 #### Continuous Monitoring
+_(RFI REquirement q)
 
 The Karma application generates several dashboards to [monitor](https://github.com/StanfieldSystems/KARMA/wiki/Technical_Architecture#monitoring) the application.  These dashboards are available when you log into Karma using the admin user and admin password.  The dashboards are available at runtime, and are the easiest way to do some simple monitoring.
 
@@ -203,6 +204,7 @@ Stanfield Systems uses the [Confluence](https://www.atlassian.com/software/confl
 The core of Stanfield Systems' agile delivery process is the [Construction Phase](https://github.com/StanfieldSystems/KARMA/wiki/Construction) during which the team performs detailed planning, design, implementation, and testing activities in one week Sprints - with working code at the end of each sprint. 
 
 ### KARMA Prototype Sprint Summary
+_(RFI Requirement j)_
 
 In developing the KARMA prototype, Stanfield Systems completed 4 Sprints.  The goals for each sprint are summarized here.
 
@@ -227,6 +229,7 @@ As evidenced in these Sprint Goals, there were multiple design-build iterations 
 Detailed user stories and tasks performed during each sprint, along with the remaining product backlog, are listed in a [Jira Report].
 
 ### Usability Testing
+_(RFI Requirement i)_
 
 Once a testable version was completed, our usability expert created a [Test Plan](docs/KarmaUsabilityTestPlan.pdf), which contained the objectives of the test, outlined the logistics and listed the tasks and questions to be used.
 
